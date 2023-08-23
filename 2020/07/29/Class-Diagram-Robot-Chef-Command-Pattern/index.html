@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：機器人廚師（命令模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Class Diagram" />
+    
+    <meta name="description" content="Class Diagram:Robot Chef (Command Pattern)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：機器人廚師（命令模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/07/29/Class-Diagram-Robot-Chef-Command-Pattern/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class Diagram:Robot Chef (Command Pattern)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/travel-car.webp">
+<meta property="article:published_time" content="2020-07-28T23:36:04.000Z">
+<meta property="article:modified_time" content="2023-08-23T02:51:38.493Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Class Diagram">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/travel-car.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Robot-Chef-Command-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：機器人廚師（命令模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/07/29/Class-Diagram-Robot-Chef-Command-Pattern/" class="article-date">
+       <time datetime="2020-07-28T23:36:04.000Z" itemprop="datePublished">2020-07-29</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a>
+    </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/07/22/Example-Robot-Chef-Command-Pattern/" title="範例：機器人廚師（命令模式）">機器人廚師</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22359px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A752px%3Bheight%3A359px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20752%20359%22%20width%3D%22752px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20Chef--%3E%3Cg%20id%3D%22elem_Chef%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%2280.5938%22%20id%3D%22Chef%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22158%22%20x%3D%22392.5%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%22450.75%22%20cy%3D%2223%22%20fill%3D%22%23A9DCDF%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M452.8281%2C24.8125%20L453.2188%2C25.7969%20L452.8281%2C25.7969%20C452.375%2C25.7969%20452.2656%2C25.8125%20452.1094%2C25.9219%20C451.8594%2C26.0781%20451.7031%2C26.3594%20451.7031%2C26.6563%20C451.7031%2C26.9219%20451.8438%2C27.1719%20452.0625%2C27.3281%20C452.2031%2C27.4531%20452.4063%2C27.5%20452.8281%2C27.5%20L455.1875%2C27.5%20C455.5469%2C27.5%20455.7656%2C27.4688%20455.9063%2C27.375%20C456.1563%2C27.2344%20456.3125%2C26.9375%20456.3125%2C26.6563%20C456.3125%2C26.375%20456.1719%2C26.125%20455.9531%2C25.9688%20C455.7813%2C25.8281%20455.625%2C25.7969%20455.1563%2C25.7969%20L451.7656%2C17.5938%20L448.0938%2C17.5938%20C447.6406%2C17.5938%20447.5156%2C17.6094%20447.3594%2C17.7031%20C447.1094%2C17.875%20446.9531%2C18.1563%20446.9531%2C18.4375%20C446.9531%2C18.7188%20447.0938%2C18.9688%20447.3125%2C19.1406%20C447.4844%2C19.25%20447.6563%2C19.2813%20448.0938%2C19.2813%20L449.1719%2C19.2813%20L446.5313%2C25.7969%20C446.1094%2C25.7969%20445.9531%2C25.8125%20445.7969%2C25.9219%20C445.5469%2C26.0781%20445.3906%2C26.3594%20445.3906%2C26.6563%20C445.3906%2C27.2188%20445.7656%2C27.5%20446.5156%2C27.5%20L448.7813%2C27.5%20C449.1406%2C27.5%20449.3594%2C27.4688%20449.4844%2C27.375%20C449.75%2C27.2344%20449.8906%2C26.9375%20449.8906%2C26.6563%20C449.8906%2C26.375%20449.7656%2C26.125%20449.5469%2C25.9531%20C449.375%2C25.8281%20449.2344%2C25.7969%20448.7813%2C25.7969%20L448.3906%2C25.7969%20L448.7813%2C24.8125%20L452.8281%2C24.8125%20Z%20M452.125%2C23.1094%20L449.4531%2C23.1094%20L450.7969%2C19.8438%20L452.125%2C23.1094%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2233%22%20x%3D%22471.25%22%20y%3D%2227.8467%22%3EChef%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22393.5%22%20x2%3D%22549.5%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22393.5%22%20x2%3D%22549.5%22%20y1%3D%2247%22%20y2%3D%2247%22%2F%3E%3Cellipse%20cx%3D%22403.5%22%20cy%3D%2260.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22129%22%20x%3D%22412.5%22%20y%3D%2263.9951%22%3EcookFiletMignon()%3C%2Ftext%3E%3Cellipse%20cx%3D%22403.5%22%20cy%3D%2276.9453%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22132%22%20x%3D%22412.5%22%20y%3D%2280.292%22%3EcookSirloinSteak()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20RobotChefA--%3E%3Cg%20id%3D%22elem_RobotChefA%22%3E%3Crect%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22RobotChefA%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22121%22%20x%3D%22468%22%20y%3D%22156%22%2F%3E%3Cellipse%20cx%3D%22483%22%20cy%3D%22172%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M485.3438%2C167.6719%20C484.4063%2C167.2344%20483.8125%2C167.0938%20482.9375%2C167.0938%20C480.3125%2C167.0938%20478.3125%2C169.1719%20478.3125%2C171.8906%20L478.3125%2C173.0156%20C478.3125%2C175.5938%20480.4219%2C177.4844%20483.3125%2C177.4844%20C484.5313%2C177.4844%20485.6875%2C177.1875%20486.4375%2C176.6406%20C487.0156%2C176.2344%20487.3438%2C175.7813%20487.3438%2C175.3906%20C487.3438%2C174.9375%20486.9531%2C174.5469%20486.4844%2C174.5469%20C486.2656%2C174.5469%20486.0625%2C174.625%20485.875%2C174.8125%20C485.4219%2C175.2969%20485.4219%2C175.2969%20485.2344%2C175.3906%20C484.8125%2C175.6563%20484.125%2C175.7813%20483.3594%2C175.7813%20C481.3125%2C175.7813%20480.0156%2C174.6875%20480.0156%2C172.9844%20L480.0156%2C171.8906%20C480.0156%2C170.1094%20481.2656%2C168.7969%20483%2C168.7969%20C483.5781%2C168.7969%20484.1875%2C168.9531%20484.6563%2C169.2031%20C485.1406%2C169.4844%20485.3125%2C169.7031%20485.4063%2C170.1094%20C485.4688%2C170.5156%20485.5%2C170.6406%20485.6406%2C170.7656%20C485.7813%2C170.9063%20486.0156%2C171.0156%20486.2344%2C171.0156%20C486.5%2C171.0156%20486.7656%2C170.875%20486.9375%2C170.6563%20C487.0469%2C170.5%20487.0781%2C170.3125%20487.0781%2C169.8906%20L487.0781%2C168.4688%20C487.0781%2C168.0313%20487.0625%2C167.9063%20486.9688%2C167.75%20C486.8125%2C167.4844%20486.5313%2C167.3438%20486.2344%2C167.3438%20C485.9375%2C167.3438%20485.7344%2C167.4375%20485.5156%2C167.75%20L485.3438%2C167.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2289%22%20x%3D%22497%22%20y%3D%22176.8467%22%3ERobotChefA%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22469%22%20x2%3D%22588%22%20y1%3D%22188%22%20y2%3D%22188%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22469%22%20x2%3D%22588%22%20y1%3D%22196%22%20y2%3D%22196%22%2F%3E%3C%2Fg%3E%3C!--class%20RobotChefB--%3E%3Cg%20id%3D%22elem_RobotChefB%22%3E%3Crect%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22RobotChefB%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22121%22%20x%3D%22624%22%20y%3D%22156%22%2F%3E%3Cellipse%20cx%3D%22639%22%20cy%3D%22172%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M641.3438%2C167.6719%20C640.4063%2C167.2344%20639.8125%2C167.0938%20638.9375%2C167.0938%20C636.3125%2C167.0938%20634.3125%2C169.1719%20634.3125%2C171.8906%20L634.3125%2C173.0156%20C634.3125%2C175.5938%20636.4219%2C177.4844%20639.3125%2C177.4844%20C640.5313%2C177.4844%20641.6875%2C177.1875%20642.4375%2C176.6406%20C643.0156%2C176.2344%20643.3438%2C175.7813%20643.3438%2C175.3906%20C643.3438%2C174.9375%20642.9531%2C174.5469%20642.4844%2C174.5469%20C642.2656%2C174.5469%20642.0625%2C174.625%20641.875%2C174.8125%20C641.4219%2C175.2969%20641.4219%2C175.2969%20641.2344%2C175.3906%20C640.8125%2C175.6563%20640.125%2C175.7813%20639.3594%2C175.7813%20C637.3125%2C175.7813%20636.0156%2C174.6875%20636.0156%2C172.9844%20L636.0156%2C171.8906%20C636.0156%2C170.1094%20637.2656%2C168.7969%20639%2C168.7969%20C639.5781%2C168.7969%20640.1875%2C168.9531%20640.6563%2C169.2031%20C641.1406%2C169.4844%20641.3125%2C169.7031%20641.4063%2C170.1094%20C641.4688%2C170.5156%20641.5%2C170.6406%20641.6406%2C170.7656%20C641.7813%2C170.9063%20642.0156%2C171.0156%20642.2344%2C171.0156%20C642.5%2C171.0156%20642.7656%2C170.875%20642.9375%2C170.6563%20C643.0469%2C170.5%20643.0781%2C170.3125%20643.0781%2C169.8906%20L643.0781%2C168.4688%20C643.0781%2C168.0313%20643.0625%2C167.9063%20642.9688%2C167.75%20C642.8125%2C167.4844%20642.5313%2C167.3438%20642.2344%2C167.3438%20C641.9375%2C167.3438%20641.7344%2C167.4375%20641.5156%2C167.75%20L641.3438%2C167.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2289%22%20x%3D%22653%22%20y%3D%22176.8467%22%3ERobotChefB%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22625%22%20x2%3D%22744%22%20y1%3D%22188%22%20y2%3D%22188%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22625%22%20x2%3D%22744%22%20y1%3D%22196%22%20y2%3D%22196%22%2F%3E%3C%2Fg%3E%3C!--class%20Command--%3E%3Cg%20id%3D%22elem_Command%22%3E%3Crect%20codeLine%3D%2211%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Command%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22106%22%20x%3D%22230.5%22%20y%3D%22148%22%2F%3E%3Cellipse%20cx%3D%22245.5%22%20cy%3D%22164%22%20fill%3D%22%23B4A7E5%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M246.4531%2C160.7813%20L248.1719%2C160.7813%20C248.5625%2C160.7813%20248.75%2C160.75%20248.875%2C160.6719%20C249.1406%2C160.5156%20249.2813%2C160.2344%20249.2813%2C159.9375%20C249.2813%2C159.6719%20249.1719%2C159.4063%20248.9375%2C159.2344%20C248.7656%2C159.125%20248.625%2C159.0938%20248.1719%2C159.0938%20L243.0313%2C159.0938%20C242.5938%2C159.0938%20242.4688%2C159.1094%20242.3125%2C159.2031%20C242.0625%2C159.3594%20241.9063%2C159.6563%20241.9063%2C159.9375%20C241.9063%2C160.2188%20242.0469%2C160.4688%20242.2656%2C160.6406%20C242.4219%2C160.75%20242.6094%2C160.7813%20243.0313%2C160.7813%20L244.75%2C160.7813%20L244.75%2C167.2969%20L243.0313%2C167.2969%20C242.5938%2C167.2969%20242.4688%2C167.3125%20242.3125%2C167.4219%20C242.0625%2C167.5781%20241.9063%2C167.8594%20241.9063%2C168.1563%20C241.9063%2C168.4063%20242.0469%2C168.6719%20242.2656%2C168.8281%20C242.4219%2C168.9531%20242.625%2C169%20243.0313%2C169%20L248.1719%2C169%20C248.9219%2C169%20249.2813%2C168.7188%20249.2813%2C168.1563%20C249.2813%2C167.875%20249.1719%2C167.625%20248.9375%2C167.4531%20C248.7656%2C167.3281%20248.625%2C167.2969%20248.1719%2C167.2969%20L246.4531%2C167.2969%20L246.4531%2C160.7813%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2274%22%20x%3D%22259.5%22%20y%3D%22168.8467%22%3ECommand%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22231.5%22%20x2%3D%22335.5%22%20y1%3D%22180%22%20y2%3D%22180%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22231.5%22%20x2%3D%22335.5%22%20y1%3D%22188%22%20y2%3D%22188%22%2F%3E%3Cellipse%20cx%3D%22241.5%22%20cy%3D%22201.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2268%22%20x%3D%22250.5%22%20y%3D%22204.9951%22%3Eexecute()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20CookFiletMignonCommand--%3E%3Cg%20id%3D%22elem_CookFiletMignonCommand%22%3E%3Crect%20codeLine%3D%2216%22%20fill%3D%22%23F1F1F1%22%20height%3D%2280.5938%22%20id%3D%22CookFiletMignonCommand%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22226%22%20x%3D%2251.5%22%20y%3D%22272%22%2F%3E%3Cellipse%20cx%3D%2266.5%22%20cy%3D%22288%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M68.8438%2C283.6719%20C67.9063%2C283.2344%2067.3125%2C283.0938%2066.4375%2C283.0938%20C63.8125%2C283.0938%2061.8125%2C285.1719%2061.8125%2C287.8906%20L61.8125%2C289.0156%20C61.8125%2C291.5938%2063.9219%2C293.4844%2066.8125%2C293.4844%20C68.0313%2C293.4844%2069.1875%2C293.1875%2069.9375%2C292.6406%20C70.5156%2C292.2344%2070.8438%2C291.7813%2070.8438%2C291.3906%20C70.8438%2C290.9375%2070.4531%2C290.5469%2069.9844%2C290.5469%20C69.7656%2C290.5469%2069.5625%2C290.625%2069.375%2C290.8125%20C68.9219%2C291.2969%2068.9219%2C291.2969%2068.7344%2C291.3906%20C68.3125%2C291.6563%2067.625%2C291.7813%2066.8594%2C291.7813%20C64.8125%2C291.7813%2063.5156%2C290.6875%2063.5156%2C288.9844%20L63.5156%2C287.8906%20C63.5156%2C286.1094%2064.7656%2C284.7969%2066.5%2C284.7969%20C67.0781%2C284.7969%2067.6875%2C284.9531%2068.1563%2C285.2031%20C68.6406%2C285.4844%2068.8125%2C285.7031%2068.9063%2C286.1094%20C68.9688%2C286.5156%2069%2C286.6406%2069.1406%2C286.7656%20C69.2813%2C286.9063%2069.5156%2C287.0156%2069.7344%2C287.0156%20C70%2C287.0156%2070.2656%2C286.875%2070.4375%2C286.6563%20C70.5469%2C286.5%2070.5781%2C286.3125%2070.5781%2C285.8906%20L70.5781%2C284.4688%20C70.5781%2C284.0313%2070.5625%2C283.9063%2070.4688%2C283.75%20C70.3125%2C283.4844%2070.0313%2C283.3438%2069.7344%2C283.3438%20C69.4375%2C283.3438%2069.2344%2C283.4375%2069.0156%2C283.75%20L68.8438%2C283.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22194%22%20x%3D%2280.5%22%20y%3D%22292.8467%22%3ECookFiletMignonCommand%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2252.5%22%20x2%3D%22276.5%22%20y1%3D%22304%22%20y2%3D%22304%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2262.5%2C312.6484%2C66.5%2C316.6484%2C62.5%2C320.6484%2C58.5%2C316.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2232%22%20x%3D%2271.5%22%20y%3D%22320.9951%22%3Echef%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2252.5%22%20x2%3D%22276.5%22%20y1%3D%22328.2969%22%20y2%3D%22328.2969%22%2F%3E%3Cellipse%20cx%3D%2262.5%22%20cy%3D%22341.9453%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2268%22%20x%3D%2271.5%22%20y%3D%22345.292%22%3Eexecute()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20CookSirloinSteakCommand--%3E%3Cg%20id%3D%22elem_CookSirloinSteakCommand%22%3E%3Crect%20codeLine%3D%2223%22%20fill%3D%22%23F1F1F1%22%20height%3D%2280.5938%22%20id%3D%22CookSirloinSteakCommand%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22229%22%20x%3D%22313%22%20y%3D%22272%22%2F%3E%3Cellipse%20cx%3D%22328%22%20cy%3D%22288%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M330.3438%2C283.6719%20C329.4063%2C283.2344%20328.8125%2C283.0938%20327.9375%2C283.0938%20C325.3125%2C283.0938%20323.3125%2C285.1719%20323.3125%2C287.8906%20L323.3125%2C289.0156%20C323.3125%2C291.5938%20325.4219%2C293.4844%20328.3125%2C293.4844%20C329.5313%2C293.4844%20330.6875%2C293.1875%20331.4375%2C292.6406%20C332.0156%2C292.2344%20332.3438%2C291.7813%20332.3438%2C291.3906%20C332.3438%2C290.9375%20331.9531%2C290.5469%20331.4844%2C290.5469%20C331.2656%2C290.5469%20331.0625%2C290.625%20330.875%2C290.8125%20C330.4219%2C291.2969%20330.4219%2C291.2969%20330.2344%2C291.3906%20C329.8125%2C291.6563%20329.125%2C291.7813%20328.3594%2C291.7813%20C326.3125%2C291.7813%20325.0156%2C290.6875%20325.0156%2C288.9844%20L325.0156%2C287.8906%20C325.0156%2C286.1094%20326.2656%2C284.7969%20328%2C284.7969%20C328.5781%2C284.7969%20329.1875%2C284.9531%20329.6563%2C285.2031%20C330.1406%2C285.4844%20330.3125%2C285.7031%20330.4063%2C286.1094%20C330.4688%2C286.5156%20330.5%2C286.6406%20330.6406%2C286.7656%20C330.7813%2C286.9063%20331.0156%2C287.0156%20331.2344%2C287.0156%20C331.5%2C287.0156%20331.7656%2C286.875%20331.9375%2C286.6563%20C332.0469%2C286.5%20332.0781%2C286.3125%20332.0781%2C285.8906%20L332.0781%2C284.4688%20C332.0781%2C284.0313%20332.0625%2C283.9063%20331.9688%2C283.75%20C331.8125%2C283.4844%20331.5313%2C283.3438%20331.2344%2C283.3438%20C330.9375%2C283.3438%20330.7344%2C283.4375%20330.5156%2C283.75%20L330.3438%2C283.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22197%22%20x%3D%22342%22%20y%3D%22292.8467%22%3ECookSirloinSteakCommand%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22314%22%20x2%3D%22541%22%20y1%3D%22304%22%20y2%3D%22304%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22324%2C312.6484%2C328%2C316.6484%2C324%2C320.6484%2C320%2C316.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2232%22%20x%3D%22333%22%20y%3D%22320.9951%22%3Echef%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22314%22%20x2%3D%22541%22%20y1%3D%22328.2969%22%20y2%3D%22328.2969%22%2F%3E%3Cellipse%20cx%3D%22324%22%20cy%3D%22341.9453%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2268%22%20x%3D%22333%22%20y%3D%22345.292%22%3Eexecute()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20id%3D%22elem_Program%22%3E%3Crect%20codeLine%3D%2236%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Program%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22117%22%20x%3D%227%22%20y%3D%22148%22%2F%3E%3Cellipse%20cx%3D%2232.8%22%20cy%3D%22164%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M35.1438%2C159.6719%20C34.2063%2C159.2344%2033.6125%2C159.0938%2032.7375%2C159.0938%20C30.1125%2C159.0938%2028.1125%2C161.1719%2028.1125%2C163.8906%20L28.1125%2C165.0156%20C28.1125%2C167.5938%2030.2219%2C169.4844%2033.1125%2C169.4844%20C34.3313%2C169.4844%2035.4875%2C169.1875%2036.2375%2C168.6406%20C36.8156%2C168.2344%2037.1438%2C167.7813%2037.1438%2C167.3906%20C37.1438%2C166.9375%2036.7531%2C166.5469%2036.2844%2C166.5469%20C36.0656%2C166.5469%2035.8625%2C166.625%2035.675%2C166.8125%20C35.2219%2C167.2969%2035.2219%2C167.2969%2035.0344%2C167.3906%20C34.6125%2C167.6563%2033.925%2C167.7813%2033.1594%2C167.7813%20C31.1125%2C167.7813%2029.8156%2C166.6875%2029.8156%2C164.9844%20L29.8156%2C163.8906%20C29.8156%2C162.1094%2031.0656%2C160.7969%2032.8%2C160.7969%20C33.3781%2C160.7969%2033.9875%2C160.9531%2034.4563%2C161.2031%20C34.9406%2C161.4844%2035.1125%2C161.7031%2035.2063%2C162.1094%20C35.2688%2C162.5156%2035.3%2C162.6406%2035.4406%2C162.7656%20C35.5813%2C162.9063%2035.8156%2C163.0156%2036.0344%2C163.0156%20C36.3%2C163.0156%2036.5656%2C162.875%2036.7375%2C162.6563%20C36.8469%2C162.5%2036.8781%2C162.3125%2036.8781%2C161.8906%20L36.8781%2C160.4688%20C36.8781%2C160.0313%2036.8625%2C159.9063%2036.7688%2C159.75%20C36.6125%2C159.4844%2036.3313%2C159.3438%2036.0344%2C159.3438%20C35.7375%2C159.3438%2035.5344%2C159.4375%2035.3156%2C159.75%20L35.1438%2C159.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%2249.2%22%20y%3D%22168.8467%22%3EProgram%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%22123%22%20y1%3D%22180%22%20y2%3D%22180%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%22123%22%20y1%3D%22188%22%20y2%3D%22188%22%2F%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%22201.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2291%22%20x%3D%2227%22%20y%3D%22204.9951%22%3EmakeOrder()%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20Chef%20to%20RobotChefA--%3E%3Cg%20id%3D%22link_Chef_RobotChefA%22%3E%3Cpath%20codeLine%3D%227%22%20d%3D%22M495.9617%2C104.5032%20C505.6607%2C126.7092%20510.223%2C137.156%20518.426%2C155.937%20%22%20fill%3D%22none%22%20id%3D%22Chef-backto-RobotChefA%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22488.757%2C88.008%2C490.4633%2C106.9048%2C501.4601%2C102.1017%2C488.757%2C88.008%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Chef%20to%20RobotChefB--%3E%3Cg%20id%3D%22link_Chef_RobotChefB%22%3E%3Cpath%20codeLine%3D%228%22%20d%3D%22M551.3333%2C97.4116%20C587.5773%2C119.6176%20616.203%2C137.156%20646.857%2C155.937%20%22%20fill%3D%22none%22%20id%3D%22Chef-backto-RobotChefB%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22535.985%2C88.008%2C548.1988%2C102.5277%2C554.4679%2C92.2955%2C535.985%2C88.008%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Command%20to%20CookFiletMignonCommand--%3E%3Cg%20id%3D%22link_Command_CookFiletMignonCommand%22%3E%3Cpath%20codeLine%3D%2230%22%20d%3D%22M242.8685%2C225.5584%20C226.6405%2C243.3544%20218.274%2C252.529%20200.894%2C271.5894%20%22%20fill%3D%22none%22%20id%3D%22Command-backto-CookFiletMignonCommand%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3Bstroke-dasharray%3A7.0%2C7.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22254.997%2C212.258%2C238.4351%2C221.5155%2C247.302%2C229.6012%2C254.997%2C212.258%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Command%20to%20CookSirloinSteakCommand--%3E%3Cg%20id%3D%22link_Command_CookSirloinSteakCommand%22%3E%3Cpath%20codeLine%3D%2231%22%20d%3D%22M331.3295%2C224.3456%20C351.0485%2C242.2166%20362.639%2C252.72%20383.728%2C271.8315%20%22%20fill%3D%22none%22%20id%3D%22Command-backto-CookSirloinSteakCommand%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3Bstroke-dasharray%3A7.0%2C7.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22317.992%2C212.258%2C327.3003%2C228.7914%2C335.3587%2C219.8997%2C317.992%2C212.258%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Chef%20to%20CookFiletMignonCommand--%3E%3Cg%20id%3D%22link_Chef_CookFiletMignonCommand%22%3E%3Cpath%20codeLine%3D%2233%22%20d%3D%22M386.3835%2C61.1319%20C328.9285%2C73.4099%20259.271%2C97.267%20212.5%2C148%20C181.219%2C181.931%20170.237%2C235.222%20166.431%2C271.6788%20%22%20fill%3D%22none%22%20id%3D%22Chef-backto-CookFiletMignonCommand%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22392.251%2C59.878%2C382.6138%2C57.8471%2C387.3614%2C60.9229%2C384.2856%2C65.6705%2C392.251%2C59.878%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Chef%20to%20CookSirloinSteakCommand--%3E%3Cg%20id%3D%22link_Chef_CookSirloinSteakCommand%22%3E%3Cpath%20codeLine%3D%2234%22%20d%3D%22M461.2187%2C93.944%20C457.2477%2C112.14%20453.982%2C128.177%20450.5%2C148%20C443.111%2C190.067%20436.532%2C238.552%20432.323%2C271.7345%20%22%20fill%3D%22none%22%20id%3D%22Chef-backto-CookSirloinSteakCommand%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22462.498%2C88.082%2C456.671%2C96.0222%2C461.4319%2C92.967%2C464.4871%2C97.7279%2C462.498%2C88.082%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Program%20to%20Command--%3E%3Cg%20id%3D%22link_Program_Command%22%3E%3Cpath%20codeLine%3D%2241%22%20d%3D%22M124.258%2C180%20C159.61%2C180%20188.963%2C180%20224.316%2C180%20%22%20fill%3D%22none%22%20id%3D%22Program-to-Command%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22230.316%2C180%2C221.316%2C176%2C225.316%2C180%2C221.316%2C184%2C230.316%2C180%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BZL3T2e8m5BxVKnpefeZv116Kq5qK-GJ7URIXsu6v8AZUFSqLIXfTxjltUp2jlKFbGLLOrn2VAHSt0R04nLpkT4L-hmlBThxue8bs5MkRUCAoWHz2j39OtQM44wVis-Tc3DmA8RJrv79K134RWpOBUNGbTV7K6OOsmmfz_WnKM_MNib_pBsaWDPsZQ2hxYpEM4gRBPlgKpO0mxl4QSdHSE3JXHWPBEhYCN5SuV89Sls_v1000%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<br>
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：機器人廚師（命令模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/travel-car.webp",
+        "keywords": "Class Diagram",
+        "genre": "Clean Code",
+        "datePublished": "2020-07-29",
+        "dateCreated": "2020-07-29",
+        "dateModified": "2023-08-23",
+        "url": "https://yncbearz.github.io/2020/07/29/Class-Diagram-Robot-Chef-Command-Pattern/",
+        "description": "Class Diagram:Robot Chef (Command Pattern)",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/08/02/Template-Method-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            樣板方法模式
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/07/22/Example-Robot-Chef-Command-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：機器人廚師（命令模式）</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/make-the-world-a-pretty-place.webp)" alt="如何使用 Hexo 來寫部落格" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="title">如何使用 Hexo 來寫部落格</a></p>
+                            <p class="item-date"><time datetime="2023-08-15T02:28:53.000Z" itemprop="datePublished">2023-08-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/08/Unicode-And-Character-Sets/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/code.webp)" alt="Unicode 與字元集" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/08/08/Unicode-And-Character-Sets/" class="title">Unicode 與字元集</a></p>
+                            <p class="item-date"><time datetime="2023-08-08T02:12:16.000Z" itemprop="datePublished">2023-08-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/02/Taipei-Trip-2023/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/tm_starry_night.webp)" alt="台北之旅@2023" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/07/02/Taipei-Trip-2023/" class="title">台北之旅@2023</a></p>
+                            <p class="item-date"><time datetime="2023-07-02T03:56:45.000Z" itemprop="datePublished">2023-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/27/Problem-Solving/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/puzzle.webp)" alt="Problem Solving" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/04/27/Problem-Solving/" class="title">Problem Solving</a></p>
+                            <p class="item-date"><time datetime="2023-04-27T01:35:42.000Z" itemprop="datePublished">2023-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/05/Three-Tier-Architecture/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/hamburger.webp)" alt="欸！你知道三層式架構嗎？" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/04/05/Three-Tier-Architecture/" class="title">欸！你知道三層式架構嗎？</a></p>
+                            <p class="item-date"><time datetime="2023-04-05T08:03:20.000Z" itemprop="datePublished">2023-04-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Coding-Interview/" rel="tag">Cracking the Coding Interview</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge/" rel="tag">Knowledge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '118fcd4eaede5d85948de6cc3e7b0d60',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1692759175348')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>範例：電力系統（依賴反轉原則） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Example" />
+    
+    <meta name="description" content="Example:Power Systems (Dependency Inversion Principle)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="範例：電力系統（依賴反轉原則）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/09/21/Example-Power-Systems-Dependency-Inversion-Principle/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Example:Power Systems (Dependency Inversion Principle)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/grass-and-windmills.webp">
+<meta property="article:published_time" content="2020-09-21T02:48:11.000Z">
+<meta property="article:modified_time" content="2023-08-23T02:51:38.502Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Example">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/grass-and-windmills.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Example-Power-Systems-Dependency-Inversion-Principle"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        範例：電力系統（依賴反轉原則）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/09/21/Example-Power-Systems-Dependency-Inversion-Principle/" class="article-date">
+       <time datetime="2020-09-21T02:48:11.000Z" itemprop="datePublished">2020-09-21</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Example/" rel="tag">Example</a>
+    </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Principle: <a href="/2020/06/08/Dependency-Inversion-Principle/" title="依賴反轉原則">依賴反轉原則</a></p>
+<hr>
+<blockquote>
+<p>情境：目前電力系統採用火力發電</p>
+</blockquote>
+<ul>
+<li>火力發電</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">SOLID</span>\<span class="title class_">DIP</span>\<span class="title class_">PowerSystems</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThermalPower</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">generatePower</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;電力&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>電力系統</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">SOLID</span>\<span class="title class_">DIP</span>\<span class="title class_">PowerSystems</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">ThermalPower</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getPower</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$thermalPower</span> = <span class="keyword">new</span> <span class="title class_">ThermalPower</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$thermalPower</span>-&gt;<span class="title function_ invoke__">generatePower</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>隨著科技發展，現在我們想要改成用風力發電來取代火力發電，<br>卻發現原本的程式，強耦合在<strong>ThermalPower</strong>。<br>（依賴了具體的類別）</p>
+<p>我們決定定義一個抽象的介面，<br>讓程式依賴在介面，並由各個發電方式實作介面。<br>改變彼此的依賴關係。</p>
+<hr>
+<blockquote>
+<p>需求一：定義抽象介面，改變電力系統與火力發電的依賴關係</p>
+</blockquote>
+<ul>
+<li>首先定義<strong>發電介面</strong></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">SOLID</span>\<span class="title class_">DIP</span>\<span class="title class_">PowerSystems</span>\<span class="title class_">Contracts</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">PowerGeneratable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">generatePower</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>接著讓火力發電實作發電介面</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">SOLID</span>\<span class="title class_">DIP</span>\<span class="title class_">PowerSystems</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">Contracts</span>\<span class="title">PowerGeneratable</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThermalPower</span> <span class="keyword">implements</span> <span class="title">PowerGeneratable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">generatePower</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;電力&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最後改寫原本的電力系統</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">SOLID</span>\<span class="title class_">DIP</span>\<span class="title class_">PowerSystems</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">Contracts</span>\<span class="title">PowerGeneratable</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getPower</span>(<span class="params">PowerGeneratable <span class="variable">$powerGeneration</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$powerGeneration</span>-&gt;<span class="title function_ invoke__">generatePower</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>（註：現在要用什麼樣的發電方式，會交由客戶端決定）</em></p>
+<ul>
+<li>客戶端使用火力發電（提供測試程式碼，供參考）</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">Tests</span>\<span class="title class_">Feature</span>\<span class="title class_">SOLID</span>\<span class="title class_">DIP</span>\<span class="title class_">PowerSystems</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">Program</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">ThermalPower</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProgramTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> Program</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$sut</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setUp</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;sut = <span class="keyword">new</span> <span class="title class_">Program</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testGetPowerByThermalPower</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$expected</span> = <span class="string">&#x27;電力&#x27;</span>;</span><br><span class="line">        <span class="variable">$powerGeneration</span> = <span class="keyword">new</span> <span class="title class_">ThermalPower</span>();</span><br><span class="line">        <span class="variable">$actual</span> = <span class="variable language_">$this</span>-&gt;sut-&gt;<span class="title function_ invoke__">getPower</span>(<span class="variable">$powerGeneration</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(<span class="variable">$expected</span>, <span class="variable">$actual</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>需求二：新增風力發電</p>
+</blockquote>
+<ul>
+<li>實作風力發電</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">SOLID</span>\<span class="title class_">DIP</span>\<span class="title class_">PowerSystems</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">Contracts</span>\<span class="title">PowerGeneratable</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WindPower</span> <span class="keyword">implements</span> <span class="title">PowerGeneratable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">generatePower</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;電力&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>客戶端使用風力發電（提供測試程式碼，供參考）</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">Tests</span>\<span class="title class_">Feature</span>\<span class="title class_">SOLID</span>\<span class="title class_">DIP</span>\<span class="title class_">PowerSystems</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">Program</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">ThermalPower</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">SOLID</span>\<span class="title">DIP</span>\<span class="title">PowerSystems</span>\<span class="title">WindPower</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProgramTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> Program</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$sut</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setUp</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;sut = <span class="keyword">new</span> <span class="title class_">Program</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testGetPowerByThermalPower</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$expected</span> = <span class="string">&#x27;電力&#x27;</span>;</span><br><span class="line">        <span class="variable">$powerGeneration</span> = <span class="keyword">new</span> <span class="title class_">ThermalPower</span>();</span><br><span class="line">        <span class="variable">$actual</span> = <span class="variable language_">$this</span>-&gt;sut-&gt;<span class="title function_ invoke__">getPower</span>(<span class="variable">$powerGeneration</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(<span class="variable">$expected</span>, <span class="variable">$actual</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testGetPowerByWindPower</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$expected</span> = <span class="string">&#x27;電力&#x27;</span>;</span><br><span class="line">        <span class="variable">$powerGeneration</span> = <span class="keyword">new</span> <span class="title class_">WindPower</span>();</span><br><span class="line">        <span class="variable">$actual</span> = <span class="variable language_">$this</span>-&gt;sut-&gt;<span class="title function_ invoke__">getPower</span>(<span class="variable">$powerGeneration</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">assertEquals</span>(<span class="variable">$expected</span>, <span class="variable">$actual</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>最後附上類別圖比較：</p>
+<ul>
+<li>依賴具體的火力發電</li>
+</ul>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22202px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A160px%3Bheight%3A202px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20160%20202%22%20width%3D%22160px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20ThermalPower--%3E%3Cg%20id%3D%22elem_ThermalPower%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22ThermalPower%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22146%22%20x%3D%227%22%20y%3D%22131%22%2F%3E%3Cellipse%20cx%3D%2226.95%22%20cy%3D%22147%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M29.2938%2C142.6719%20C28.3563%2C142.2344%2027.7625%2C142.0938%2026.8875%2C142.0938%20C24.2625%2C142.0938%2022.2625%2C144.1719%2022.2625%2C146.8906%20L22.2625%2C148.0156%20C22.2625%2C150.5938%2024.3719%2C152.4844%2027.2625%2C152.4844%20C28.4813%2C152.4844%2029.6375%2C152.1875%2030.3875%2C151.6406%20C30.9656%2C151.2344%2031.2938%2C150.7813%2031.2938%2C150.3906%20C31.2938%2C149.9375%2030.9031%2C149.5469%2030.4344%2C149.5469%20C30.2156%2C149.5469%2030.0125%2C149.625%2029.825%2C149.8125%20C29.3719%2C150.2969%2029.3719%2C150.2969%2029.1844%2C150.3906%20C28.7625%2C150.6563%2028.075%2C150.7813%2027.3094%2C150.7813%20C25.2625%2C150.7813%2023.9656%2C149.6875%2023.9656%2C147.9844%20L23.9656%2C146.8906%20C23.9656%2C145.1094%2025.2156%2C143.7969%2026.95%2C143.7969%20C27.5281%2C143.7969%2028.1375%2C143.9531%2028.6063%2C144.2031%20C29.0906%2C144.4844%2029.2625%2C144.7031%2029.3563%2C145.1094%20C29.4188%2C145.5156%2029.45%2C145.6406%2029.5906%2C145.7656%20C29.7313%2C145.9063%2029.9656%2C146.0156%2030.1844%2C146.0156%20C30.45%2C146.0156%2030.7156%2C145.875%2030.8875%2C145.6563%20C30.9969%2C145.5%2031.0281%2C145.3125%2031.0281%2C144.8906%20L31.0281%2C143.4688%20C31.0281%2C143.0313%2031.0125%2C142.9063%2030.9188%2C142.75%20C30.7625%2C142.4844%2030.4813%2C142.3438%2030.1844%2C142.3438%20C29.8875%2C142.3438%2029.6844%2C142.4375%2029.4656%2C142.75%20L29.2938%2C142.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22103%22%20x%3D%2242.05%22%20y%3D%22151.8467%22%3EThermalPower%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%22152%22%20y1%3D%22163%22%20y2%3D%22163%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%22152%22%20y1%3D%22171%22%20y2%3D%22171%22%2F%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%22184.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22120%22%20x%3D%2227%22%20y%3D%22187.9951%22%3EgeneratePower()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20id%3D%22elem_Program%22%3E%3Crect%20codeLine%3D%226%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Program%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22105%22%20x%3D%2227.5%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%2247.9%22%20cy%3D%2223%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M50.2438%2C18.6719%20C49.3063%2C18.2344%2048.7125%2C18.0938%2047.8375%2C18.0938%20C45.2125%2C18.0938%2043.2125%2C20.1719%2043.2125%2C22.8906%20L43.2125%2C24.0156%20C43.2125%2C26.5938%2045.3219%2C28.4844%2048.2125%2C28.4844%20C49.4313%2C28.4844%2050.5875%2C28.1875%2051.3375%2C27.6406%20C51.9156%2C27.2344%2052.2438%2C26.7813%2052.2438%2C26.3906%20C52.2438%2C25.9375%2051.8531%2C25.5469%2051.3844%2C25.5469%20C51.1656%2C25.5469%2050.9625%2C25.625%2050.775%2C25.8125%20C50.3219%2C26.2969%2050.3219%2C26.2969%2050.1344%2C26.3906%20C49.7125%2C26.6563%2049.025%2C26.7813%2048.2594%2C26.7813%20C46.2125%2C26.7813%2044.9156%2C25.6875%2044.9156%2C23.9844%20L44.9156%2C22.8906%20C44.9156%2C21.1094%2046.1656%2C19.7969%2047.9%2C19.7969%20C48.4781%2C19.7969%2049.0875%2C19.9531%2049.5563%2C20.2031%20C50.0406%2C20.4844%2050.2125%2C20.7031%2050.3063%2C21.1094%20C50.3688%2C21.5156%2050.4%2C21.6406%2050.5406%2C21.7656%20C50.6813%2C21.9063%2050.9156%2C22.0156%2051.1344%2C22.0156%20C51.4%2C22.0156%2051.6656%2C21.875%2051.8375%2C21.6563%20C51.9469%2C21.5%2051.9781%2C21.3125%2051.9781%2C20.8906%20L51.9781%2C19.4688%20C51.9781%2C19.0313%2051.9625%2C18.9063%2051.8688%2C18.75%20C51.7125%2C18.4844%2051.4313%2C18.3438%2051.1344%2C18.3438%20C50.8375%2C18.3438%2050.6344%2C18.4375%2050.4156%2C18.75%20L50.2438%2C18.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%2263.1%22%20y%3D%2227.8467%22%3EProgram%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2228.5%22%20x2%3D%22131.5%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2228.5%22%20x2%3D%22131.5%22%20y1%3D%2247%22%20y2%3D%2247%22%2F%3E%3Cellipse%20cx%3D%2238.5%22%20cy%3D%2260.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2279%22%20x%3D%2247.5%22%20y%3D%2263.9951%22%3EgetPower()%3C%2Ftext%3E%3C%2Fg%3E%3C!--link%20Program%20to%20ThermalPower--%3E%3Cg%20id%3D%22link_Program_ThermalPower%22%3E%3Cpath%20codeLine%3D%2211%22%20d%3D%22M80%2C71.101%20C80%2C89.457%2080%2C106.6101%2080%2C124.9554%20%22%20fill%3D%22none%22%20id%3D%22Program-to-ThermalPower%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%2280%2C130.9554%2C84%2C121.9554%2C80%2C125.9554%2C76%2C121.9554%2C80%2C130.9554%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BIyv9B2vM2Cb8BSfDp0d8BqyjughcKb3GLaXFpKijIYn91OjfQ7BLSd4bWzK65EMd5oNcmfML8Ac0oYdewjgXc0a0%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<ul>
+<li>依賴抽象的發電介面，並由各個發現方式實作介面<br>（可以觀察火力發電與風力發電的依賴方向，是不是反轉了呢）</li>
+</ul>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22326px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A384px%3Bheight%3A326px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20384%20326%22%20width%3D%22384px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20PowerGeneratable--%3E%3Cg%20id%3D%22elem_PowerGeneratable%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22PowerGeneratable%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22164%22%20x%3D%22110%22%20y%3D%22131%22%2F%3E%3Cellipse%20cx%3D%22125%22%20cy%3D%22147%22%20fill%3D%22%23B4A7E5%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M125.9531%2C143.7813%20L127.6719%2C143.7813%20C128.0625%2C143.7813%20128.25%2C143.75%20128.375%2C143.6719%20C128.6406%2C143.5156%20128.7813%2C143.2344%20128.7813%2C142.9375%20C128.7813%2C142.6719%20128.6719%2C142.4063%20128.4375%2C142.2344%20C128.2656%2C142.125%20128.125%2C142.0938%20127.6719%2C142.0938%20L122.5313%2C142.0938%20C122.0938%2C142.0938%20121.9688%2C142.1094%20121.8125%2C142.2031%20C121.5625%2C142.3594%20121.4063%2C142.6563%20121.4063%2C142.9375%20C121.4063%2C143.2188%20121.5469%2C143.4688%20121.7656%2C143.6406%20C121.9219%2C143.75%20122.1094%2C143.7813%20122.5313%2C143.7813%20L124.25%2C143.7813%20L124.25%2C150.2969%20L122.5313%2C150.2969%20C122.0938%2C150.2969%20121.9688%2C150.3125%20121.8125%2C150.4219%20C121.5625%2C150.5781%20121.4063%2C150.8594%20121.4063%2C151.1563%20C121.4063%2C151.4063%20121.5469%2C151.6719%20121.7656%2C151.8281%20C121.9219%2C151.9531%20122.125%2C152%20122.5313%2C152%20L127.6719%2C152%20C128.4219%2C152%20128.7813%2C151.7188%20128.7813%2C151.1563%20C128.7813%2C150.875%20128.6719%2C150.625%20128.4375%2C150.4531%20C128.2656%2C150.3281%20128.125%2C150.2969%20127.6719%2C150.2969%20L125.9531%2C150.2969%20L125.9531%2C143.7813%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22132%22%20x%3D%22139%22%20y%3D%22151.8467%22%3EPowerGeneratable%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22111%22%20x2%3D%22273%22%20y1%3D%22163%22%20y2%3D%22163%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22111%22%20x2%3D%22273%22%20y1%3D%22171%22%20y2%3D%22171%22%2F%3E%3Cellipse%20cx%3D%22121%22%20cy%3D%22184.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22120%22%20x%3D%22130%22%20y%3D%22187.9951%22%3EgeneratePower()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20ThermalPower--%3E%3Cg%20id%3D%22elem_ThermalPower%22%3E%3Crect%20codeLine%3D%226%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22ThermalPower%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22146%22%20x%3D%2229%22%20y%3D%22255%22%2F%3E%3Cellipse%20cx%3D%2248.95%22%20cy%3D%22271%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M51.2938%2C266.6719%20C50.3563%2C266.2344%2049.7625%2C266.0938%2048.8875%2C266.0938%20C46.2625%2C266.0938%2044.2625%2C268.1719%2044.2625%2C270.8906%20L44.2625%2C272.0156%20C44.2625%2C274.5938%2046.3719%2C276.4844%2049.2625%2C276.4844%20C50.4813%2C276.4844%2051.6375%2C276.1875%2052.3875%2C275.6406%20C52.9656%2C275.2344%2053.2938%2C274.7813%2053.2938%2C274.3906%20C53.2938%2C273.9375%2052.9031%2C273.5469%2052.4344%2C273.5469%20C52.2156%2C273.5469%2052.0125%2C273.625%2051.825%2C273.8125%20C51.3719%2C274.2969%2051.3719%2C274.2969%2051.1844%2C274.3906%20C50.7625%2C274.6563%2050.075%2C274.7813%2049.3094%2C274.7813%20C47.2625%2C274.7813%2045.9656%2C273.6875%2045.9656%2C271.9844%20L45.9656%2C270.8906%20C45.9656%2C269.1094%2047.2156%2C267.7969%2048.95%2C267.7969%20C49.5281%2C267.7969%2050.1375%2C267.9531%2050.6063%2C268.2031%20C51.0906%2C268.4844%2051.2625%2C268.7031%2051.3563%2C269.1094%20C51.4188%2C269.5156%2051.45%2C269.6406%2051.5906%2C269.7656%20C51.7313%2C269.9063%2051.9656%2C270.0156%2052.1844%2C270.0156%20C52.45%2C270.0156%2052.7156%2C269.875%2052.8875%2C269.6563%20C52.9969%2C269.5%2053.0281%2C269.3125%2053.0281%2C268.8906%20L53.0281%2C267.4688%20C53.0281%2C267.0313%2053.0125%2C266.9063%2052.9188%2C266.75%20C52.7625%2C266.4844%2052.4813%2C266.3438%2052.1844%2C266.3438%20C51.8875%2C266.3438%2051.6844%2C266.4375%2051.4656%2C266.75%20L51.2938%2C266.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22103%22%20x%3D%2264.05%22%20y%3D%22275.8467%22%3EThermalPower%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2230%22%20x2%3D%22174%22%20y1%3D%22287%22%20y2%3D%22287%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2230%22%20x2%3D%22174%22%20y1%3D%22295%22%20y2%3D%22295%22%2F%3E%3Cellipse%20cx%3D%2240%22%20cy%3D%22308.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22120%22%20x%3D%2249%22%20y%3D%22311.9951%22%3EgeneratePower()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20WindPower--%3E%3Cg%20id%3D%22elem_WindPower%22%3E%3Crect%20codeLine%3D%2211%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22WindPower%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22146%22%20x%3D%22210%22%20y%3D%22255%22%2F%3E%3Cellipse%20cx%3D%22240.3%22%20cy%3D%22271%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M242.6438%2C266.6719%20C241.7063%2C266.2344%20241.1125%2C266.0938%20240.2375%2C266.0938%20C237.6125%2C266.0938%20235.6125%2C268.1719%20235.6125%2C270.8906%20L235.6125%2C272.0156%20C235.6125%2C274.5938%20237.7219%2C276.4844%20240.6125%2C276.4844%20C241.8313%2C276.4844%20242.9875%2C276.1875%20243.7375%2C275.6406%20C244.3156%2C275.2344%20244.6438%2C274.7813%20244.6438%2C274.3906%20C244.6438%2C273.9375%20244.2531%2C273.5469%20243.7844%2C273.5469%20C243.5656%2C273.5469%20243.3625%2C273.625%20243.175%2C273.8125%20C242.7219%2C274.2969%20242.7219%2C274.2969%20242.5344%2C274.3906%20C242.1125%2C274.6563%20241.425%2C274.7813%20240.6594%2C274.7813%20C238.6125%2C274.7813%20237.3156%2C273.6875%20237.3156%2C271.9844%20L237.3156%2C270.8906%20C237.3156%2C269.1094%20238.5656%2C267.7969%20240.3%2C267.7969%20C240.8781%2C267.7969%20241.4875%2C267.9531%20241.9563%2C268.2031%20C242.4406%2C268.4844%20242.6125%2C268.7031%20242.7063%2C269.1094%20C242.7688%2C269.5156%20242.8%2C269.6406%20242.9406%2C269.7656%20C243.0813%2C269.9063%20243.3156%2C270.0156%20243.5344%2C270.0156%20C243.8%2C270.0156%20244.0656%2C269.875%20244.2375%2C269.6563%20C244.3469%2C269.5%20244.3781%2C269.3125%20244.3781%2C268.8906%20L244.3781%2C267.4688%20C244.3781%2C267.0313%20244.3625%2C266.9063%20244.2688%2C266.75%20C244.1125%2C266.4844%20243.8313%2C266.3438%20243.5344%2C266.3438%20C243.2375%2C266.3438%20243.0344%2C266.4375%20242.8156%2C266.75%20L242.6438%2C266.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2280%22%20x%3D%22257.7%22%20y%3D%22275.8467%22%3EWindPower%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22211%22%20x2%3D%22355%22%20y1%3D%22287%22%20y2%3D%22287%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22211%22%20x2%3D%22355%22%20y1%3D%22295%22%20y2%3D%22295%22%2F%3E%3Cellipse%20cx%3D%22221%22%20cy%3D%22308.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22120%22%20x%3D%22230%22%20y%3D%22311.9951%22%3EgeneratePower()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20id%3D%22elem_Program%22%3E%3Crect%20codeLine%3D%2216%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Program%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22370%22%20x%3D%227%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%22157.25%22%20cy%3D%2223%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M159.5938%2C18.6719%20C158.6563%2C18.2344%20158.0625%2C18.0938%20157.1875%2C18.0938%20C154.5625%2C18.0938%20152.5625%2C20.1719%20152.5625%2C22.8906%20L152.5625%2C24.0156%20C152.5625%2C26.5938%20154.6719%2C28.4844%20157.5625%2C28.4844%20C158.7813%2C28.4844%20159.9375%2C28.1875%20160.6875%2C27.6406%20C161.2656%2C27.2344%20161.5938%2C26.7813%20161.5938%2C26.3906%20C161.5938%2C25.9375%20161.2031%2C25.5469%20160.7344%2C25.5469%20C160.5156%2C25.5469%20160.3125%2C25.625%20160.125%2C25.8125%20C159.6719%2C26.2969%20159.6719%2C26.2969%20159.4844%2C26.3906%20C159.0625%2C26.6563%20158.375%2C26.7813%20157.6094%2C26.7813%20C155.5625%2C26.7813%20154.2656%2C25.6875%20154.2656%2C23.9844%20L154.2656%2C22.8906%20C154.2656%2C21.1094%20155.5156%2C19.7969%20157.25%2C19.7969%20C157.8281%2C19.7969%20158.4375%2C19.9531%20158.9063%2C20.2031%20C159.3906%2C20.4844%20159.5625%2C20.7031%20159.6563%2C21.1094%20C159.7188%2C21.5156%20159.75%2C21.6406%20159.8906%2C21.7656%20C160.0313%2C21.9063%20160.2656%2C22.0156%20160.4844%2C22.0156%20C160.75%2C22.0156%20161.0156%2C21.875%20161.1875%2C21.6563%20C161.2969%2C21.5%20161.3281%2C21.3125%20161.3281%2C20.8906%20L161.3281%2C19.4688%20C161.3281%2C19.0313%20161.3125%2C18.9063%20161.2188%2C18.75%20C161.0625%2C18.4844%20160.7813%2C18.3438%20160.4844%2C18.3438%20C160.1875%2C18.3438%20159.9844%2C18.4375%20159.7656%2C18.75%20L159.5938%2C18.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%22177.75%22%20y%3D%2227.8467%22%3EProgram%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%22376%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%22376%22%20y1%3D%2247%22%20y2%3D%2247%22%2F%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%2260.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22344%22%20x%3D%2227%22%20y%3D%2263.9951%22%3EgetPower(PowerGenertable%20powerGeneratable)%3C%2Ftext%3E%3C%2Fg%3E%3C!--link%20Program%20to%20PowerGeneratable--%3E%3Cg%20id%3D%22link_Program_PowerGeneratable%22%3E%3Cpath%20codeLine%3D%2221%22%20d%3D%22M192%2C71.101%20C192%2C89.457%20192%2C106.61%20192%2C124.955%20%22%20fill%3D%22none%22%20id%3D%22Program-to-PowerGeneratable%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22192%2C130.955%2C196%2C121.955%2C192%2C125.955%2C188%2C121.955%2C192%2C130.955%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20PowerGeneratable%20to%20ThermalPower--%3E%3Cg%20id%3D%22link_PowerGeneratable_ThermalPower%22%3E%3Cpath%20codeLine%3D%2222%22%20d%3D%22M158.371%2C209.5865%20C144.831%2C227.9425%20138.435%2C236.6101%20124.902%2C254.9554%20%22%20fill%3D%22none%22%20id%3D%22PowerGeneratable-backto-ThermalPower%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22169.056%2C195.101%2C153.5425%2C206.0249%2C163.1995%2C213.1482%2C169.056%2C195.101%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20PowerGeneratable%20to%20WindPower--%3E%3Cg%20id%3D%22link_PowerGeneratable_WindPower%22%3E%3Cpath%20codeLine%3D%2223%22%20d%3D%22M225.9607%2C209.5296%20C239.6517%2C227.8856%20246.16%2C236.6101%20259.844%2C254.9554%20%22%20fill%3D%22none%22%20id%3D%22PowerGeneratable-backto-WindPower%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22215.199%2C195.101%2C221.1512%2C213.1169%2C230.7703%2C205.9424%2C215.199%2C195.101%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BoymhIIrAIqnELGZ8BqyjSa_DIorAB4bCoadbgkPIKD1MI8U8f8AbDJIvQhcuadCIYuiLGZ9IYt8JSy3YXDI6P-Qb4AKme2W_lIWn5wwi1A82uJQmqnGAqDmADW6gLq5NrmxJC-W22ZOrkhgeVi2k1Evq0000%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：透過遵守<a href="/2020/06/08/Dependency-Inversion-Principle/" title="依賴反轉原則">依賴反轉原則</a>，我們也讓程式符合<a href="/2020/05/30/Open-Close-Principle/" title="開放封閉原則">開放封閉原則</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "範例：電力系統（依賴反轉原則）",
+        "image": "https://yncbearz.github.io/images/thumbnails/grass-and-windmills.webp",
+        "keywords": "Example",
+        "genre": "Clean Code",
+        "datePublished": "2020-09-21",
+        "dateCreated": "2020-09-21",
+        "dateModified": "2023-08-23",
+        "url": "https://yncbearz.github.io/2020/09/21/Example-Power-Systems-Dependency-Inversion-Principle/",
+        "description": "Example:Power Systems (Dependency Inversion Principle)",
+        "wordCount": 1118
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/09/27/Iterator-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            迭代器模式
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/09/19/Example-Coffee-Machine-Interface-Segregation-Principle/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：咖啡機（介面隔離原則）</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/make-the-world-a-pretty-place.webp)" alt="如何使用 Hexo 來寫部落格" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="title">如何使用 Hexo 來寫部落格</a></p>
+                            <p class="item-date"><time datetime="2023-08-15T02:28:53.000Z" itemprop="datePublished">2023-08-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/08/Unicode-And-Character-Sets/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/code.webp)" alt="Unicode 與字元集" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/08/08/Unicode-And-Character-Sets/" class="title">Unicode 與字元集</a></p>
+                            <p class="item-date"><time datetime="2023-08-08T02:12:16.000Z" itemprop="datePublished">2023-08-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/02/Taipei-Trip-2023/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/tm_starry_night.webp)" alt="台北之旅@2023" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/07/02/Taipei-Trip-2023/" class="title">台北之旅@2023</a></p>
+                            <p class="item-date"><time datetime="2023-07-02T03:56:45.000Z" itemprop="datePublished">2023-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/27/Problem-Solving/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/puzzle.webp)" alt="Problem Solving" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/04/27/Problem-Solving/" class="title">Problem Solving</a></p>
+                            <p class="item-date"><time datetime="2023-04-27T01:35:42.000Z" itemprop="datePublished">2023-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/05/Three-Tier-Architecture/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/hamburger.webp)" alt="欸！你知道三層式架構嗎？" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/04/05/Three-Tier-Architecture/" class="title">欸！你知道三層式架構嗎？</a></p>
+                            <p class="item-date"><time datetime="2023-04-05T08:03:20.000Z" itemprop="datePublished">2023-04-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Coding-Interview/" rel="tag">Cracking the Coding Interview</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge/" rel="tag">Knowledge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '53db18d103745c0eee8f1f19c00065b6',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1692759175348')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

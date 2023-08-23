@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：影片製作大師（樣板方法模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Class Diagram" />
+    
+    <meta name="description" content="Class Diagram:Video Maker (Template Method Pattern)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：影片製作大師（樣板方法模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/08/03/Class-Diagram-Video-Maker-Template-Method-Pattern/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class Diagram:Video Maker (Template Method Pattern)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/toy-train.webp">
+<meta property="article:published_time" content="2020-08-03T14:24:05.000Z">
+<meta property="article:modified_time" content="2023-08-23T02:51:38.496Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Class Diagram">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/toy-train.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Video-Maker-Template-Method-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：影片製作大師（樣板方法模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/08/03/Class-Diagram-Video-Maker-Template-Method-Pattern/" class="article-date">
+       <time datetime="2020-08-03T14:24:05.000Z" itemprop="datePublished">2020-08-03</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a>
+    </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/08/02/Example-Video-Maker-Template-Method-Pattern/" title="範例：影片製作大師（樣板方法模式）">影片製作大師</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22300px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A540px%3Bheight%3A300px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20540%20300%22%20width%3D%22540px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20BasicVideo--%3E%3Cg%20id%3D%22elem_BasicVideo%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%22145.7813%22%20id%3D%22BasicVideo%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22139%22%20x%3D%22220.5%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%22248.1%22%20cy%3D%2223%22%20fill%3D%22%23A9DCDF%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M250.1781%2C24.8125%20L250.5688%2C25.7969%20L250.1781%2C25.7969%20C249.725%2C25.7969%20249.6156%2C25.8125%20249.4594%2C25.9219%20C249.2094%2C26.0781%20249.0531%2C26.3594%20249.0531%2C26.6563%20C249.0531%2C26.9219%20249.1938%2C27.1719%20249.4125%2C27.3281%20C249.5531%2C27.4531%20249.7563%2C27.5%20250.1781%2C27.5%20L252.5375%2C27.5%20C252.8969%2C27.5%20253.1156%2C27.4688%20253.2563%2C27.375%20C253.5063%2C27.2344%20253.6625%2C26.9375%20253.6625%2C26.6563%20C253.6625%2C26.375%20253.5219%2C26.125%20253.3031%2C25.9688%20C253.1313%2C25.8281%20252.975%2C25.7969%20252.5063%2C25.7969%20L249.1156%2C17.5938%20L245.4438%2C17.5938%20C244.9906%2C17.5938%20244.8656%2C17.6094%20244.7094%2C17.7031%20C244.4594%2C17.875%20244.3031%2C18.1563%20244.3031%2C18.4375%20C244.3031%2C18.7188%20244.4438%2C18.9688%20244.6625%2C19.1406%20C244.8344%2C19.25%20245.0063%2C19.2813%20245.4438%2C19.2813%20L246.5219%2C19.2813%20L243.8813%2C25.7969%20C243.4594%2C25.7969%20243.3031%2C25.8125%20243.1469%2C25.9219%20C242.8969%2C26.0781%20242.7406%2C26.3594%20242.7406%2C26.6563%20C242.7406%2C27.2188%20243.1156%2C27.5%20243.8656%2C27.5%20L246.1313%2C27.5%20C246.4906%2C27.5%20246.7094%2C27.4688%20246.8344%2C27.375%20C247.1%2C27.2344%20247.2406%2C26.9375%20247.2406%2C26.6563%20C247.2406%2C26.375%20247.1156%2C26.125%20246.8969%2C25.9531%20C246.725%2C25.8281%20246.5844%2C25.7969%20246.1313%2C25.7969%20L245.7406%2C25.7969%20L246.1313%2C24.8125%20L250.1781%2C24.8125%20Z%20M249.475%2C23.1094%20L246.8031%2C23.1094%20L248.1469%2C19.8438%20L249.475%2C23.1094%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2279%22%20x%3D%22264.9%22%20y%3D%2227.8467%22%3EBasicVideo%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22221.5%22%20x2%3D%22358.5%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22221.5%22%20x2%3D%22358.5%22%20y1%3D%2247%22%20y2%3D%2247%22%2F%3E%3Cellipse%20cx%3D%22231.5%22%20cy%3D%2260.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2250%22%20x%3D%22240.5%22%20y%3D%2263.9951%22%3Emake()%3C%2Ftext%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%22231.5%2C71.9453%2C235.5%2C75.9453%2C231.5%2C79.9453%2C227.5%2C75.9453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2251%22%20x%3D%22240.5%22%20y%3D%2280.292%22%3Eshoot()%3C%2Ftext%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%22231.5%2C88.2422%2C235.5%2C92.2422%2C231.5%2C96.2422%2C227.5%2C92.2422%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2258%22%20x%3D%22240.5%22%20y%3D%2296.5889%22%3Eupload()%3C%2Ftext%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%224%22%20x%3D%22240.5%22%20y%3D%22112.8857%22%3E%26%23160%3B%3C%2Ftext%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%22231.5%2C120.8359%2C235.5%2C124.8359%2C231.5%2C128.8359%2C227.5%2C124.8359%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22113%22%20x%3D%22240.5%22%20y%3D%22129.1826%22%3EgenerateIdeas()%3C%2Ftext%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%22231.5%2C137.1328%2C235.5%2C141.1328%2C231.5%2C145.1328%2C227.5%2C141.1328%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2259%22%20x%3D%22240.5%22%20y%3D%22145.4795%22%3Eediting()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20UnboxVideo--%3E%3Cg%20id%3D%22elem_UnboxVideo%22%3E%3Crect%20codeLine%3D%2211%22%20fill%3D%22%23F1F1F1%22%20height%3D%2280.5938%22%20id%3D%22UnboxVideo%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22139%22%20x%3D%2246.5%22%20y%3D%22213%22%2F%3E%3Cellipse%20cx%3D%2270.95%22%20cy%3D%22229%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M73.2938%2C224.6719%20C72.3563%2C224.2344%2071.7625%2C224.0938%2070.8875%2C224.0938%20C68.2625%2C224.0938%2066.2625%2C226.1719%2066.2625%2C228.8906%20L66.2625%2C230.0156%20C66.2625%2C232.5938%2068.3719%2C234.4844%2071.2625%2C234.4844%20C72.4813%2C234.4844%2073.6375%2C234.1875%2074.3875%2C233.6406%20C74.9656%2C233.2344%2075.2938%2C232.7813%2075.2938%2C232.3906%20C75.2938%2C231.9375%2074.9031%2C231.5469%2074.4344%2C231.5469%20C74.2156%2C231.5469%2074.0125%2C231.625%2073.825%2C231.8125%20C73.3719%2C232.2969%2073.3719%2C232.2969%2073.1844%2C232.3906%20C72.7625%2C232.6563%2072.075%2C232.7813%2071.3094%2C232.7813%20C69.2625%2C232.7813%2067.9656%2C231.6875%2067.9656%2C229.9844%20L67.9656%2C228.8906%20C67.9656%2C227.1094%2069.2156%2C225.7969%2070.95%2C225.7969%20C71.5281%2C225.7969%2072.1375%2C225.9531%2072.6063%2C226.2031%20C73.0906%2C226.4844%2073.2625%2C226.7031%2073.3563%2C227.1094%20C73.4188%2C227.5156%2073.45%2C227.6406%2073.5906%2C227.7656%20C73.7313%2C227.9063%2073.9656%2C228.0156%2074.1844%2C228.0156%20C74.45%2C228.0156%2074.7156%2C227.875%2074.8875%2C227.6563%20C74.9969%2C227.5%2075.0281%2C227.3125%2075.0281%2C226.8906%20L75.0281%2C225.4688%20C75.0281%2C225.0313%2075.0125%2C224.9063%2074.9188%2C224.75%20C74.7625%2C224.4844%2074.4813%2C224.3438%2074.1844%2C224.3438%20C73.8875%2C224.3438%2073.6844%2C224.4375%2073.4656%2C224.75%20L73.2938%2C224.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2286%22%20x%3D%2287.05%22%20y%3D%22233.8467%22%3EUnboxVideo%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2247.5%22%20x2%3D%22184.5%22%20y1%3D%22245%22%20y2%3D%22245%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2247.5%22%20x2%3D%22184.5%22%20y1%3D%22253%22%20y2%3D%22253%22%2F%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%2257.5%2C261.6484%2C61.5%2C265.6484%2C57.5%2C269.6484%2C53.5%2C265.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22113%22%20x%3D%2266.5%22%20y%3D%22269.9951%22%3EgenerateIdeas()%3C%2Ftext%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%2257.5%2C277.9453%2C61.5%2C281.9453%2C57.5%2C285.9453%2C53.5%2C281.9453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%2266.5%22%20y%3D%22286.292%22%3Eediting()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20TutorialVideo--%3E%3Cg%20id%3D%22elem_TutorialVideo%22%3E%3Crect%20codeLine%3D%2217%22%20fill%3D%22%23F1F1F1%22%20height%3D%2280.5938%22%20id%3D%22TutorialVideo%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22139%22%20x%3D%22220.5%22%20y%3D%22213%22%2F%3E%3Cellipse%20cx%3D%22240.45%22%20cy%3D%22229%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M242.7938%2C224.6719%20C241.8563%2C224.2344%20241.2625%2C224.0938%20240.3875%2C224.0938%20C237.7625%2C224.0938%20235.7625%2C226.1719%20235.7625%2C228.8906%20L235.7625%2C230.0156%20C235.7625%2C232.5938%20237.8719%2C234.4844%20240.7625%2C234.4844%20C241.9813%2C234.4844%20243.1375%2C234.1875%20243.8875%2C233.6406%20C244.4656%2C233.2344%20244.7938%2C232.7813%20244.7938%2C232.3906%20C244.7938%2C231.9375%20244.4031%2C231.5469%20243.9344%2C231.5469%20C243.7156%2C231.5469%20243.5125%2C231.625%20243.325%2C231.8125%20C242.8719%2C232.2969%20242.8719%2C232.2969%20242.6844%2C232.3906%20C242.2625%2C232.6563%20241.575%2C232.7813%20240.8094%2C232.7813%20C238.7625%2C232.7813%20237.4656%2C231.6875%20237.4656%2C229.9844%20L237.4656%2C228.8906%20C237.4656%2C227.1094%20238.7156%2C225.7969%20240.45%2C225.7969%20C241.0281%2C225.7969%20241.6375%2C225.9531%20242.1063%2C226.2031%20C242.5906%2C226.4844%20242.7625%2C226.7031%20242.8563%2C227.1094%20C242.9188%2C227.5156%20242.95%2C227.6406%20243.0906%2C227.7656%20C243.2313%2C227.9063%20243.4656%2C228.0156%20243.6844%2C228.0156%20C243.95%2C228.0156%20244.2156%2C227.875%20244.3875%2C227.6563%20C244.4969%2C227.5%20244.5281%2C227.3125%20244.5281%2C226.8906%20L244.5281%2C225.4688%20C244.5281%2C225.0313%20244.5125%2C224.9063%20244.4188%2C224.75%20C244.2625%2C224.4844%20243.9813%2C224.3438%20243.6844%2C224.3438%20C243.3875%2C224.3438%20243.1844%2C224.4375%20242.9656%2C224.75%20L242.7938%2C224.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2296%22%20x%3D%22255.55%22%20y%3D%22233.8467%22%3ETutorialVideo%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22221.5%22%20x2%3D%22358.5%22%20y1%3D%22245%22%20y2%3D%22245%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22221.5%22%20x2%3D%22358.5%22%20y1%3D%22253%22%20y2%3D%22253%22%2F%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%22231.5%2C261.6484%2C235.5%2C265.6484%2C231.5%2C269.6484%2C227.5%2C265.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22113%22%20x%3D%22240.5%22%20y%3D%22269.9951%22%3EgenerateIdeas()%3C%2Ftext%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%22231.5%2C277.9453%2C235.5%2C281.9453%2C231.5%2C285.9453%2C227.5%2C281.9453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%22240.5%22%20y%3D%22286.292%22%3Eediting()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20StoryVideo--%3E%3Cg%20id%3D%22elem_StoryVideo%22%3E%3Crect%20codeLine%3D%2223%22%20fill%3D%22%23F1F1F1%22%20height%3D%2280.5938%22%20id%3D%22StoryVideo%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22139%22%20x%3D%22394.5%22%20y%3D%22213%22%2F%3E%3Cellipse%20cx%3D%22421.65%22%20cy%3D%22229%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M423.9938%2C224.6719%20C423.0563%2C224.2344%20422.4625%2C224.0938%20421.5875%2C224.0938%20C418.9625%2C224.0938%20416.9625%2C226.1719%20416.9625%2C228.8906%20L416.9625%2C230.0156%20C416.9625%2C232.5938%20419.0719%2C234.4844%20421.9625%2C234.4844%20C423.1813%2C234.4844%20424.3375%2C234.1875%20425.0875%2C233.6406%20C425.6656%2C233.2344%20425.9938%2C232.7813%20425.9938%2C232.3906%20C425.9938%2C231.9375%20425.6031%2C231.5469%20425.1344%2C231.5469%20C424.9156%2C231.5469%20424.7125%2C231.625%20424.525%2C231.8125%20C424.0719%2C232.2969%20424.0719%2C232.2969%20423.8844%2C232.3906%20C423.4625%2C232.6563%20422.775%2C232.7813%20422.0094%2C232.7813%20C419.9625%2C232.7813%20418.6656%2C231.6875%20418.6656%2C229.9844%20L418.6656%2C228.8906%20C418.6656%2C227.1094%20419.9156%2C225.7969%20421.65%2C225.7969%20C422.2281%2C225.7969%20422.8375%2C225.9531%20423.3063%2C226.2031%20C423.7906%2C226.4844%20423.9625%2C226.7031%20424.0563%2C227.1094%20C424.1188%2C227.5156%20424.15%2C227.6406%20424.2906%2C227.7656%20C424.4313%2C227.9063%20424.6656%2C228.0156%20424.8844%2C228.0156%20C425.15%2C228.0156%20425.4156%2C227.875%20425.5875%2C227.6563%20C425.6969%2C227.5%20425.7281%2C227.3125%20425.7281%2C226.8906%20L425.7281%2C225.4688%20C425.7281%2C225.0313%20425.7125%2C224.9063%20425.6188%2C224.75%20C425.4625%2C224.4844%20425.1813%2C224.3438%20424.8844%2C224.3438%20C424.5875%2C224.3438%20424.3844%2C224.4375%20424.1656%2C224.75%20L423.9938%2C224.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2280%22%20x%3D%22438.35%22%20y%3D%22233.8467%22%3EStoryVideo%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22395.5%22%20x2%3D%22532.5%22%20y1%3D%22245%22%20y2%3D%22245%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22395.5%22%20x2%3D%22532.5%22%20y1%3D%22253%22%20y2%3D%22253%22%2F%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%22405.5%2C261.6484%2C409.5%2C265.6484%2C405.5%2C269.6484%2C401.5%2C265.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22113%22%20x%3D%22414.5%22%20y%3D%22269.9951%22%3EgenerateIdeas()%3C%2Ftext%3E%3Cpolygon%20fill%3D%22%23FFFF44%22%20points%3D%22405.5%2C277.9453%2C409.5%2C281.9453%2C405.5%2C285.9453%2C401.5%2C281.9453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%22414.5%22%20y%3D%22286.292%22%3Eediting()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20id%3D%22elem_Program%22%3E%3Crect%20codeLine%3D%2233%22%20fill%3D%22%23F1F1F1%22%20height%3D%2296.8906%22%20id%3D%22Program%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22178%22%20x%3D%227%22%20y%3D%2231.5%22%2F%3E%3Cellipse%20cx%3D%2261.25%22%20cy%3D%2247.5%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M63.5938%2C43.1719%20C62.6563%2C42.7344%2062.0625%2C42.5938%2061.1875%2C42.5938%20C58.5625%2C42.5938%2056.5625%2C44.6719%2056.5625%2C47.3906%20L56.5625%2C48.5156%20C56.5625%2C51.0938%2058.6719%2C52.9844%2061.5625%2C52.9844%20C62.7813%2C52.9844%2063.9375%2C52.6875%2064.6875%2C52.1406%20C65.2656%2C51.7344%2065.5938%2C51.2813%2065.5938%2C50.8906%20C65.5938%2C50.4375%2065.2031%2C50.0469%2064.7344%2C50.0469%20C64.5156%2C50.0469%2064.3125%2C50.125%2064.125%2C50.3125%20C63.6719%2C50.7969%2063.6719%2C50.7969%2063.4844%2C50.8906%20C63.0625%2C51.1563%2062.375%2C51.2813%2061.6094%2C51.2813%20C59.5625%2C51.2813%2058.2656%2C50.1875%2058.2656%2C48.4844%20L58.2656%2C47.3906%20C58.2656%2C45.6094%2059.5156%2C44.2969%2061.25%2C44.2969%20C61.8281%2C44.2969%2062.4375%2C44.4531%2062.9063%2C44.7031%20C63.3906%2C44.9844%2063.5625%2C45.2031%2063.6563%2C45.6094%20C63.7188%2C46.0156%2063.75%2C46.1406%2063.8906%2C46.2656%20C64.0313%2C46.4063%2064.2656%2C46.5156%2064.4844%2C46.5156%20C64.75%2C46.5156%2065.0156%2C46.375%2065.1875%2C46.1563%20C65.2969%2C46%2065.3281%2C45.8125%2065.3281%2C45.3906%20L65.3281%2C43.9688%20C65.3281%2C43.5313%2065.3125%2C43.4063%2065.2188%2C43.25%20C65.0625%2C42.9844%2064.7813%2C42.8438%2064.4844%2C42.8438%20C64.1875%2C42.8438%2063.9844%2C42.9375%2063.7656%2C43.25%20L63.5938%2C43.1719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%2281.75%22%20y%3D%2252.3467%22%3EProgram%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%22184%22%20y1%3D%2263.5%22%20y2%3D%2263.5%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%22184%22%20y1%3D%2271.5%22%20y2%3D%2271.5%22%2F%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%2285.1484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22136%22%20x%3D%2227%22%20y%3D%2288.4951%22%3EmakeUnboxVideo()%3C%2Ftext%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%22101.4453%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22152%22%20x%3D%2227%22%20y%3D%22104.792%22%3EmakeTurtorialVideo()%3C%2Ftext%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%22117.7422%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22130%22%20x%3D%2227%22%20y%3D%22121.0889%22%3EmakeStoryVideo()%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20BasicVideo%20to%20UnboxVideo--%3E%3Cg%20id%3D%22link_BasicVideo_UnboxVideo%22%3E%3Cpath%20codeLine%3D%2229%22%20d%3D%22M207.6606%2C162.1567%20C185.8896%2C183.6157%20175.414%2C193.94%20156.357%2C212.7225%20%22%20fill%3D%22none%22%20id%3D%22BasicVideo-backto-UnboxVideo%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22220.48%2C149.521%2C203.4486%2C157.8836%2C211.8725%2C166.4299%2C220.48%2C149.521%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20BasicVideo%20to%20TutorialVideo--%3E%3Cg%20id%3D%22link_BasicVideo_TutorialVideo%22%3E%3Cpath%20codeLine%3D%2230%22%20d%3D%22M290%2C171.234%20C290%2C191.557%20290%2C194.9182%20290%2C212.5968%20%22%20fill%3D%22none%22%20id%3D%22BasicVideo-backto-TutorialVideo%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22290%2C153.234%2C284%2C171.234%2C296%2C171.234%2C290%2C153.234%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20BasicVideo%20to%20StoryVideo--%3E%3Cg%20id%3D%22link_BasicVideo_StoryVideo%22%3E%3Cpath%20codeLine%3D%2231%22%20d%3D%22M372.3394%2C162.1567%20C394.1104%2C183.6157%20404.586%2C193.94%20423.643%2C212.7225%20%22%20fill%3D%22none%22%20id%3D%22BasicVideo-backto-StoryVideo%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22359.52%2C149.521%2C368.1275%2C166.4299%2C376.5514%2C157.8836%2C359.52%2C149.521%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Program%20to%20BasicVideo--%3E%3Cg%20id%3D%22link_Program_BasicVideo%22%3E%3Cpath%20codeLine%3D%2240%22%20d%3D%22M185.043%2C80%20C196.796%2C80%20202.549%2C80%20214.302%2C80%20%22%20fill%3D%22none%22%20id%3D%22Program-to-BasicVideo%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22220.302%2C80%2C211.302%2C76%2C215.302%2C80%2C211.302%2C84%2C220.302%2C80%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BdP712i8m38RlVOg05qNs1kB1cpV1kNlMXbdS5caxKERUtR8LserTz9Rqw__d9y7IEeFIWQpHMZYXrRBGYbZq0c0F3Jvek_Fb1koTsOMwUzQCoZU-wp5u31vKr991HsT5QCVFCqnAEzrM7Wn2J2DlRSclE7BDObMNTuwDnleFwTKhtp_fubxWyCcoDFGIpNCjQJ8wXBaOhWmsoRwZ-HXbUimxa_Wc83fEKOCVPCVacby0%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<br>
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：影片製作大師（樣板方法模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/toy-train.webp",
+        "keywords": "Class Diagram",
+        "genre": "Clean Code",
+        "datePublished": "2020-08-03",
+        "dateCreated": "2020-08-03",
+        "dateModified": "2023-08-23",
+        "url": "https://yncbearz.github.io/2020/08/03/Class-Diagram-Video-Maker-Template-Method-Pattern/",
+        "description": "Class Diagram:Video Maker (Template Method Pattern)",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/08/05/Least-Knowledge-Principle/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            最小知識原則
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/08/02/Example-Video-Maker-Template-Method-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：影片製作大師（樣板方法模式）</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/make-the-world-a-pretty-place.webp)" alt="如何使用 Hexo 來寫部落格" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="title">如何使用 Hexo 來寫部落格</a></p>
+                            <p class="item-date"><time datetime="2023-08-15T02:28:53.000Z" itemprop="datePublished">2023-08-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/08/Unicode-And-Character-Sets/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/code.webp)" alt="Unicode 與字元集" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/08/08/Unicode-And-Character-Sets/" class="title">Unicode 與字元集</a></p>
+                            <p class="item-date"><time datetime="2023-08-08T02:12:16.000Z" itemprop="datePublished">2023-08-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/02/Taipei-Trip-2023/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/tm_starry_night.webp)" alt="台北之旅@2023" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/07/02/Taipei-Trip-2023/" class="title">台北之旅@2023</a></p>
+                            <p class="item-date"><time datetime="2023-07-02T03:56:45.000Z" itemprop="datePublished">2023-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/27/Problem-Solving/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/puzzle.webp)" alt="Problem Solving" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/04/27/Problem-Solving/" class="title">Problem Solving</a></p>
+                            <p class="item-date"><time datetime="2023-04-27T01:35:42.000Z" itemprop="datePublished">2023-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/05/Three-Tier-Architecture/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/hamburger.webp)" alt="欸！你知道三層式架構嗎？" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/04/05/Three-Tier-Architecture/" class="title">欸！你知道三層式架構嗎？</a></p>
+                            <p class="item-date"><time datetime="2023-04-05T08:03:20.000Z" itemprop="datePublished">2023-04-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Coding-Interview/" rel="tag">Cracking the Coding Interview</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge/" rel="tag">Knowledge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'a661608cdac303e9b6c25596e663c905',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1692759175348')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

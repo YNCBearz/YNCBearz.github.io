@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：新產品開發（職責鏈模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Class Diagram" />
+    
+    <meta name="description" content="Class Diagram:Software (Chain Of Responsibility Pattern)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：新產品開發（職責鏈模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/12/11/Class-Diagram-Software-Chain-Of-Responsibility-Pattern/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class Diagram:Software (Chain Of Responsibility Pattern)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/man-stand-in-map.webp">
+<meta property="article:published_time" content="2020-12-11T14:17:52.000Z">
+<meta property="article:modified_time" content="2023-08-23T02:51:38.494Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Class Diagram">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/man-stand-in-map.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Software-Chain-Of-Responsibility-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：新產品開發（職責鏈模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/12/11/Class-Diagram-Software-Chain-Of-Responsibility-Pattern/" class="article-date">
+       <time datetime="2020-12-11T14:17:52.000Z" itemprop="datePublished">2020-12-11</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a>
+    </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/12/11/Example-Software-Chain-Of-Responsibility-Pattern/" title="範例：新產品開發（職責鏈模式）">新產品開發</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22424px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A647px%3Bheight%3A424px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20647%20424%22%20width%3D%22647px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20Request--%3E%3Cg%20id%3D%22elem_Request%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%22129.4844%22%20id%3D%22Request%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22311%22%20x%3D%229%22%20y%3D%2231.5%22%2F%3E%3Cellipse%20cx%3D%22130.75%22%20cy%3D%2247.5%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M133.0938%2C43.1719%20C132.1563%2C42.7344%20131.5625%2C42.5938%20130.6875%2C42.5938%20C128.0625%2C42.5938%20126.0625%2C44.6719%20126.0625%2C47.3906%20L126.0625%2C48.5156%20C126.0625%2C51.0938%20128.1719%2C52.9844%20131.0625%2C52.9844%20C132.2813%2C52.9844%20133.4375%2C52.6875%20134.1875%2C52.1406%20C134.7656%2C51.7344%20135.0938%2C51.2813%20135.0938%2C50.8906%20C135.0938%2C50.4375%20134.7031%2C50.0469%20134.2344%2C50.0469%20C134.0156%2C50.0469%20133.8125%2C50.125%20133.625%2C50.3125%20C133.1719%2C50.7969%20133.1719%2C50.7969%20132.9844%2C50.8906%20C132.5625%2C51.1563%20131.875%2C51.2813%20131.1094%2C51.2813%20C129.0625%2C51.2813%20127.7656%2C50.1875%20127.7656%2C48.4844%20L127.7656%2C47.3906%20C127.7656%2C45.6094%20129.0156%2C44.2969%20130.75%2C44.2969%20C131.3281%2C44.2969%20131.9375%2C44.4531%20132.4063%2C44.7031%20C132.8906%2C44.9844%20133.0625%2C45.2031%20133.1563%2C45.6094%20C133.2188%2C46.0156%20133.25%2C46.1406%20133.3906%2C46.2656%20C133.5313%2C46.4063%20133.7656%2C46.5156%20133.9844%2C46.5156%20C134.25%2C46.5156%20134.5156%2C46.375%20134.6875%2C46.1563%20C134.7969%2C46%20134.8281%2C45.8125%20134.8281%2C45.3906%20L134.8281%2C43.9688%20C134.8281%2C43.5313%20134.8125%2C43.4063%20134.7188%2C43.25%20C134.5625%2C42.9844%20134.2813%2C42.8438%20133.9844%2C42.8438%20C133.6875%2C42.8438%20133.4844%2C42.9375%20133.2656%2C43.25%20L133.0938%2C43.1719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2259%22%20x%3D%22151.25%22%20y%3D%2252.3467%22%3ERequest%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22319%22%20y1%3D%2263.5%22%20y2%3D%2263.5%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2220%2C72.1484%2C24%2C76.1484%2C20%2C80.1484%2C16%2C76.1484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2285%22%20x%3D%2229%22%20y%3D%2280.4951%22%3Etype%3A%20string%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2220%2C88.4453%2C24%2C92.4453%2C20%2C96.4453%2C16%2C92.4453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22109%22%20x%3D%2229%22%20y%3D%2296.792%22%3Econtent%3A%20string%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22319%22%20y1%3D%22104.0938%22%20y2%3D%22104.0938%22%2F%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22117.7422%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22285%22%20x%3D%2229%22%20y%3D%22121.0889%22%3E__construct(string%20type%2C%20string%20content)%3C%2Ftext%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22134.0391%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22122%22%20x%3D%2229%22%20y%3D%22137.3857%22%3EgetType()%3A%20string%3C%2Ftext%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22150.3359%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22146%22%20x%3D%2229%22%20y%3D%22153.6826%22%3EgetContent()%3A%20string%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Handler--%3E%3Cg%20id%3D%22elem_Handler%22%3E%3Crect%20codeLine%3D%2211%22%20fill%3D%22%23F1F1F1%22%20height%3D%22178.375%22%20id%3D%22Handler%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22261%22%20x%3D%22355%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%22452.75%22%20cy%3D%2223%22%20fill%3D%22%23A9DCDF%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M454.8281%2C24.8125%20L455.2188%2C25.7969%20L454.8281%2C25.7969%20C454.375%2C25.7969%20454.2656%2C25.8125%20454.1094%2C25.9219%20C453.8594%2C26.0781%20453.7031%2C26.3594%20453.7031%2C26.6563%20C453.7031%2C26.9219%20453.8438%2C27.1719%20454.0625%2C27.3281%20C454.2031%2C27.4531%20454.4063%2C27.5%20454.8281%2C27.5%20L457.1875%2C27.5%20C457.5469%2C27.5%20457.7656%2C27.4688%20457.9063%2C27.375%20C458.1563%2C27.2344%20458.3125%2C26.9375%20458.3125%2C26.6563%20C458.3125%2C26.375%20458.1719%2C26.125%20457.9531%2C25.9688%20C457.7813%2C25.8281%20457.625%2C25.7969%20457.1563%2C25.7969%20L453.7656%2C17.5938%20L450.0938%2C17.5938%20C449.6406%2C17.5938%20449.5156%2C17.6094%20449.3594%2C17.7031%20C449.1094%2C17.875%20448.9531%2C18.1563%20448.9531%2C18.4375%20C448.9531%2C18.7188%20449.0938%2C18.9688%20449.3125%2C19.1406%20C449.4844%2C19.25%20449.6563%2C19.2813%20450.0938%2C19.2813%20L451.1719%2C19.2813%20L448.5313%2C25.7969%20C448.1094%2C25.7969%20447.9531%2C25.8125%20447.7969%2C25.9219%20C447.5469%2C26.0781%20447.3906%2C26.3594%20447.3906%2C26.6563%20C447.3906%2C27.2188%20447.7656%2C27.5%20448.5156%2C27.5%20L450.7813%2C27.5%20C451.1406%2C27.5%20451.3594%2C27.4688%20451.4844%2C27.375%20C451.75%2C27.2344%20451.8906%2C26.9375%20451.8906%2C26.6563%20C451.8906%2C26.375%20451.7656%2C26.125%20451.5469%2C25.9531%20C451.375%2C25.8281%20451.2344%2C25.7969%20450.7813%2C25.7969%20L450.3906%2C25.7969%20L450.7813%2C24.8125%20L454.8281%2C24.8125%20Z%20M454.125%2C23.1094%20L451.4531%2C23.1094%20L452.7969%2C19.8438%20L454.125%2C23.1094%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2257%22%20x%3D%22473.25%22%20y%3D%2227.8467%22%3EHandler%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22356%22%20x2%3D%22615%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22366%2C47.6484%2C370%2C51.6484%2C366%2C55.6484%2C362%2C51.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2279%22%20x%3D%22375%22%20y%3D%2255.9951%22%3Erole%3A%20string%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22366%2C63.9453%2C370%2C67.9453%2C366%2C71.9453%2C362%2C67.9453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22155%22%20x%3D%22375%22%20y%3D%2272.292%22%3EcanHandleType%3A%20array%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22366%2C80.2422%2C370%2C84.2422%2C366%2C88.2422%2C362%2C84.2422%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22142%22%20x%3D%22375%22%20y%3D%2288.5889%22%3ErequestType%3A%20string%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22366%2C96.5391%2C370%2C100.5391%2C366%2C104.5391%2C362%2C100.5391%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22166%22%20x%3D%22375%22%20y%3D%22104.8857%22%3ErequestContent%3A%20string%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22366%2C112.8359%2C370%2C116.8359%2C366%2C120.8359%2C362%2C116.8359%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22152%22%20x%3D%22375%22%20y%3D%22121.1826%22%3EnextHandler%3A%20Handler%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22356%22%20x2%3D%22615%22%20y1%3D%22128.4844%22%20y2%3D%22128.4844%22%2F%3E%3Cellipse%20cx%3D%22366%22%20cy%3D%22142.1328%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22227%22%20x%3D%22375%22%20y%3D%22145.4795%22%3Ehandle(Request%20request)%3A%20string%3C%2Ftext%3E%3Cellipse%20cx%3D%22366%22%20cy%3D%22158.4297%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22235%22%20x%3D%22375%22%20y%3D%22161.7764%22%3EsetNextHandler(Handler%20handler)%3C%2Ftext%3E%3Cellipse%20cx%3D%22366%22%20cy%3D%22174.7266%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22151%22%20x%3D%22375%22%20y%3D%22178.0732%22%3EcanHandle()%3A%20boolean%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Support--%3E%3Cg%20id%3D%22elem_Support%22%3E%3Crect%20codeLine%3D%2226%22%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22Support%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2291%22%20x%3D%22269%22%20y%3D%22245%22%2F%3E%3Cellipse%20cx%3D%22284%22%20cy%3D%22261%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M286.3438%2C256.6719%20C285.4063%2C256.2344%20284.8125%2C256.0938%20283.9375%2C256.0938%20C281.3125%2C256.0938%20279.3125%2C258.1719%20279.3125%2C260.8906%20L279.3125%2C262.0156%20C279.3125%2C264.5938%20281.4219%2C266.4844%20284.3125%2C266.4844%20C285.5313%2C266.4844%20286.6875%2C266.1875%20287.4375%2C265.6406%20C288.0156%2C265.2344%20288.3438%2C264.7813%20288.3438%2C264.3906%20C288.3438%2C263.9375%20287.9531%2C263.5469%20287.4844%2C263.5469%20C287.2656%2C263.5469%20287.0625%2C263.625%20286.875%2C263.8125%20C286.4219%2C264.2969%20286.4219%2C264.2969%20286.2344%2C264.3906%20C285.8125%2C264.6563%20285.125%2C264.7813%20284.3594%2C264.7813%20C282.3125%2C264.7813%20281.0156%2C263.6875%20281.0156%2C261.9844%20L281.0156%2C260.8906%20C281.0156%2C259.1094%20282.2656%2C257.7969%20284%2C257.7969%20C284.5781%2C257.7969%20285.1875%2C257.9531%20285.6563%2C258.2031%20C286.1406%2C258.4844%20286.3125%2C258.7031%20286.4063%2C259.1094%20C286.4688%2C259.5156%20286.5%2C259.6406%20286.6406%2C259.7656%20C286.7813%2C259.9063%20287.0156%2C260.0156%20287.2344%2C260.0156%20C287.5%2C260.0156%20287.7656%2C259.875%20287.9375%2C259.6563%20C288.0469%2C259.5%20288.0781%2C259.3125%20288.0781%2C258.8906%20L288.0781%2C257.4688%20C288.0781%2C257.0313%20288.0625%2C256.9063%20287.9688%2C256.75%20C287.8125%2C256.4844%20287.5313%2C256.3438%20287.2344%2C256.3438%20C286.9375%2C256.3438%20286.7344%2C256.4375%20286.5156%2C256.75%20L286.3438%2C256.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2259%22%20x%3D%22298%22%20y%3D%22265.8467%22%3ESupport%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22270%22%20x2%3D%22359%22%20y1%3D%22277%22%20y2%3D%22277%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22270%22%20x2%3D%22359%22%20y1%3D%22285%22%20y2%3D%22285%22%2F%3E%3C%2Fg%3E%3C!--class%20ProjectManager--%3E%3Cg%20id%3D%22elem_ProjectManager%22%3E%3Crect%20codeLine%3D%2227%22%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22ProjectManager%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22145%22%20x%3D%22395%22%20y%3D%22245%22%2F%3E%3Cellipse%20cx%3D%22410%22%20cy%3D%22261%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M412.3438%2C256.6719%20C411.4063%2C256.2344%20410.8125%2C256.0938%20409.9375%2C256.0938%20C407.3125%2C256.0938%20405.3125%2C258.1719%20405.3125%2C260.8906%20L405.3125%2C262.0156%20C405.3125%2C264.5938%20407.4219%2C266.4844%20410.3125%2C266.4844%20C411.5313%2C266.4844%20412.6875%2C266.1875%20413.4375%2C265.6406%20C414.0156%2C265.2344%20414.3438%2C264.7813%20414.3438%2C264.3906%20C414.3438%2C263.9375%20413.9531%2C263.5469%20413.4844%2C263.5469%20C413.2656%2C263.5469%20413.0625%2C263.625%20412.875%2C263.8125%20C412.4219%2C264.2969%20412.4219%2C264.2969%20412.2344%2C264.3906%20C411.8125%2C264.6563%20411.125%2C264.7813%20410.3594%2C264.7813%20C408.3125%2C264.7813%20407.0156%2C263.6875%20407.0156%2C261.9844%20L407.0156%2C260.8906%20C407.0156%2C259.1094%20408.2656%2C257.7969%20410%2C257.7969%20C410.5781%2C257.7969%20411.1875%2C257.9531%20411.6563%2C258.2031%20C412.1406%2C258.4844%20412.3125%2C258.7031%20412.4063%2C259.1094%20C412.4688%2C259.5156%20412.5%2C259.6406%20412.6406%2C259.7656%20C412.7813%2C259.9063%20413.0156%2C260.0156%20413.2344%2C260.0156%20C413.5%2C260.0156%20413.7656%2C259.875%20413.9375%2C259.6563%20C414.0469%2C259.5%20414.0781%2C259.3125%20414.0781%2C258.8906%20L414.0781%2C257.4688%20C414.0781%2C257.0313%20414.0625%2C256.9063%20413.9688%2C256.75%20C413.8125%2C256.4844%20413.5313%2C256.3438%20413.2344%2C256.3438%20C412.9375%2C256.3438%20412.7344%2C256.4375%20412.5156%2C256.75%20L412.3438%2C256.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22113%22%20x%3D%22424%22%20y%3D%22265.8467%22%3EProjectManager%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22396%22%20x2%3D%22539%22%20y1%3D%22277%22%20y2%3D%22277%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22396%22%20x2%3D%22539%22%20y1%3D%22285%22%20y2%3D%22285%22%2F%3E%3C%2Fg%3E%3C!--class%20Boss--%3E%3Cg%20id%3D%22elem_Boss%22%3E%3Crect%20codeLine%3D%2228%22%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22Boss%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2265%22%20x%3D%22575%22%20y%3D%22245%22%2F%3E%3Cellipse%20cx%3D%22590%22%20cy%3D%22261%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M592.3438%2C256.6719%20C591.4063%2C256.2344%20590.8125%2C256.0938%20589.9375%2C256.0938%20C587.3125%2C256.0938%20585.3125%2C258.1719%20585.3125%2C260.8906%20L585.3125%2C262.0156%20C585.3125%2C264.5938%20587.4219%2C266.4844%20590.3125%2C266.4844%20C591.5313%2C266.4844%20592.6875%2C266.1875%20593.4375%2C265.6406%20C594.0156%2C265.2344%20594.3438%2C264.7813%20594.3438%2C264.3906%20C594.3438%2C263.9375%20593.9531%2C263.5469%20593.4844%2C263.5469%20C593.2656%2C263.5469%20593.0625%2C263.625%20592.875%2C263.8125%20C592.4219%2C264.2969%20592.4219%2C264.2969%20592.2344%2C264.3906%20C591.8125%2C264.6563%20591.125%2C264.7813%20590.3594%2C264.7813%20C588.3125%2C264.7813%20587.0156%2C263.6875%20587.0156%2C261.9844%20L587.0156%2C260.8906%20C587.0156%2C259.1094%20588.2656%2C257.7969%20590%2C257.7969%20C590.5781%2C257.7969%20591.1875%2C257.9531%20591.6563%2C258.2031%20C592.1406%2C258.4844%20592.3125%2C258.7031%20592.4063%2C259.1094%20C592.4688%2C259.5156%20592.5%2C259.6406%20592.6406%2C259.7656%20C592.7813%2C259.9063%20593.0156%2C260.0156%20593.2344%2C260.0156%20C593.5%2C260.0156%20593.7656%2C259.875%20593.9375%2C259.6563%20C594.0469%2C259.5%20594.0781%2C259.3125%20594.0781%2C258.8906%20L594.0781%2C257.4688%20C594.0781%2C257.0313%20594.0625%2C256.9063%20593.9688%2C256.75%20C593.8125%2C256.4844%20593.5313%2C256.3438%20593.2344%2C256.3438%20C592.9375%2C256.3438%20592.7344%2C256.4375%20592.5156%2C256.75%20L592.3438%2C256.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2233%22%20x%3D%22604%22%20y%3D%22265.8467%22%3EBoss%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22576%22%20x2%3D%22639%22%20y1%3D%22277%22%20y2%3D%22277%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22576%22%20x2%3D%22639%22%20y1%3D%22285%22%20y2%3D%22285%22%2F%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20id%3D%22elem_Program%22%3E%3Crect%20codeLine%3D%2234%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Program%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22253%22%20x%3D%22264%22%20y%3D%22353%22%2F%3E%3Cellipse%20cx%3D%22355.75%22%20cy%3D%22369%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M358.0938%2C364.6719%20C357.1563%2C364.2344%20356.5625%2C364.0938%20355.6875%2C364.0938%20C353.0625%2C364.0938%20351.0625%2C366.1719%20351.0625%2C368.8906%20L351.0625%2C370.0156%20C351.0625%2C372.5938%20353.1719%2C374.4844%20356.0625%2C374.4844%20C357.2813%2C374.4844%20358.4375%2C374.1875%20359.1875%2C373.6406%20C359.7656%2C373.2344%20360.0938%2C372.7813%20360.0938%2C372.3906%20C360.0938%2C371.9375%20359.7031%2C371.5469%20359.2344%2C371.5469%20C359.0156%2C371.5469%20358.8125%2C371.625%20358.625%2C371.8125%20C358.1719%2C372.2969%20358.1719%2C372.2969%20357.9844%2C372.3906%20C357.5625%2C372.6563%20356.875%2C372.7813%20356.1094%2C372.7813%20C354.0625%2C372.7813%20352.7656%2C371.6875%20352.7656%2C369.9844%20L352.7656%2C368.8906%20C352.7656%2C367.1094%20354.0156%2C365.7969%20355.75%2C365.7969%20C356.3281%2C365.7969%20356.9375%2C365.9531%20357.4063%2C366.2031%20C357.8906%2C366.4844%20358.0625%2C366.7031%20358.1563%2C367.1094%20C358.2188%2C367.5156%20358.25%2C367.6406%20358.3906%2C367.7656%20C358.5313%2C367.9063%20358.7656%2C368.0156%20358.9844%2C368.0156%20C359.25%2C368.0156%20359.5156%2C367.875%20359.6875%2C367.6563%20C359.7969%2C367.5%20359.8281%2C367.3125%20359.8281%2C366.8906%20L359.8281%2C365.4688%20C359.8281%2C365.0313%20359.8125%2C364.9063%20359.7188%2C364.75%20C359.5625%2C364.4844%20359.2813%2C364.3438%20358.9844%2C364.3438%20C358.6875%2C364.3438%20358.4844%2C364.4375%20358.2656%2C364.75%20L358.0938%2C364.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%22376.25%22%20y%3D%22373.8467%22%3EProgram%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22265%22%20x2%3D%22516%22%20y1%3D%22385%22%20y2%3D%22385%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22265%22%20x2%3D%22516%22%20y1%3D%22393%22%20y2%3D%22393%22%2F%3E%3Cellipse%20cx%3D%22275%22%20cy%3D%22406.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22227%22%20x%3D%22284%22%20y%3D%22409.9951%22%3Ehandle(Request%20request)%3A%20string%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20Request%20to%20Handler--%3E%3Cg%20id%3D%22link_Request_Handler%22%3E%3Cpath%20codeLine%3D%2224%22%20d%3D%22M326.298%2C96%20C337.806%2C96%20343.314%2C96%20354.823%2C96%20%22%20fill%3D%22none%22%20id%3D%22Request-backto-Handler%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22320.298%2C96%2C329.298%2C100%2C325.298%2C96%2C329.298%2C92%2C320.298%2C96%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Handler%20to%20Support--%3E%3Cg%20id%3D%22link_Handler_Support%22%3E%3Cpath%20codeLine%3D%2230%22%20d%3D%22M384.7671%2C197.7329%20C362.6721%2C219.8279%20353.528%2C228.972%20337.789%2C244.711%20%22%20fill%3D%22none%22%20id%3D%22Handler-backto-Support%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22397.495%2C185.005%2C380.5244%2C193.4903%2C389.0097%2C201.9756%2C397.495%2C185.005%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Handler%20to%20ProjectManager--%3E%3Cg%20id%3D%22link_Handler_ProjectManager%22%3E%3Cpath%20codeLine%3D%2231%22%20d%3D%22M474.3523%2C202.9062%20C472.0273%2C225.0012%20471.608%2C228.972%20469.951%2C244.711%20%22%20fill%3D%22none%22%20id%3D%22Handler-backto-ProjectManager%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22476.236%2C185.005%2C468.3853%2C202.2783%2C480.3194%2C203.5341%2C476.236%2C185.005%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Handler%20to%20Boss--%3E%3Cg%20id%3D%22link_Handler_Boss%22%3E%3Cpath%20codeLine%3D%2232%22%20d%3D%22M558.7413%2C199.6579%20C574.5053%2C221.7529%20579.655%2C228.972%20590.885%2C244.711%20%22%20fill%3D%22none%22%20id%3D%22Handler-backto-Boss%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22548.287%2C185.005%2C553.857%2C203.1427%2C563.6256%2C196.1731%2C548.287%2C185.005%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Request%20to%20Program--%3E%3Cg%20id%3D%22link_Request_Program%22%3E%3Cpath%20codeLine%3D%2239%22%20d%3D%22M184.3907%2C166.5299%20C198.2957%2C207.5869%20218.831%2C254.562%20251.5%2C293%20C272.234%2C317.3955%20301.12%2C337.7438%20327.191%2C352.9682%20%22%20fill%3D%22none%22%20id%3D%22Request-backto-Program%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22182.466%2C160.847%2C181.5644%2C170.6545%2C184.0699%2C165.5828%2C189.1416%2C168.0883%2C182.466%2C160.847%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Support%20to%20Program--%3E%3Cg%20id%3D%22link_Support_Program%22%3E%3Cpath%20codeLine%3D%2240%22%20d%3D%22M333.2081%2C298.0624%20C344.6581%2C315.2384%20357.09%2C333.8845%20369.67%2C352.7548%20%22%20fill%3D%22none%22%20id%3D%22Support-backto-Program%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22329.88%2C293.07%2C331.5438%2C302.7773%2C332.6534%2C297.2303%2C338.2004%2C298.3399%2C329.88%2C293.07%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20ProjectManager%20to%20Program--%3E%3Cg%20id%3D%22link_ProjectManager_Program%22%3E%3Cpath%20codeLine%3D%2241%22%20d%3D%22M448.5597%2C298.0421%20C436.9587%2C315.2181%20424.35%2C333.8845%20411.604%2C352.7548%20%22%20fill%3D%22none%22%20id%3D%22ProjectManager-backto-Program%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22451.918%2C293.07%2C443.5658%2C298.2893%2C449.1194%2C297.2134%2C450.1953%2C302.767%2C451.918%2C293.07%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Boss%20to%20Program--%3E%3Cg%20id%3D%22link_Boss_Program%22%3E%3Cpath%20codeLine%3D%2242%22%20d%3D%22M569.2304%2C290.1045%20C536.1514%2C307.4825%20489.785%2C331.8409%20449.601%2C352.9514%20%22%20fill%3D%22none%22%20id%3D%22Boss-backto-Program%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22574.542%2C287.314%2C564.7143%2C287.9586%2C570.1156%2C289.6394%2C568.4349%2C295.0408%2C574.542%2C287.314%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BXP2xJiGm44LxVuKbcgmWFx3QYcreG0ZIhsRDA8227SOJYHNmxpZZH-8qL8dFFEwzOmRmNZ_XvuIUrRVI-ahpPSIzzanljXTWd6MqN5Y0r_fq2ZY0oN0JkGpUfAOyj9Fc7haBnMQtsYlq6BjMXL-bu1p-mR0sukuExCk0bDoH6pRkmCQEJdm34LnYPqpLRUCaVjoacaiMlpZ9xOkkU7sLHvCkbNVKUJpomxAWITyqIl4InUqS-Un26B1pvhpuq2wwCVxpD8wEEBqUoRsZuNkmq8UU26-TzqfblSDFsvQf2cw6grhSKKHwWW-v-F_HQ_TvDXa8Q66rVbMQvTVW3m00%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：新產品開發（職責鏈模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/man-stand-in-map.webp",
+        "keywords": "Class Diagram",
+        "genre": "Clean Code",
+        "datePublished": "2020-12-11",
+        "dateCreated": "2020-12-11",
+        "dateModified": "2023-08-23",
+        "url": "https://yncbearz.github.io/2020/12/11/Class-Diagram-Software-Chain-Of-Responsibility-Pattern/",
+        "description": "Class Diagram:Software (Chain Of Responsibility Pattern)",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/12/20/Mediator-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            中介者模式
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/12/11/Example-Software-Chain-Of-Responsibility-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：新產品開發（職責鏈模式）</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/make-the-world-a-pretty-place.webp)" alt="如何使用 Hexo 來寫部落格" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="title">如何使用 Hexo 來寫部落格</a></p>
+                            <p class="item-date"><time datetime="2023-08-15T02:28:53.000Z" itemprop="datePublished">2023-08-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/08/Unicode-And-Character-Sets/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/code.webp)" alt="Unicode 與字元集" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/08/08/Unicode-And-Character-Sets/" class="title">Unicode 與字元集</a></p>
+                            <p class="item-date"><time datetime="2023-08-08T02:12:16.000Z" itemprop="datePublished">2023-08-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/02/Taipei-Trip-2023/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/tm_starry_night.webp)" alt="台北之旅@2023" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/07/02/Taipei-Trip-2023/" class="title">台北之旅@2023</a></p>
+                            <p class="item-date"><time datetime="2023-07-02T03:56:45.000Z" itemprop="datePublished">2023-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/27/Problem-Solving/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/puzzle.webp)" alt="Problem Solving" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/04/27/Problem-Solving/" class="title">Problem Solving</a></p>
+                            <p class="item-date"><time datetime="2023-04-27T01:35:42.000Z" itemprop="datePublished">2023-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/05/Three-Tier-Architecture/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/hamburger.webp)" alt="欸！你知道三層式架構嗎？" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/04/05/Three-Tier-Architecture/" class="title">欸！你知道三層式架構嗎？</a></p>
+                            <p class="item-date"><time datetime="2023-04-05T08:03:20.000Z" itemprop="datePublished">2023-04-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Coding-Interview/" rel="tag">Cracking the Coding Interview</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge/" rel="tag">Knowledge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '56d19e4c634cdf8459b12ff1c7357f59',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1692759175348')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

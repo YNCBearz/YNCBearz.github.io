@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>UML類別圖說明 | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Class Diagram" />
+    
+    <meta name="description" content="Class Diagram Description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UML類別圖說明">
+<meta property="og:url" content="https://yncbearz.github.io/2020/06/26/Class-Diagram-Description/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class Diagram Description">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/street-sign.webp">
+<meta property="article:published_time" content="2020-06-26T03:38:55.000Z">
+<meta property="article:modified_time" content="2023-08-23T02:51:38.492Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Class Diagram">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/street-sign.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Description"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        UML類別圖說明
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/06/26/Class-Diagram-Description/" class="article-date">
+       <time datetime="2020-06-26T03:38:55.000Z" itemprop="datePublished">2020-06-26</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a>
+    </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h2><h3 id="Class-diagram-describes-the-structure-of-a-system-by-showing-the-system’s-classes-their-attributes-operations-or-methods-and-the-relationships-among-objects"><a href="#Class-diagram-describes-the-structure-of-a-system-by-showing-the-system’s-classes-their-attributes-operations-or-methods-and-the-relationships-among-objects" class="headerlink" title="Class diagram describes the structure of a system by showing the system’s classes, their attributes, operations (or methods), and the relationships among objects."></a>Class diagram describes the structure of a system by showing the system’s classes, their attributes, operations (or methods), and the relationships among objects.</h3><blockquote>
+<p>類別圖描述了系統的類別集合，類別的屬性和類別之間的關係。</p>
+</blockquote>
+<hr>
+<h3 id="關聯-Association-：以實線箭頭表示。"><a href="#關聯-Association-：以實線箭頭表示。" class="headerlink" title="關聯 (Association) ：以實線箭頭表示。"></a>關聯 (Association) ：以實線箭頭表示。</h3><p>關聯關係使一個類別知道另外一個類別的屬性和方法；<br>通常含有「知道」、「瞭解」的含義。</p>
+<ul>
+<li>貓咪<strong>知道</strong>天氣情況</li>
+</ul>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%2278px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A279px%3Bheight%3A78px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20279%2078%22%20width%3D%22279px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20Cat--%3E%3Cg%20id%3D%22elem_Cat%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Cat%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22140%22%20x%3D%229%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%2262.25%22%20cy%3D%2223%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M64.5938%2C18.6719%20C63.6563%2C18.2344%2063.0625%2C18.0938%2062.1875%2C18.0938%20C59.5625%2C18.0938%2057.5625%2C20.1719%2057.5625%2C22.8906%20L57.5625%2C24.0156%20C57.5625%2C26.5938%2059.6719%2C28.4844%2062.5625%2C28.4844%20C63.7813%2C28.4844%2064.9375%2C28.1875%2065.6875%2C27.6406%20C66.2656%2C27.2344%2066.5938%2C26.7813%2066.5938%2C26.3906%20C66.5938%2C25.9375%2066.2031%2C25.5469%2065.7344%2C25.5469%20C65.5156%2C25.5469%2065.3125%2C25.625%2065.125%2C25.8125%20C64.6719%2C26.2969%2064.6719%2C26.2969%2064.4844%2C26.3906%20C64.0625%2C26.6563%2063.375%2C26.7813%2062.6094%2C26.7813%20C60.5625%2C26.7813%2059.2656%2C25.6875%2059.2656%2C23.9844%20L59.2656%2C22.8906%20C59.2656%2C21.1094%2060.5156%2C19.7969%2062.25%2C19.7969%20C62.8281%2C19.7969%2063.4375%2C19.9531%2063.9063%2C20.2031%20C64.3906%2C20.4844%2064.5625%2C20.7031%2064.6563%2C21.1094%20C64.7188%2C21.5156%2064.75%2C21.6406%2064.8906%2C21.7656%20C65.0313%2C21.9063%2065.2656%2C22.0156%2065.4844%2C22.0156%20C65.75%2C22.0156%2066.0156%2C21.875%2066.1875%2C21.6563%20C66.2969%2C21.5%2066.3281%2C21.3125%2066.3281%2C20.8906%20L66.3281%2C19.4688%20C66.3281%2C19.0313%2066.3125%2C18.9063%2066.2188%2C18.75%20C66.0625%2C18.4844%2065.7813%2C18.3438%2065.4844%2C18.3438%20C65.1875%2C18.3438%2064.9844%2C18.4375%2064.7656%2C18.75%20L64.5938%2C18.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2225%22%20x%3D%2282.75%22%20y%3D%2227.8467%22%3ECat%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22148%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2220%2C47.6484%2C24%2C51.6484%2C20%2C55.6484%2C16%2C51.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22114%22%20x%3D%2229%22%20y%3D%2255.9951%22%3EClimate%20climate%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22148%22%20y1%3D%2263.2969%22%20y2%3D%2263.2969%22%2F%3E%3C%2Fg%3E%3C!--class%20Climate--%3E%3Cg%20id%3D%22elem_Climate%22%3E%3Crect%20codeLine%3D%225%22%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22Climate%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2288%22%20x%3D%22184%22%20y%3D%2215%22%2F%3E%3Cellipse%20cx%3D%22199%22%20cy%3D%2231%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M201.3438%2C26.6719%20C200.4063%2C26.2344%20199.8125%2C26.0938%20198.9375%2C26.0938%20C196.3125%2C26.0938%20194.3125%2C28.1719%20194.3125%2C30.8906%20L194.3125%2C32.0156%20C194.3125%2C34.5938%20196.4219%2C36.4844%20199.3125%2C36.4844%20C200.5313%2C36.4844%20201.6875%2C36.1875%20202.4375%2C35.6406%20C203.0156%2C35.2344%20203.3438%2C34.7813%20203.3438%2C34.3906%20C203.3438%2C33.9375%20202.9531%2C33.5469%20202.4844%2C33.5469%20C202.2656%2C33.5469%20202.0625%2C33.625%20201.875%2C33.8125%20C201.4219%2C34.2969%20201.4219%2C34.2969%20201.2344%2C34.3906%20C200.8125%2C34.6563%20200.125%2C34.7813%20199.3594%2C34.7813%20C197.3125%2C34.7813%20196.0156%2C33.6875%20196.0156%2C31.9844%20L196.0156%2C30.8906%20C196.0156%2C29.1094%20197.2656%2C27.7969%20199%2C27.7969%20C199.5781%2C27.7969%20200.1875%2C27.9531%20200.6563%2C28.2031%20C201.1406%2C28.4844%20201.3125%2C28.7031%20201.4063%2C29.1094%20C201.4688%2C29.5156%20201.5%2C29.6406%20201.6406%2C29.7656%20C201.7813%2C29.9063%20202.0156%2C30.0156%20202.2344%2C30.0156%20C202.5%2C30.0156%20202.7656%2C29.875%20202.9375%2C29.6563%20C203.0469%2C29.5%20203.0781%2C29.3125%20203.0781%2C28.8906%20L203.0781%2C27.4688%20C203.0781%2C27.0313%20203.0625%2C26.9063%20202.9688%2C26.75%20C202.8125%2C26.4844%20202.5313%2C26.3438%20202.2344%2C26.3438%20C201.9375%2C26.3438%20201.7344%2C26.4375%20201.5156%2C26.75%20L201.3438%2C26.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2256%22%20x%3D%22213%22%20y%3D%2235.8467%22%3EClimate%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22185%22%20x2%3D%22271%22%20y1%3D%2247%22%20y2%3D%2247%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22185%22%20x2%3D%22271%22%20y1%3D%2255%22%20y2%3D%2255%22%2F%3E%3C%2Fg%3E%3C!--link%20Cat%20to%20Climate--%3E%3Cg%20id%3D%22link_Cat_Climate%22%3E%3Cpath%20codeLine%3D%227%22%20d%3D%22M149.135%2C39%20C160.739%2C39%20166.343%2C39%20177.946%2C39%20%22%20fill%3D%22none%22%20id%3D%22Cat-to-Climate%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22183.946%2C39%2C174.946%2C35%2C178.946%2C39%2C174.946%2C43%2C183.946%2C39%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BIyv9B2vMS4uiuQhcKb1GLd3EoSnDB4bLI8RGNBLSoH0LK3uNKAc2hXsC3m00%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<h3 id="實作-Implementation-：以空心三角形的虛線箭頭表示。"><a href="#實作-Implementation-：以空心三角形的虛線箭頭表示。" class="headerlink" title="實作 (Implementation) ：以空心三角形的虛線箭頭表示。"></a>實作 (Implementation) ：以空心三角形的虛線箭頭表示。</h3><p>實作關係指的是一個 class 類別實現 interface 介面。</p>
+<ul>
+<li>飛機<strong>實作</strong>可飛行介面</li>
+</ul>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22202px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A97px%3Bheight%3A202px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%2097%20202%22%20width%3D%2297px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20Flyable--%3E%3Cg%20id%3D%22elem_Flyable%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Flyable%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2283%22%20x%3D%227%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%2222%22%20cy%3D%2223%22%20fill%3D%22%23B4A7E5%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M22.9531%2C19.7813%20L24.6719%2C19.7813%20C25.0625%2C19.7813%2025.25%2C19.75%2025.375%2C19.6719%20C25.6406%2C19.5156%2025.7813%2C19.2344%2025.7813%2C18.9375%20C25.7813%2C18.6719%2025.6719%2C18.4063%2025.4375%2C18.2344%20C25.2656%2C18.125%2025.125%2C18.0938%2024.6719%2C18.0938%20L19.5313%2C18.0938%20C19.0938%2C18.0938%2018.9688%2C18.1094%2018.8125%2C18.2031%20C18.5625%2C18.3594%2018.4063%2C18.6563%2018.4063%2C18.9375%20C18.4063%2C19.2188%2018.5469%2C19.4688%2018.7656%2C19.6406%20C18.9219%2C19.75%2019.1094%2C19.7813%2019.5313%2C19.7813%20L21.25%2C19.7813%20L21.25%2C26.2969%20L19.5313%2C26.2969%20C19.0938%2C26.2969%2018.9688%2C26.3125%2018.8125%2C26.4219%20C18.5625%2C26.5781%2018.4063%2C26.8594%2018.4063%2C27.1563%20C18.4063%2C27.4063%2018.5469%2C27.6719%2018.7656%2C27.8281%20C18.9219%2C27.9531%2019.125%2C28%2019.5313%2C28%20L24.6719%2C28%20C25.4219%2C28%2025.7813%2C27.7188%2025.7813%2C27.1563%20C25.7813%2C26.875%2025.6719%2C26.625%2025.4375%2C26.4531%20C25.2656%2C26.3281%2025.125%2C26.2969%2024.6719%2C26.2969%20L22.9531%2C26.2969%20L22.9531%2C19.7813%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2251%22%20x%3D%2236%22%20y%3D%2227.8467%22%3EFlyable%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%2289%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%2289%22%20y1%3D%2247%22%20y2%3D%2247%22%2F%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%2260.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2228%22%20x%3D%2227%22%20y%3D%2263.9951%22%3Efly()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Plane--%3E%3Cg%20id%3D%22elem_Plane%22%3E%3Crect%20codeLine%3D%226%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Plane%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2271%22%20x%3D%2213%22%20y%3D%22131%22%2F%3E%3Cellipse%20cx%3D%2228%22%20cy%3D%22147%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M30.3438%2C142.6719%20C29.4063%2C142.2344%2028.8125%2C142.0938%2027.9375%2C142.0938%20C25.3125%2C142.0938%2023.3125%2C144.1719%2023.3125%2C146.8906%20L23.3125%2C148.0156%20C23.3125%2C150.5938%2025.4219%2C152.4844%2028.3125%2C152.4844%20C29.5313%2C152.4844%2030.6875%2C152.1875%2031.4375%2C151.6406%20C32.0156%2C151.2344%2032.3438%2C150.7813%2032.3438%2C150.3906%20C32.3438%2C149.9375%2031.9531%2C149.5469%2031.4844%2C149.5469%20C31.2656%2C149.5469%2031.0625%2C149.625%2030.875%2C149.8125%20C30.4219%2C150.2969%2030.4219%2C150.2969%2030.2344%2C150.3906%20C29.8125%2C150.6563%2029.125%2C150.7813%2028.3594%2C150.7813%20C26.3125%2C150.7813%2025.0156%2C149.6875%2025.0156%2C147.9844%20L25.0156%2C146.8906%20C25.0156%2C145.1094%2026.2656%2C143.7969%2028%2C143.7969%20C28.5781%2C143.7969%2029.1875%2C143.9531%2029.6563%2C144.2031%20C30.1406%2C144.4844%2030.3125%2C144.7031%2030.4063%2C145.1094%20C30.4688%2C145.5156%2030.5%2C145.6406%2030.6406%2C145.7656%20C30.7813%2C145.9063%2031.0156%2C146.0156%2031.2344%2C146.0156%20C31.5%2C146.0156%2031.7656%2C145.875%2031.9375%2C145.6563%20C32.0469%2C145.5%2032.0781%2C145.3125%2032.0781%2C144.8906%20L32.0781%2C143.4688%20C32.0781%2C143.0313%2032.0625%2C142.9063%2031.9688%2C142.75%20C31.8125%2C142.4844%2031.5313%2C142.3438%2031.2344%2C142.3438%20C30.9375%2C142.3438%2030.7344%2C142.4375%2030.5156%2C142.75%20L30.3438%2C142.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2239%22%20x%3D%2242%22%20y%3D%22151.8467%22%3EPlane%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2214%22%20x2%3D%2283%22%20y1%3D%22163%22%20y2%3D%22163%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2214%22%20x2%3D%2283%22%20y1%3D%22171%22%20y2%3D%22171%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%22184.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2228%22%20x%3D%2233%22%20y%3D%22187.9951%22%3Efly()%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20Flyable%20to%20Plane--%3E%3Cg%20id%3D%22link_Flyable_Plane%22%3E%3Cpath%20codeLine%3D%2211%22%20d%3D%22M48.5%2C89.101%20C48.5%2C107.457%2048.5%2C112.6101%2048.5%2C130.9554%20%22%20fill%3D%22none%22%20id%3D%22Flyable-backto-Plane%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3Bstroke-dasharray%3A7.0%2C7.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2248.5%2C71.101%2C42.5%2C89.101%2C54.5%2C89.101%2C48.5%2C71.101%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BoymhIIrAIqnELN3BgKnCoadbgkPIKD1MICkfrD3agkNYSiv9B2vM2CX9pCEGWkfGiAdHquEe0000%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<h3 id="聚合-Aggregation-：以空心菱形的實線表示。"><a href="#聚合-Aggregation-：以空心菱形的實線表示。" class="headerlink" title="聚合 (Aggregation)：以空心菱形的實線表示。"></a>聚合 (Aggregation)：以空心菱形的實線表示。</h3><p>聚合關係是整體與部分的「弱」包含關係。<br>部分類別可單獨存在，也可以屬於多個整體物件。</p>
+<p><strong>描述has-a的關係</strong></p>
+<ul>
+<li>學校<strong>包含</strong>學生、課堂<strong>包含</strong>學生</li>
+<li>學生可以單獨存在</li>
+</ul>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22202px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A338px%3Bheight%3A202px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20338%20202%22%20width%3D%22338px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20Student--%3E%3Cg%20id%3D%22elem_Student%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22Student%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2290%22%20x%3D%22205.5%22%20y%3D%22139%22%2F%3E%3Cellipse%20cx%3D%22220.5%22%20cy%3D%22155%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M222.8438%2C150.6719%20C221.9063%2C150.2344%20221.3125%2C150.0938%20220.4375%2C150.0938%20C217.8125%2C150.0938%20215.8125%2C152.1719%20215.8125%2C154.8906%20L215.8125%2C156.0156%20C215.8125%2C158.5938%20217.9219%2C160.4844%20220.8125%2C160.4844%20C222.0313%2C160.4844%20223.1875%2C160.1875%20223.9375%2C159.6406%20C224.5156%2C159.2344%20224.8438%2C158.7813%20224.8438%2C158.3906%20C224.8438%2C157.9375%20224.4531%2C157.5469%20223.9844%2C157.5469%20C223.7656%2C157.5469%20223.5625%2C157.625%20223.375%2C157.8125%20C222.9219%2C158.2969%20222.9219%2C158.2969%20222.7344%2C158.3906%20C222.3125%2C158.6563%20221.625%2C158.7813%20220.8594%2C158.7813%20C218.8125%2C158.7813%20217.5156%2C157.6875%20217.5156%2C155.9844%20L217.5156%2C154.8906%20C217.5156%2C153.1094%20218.7656%2C151.7969%20220.5%2C151.7969%20C221.0781%2C151.7969%20221.6875%2C151.9531%20222.1563%2C152.2031%20C222.6406%2C152.4844%20222.8125%2C152.7031%20222.9063%2C153.1094%20C222.9688%2C153.5156%20223%2C153.6406%20223.1406%2C153.7656%20C223.2813%2C153.9063%20223.5156%2C154.0156%20223.7344%2C154.0156%20C224%2C154.0156%20224.2656%2C153.875%20224.4375%2C153.6563%20C224.5469%2C153.5%20224.5781%2C153.3125%20224.5781%2C152.8906%20L224.5781%2C151.4688%20C224.5781%2C151.0313%20224.5625%2C150.9063%20224.4688%2C150.75%20C224.3125%2C150.4844%20224.0313%2C150.3438%20223.7344%2C150.3438%20C223.4375%2C150.3438%20223.2344%2C150.4375%20223.0156%2C150.75%20L222.8438%2C150.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2258%22%20x%3D%22234.5%22%20y%3D%22159.8467%22%3EStudent%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22206.5%22%20x2%3D%22294.5%22%20y1%3D%22171%22%20y2%3D%22171%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22206.5%22%20x2%3D%22294.5%22%20y1%3D%22179%22%20y2%3D%22179%22%2F%3E%3C%2Fg%3E%3C!--class%20Course--%3E%3Cg%20id%3D%22elem_Course%22%3E%3Crect%20codeLine%3D%223%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Course%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22161%22%20x%3D%229%22%20y%3D%22131%22%2F%3E%3Cellipse%20cx%3D%2260.75%22%20cy%3D%22147%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M63.0938%2C142.6719%20C62.1563%2C142.2344%2061.5625%2C142.0938%2060.6875%2C142.0938%20C58.0625%2C142.0938%2056.0625%2C144.1719%2056.0625%2C146.8906%20L56.0625%2C148.0156%20C56.0625%2C150.5938%2058.1719%2C152.4844%2061.0625%2C152.4844%20C62.2813%2C152.4844%2063.4375%2C152.1875%2064.1875%2C151.6406%20C64.7656%2C151.2344%2065.0938%2C150.7813%2065.0938%2C150.3906%20C65.0938%2C149.9375%2064.7031%2C149.5469%2064.2344%2C149.5469%20C64.0156%2C149.5469%2063.8125%2C149.625%2063.625%2C149.8125%20C63.1719%2C150.2969%2063.1719%2C150.2969%2062.9844%2C150.3906%20C62.5625%2C150.6563%2061.875%2C150.7813%2061.1094%2C150.7813%20C59.0625%2C150.7813%2057.7656%2C149.6875%2057.7656%2C147.9844%20L57.7656%2C146.8906%20C57.7656%2C145.1094%2059.0156%2C143.7969%2060.75%2C143.7969%20C61.3281%2C143.7969%2061.9375%2C143.9531%2062.4063%2C144.2031%20C62.8906%2C144.4844%2063.0625%2C144.7031%2063.1563%2C145.1094%20C63.2188%2C145.5156%2063.25%2C145.6406%2063.3906%2C145.7656%20C63.5313%2C145.9063%2063.7656%2C146.0156%2063.9844%2C146.0156%20C64.25%2C146.0156%2064.5156%2C145.875%2064.6875%2C145.6563%20C64.7969%2C145.5%2064.8281%2C145.3125%2064.8281%2C144.8906%20L64.8281%2C143.4688%20C64.8281%2C143.0313%2064.8125%2C142.9063%2064.7188%2C142.75%20C64.5625%2C142.4844%2064.2813%2C142.3438%2063.9844%2C142.3438%20C63.6875%2C142.3438%2063.4844%2C142.4375%2063.2656%2C142.75%20L63.0938%2C142.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2249%22%20x%3D%2281.25%22%20y%3D%22151.8467%22%3ECourse%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22169%22%20y1%3D%22163%22%20y2%3D%22163%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2220%2C171.6484%2C24%2C175.6484%2C20%2C179.6484%2C16%2C175.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22135%22%20x%3D%2229%22%20y%3D%22179.9951%22%3EStudent%5B%5D%20students%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22169%22%20y1%3D%22187.2969%22%20y2%3D%22187.2969%22%2F%3E%3C%2Fg%3E%3C!--class%20School--%3E%3Cg%20id%3D%22elem_School%22%3E%3Crect%20codeLine%3D%228%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22School%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22161%22%20x%3D%22170%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%22222.25%22%20cy%3D%2223%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M224.5938%2C18.6719%20C223.6563%2C18.2344%20223.0625%2C18.0938%20222.1875%2C18.0938%20C219.5625%2C18.0938%20217.5625%2C20.1719%20217.5625%2C22.8906%20L217.5625%2C24.0156%20C217.5625%2C26.5938%20219.6719%2C28.4844%20222.5625%2C28.4844%20C223.7813%2C28.4844%20224.9375%2C28.1875%20225.6875%2C27.6406%20C226.2656%2C27.2344%20226.5938%2C26.7813%20226.5938%2C26.3906%20C226.5938%2C25.9375%20226.2031%2C25.5469%20225.7344%2C25.5469%20C225.5156%2C25.5469%20225.3125%2C25.625%20225.125%2C25.8125%20C224.6719%2C26.2969%20224.6719%2C26.2969%20224.4844%2C26.3906%20C224.0625%2C26.6563%20223.375%2C26.7813%20222.6094%2C26.7813%20C220.5625%2C26.7813%20219.2656%2C25.6875%20219.2656%2C23.9844%20L219.2656%2C22.8906%20C219.2656%2C21.1094%20220.5156%2C19.7969%20222.25%2C19.7969%20C222.8281%2C19.7969%20223.4375%2C19.9531%20223.9063%2C20.2031%20C224.3906%2C20.4844%20224.5625%2C20.7031%20224.6563%2C21.1094%20C224.7188%2C21.5156%20224.75%2C21.6406%20224.8906%2C21.7656%20C225.0313%2C21.9063%20225.2656%2C22.0156%20225.4844%2C22.0156%20C225.75%2C22.0156%20226.0156%2C21.875%20226.1875%2C21.6563%20C226.2969%2C21.5%20226.3281%2C21.3125%20226.3281%2C20.8906%20L226.3281%2C19.4688%20C226.3281%2C19.0313%20226.3125%2C18.9063%20226.2188%2C18.75%20C226.0625%2C18.4844%20225.7813%2C18.3438%20225.4844%2C18.3438%20C225.1875%2C18.3438%20224.9844%2C18.4375%20224.7656%2C18.75%20L224.5938%2C18.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2248%22%20x%3D%22242.75%22%20y%3D%2227.8467%22%3ESchool%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22171%22%20x2%3D%22330%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22181%2C47.6484%2C185%2C51.6484%2C181%2C55.6484%2C177%2C51.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22135%22%20x%3D%22190%22%20y%3D%2255.9951%22%3EStudent%5B%5D%20students%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22171%22%20x2%3D%22330%22%20y1%3D%2263.2969%22%20y2%3D%2263.2969%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Course%20to%20Student--%3E%3Cg%20id%3D%22link_Course_Student%22%3E%3Cpath%20codeLine%3D%2213%22%20d%3D%22M182.314%2C163%20C194.008%2C163%20193.702%2C163%20205.396%2C163%20%22%20fill%3D%22none%22%20id%3D%22Course-backto-Student%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22170.314%2C163%2C176.314%2C167%2C182.314%2C163%2C176.314%2C159%2C170.314%2C163%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20School%20to%20Student--%3E%3Cg%20id%3D%22link_School_Student%22%3E%3Cpath%20codeLine%3D%2214%22%20d%3D%22M250.5%2C83.101%20C250.5%2C104.139%20250.5%2C119.4806%20250.5%2C138.6609%20%22%20fill%3D%22none%22%20id%3D%22School-backto-Student%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22250.5%2C71.101%2C246.5%2C77.101%2C250.5%2C83.101%2C254.5%2C77.101%2C250.5%2C71.101%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BIyv9B2vM22ufJKdDA-7YIWPpdVDBYufJkQgv51IKONBHiGh545OnLorCON1oHdv-3bw54BCKydNXba0q0KNWGW00%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<h3 id="組成（Composition）：以實心菱形的實線表示。"><a href="#組成（Composition）：以實心菱形的實線表示。" class="headerlink" title="組成（Composition）：以實心菱形的實線表示。"></a>組成（Composition）：以實心菱形的實線表示。</h3><p>組成關係是整體與部分的「強」包含關係。<br>部分類別無法單獨存在，其生命週期與整體相同。</p>
+<p><strong>描述contains-a的關係</strong></p>
+<ul>
+<li>手錶<strong>包含</strong>時針、時鐘<strong>包含</strong>時針</li>
+<li>時針無法單獨存在</li>
+</ul>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22186px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A241px%3Bheight%3A186px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20241%20186%22%20width%3D%22241px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20Watch--%3E%3Cg%20id%3D%22elem_Watch%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Watch%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2295%22%20x%3D%229%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%2231.65%22%20cy%3D%2223%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M33.9938%2C18.6719%20C33.0563%2C18.2344%2032.4625%2C18.0938%2031.5875%2C18.0938%20C28.9625%2C18.0938%2026.9625%2C20.1719%2026.9625%2C22.8906%20L26.9625%2C24.0156%20C26.9625%2C26.5938%2029.0719%2C28.4844%2031.9625%2C28.4844%20C33.1813%2C28.4844%2034.3375%2C28.1875%2035.0875%2C27.6406%20C35.6656%2C27.2344%2035.9938%2C26.7813%2035.9938%2C26.3906%20C35.9938%2C25.9375%2035.6031%2C25.5469%2035.1344%2C25.5469%20C34.9156%2C25.5469%2034.7125%2C25.625%2034.525%2C25.8125%20C34.0719%2C26.2969%2034.0719%2C26.2969%2033.8844%2C26.3906%20C33.4625%2C26.6563%2032.775%2C26.7813%2032.0094%2C26.7813%20C29.9625%2C26.7813%2028.6656%2C25.6875%2028.6656%2C23.9844%20L28.6656%2C22.8906%20C28.6656%2C21.1094%2029.9156%2C19.7969%2031.65%2C19.7969%20C32.2281%2C19.7969%2032.8375%2C19.9531%2033.3063%2C20.2031%20C33.7906%2C20.4844%2033.9625%2C20.7031%2034.0563%2C21.1094%20C34.1188%2C21.5156%2034.15%2C21.6406%2034.2906%2C21.7656%20C34.4313%2C21.9063%2034.6656%2C22.0156%2034.8844%2C22.0156%20C35.15%2C22.0156%2035.4156%2C21.875%2035.5875%2C21.6563%20C35.6969%2C21.5%2035.7281%2C21.3125%2035.7281%2C20.8906%20L35.7281%2C19.4688%20C35.7281%2C19.0313%2035.7125%2C18.9063%2035.6188%2C18.75%20C35.4625%2C18.4844%2035.1813%2C18.3438%2034.8844%2C18.3438%20C34.5875%2C18.3438%2034.3844%2C18.4375%2034.1656%2C18.75%20L33.9938%2C18.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2246%22%20x%3D%2247.35%22%20y%3D%2227.8467%22%3EWatch%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22103%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2220%2C47.6484%2C24%2C51.6484%2C20%2C55.6484%2C16%2C51.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2269%22%20x%3D%2229%22%20y%3D%2255.9951%22%3EHourHand%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22103%22%20y1%3D%2263.2969%22%20y2%3D%2263.2969%22%2F%3E%3C%2Fg%3E%3C!--class%20Clock--%3E%3Cg%20id%3D%22elem_Clock%22%3E%3Crect%20codeLine%3D%226%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22Clock%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2295%22%20x%3D%22139%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%22164.35%22%20cy%3D%2223%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M166.6938%2C18.6719%20C165.7563%2C18.2344%20165.1625%2C18.0938%20164.2875%2C18.0938%20C161.6625%2C18.0938%20159.6625%2C20.1719%20159.6625%2C22.8906%20L159.6625%2C24.0156%20C159.6625%2C26.5938%20161.7719%2C28.4844%20164.6625%2C28.4844%20C165.8813%2C28.4844%20167.0375%2C28.1875%20167.7875%2C27.6406%20C168.3656%2C27.2344%20168.6938%2C26.7813%20168.6938%2C26.3906%20C168.6938%2C25.9375%20168.3031%2C25.5469%20167.8344%2C25.5469%20C167.6156%2C25.5469%20167.4125%2C25.625%20167.225%2C25.8125%20C166.7719%2C26.2969%20166.7719%2C26.2969%20166.5844%2C26.3906%20C166.1625%2C26.6563%20165.475%2C26.7813%20164.7094%2C26.7813%20C162.6625%2C26.7813%20161.3656%2C25.6875%20161.3656%2C23.9844%20L161.3656%2C22.8906%20C161.3656%2C21.1094%20162.6156%2C19.7969%20164.35%2C19.7969%20C164.9281%2C19.7969%20165.5375%2C19.9531%20166.0063%2C20.2031%20C166.4906%2C20.4844%20166.6625%2C20.7031%20166.7563%2C21.1094%20C166.8188%2C21.5156%20166.85%2C21.6406%20166.9906%2C21.7656%20C167.1313%2C21.9063%20167.3656%2C22.0156%20167.5844%2C22.0156%20C167.85%2C22.0156%20168.1156%2C21.875%20168.2875%2C21.6563%20C168.3969%2C21.5%20168.4281%2C21.3125%20168.4281%2C20.8906%20L168.4281%2C19.4688%20C168.4281%2C19.0313%20168.4125%2C18.9063%20168.3188%2C18.75%20C168.1625%2C18.4844%20167.8813%2C18.3438%20167.5844%2C18.3438%20C167.2875%2C18.3438%20167.0844%2C18.4375%20166.8656%2C18.75%20L166.6938%2C18.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2240%22%20x%3D%22180.65%22%20y%3D%2227.8467%22%3EClock%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22140%22%20x2%3D%22233%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22150%2C47.6484%2C154%2C51.6484%2C150%2C55.6484%2C146%2C51.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2269%22%20x%3D%22159%22%20y%3D%2255.9951%22%3EHourHand%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22140%22%20x2%3D%22233%22%20y1%3D%2263.2969%22%20y2%3D%2263.2969%22%2F%3E%3C%2Fg%3E%3C!--class%20HourHand--%3E%3Cg%20id%3D%22elem_HourHand%22%3E%3Crect%20codeLine%3D%2211%22%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22HourHand%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22101%22%20x%3D%2271%22%20y%3D%22131%22%2F%3E%3Cellipse%20cx%3D%2286%22%20cy%3D%22147%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M88.3438%2C142.6719%20C87.4063%2C142.2344%2086.8125%2C142.0938%2085.9375%2C142.0938%20C83.3125%2C142.0938%2081.3125%2C144.1719%2081.3125%2C146.8906%20L81.3125%2C148.0156%20C81.3125%2C150.5938%2083.4219%2C152.4844%2086.3125%2C152.4844%20C87.5313%2C152.4844%2088.6875%2C152.1875%2089.4375%2C151.6406%20C90.0156%2C151.2344%2090.3438%2C150.7813%2090.3438%2C150.3906%20C90.3438%2C149.9375%2089.9531%2C149.5469%2089.4844%2C149.5469%20C89.2656%2C149.5469%2089.0625%2C149.625%2088.875%2C149.8125%20C88.4219%2C150.2969%2088.4219%2C150.2969%2088.2344%2C150.3906%20C87.8125%2C150.6563%2087.125%2C150.7813%2086.3594%2C150.7813%20C84.3125%2C150.7813%2083.0156%2C149.6875%2083.0156%2C147.9844%20L83.0156%2C146.8906%20C83.0156%2C145.1094%2084.2656%2C143.7969%2086%2C143.7969%20C86.5781%2C143.7969%2087.1875%2C143.9531%2087.6563%2C144.2031%20C88.1406%2C144.4844%2088.3125%2C144.7031%2088.4063%2C145.1094%20C88.4688%2C145.5156%2088.5%2C145.6406%2088.6406%2C145.7656%20C88.7813%2C145.9063%2089.0156%2C146.0156%2089.2344%2C146.0156%20C89.5%2C146.0156%2089.7656%2C145.875%2089.9375%2C145.6563%20C90.0469%2C145.5%2090.0781%2C145.3125%2090.0781%2C144.8906%20L90.0781%2C143.4688%20C90.0781%2C143.0313%2090.0625%2C142.9063%2089.9688%2C142.75%20C89.8125%2C142.4844%2089.5313%2C142.3438%2089.2344%2C142.3438%20C88.9375%2C142.3438%2088.7344%2C142.4375%2088.5156%2C142.75%20L88.3438%2C142.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2269%22%20x%3D%22100%22%20y%3D%22151.8467%22%3EHourHand%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2272%22%20x2%3D%22171%22%20y1%3D%22163%22%20y2%3D%22163%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2272%22%20x2%3D%22171%22%20y1%3D%22171%22%20y2%3D%22171%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Watch%20to%20HourHand--%3E%3Cg%20id%3D%22link_Watch_HourHand%22%3E%3Cpath%20codeLine%3D%2213%22%20d%3D%22M80.2053%2C81.5755%20C90.9556%2C100.4299%2098.4917%2C113.647%20108.2973%2C130.8446%20%22%20fill%3D%22none%22%20id%3D%22Watch-backto-HourHand%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%2274.2615%2C71.151%2C73.7586%2C78.3445%2C80.2053%2C81.5755%2C80.7083%2C74.382%2C74.2615%2C71.151%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Clock%20to%20HourHand--%3E%3Cg%20id%3D%22link_Clock_HourHand%22%3E%3Cpath%20codeLine%3D%2214%22%20d%3D%22M162.7943%2C81.5756%20C152.0443%2C100.43%20144.508%2C113.647%20134.703%2C130.8446%20%22%20fill%3D%22none%22%20id%3D%22Clock-backto-HourHand%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22168.738%2C71.151%2C162.2913%2C74.3821%2C162.7943%2C81.5756%2C169.241%2C78.3445%2C168.738%2C71.151%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BIyv9B2vM24yiISxWgkPIK51MyCWlBV98p4lXgkNYIWRBEkVa9sVZb8MBS85DKT3IrKM8WRMY2040%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<h3 id="繼承-Inheritance-：以空心三角形的實線箭頭表示。"><a href="#繼承-Inheritance-：以空心三角形的實線箭頭表示。" class="headerlink" title="繼承 (Inheritance)：以空心三角形的實線箭頭表示。"></a>繼承 (Inheritance)：以空心三角形的實線箭頭表示。</h3><p>繼承關係指的是父類別擁有子類別的共有功能。<br>而子類別可以視作父類別的特例。</p>
+<p><strong>描述is-a的關係</strong></p>
+<ul>
+<li>學生<strong>是</strong>人的特例、工程師<strong>是</strong>人的特例</li>
+</ul>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22170px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A261px%3Bheight%3A170px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20261%20170%22%20width%3D%22261px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20Person--%3E%3Cg%20id%3D%22elem_Person%22%3E%3Crect%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22Person%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2281%22%20x%3D%2281.5%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%2296.5%22%20cy%3D%2223%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M98.8438%2C18.6719%20C97.9063%2C18.2344%2097.3125%2C18.0938%2096.4375%2C18.0938%20C93.8125%2C18.0938%2091.8125%2C20.1719%2091.8125%2C22.8906%20L91.8125%2C24.0156%20C91.8125%2C26.5938%2093.9219%2C28.4844%2096.8125%2C28.4844%20C98.0313%2C28.4844%2099.1875%2C28.1875%2099.9375%2C27.6406%20C100.5156%2C27.2344%20100.8438%2C26.7813%20100.8438%2C26.3906%20C100.8438%2C25.9375%20100.4531%2C25.5469%2099.9844%2C25.5469%20C99.7656%2C25.5469%2099.5625%2C25.625%2099.375%2C25.8125%20C98.9219%2C26.2969%2098.9219%2C26.2969%2098.7344%2C26.3906%20C98.3125%2C26.6563%2097.625%2C26.7813%2096.8594%2C26.7813%20C94.8125%2C26.7813%2093.5156%2C25.6875%2093.5156%2C23.9844%20L93.5156%2C22.8906%20C93.5156%2C21.1094%2094.7656%2C19.7969%2096.5%2C19.7969%20C97.0781%2C19.7969%2097.6875%2C19.9531%2098.1563%2C20.2031%20C98.6406%2C20.4844%2098.8125%2C20.7031%2098.9063%2C21.1094%20C98.9688%2C21.5156%2099%2C21.6406%2099.1406%2C21.7656%20C99.2813%2C21.9063%2099.5156%2C22.0156%2099.7344%2C22.0156%20C100%2C22.0156%20100.2656%2C21.875%20100.4375%2C21.6563%20C100.5469%2C21.5%20100.5781%2C21.3125%20100.5781%2C20.8906%20L100.5781%2C19.4688%20C100.5781%2C19.0313%20100.5625%2C18.9063%20100.4688%2C18.75%20C100.3125%2C18.4844%20100.0313%2C18.3438%2099.7344%2C18.3438%20C99.4375%2C18.3438%2099.2344%2C18.4375%2099.0156%2C18.75%20L98.8438%2C18.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2249%22%20x%3D%22110.5%22%20y%3D%2227.8467%22%3EPerson%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2282.5%22%20x2%3D%22161.5%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2282.5%22%20x2%3D%22161.5%22%20y1%3D%2247%22%20y2%3D%2247%22%2F%3E%3C%2Fg%3E%3C!--class%20Student--%3E%3Cg%20id%3D%22elem_Student%22%3E%3Crect%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22Student%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%2290%22%20x%3D%227%22%20y%3D%22115%22%2F%3E%3Cellipse%20cx%3D%2222%22%20cy%3D%22131%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M24.3438%2C126.6719%20C23.4063%2C126.2344%2022.8125%2C126.0938%2021.9375%2C126.0938%20C19.3125%2C126.0938%2017.3125%2C128.1719%2017.3125%2C130.8906%20L17.3125%2C132.0156%20C17.3125%2C134.5938%2019.4219%2C136.4844%2022.3125%2C136.4844%20C23.5313%2C136.4844%2024.6875%2C136.1875%2025.4375%2C135.6406%20C26.0156%2C135.2344%2026.3438%2C134.7813%2026.3438%2C134.3906%20C26.3438%2C133.9375%2025.9531%2C133.5469%2025.4844%2C133.5469%20C25.2656%2C133.5469%2025.0625%2C133.625%2024.875%2C133.8125%20C24.4219%2C134.2969%2024.4219%2C134.2969%2024.2344%2C134.3906%20C23.8125%2C134.6563%2023.125%2C134.7813%2022.3594%2C134.7813%20C20.3125%2C134.7813%2019.0156%2C133.6875%2019.0156%2C131.9844%20L19.0156%2C130.8906%20C19.0156%2C129.1094%2020.2656%2C127.7969%2022%2C127.7969%20C22.5781%2C127.7969%2023.1875%2C127.9531%2023.6563%2C128.2031%20C24.1406%2C128.4844%2024.3125%2C128.7031%2024.4063%2C129.1094%20C24.4688%2C129.5156%2024.5%2C129.6406%2024.6406%2C129.7656%20C24.7813%2C129.9063%2025.0156%2C130.0156%2025.2344%2C130.0156%20C25.5%2C130.0156%2025.7656%2C129.875%2025.9375%2C129.6563%20C26.0469%2C129.5%2026.0781%2C129.3125%2026.0781%2C128.8906%20L26.0781%2C127.4688%20C26.0781%2C127.0313%2026.0625%2C126.9063%2025.9688%2C126.75%20C25.8125%2C126.4844%2025.5313%2C126.3438%2025.2344%2C126.3438%20C24.9375%2C126.3438%2024.7344%2C126.4375%2024.5156%2C126.75%20L24.3438%2C126.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2258%22%20x%3D%2236%22%20y%3D%22135.8467%22%3EStudent%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%2296%22%20y1%3D%22147%22%20y2%3D%22147%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%228%22%20x2%3D%2296%22%20y1%3D%22155%22%20y2%3D%22155%22%2F%3E%3C%2Fg%3E%3C!--class%20Programmer--%3E%3Cg%20id%3D%22elem_Programmer%22%3E%3Crect%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22Programmer%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22122%22%20x%3D%22132%22%20y%3D%22115%22%2F%3E%3Cellipse%20cx%3D%22147%22%20cy%3D%22131%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M149.3438%2C126.6719%20C148.4063%2C126.2344%20147.8125%2C126.0938%20146.9375%2C126.0938%20C144.3125%2C126.0938%20142.3125%2C128.1719%20142.3125%2C130.8906%20L142.3125%2C132.0156%20C142.3125%2C134.5938%20144.4219%2C136.4844%20147.3125%2C136.4844%20C148.5313%2C136.4844%20149.6875%2C136.1875%20150.4375%2C135.6406%20C151.0156%2C135.2344%20151.3438%2C134.7813%20151.3438%2C134.3906%20C151.3438%2C133.9375%20150.9531%2C133.5469%20150.4844%2C133.5469%20C150.2656%2C133.5469%20150.0625%2C133.625%20149.875%2C133.8125%20C149.4219%2C134.2969%20149.4219%2C134.2969%20149.2344%2C134.3906%20C148.8125%2C134.6563%20148.125%2C134.7813%20147.3594%2C134.7813%20C145.3125%2C134.7813%20144.0156%2C133.6875%20144.0156%2C131.9844%20L144.0156%2C130.8906%20C144.0156%2C129.1094%20145.2656%2C127.7969%20147%2C127.7969%20C147.5781%2C127.7969%20148.1875%2C127.9531%20148.6563%2C128.2031%20C149.1406%2C128.4844%20149.3125%2C128.7031%20149.4063%2C129.1094%20C149.4688%2C129.5156%20149.5%2C129.6406%20149.6406%2C129.7656%20C149.7813%2C129.9063%20150.0156%2C130.0156%20150.2344%2C130.0156%20C150.5%2C130.0156%20150.7656%2C129.875%20150.9375%2C129.6563%20C151.0469%2C129.5%20151.0781%2C129.3125%20151.0781%2C128.8906%20L151.0781%2C127.4688%20C151.0781%2C127.0313%20151.0625%2C126.9063%20150.9688%2C126.75%20C150.8125%2C126.4844%20150.5313%2C126.3438%20150.2344%2C126.3438%20C149.9375%2C126.3438%20149.7344%2C126.4375%20149.5156%2C126.75%20L149.3438%2C126.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2290%22%20x%3D%22161%22%20y%3D%22135.8467%22%3EProgrammer%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22133%22%20x2%3D%22253%22%20y1%3D%22147%22%20y2%3D%22147%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22133%22%20x2%3D%22253%22%20y1%3D%22155%22%20y2%3D%22155%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Person%20to%20Student--%3E%3Cg%20id%3D%22link_Person_Student%22%3E%3Cpath%20codeLine%3D%221%22%20d%3D%22M96.8921%2C70.0205%20C85.2312%2C87.6789%2079.1146%2C96.9408%2067.401%2C114.6784%20%22%20fill%3D%22none%22%20id%3D%22Person-backto-Student%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22106.811%2C55%2C91.8852%2C66.7142%2C101.8989%2C73.3268%2C106.811%2C55%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Person%20to%20Programmer--%3E%3Cg%20id%3D%22link_Person_Programmer%22%3E%3Cpath%20codeLine%3D%222%22%20d%3D%22M147.4227%2C69.9555%20C159.2497%2C87.6139%20165.498%2C96.9408%20177.379%2C114.6784%20%22%20fill%3D%22none%22%20id%3D%22Person-backto-Programmer%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22137.406%2C55%2C142.4375%2C73.2944%2C152.4078%2C66.6166%2C137.406%2C55%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5B2qWjAixFKx2fqTLL22ufJKdDA-4AG18BACfFBqhCpKqj0W00%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：學習Design Pattern的過程中，一定會遇到的圖形！<br>寫完才發現，自己很少描述<strong>聚合</strong>跟<strong>組成</strong>的關係。</p>
+
+        </div>
+        <footer class="article-footer">
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "UML類別圖說明",
+        "image": "https://yncbearz.github.io/images/thumbnails/street-sign.webp",
+        "keywords": "Class Diagram",
+        "genre": "Clean Code",
+        "datePublished": "2020-06-26",
+        "dateCreated": "2020-06-26",
+        "dateModified": "2023-08-23",
+        "url": "https://yncbearz.github.io/2020/06/26/Class-Diagram-Description/",
+        "description": "Class Diagram Description",
+        "wordCount": 98
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/06/27/Class-Diagram-Calculator-Simple-Factory-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            類別圖：計算機（簡單工廠模式）
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/06/25/Keep-It-Simple-Stupid/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">KISS 原則</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/make-the-world-a-pretty-place.webp)" alt="如何使用 Hexo 來寫部落格" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="title">如何使用 Hexo 來寫部落格</a></p>
+                            <p class="item-date"><time datetime="2023-08-15T02:28:53.000Z" itemprop="datePublished">2023-08-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/08/Unicode-And-Character-Sets/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/code.webp)" alt="Unicode 與字元集" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/08/08/Unicode-And-Character-Sets/" class="title">Unicode 與字元集</a></p>
+                            <p class="item-date"><time datetime="2023-08-08T02:12:16.000Z" itemprop="datePublished">2023-08-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/02/Taipei-Trip-2023/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/tm_starry_night.webp)" alt="台北之旅@2023" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/07/02/Taipei-Trip-2023/" class="title">台北之旅@2023</a></p>
+                            <p class="item-date"><time datetime="2023-07-02T03:56:45.000Z" itemprop="datePublished">2023-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/27/Problem-Solving/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/puzzle.webp)" alt="Problem Solving" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/04/27/Problem-Solving/" class="title">Problem Solving</a></p>
+                            <p class="item-date"><time datetime="2023-04-27T01:35:42.000Z" itemprop="datePublished">2023-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/05/Three-Tier-Architecture/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/hamburger.webp)" alt="欸！你知道三層式架構嗎？" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/04/05/Three-Tier-Architecture/" class="title">欸！你知道三層式架構嗎？</a></p>
+                            <p class="item-date"><time datetime="2023-04-05T08:03:20.000Z" itemprop="datePublished">2023-04-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Coding-Interview/" rel="tag">Cracking the Coding Interview</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge/" rel="tag">Knowledge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'be888e011197754ce3f19dddf9fce786',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1692759175348')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

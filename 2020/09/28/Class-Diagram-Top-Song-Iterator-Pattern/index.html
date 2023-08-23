@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：歌曲排行（迭代器模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Class Diagram" />
+    
+    <meta name="description" content="Class Diagram:Top Song (Iterator Pattern)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：歌曲排行（迭代器模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/09/28/Class-Diagram-Top-Song-Iterator-Pattern/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class Diagram:Top Song (Iterator Pattern)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/picnic.webp">
+<meta property="article:published_time" content="2020-09-28T04:22:49.000Z">
+<meta property="article:modified_time" content="2023-08-23T02:51:38.495Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Class Diagram">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/picnic.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Top-Song-Iterator-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：歌曲排行（迭代器模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/09/28/Class-Diagram-Top-Song-Iterator-Pattern/" class="article-date">
+       <time datetime="2020-09-28T04:22:49.000Z" itemprop="datePublished">2020-09-28</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a>
+    </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/09/27/Example-Top-Song-Iterator-Pattern/" title="範例：歌曲排行（迭代器模式）">歌曲排行</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22us-ascii%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20contentStyleType%3D%22text%2Fcss%22%20height%3D%22662px%22%20preserveAspectRatio%3D%22none%22%20style%3D%22width%3A989px%3Bheight%3A662px%3Bbackground%3A%23FFFFFF%3B%22%20version%3D%221.1%22%20viewBox%3D%220%200%20989%20662%22%20width%3D%22989px%22%20zoomAndPan%3D%22magnify%22%3E%3Cdefs%2F%3E%3Cg%3E%3C!--class%20Traversable--%3E%3Cg%20id%3D%22elem_Traversable%22%3E%3Crect%20codeLine%3D%221%22%20fill%3D%22%23F1F1F1%22%20height%3D%2248%22%20id%3D%22Traversable%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22117%22%20x%3D%22568.5%22%20y%3D%227%22%2F%3E%3Cellipse%20cx%3D%22583.5%22%20cy%3D%2223%22%20fill%3D%22%23B4A7E5%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M584.4531%2C19.7813%20L586.1719%2C19.7813%20C586.5625%2C19.7813%20586.75%2C19.75%20586.875%2C19.6719%20C587.1406%2C19.5156%20587.2813%2C19.2344%20587.2813%2C18.9375%20C587.2813%2C18.6719%20587.1719%2C18.4063%20586.9375%2C18.2344%20C586.7656%2C18.125%20586.625%2C18.0938%20586.1719%2C18.0938%20L581.0313%2C18.0938%20C580.5938%2C18.0938%20580.4688%2C18.1094%20580.3125%2C18.2031%20C580.0625%2C18.3594%20579.9063%2C18.6563%20579.9063%2C18.9375%20C579.9063%2C19.2188%20580.0469%2C19.4688%20580.2656%2C19.6406%20C580.4219%2C19.75%20580.6094%2C19.7813%20581.0313%2C19.7813%20L582.75%2C19.7813%20L582.75%2C26.2969%20L581.0313%2C26.2969%20C580.5938%2C26.2969%20580.4688%2C26.3125%20580.3125%2C26.4219%20C580.0625%2C26.5781%20579.9063%2C26.8594%20579.9063%2C27.1563%20C579.9063%2C27.4063%20580.0469%2C27.6719%20580.2656%2C27.8281%20C580.4219%2C27.9531%20580.625%2C28%20581.0313%2C28%20L586.1719%2C28%20C586.9219%2C28%20587.2813%2C27.7188%20587.2813%2C27.1563%20C587.2813%2C26.875%20587.1719%2C26.625%20586.9375%2C26.4531%20C586.7656%2C26.3281%20586.625%2C26.2969%20586.1719%2C26.2969%20L584.4531%2C26.2969%20L584.4531%2C19.7813%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2285%22%20x%3D%22597.5%22%20y%3D%2227.8467%22%3ETraversable%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22569.5%22%20x2%3D%22684.5%22%20y1%3D%2239%22%20y2%3D%2239%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22569.5%22%20x2%3D%22684.5%22%20y1%3D%2247%22%20y2%3D%2247%22%2F%3E%3C%2Fg%3E%3C!--class%20Iterator--%3E%3Cg%20id%3D%22elem_Iterator%22%3E%3Crect%20codeLine%3D%225%22%20fill%3D%22%23F1F1F1%22%20height%3D%22129.4844%22%20id%3D%22Iterator%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22142%22%20x%3D%22702%22%20y%3D%22115%22%2F%3E%3Cellipse%20cx%3D%22742.65%22%20cy%3D%22131%22%20fill%3D%22%23B4A7E5%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M743.6031%2C127.7813%20L745.3219%2C127.7813%20C745.7125%2C127.7813%20745.9%2C127.75%20746.025%2C127.6719%20C746.2906%2C127.5156%20746.4313%2C127.2344%20746.4313%2C126.9375%20C746.4313%2C126.6719%20746.3219%2C126.4063%20746.0875%2C126.2344%20C745.9156%2C126.125%20745.775%2C126.0938%20745.3219%2C126.0938%20L740.1813%2C126.0938%20C739.7438%2C126.0938%20739.6188%2C126.1094%20739.4625%2C126.2031%20C739.2125%2C126.3594%20739.0563%2C126.6563%20739.0563%2C126.9375%20C739.0563%2C127.2188%20739.1969%2C127.4688%20739.4156%2C127.6406%20C739.5719%2C127.75%20739.7594%2C127.7813%20740.1813%2C127.7813%20L741.9%2C127.7813%20L741.9%2C134.2969%20L740.1813%2C134.2969%20C739.7438%2C134.2969%20739.6188%2C134.3125%20739.4625%2C134.4219%20C739.2125%2C134.5781%20739.0563%2C134.8594%20739.0563%2C135.1563%20C739.0563%2C135.4063%20739.1969%2C135.6719%20739.4156%2C135.8281%20C739.5719%2C135.9531%20739.775%2C136%20740.1813%2C136%20L745.3219%2C136%20C746.0719%2C136%20746.4313%2C135.7188%20746.4313%2C135.1563%20C746.4313%2C134.875%20746.3219%2C134.625%20746.0875%2C134.4531%20C745.9156%2C134.3281%20745.775%2C134.2969%20745.3219%2C134.2969%20L743.6031%2C134.2969%20L743.6031%2C127.7813%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2253%22%20x%3D%22762.35%22%20y%3D%22135.8467%22%3EIterator%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22703%22%20x2%3D%22843%22%20y1%3D%22147%22%20y2%3D%22147%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22703%22%20x2%3D%22843%22%20y1%3D%22155%22%20y2%3D%22155%22%2F%3E%3Cellipse%20cx%3D%22713%22%20cy%3D%22168.6484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22116%22%20x%3D%22722%22%20y%3D%22171.9951%22%3Ecurrent()%3A%20mixed%3C%2Ftext%3E%3Cellipse%20cx%3D%22713%22%20cy%3D%22184.9453%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2286%22%20x%3D%22722%22%20y%3D%22188.292%22%3Ekey()%3A%20scalar%3C%2Ftext%3E%3Cellipse%20cx%3D%22713%22%20cy%3D%22201.2422%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2243%22%20x%3D%22722%22%20y%3D%22204.5889%22%3Enext()%3C%2Ftext%3E%3Cellipse%20cx%3D%22713%22%20cy%3D%22217.5391%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2258%22%20x%3D%22722%22%20y%3D%22220.8857%22%3Erewind()%3C%2Ftext%3E%3Cellipse%20cx%3D%22713%22%20cy%3D%22233.8359%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2284%22%20x%3D%22722%22%20y%3D%22237.1826%22%3Evalid()%3A%20bool%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20IteratorAggregate--%3E%3Cg%20id%3D%22elem_IteratorAggregate%22%3E%3Crect%20codeLine%3D%2214%22%20fill%3D%22%23F1F1F1%22%20height%3D%2264.2969%22%20id%3D%22IteratorAggregate%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22210%22%20x%3D%22377%22%20y%3D%22147.5%22%2F%3E%3Cellipse%20cx%3D%22414.5%22%20cy%3D%22163.5%22%20fill%3D%22%23B4A7E5%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M415.4531%2C160.2813%20L417.1719%2C160.2813%20C417.5625%2C160.2813%20417.75%2C160.25%20417.875%2C160.1719%20C418.1406%2C160.0156%20418.2813%2C159.7344%20418.2813%2C159.4375%20C418.2813%2C159.1719%20418.1719%2C158.9063%20417.9375%2C158.7344%20C417.7656%2C158.625%20417.625%2C158.5938%20417.1719%2C158.5938%20L412.0313%2C158.5938%20C411.5938%2C158.5938%20411.4688%2C158.6094%20411.3125%2C158.7031%20C411.0625%2C158.8594%20410.9063%2C159.1563%20410.9063%2C159.4375%20C410.9063%2C159.7188%20411.0469%2C159.9688%20411.2656%2C160.1406%20C411.4219%2C160.25%20411.6094%2C160.2813%20412.0313%2C160.2813%20L413.75%2C160.2813%20L413.75%2C166.7969%20L412.0313%2C166.7969%20C411.5938%2C166.7969%20411.4688%2C166.8125%20411.3125%2C166.9219%20C411.0625%2C167.0781%20410.9063%2C167.3594%20410.9063%2C167.6563%20C410.9063%2C167.9063%20411.0469%2C168.1719%20411.2656%2C168.3281%20C411.4219%2C168.4531%20411.625%2C168.5%20412.0313%2C168.5%20L417.1719%2C168.5%20C417.9219%2C168.5%20418.2813%2C168.2188%20418.2813%2C167.6563%20C418.2813%2C167.375%20418.1719%2C167.125%20417.9375%2C166.9531%20C417.7656%2C166.8281%20417.625%2C166.7969%20417.1719%2C166.7969%20L415.4531%2C166.7969%20L415.4531%2C160.2813%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20font-style%3D%22italic%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22128%22%20x%3D%22433.5%22%20y%3D%22168.3467%22%3EIteratorAggregate%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22378%22%20x2%3D%22586%22%20y1%3D%22179.5%22%20y2%3D%22179.5%22%2F%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22378%22%20x2%3D%22586%22%20y1%3D%22187.5%22%20y2%3D%22187.5%22%2F%3E%3Cellipse%20cx%3D%22388%22%20cy%3D%22201.1484%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22184%22%20x%3D%22397%22%20y%3D%22204.4951%22%3EgetIterator()%3A%20Traversable%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Song--%3E%3Cg%20id%3D%22elem_Song%22%3E%3Crect%20codeLine%3D%2222%22%20fill%3D%22%23F1F1F1%22%20height%3D%22178.375%22%20id%3D%22Song%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22232%22%20x%3D%229%22%20y%3D%22304%22%2F%3E%3Cellipse%20cx%3D%22102.75%22%20cy%3D%22320%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M105.0938%2C315.6719%20C104.1563%2C315.2344%20103.5625%2C315.0938%20102.6875%2C315.0938%20C100.0625%2C315.0938%2098.0625%2C317.1719%2098.0625%2C319.8906%20L98.0625%2C321.0156%20C98.0625%2C323.5938%20100.1719%2C325.4844%20103.0625%2C325.4844%20C104.2813%2C325.4844%20105.4375%2C325.1875%20106.1875%2C324.6406%20C106.7656%2C324.2344%20107.0938%2C323.7813%20107.0938%2C323.3906%20C107.0938%2C322.9375%20106.7031%2C322.5469%20106.2344%2C322.5469%20C106.0156%2C322.5469%20105.8125%2C322.625%20105.625%2C322.8125%20C105.1719%2C323.2969%20105.1719%2C323.2969%20104.9844%2C323.3906%20C104.5625%2C323.6563%20103.875%2C323.7813%20103.1094%2C323.7813%20C101.0625%2C323.7813%2099.7656%2C322.6875%2099.7656%2C320.9844%20L99.7656%2C319.8906%20C99.7656%2C318.1094%20101.0156%2C316.7969%20102.75%2C316.7969%20C103.3281%2C316.7969%20103.9375%2C316.9531%20104.4063%2C317.2031%20C104.8906%2C317.4844%20105.0625%2C317.7031%20105.1563%2C318.1094%20C105.2188%2C318.5156%20105.25%2C318.6406%20105.3906%2C318.7656%20C105.5313%2C318.9063%20105.7656%2C319.0156%20105.9844%2C319.0156%20C106.25%2C319.0156%20106.5156%2C318.875%20106.6875%2C318.6563%20C106.7969%2C318.5%20106.8281%2C318.3125%20106.8281%2C317.8906%20L106.8281%2C316.4688%20C106.8281%2C316.0313%20106.8125%2C315.9063%20106.7188%2C315.75%20C106.5625%2C315.4844%20106.2813%2C315.3438%20105.9844%2C315.3438%20C105.6875%2C315.3438%20105.4844%2C315.4375%20105.2656%2C315.75%20L105.0938%2C315.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2236%22%20x%3D%22123.25%22%20y%3D%22324.8467%22%3ESong%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22240%22%20y1%3D%22336%22%20y2%3D%22336%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2220%2C344.6484%2C24%2C348.6484%2C20%2C352.6484%2C16%2C348.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2291%22%20x%3D%2229%22%20y%3D%22352.9951%22%3Ename%3A%20string%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2220%2C360.9453%2C24%2C364.9453%2C20%2C368.9453%2C16%2C364.9453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2295%22%20x%3D%2229%22%20y%3D%22369.292%22%3Esinger%3A%20string%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%2220%2C377.2422%2C24%2C381.2422%2C20%2C385.2422%2C16%2C381.2422%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22167%22%20x%3D%2229%22%20y%3D%22385.5889%22%3EreleaseDate%3A%20DateTime%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%2210%22%20x2%3D%22240%22%20y1%3D%22392.8906%22%20y2%3D%22392.8906%22%2F%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22406.5391%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22165%22%20x%3D%2229%22%20y%3D%22409.8857%22%3E__construct(array%20data)%3C%2Ftext%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%224%22%20x%3D%2229%22%20y%3D%22426.1826%22%3E%26%23160%3B%3C%2Ftext%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22439.1328%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22127%22%20x%3D%2229%22%20y%3D%22442.4795%22%3EgetName()%3A%20string%3C%2Ftext%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22455.4297%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22132%22%20x%3D%2229%22%20y%3D%22458.7764%22%3EgetSinger()%3A%20string%3C%2Ftext%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22471.7266%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22206%22%20x%3D%2229%22%20y%3D%22475.0732%22%3EgetReleaseDate()%3A%20DateTime%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20SongCollection--%3E%3Cg%20id%3D%22elem_SongCollection%22%3E%3Crect%20codeLine%3D%2235%22%20fill%3D%22%23F1F1F1%22%20height%3D%22162.0781%22%20id%3D%22SongCollection%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22332%22%20x%3D%22276%22%20y%3D%22312%22%2F%3E%3Cellipse%20cx%3D%22383.25%22%20cy%3D%22328%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M385.5938%2C323.6719%20C384.6563%2C323.2344%20384.0625%2C323.0938%20383.1875%2C323.0938%20C380.5625%2C323.0938%20378.5625%2C325.1719%20378.5625%2C327.8906%20L378.5625%2C329.0156%20C378.5625%2C331.5938%20380.6719%2C333.4844%20383.5625%2C333.4844%20C384.7813%2C333.4844%20385.9375%2C333.1875%20386.6875%2C332.6406%20C387.2656%2C332.2344%20387.5938%2C331.7813%20387.5938%2C331.3906%20C387.5938%2C330.9375%20387.2031%2C330.5469%20386.7344%2C330.5469%20C386.5156%2C330.5469%20386.3125%2C330.625%20386.125%2C330.8125%20C385.6719%2C331.2969%20385.6719%2C331.2969%20385.4844%2C331.3906%20C385.0625%2C331.6563%20384.375%2C331.7813%20383.6094%2C331.7813%20C381.5625%2C331.7813%20380.2656%2C330.6875%20380.2656%2C328.9844%20L380.2656%2C327.8906%20C380.2656%2C326.1094%20381.5156%2C324.7969%20383.25%2C324.7969%20C383.8281%2C324.7969%20384.4375%2C324.9531%20384.9063%2C325.2031%20C385.3906%2C325.4844%20385.5625%2C325.7031%20385.6563%2C326.1094%20C385.7188%2C326.5156%20385.75%2C326.6406%20385.8906%2C326.7656%20C386.0313%2C326.9063%20386.2656%2C327.0156%20386.4844%2C327.0156%20C386.75%2C327.0156%20387.0156%2C326.875%20387.1875%2C326.6563%20C387.2969%2C326.5%20387.3281%2C326.3125%20387.3281%2C325.8906%20L387.3281%2C324.4688%20C387.3281%2C324.0313%20387.3125%2C323.9063%20387.2188%2C323.75%20C387.0625%2C323.4844%20386.7813%2C323.3438%20386.4844%2C323.3438%20C386.1875%2C323.3438%20385.9844%2C323.4375%20385.7656%2C323.75%20L385.5938%2C323.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22109%22%20x%3D%22403.75%22%20y%3D%22332.8467%22%3ESongCollection%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22277%22%20x2%3D%22607%22%20y1%3D%22344%22%20y2%3D%22344%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22287%2C352.6484%2C291%2C356.6484%2C287%2C360.6484%2C283%2C356.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22137%22%20x%3D%22296%22%20y%3D%22360.9951%22%3EdataOfSongs%3A%20array%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22287%2C368.9453%2C291%2C372.9453%2C287%2C376.9453%2C283%2C372.9453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2296%22%20x%3D%22296%22%20y%3D%22377.292%22%3Eitems%3A%20Song%5B%5D%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22277%22%20x2%3D%22607%22%20y1%3D%22384.5938%22%20y2%3D%22384.5938%22%2F%3E%3Cellipse%20cx%3D%22287%22%20cy%3D%22398.2422%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22225%22%20x%3D%22296%22%20y%3D%22401.5889%22%3E__construct(array%20dataOfSongs)%3C%2Ftext%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%224%22%20x%3D%22296%22%20y%3D%22417.8857%22%3E%26%23160%3B%3C%2Ftext%3E%3Crect%20fill%3D%22%23F24D5C%22%20height%3D%226%22%20style%3D%22stroke%3A%23C82930%3Bstroke-width%3A1.0%3B%22%20width%3D%226%22%20x%3D%22284%22%20y%3D%22427.8359%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22306%22%20x%3D%22296%22%20y%3D%22434.1826%22%3EgenerateSongs(array%20dataOfSongs)%3A%20Song%5B%5D%3C%2Ftext%3E%3Cellipse%20cx%3D%22287%22%20cy%3D%22447.1328%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22131%22%20x%3D%22296%22%20y%3D%22450.4795%22%3EgetItems()%3A%20Song%5B%5D%3C%2Ftext%3E%3Cellipse%20cx%3D%22287%22%20cy%3D%22463.4297%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22114%22%20x%3D%22296%22%20y%3D%22466.7764%22%3Ereverse()%3A%20static%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20SongIterator--%3E%3Cg%20id%3D%22elem_SongIterator%22%3E%3Crect%20codeLine%3D%2250%22%20fill%3D%22%23F1F1F1%22%20height%3D%2296.8906%22%20id%3D%22SongIterator%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22339%22%20x%3D%22643.5%22%20y%3D%22344.5%22%2F%3E%3Cellipse%20cx%3D%22762.75%22%20cy%3D%22360.5%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M765.0938%2C356.1719%20C764.1563%2C355.7344%20763.5625%2C355.5938%20762.6875%2C355.5938%20C760.0625%2C355.5938%20758.0625%2C357.6719%20758.0625%2C360.3906%20L758.0625%2C361.5156%20C758.0625%2C364.0938%20760.1719%2C365.9844%20763.0625%2C365.9844%20C764.2813%2C365.9844%20765.4375%2C365.6875%20766.1875%2C365.1406%20C766.7656%2C364.7344%20767.0938%2C364.2813%20767.0938%2C363.8906%20C767.0938%2C363.4375%20766.7031%2C363.0469%20766.2344%2C363.0469%20C766.0156%2C363.0469%20765.8125%2C363.125%20765.625%2C363.3125%20C765.1719%2C363.7969%20765.1719%2C363.7969%20764.9844%2C363.8906%20C764.5625%2C364.1563%20763.875%2C364.2813%20763.1094%2C364.2813%20C761.0625%2C364.2813%20759.7656%2C363.1875%20759.7656%2C361.4844%20L759.7656%2C360.3906%20C759.7656%2C358.6094%20761.0156%2C357.2969%20762.75%2C357.2969%20C763.3281%2C357.2969%20763.9375%2C357.4531%20764.4063%2C357.7031%20C764.8906%2C357.9844%20765.0625%2C358.2031%20765.1563%2C358.6094%20C765.2188%2C359.0156%20765.25%2C359.1406%20765.3906%2C359.2656%20C765.5313%2C359.4063%20765.7656%2C359.5156%20765.9844%2C359.5156%20C766.25%2C359.5156%20766.5156%2C359.375%20766.6875%2C359.1563%20C766.7969%2C359%20766.8281%2C358.8125%20766.8281%2C358.3906%20L766.8281%2C356.9688%20C766.8281%2C356.5313%20766.8125%2C356.4063%20766.7188%2C356.25%20C766.5625%2C355.9844%20766.2813%2C355.8438%20765.9844%2C355.8438%20C765.6875%2C355.8438%20765.4844%2C355.9375%20765.2656%2C356.25%20L765.0938%2C356.1719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2292%22%20x%3D%22783.25%22%20y%3D%22365.3467%22%3ESongIterator%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22644.5%22%20x2%3D%22981.5%22%20y1%3D%22376.5%22%20y2%3D%22376.5%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22654.5%2C385.1484%2C658.5%2C389.1484%2C654.5%2C393.1484%2C650.5%2C389.1484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22189%22%20x%3D%22663.5%22%20y%3D%22393.4951%22%3Ecollection%3A%20SongCollection%3C%2Ftext%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22654.5%2C401.4453%2C658.5%2C405.4453%2C654.5%2C409.4453%2C650.5%2C405.4453%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2288%22%20x%3D%22663.5%22%20y%3D%22409.792%22%3Eposition%3A%20int%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22644.5%22%20x2%3D%22981.5%22%20y1%3D%22417.0938%22%20y2%3D%22417.0938%22%2F%3E%3Cellipse%20cx%3D%22654.5%22%20cy%3D%22430.7422%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22313%22%20x%3D%22663.5%22%20y%3D%22434.0889%22%3E__construct(SongCollection%20songCollection)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20id%3D%22elem_Program%22%3E%3Crect%20codeLine%3D%2261%22%20fill%3D%22%23F1F1F1%22%20height%3D%22113.1875%22%20id%3D%22Program%22%20rx%3D%222.5%22%20ry%3D%222.5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20width%3D%22251%22%20x%3D%22316.5%22%20y%3D%22542%22%2F%3E%3Cellipse%20cx%3D%22407.25%22%20cy%3D%22558%22%20fill%3D%22%23ADD1B2%22%20rx%3D%2211%22%20ry%3D%2211%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpath%20d%3D%22M409.5938%2C553.6719%20C408.6563%2C553.2344%20408.0625%2C553.0938%20407.1875%2C553.0938%20C404.5625%2C553.0938%20402.5625%2C555.1719%20402.5625%2C557.8906%20L402.5625%2C559.0156%20C402.5625%2C561.5938%20404.6719%2C563.4844%20407.5625%2C563.4844%20C408.7813%2C563.4844%20409.9375%2C563.1875%20410.6875%2C562.6406%20C411.2656%2C562.2344%20411.5938%2C561.7813%20411.5938%2C561.3906%20C411.5938%2C560.9375%20411.2031%2C560.5469%20410.7344%2C560.5469%20C410.5156%2C560.5469%20410.3125%2C560.625%20410.125%2C560.8125%20C409.6719%2C561.2969%20409.6719%2C561.2969%20409.4844%2C561.3906%20C409.0625%2C561.6563%20408.375%2C561.7813%20407.6094%2C561.7813%20C405.5625%2C561.7813%20404.2656%2C560.6875%20404.2656%2C558.9844%20L404.2656%2C557.8906%20C404.2656%2C556.1094%20405.5156%2C554.7969%20407.25%2C554.7969%20C407.8281%2C554.7969%20408.4375%2C554.9531%20408.9063%2C555.2031%20C409.3906%2C555.4844%20409.5625%2C555.7031%20409.6563%2C556.1094%20C409.7188%2C556.5156%20409.75%2C556.6406%20409.8906%2C556.7656%20C410.0313%2C556.9063%20410.2656%2C557.0156%20410.4844%2C557.0156%20C410.75%2C557.0156%20411.0156%2C556.875%20411.1875%2C556.6563%20C411.2969%2C556.5%20411.3281%2C556.3125%20411.3281%2C555.8906%20L411.3281%2C554.4688%20C411.3281%2C554.0313%20411.3125%2C553.9063%20411.2188%2C553.75%20C411.0625%2C553.4844%20410.7813%2C553.3438%20410.4844%2C553.3438%20C410.1875%2C553.3438%20409.9844%2C553.4375%20409.7656%2C553.75%20L409.5938%2C553.6719%20Z%20%22%20fill%3D%22%23000000%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2261%22%20x%3D%22427.75%22%20y%3D%22562.8467%22%3EProgram%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22317.5%22%20x2%3D%22566.5%22%20y1%3D%22574%22%20y2%3D%22574%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22327.5%2C582.6484%2C331.5%2C586.6484%2C327.5%2C590.6484%2C323.5%2C586.6484%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22225%22%20x%3D%22336.5%22%20y%3D%22590.9951%22%3EsongCollection%3A%20SongCollection%3C%2Ftext%3E%3Cline%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20x1%3D%22317.5%22%20x2%3D%22566.5%22%20y1%3D%22598.2969%22%20y2%3D%22598.2969%22%2F%3E%3Cellipse%20cx%3D%22327.5%22%20cy%3D%22611.9453%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22167%22%20x%3D%22336.5%22%20y%3D%22615.292%22%3E__construct(array%20song)%3C%2Ftext%3E%3Cellipse%20cx%3D%22327.5%22%20cy%3D%22628.2422%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%2277%22%20x%3D%22336.5%22%20y%3D%22631.5889%22%3Elist()%3A%20array%3C%2Ftext%3E%3Cellipse%20cx%3D%22327.5%22%20cy%3D%22644.5391%22%20fill%3D%22%2384BE84%22%20rx%3D%223%22%20ry%3D%223%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1.0%3B%22%2F%3E%3Ctext%20fill%3D%22%23000000%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20lengthAdjust%3D%22spacing%22%20textLength%3D%22135%22%20x%3D%22336.5%22%20y%3D%22647.8857%22%3ElistReverse()%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20Traversable%20to%20Iterator--%3E%3Cg%20id%3D%22link_Traversable_Iterator%22%3E%3Cpath%20codeLine%3D%2219%22%20d%3D%22M662.8398%2C67.963%20C678.9208%2C84.1%20688.481%2C93.692%20709.646%2C114.929%20%22%20fill%3D%22none%22%20id%3D%22Traversable-backto-Iterator%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22650.134%2C55.213%2C658.5898%2C72.1983%2C667.0898%2C63.7278%2C650.134%2C55.213%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Traversable%20to%20IteratorAggregate--%3E%3Cg%20id%3D%22link_Traversable_IteratorAggregate%22%3E%3Cpath%20codeLine%3D%2220%22%20d%3D%22M591.3619%2C68.0064%20C566.6869%2C92.9374%20540.012%2C119.887%20512.699%2C147.484%20%22%20fill%3D%22none%22%20id%3D%22Traversable-backto-IteratorAggregate%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22604.024%2C55.213%2C587.0975%2C63.7857%2C595.6264%2C72.2271%2C604.024%2C55.213%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20IteratorAggregate%20to%20SongCollection--%3E%3Cg%20id%3D%22link_IteratorAggregate_SongCollection%22%3E%3Cpath%20codeLine%3D%2247%22%20d%3D%22M472.7527%2C229.3944%20C467.7757%2C255.7074%20463.775%2C276.863%20457.175%2C311.763%20%22%20fill%3D%22none%22%20id%3D%22IteratorAggregate-backto-SongCollection%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3Bstroke-dasharray%3A7.0%2C7.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22476.098%2C211.708%2C466.8572%2C228.2793%2C478.6482%2C230.5095%2C476.098%2C211.708%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Song%20to%20SongCollection--%3E%3Cg%20id%3D%22link_Song_SongCollection%22%3E%3Cpath%20codeLine%3D%2248%22%20d%3D%22M241.089%2C393%20C252.599%2C393%20252.11%2C393%20263.62%2C393%20%22%20fill%3D%22none%22%20id%3D%22Song-to-SongCollection%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22275.62%2C393%2C269.62%2C389%2C263.62%2C393%2C269.62%2C397%2C275.62%2C393%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Iterator%20to%20SongIterator--%3E%3Cg%20id%3D%22link_Iterator_SongIterator%22%3E%3Cpath%20codeLine%3D%2258%22%20d%3D%22M788.4005%2C261.9306%20C794.4725%2C294.0406%20798.368%2C314.635%20803.957%2C344.185%20%22%20fill%3D%22none%22%20id%3D%22Iterator-backto-SongIterator%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3Bstroke-dasharray%3A7.0%2C7.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22none%22%20points%3D%22785.056%2C244.244%2C782.505%2C263.0454%2C794.296%2C260.8157%2C785.056%2C244.244%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20SongCollection%20to%20SongIterator--%3E%3Cg%20id%3D%22link_SongCollection_SongIterator%22%3E%3Cpath%20codeLine%3D%2259%22%20d%3D%22M614.298%2C393%20C626.026%2C393%20631.753%2C393%20643.481%2C393%20%22%20fill%3D%22none%22%20id%3D%22SongCollection-backto-SongIterator%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22608.298%2C393%2C617.298%2C397%2C613.298%2C393%2C617.298%2C389%2C608.298%2C393%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20SongCollection%20to%20Program--%3E%3Cg%20id%3D%22link_SongCollection_Program%22%3E%3Cpath%20codeLine%3D%2270%22%20d%3D%22M442%2C480.136%20C442%2C502.826%20442%2C521.019%20442%2C541.916%20%22%20fill%3D%22none%22%20id%3D%22SongCollection-backto-Program%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3Cpolygon%20fill%3D%22%23181818%22%20points%3D%22442%2C474.136%2C438%2C483.136%2C442%2C479.136%2C446%2C483.136%2C442%2C474.136%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1.0%3B%22%2F%3E%3C%2Fg%3E%3C!--SRC%3D%5BVLDDJyCm3BttLqJQPHFgVa2r2u8B5q3RRWXDNkfL4Mc2d6niWlrtulIx7Logv3tRxzbEbV581v0ejWGd90TxZSbtSaqIrL9FuG3UKi25k1FoI8J6pnUPADKPymX-u8K19q43HSJWESJ48-6NCdbzEO5MESVkhTMtXUwBWh00ZxLYWRwXEB5lDUJthcBrawQTtp-PJY2H6fmJ6skAA3OJ1aeCZNXI0MB0XGFI02BK20uVGuLCy7Uhob2BlUvsqfeGUfH-3aHm4JbuM2HD8y-XV9nKKosYcwWnnTUT49EjrBLl_C5gZT8hQ-eMMF7bm9JBH3GHOUMn303ZR-__kQrpe-aqs30yDOpOZQYsOhUgqis7C24lecuSl9BSmMGROKdBvRWblehKZk5U_uFtEHEo3Sh6IKn_MgSgCZoywHI66S8Dhek-xSvjQs2Kl4g7TEtvbMn1KDPsXmeJot-iYREg_qah5__5PiyLiku6NX71-CHTsbZv1G00%5D--%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：歌曲排行（迭代器模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/picnic.webp",
+        "keywords": "Class Diagram",
+        "genre": "Clean Code",
+        "datePublished": "2020-09-28",
+        "dateCreated": "2020-09-28",
+        "dateModified": "2023-08-23",
+        "url": "https://yncbearz.github.io/2020/09/28/Class-Diagram-Top-Song-Iterator-Pattern/",
+        "description": "Class Diagram:Top Song (Iterator Pattern)",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/10/04/Proxy-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            代理模式
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/09/27/Example-Top-Song-Iterator-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：歌曲排行（迭代器模式）</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/make-the-world-a-pretty-place.webp)" alt="如何使用 Hexo 來寫部落格" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="title">如何使用 Hexo 來寫部落格</a></p>
+                            <p class="item-date"><time datetime="2023-08-15T02:28:53.000Z" itemprop="datePublished">2023-08-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/08/Unicode-And-Character-Sets/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/code.webp)" alt="Unicode 與字元集" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/08/08/Unicode-And-Character-Sets/" class="title">Unicode 與字元集</a></p>
+                            <p class="item-date"><time datetime="2023-08-08T02:12:16.000Z" itemprop="datePublished">2023-08-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/02/Taipei-Trip-2023/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/tm_starry_night.webp)" alt="台北之旅@2023" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/07/02/Taipei-Trip-2023/" class="title">台北之旅@2023</a></p>
+                            <p class="item-date"><time datetime="2023-07-02T03:56:45.000Z" itemprop="datePublished">2023-07-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/27/Problem-Solving/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/puzzle.webp)" alt="Problem Solving" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/04/27/Problem-Solving/" class="title">Problem Solving</a></p>
+                            <p class="item-date"><time datetime="2023-04-27T01:35:42.000Z" itemprop="datePublished">2023-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/05/Three-Tier-Architecture/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/hamburger.webp)" alt="欸！你知道三層式架構嗎？" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/04/05/Three-Tier-Architecture/" class="title">欸！你知道三層式架構嗎？</a></p>
+                            <p class="item-date"><time datetime="2023-04-05T08:03:20.000Z" itemprop="datePublished">2023-04-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Coding-Interview/" rel="tag">Cracking the Coding Interview</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge/" rel="tag">Knowledge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'd7a91e16c7f254ae62a62b5143d6e55c',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1692759175348')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
