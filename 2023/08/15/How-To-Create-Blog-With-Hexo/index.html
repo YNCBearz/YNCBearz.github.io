@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/make-the-world-a-pretty-place.webp">
 <meta property="article:published_time" content="2023-08-15T02:28:53.000Z">
-<meta property="article:modified_time" content="2023-08-23T02:51:38.507Z">
+<meta property="article:modified_time" content="2023-08-25T09:03:29.497Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
@@ -271,15 +271,16 @@
 <p>我們可以透過<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo Themes</a>來選擇自己喜歡的主題。</p>
 <p>以下推薦幾個比較常見的主題：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">next</a>: 最多工程師使用的主題之一，也因此有最多的 plugin 可以安裝。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">next</a>: 本文示範用的主題，最多工程師使用的主題之一，也因此有最多的 plugin 可以安裝。</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-hueman">hueman</a>: 筆者使用的主題，覺得相當好看。</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">fluid</a>: 撰寫文章時，意外發現也不錯的主題。</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-icarus">icarus</a>: 本文示範用的主題，與 hueman 為同一名作者。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-icarus">icarus</a>: 與 hueman 為同一名作者。</li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-S</span> hexo<span class="literal">-theme-icarus</span> hexo<span class="literal">-renderer-inferno</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/next<span class="literal">-theme</span>/hexo<span class="literal">-theme-next</span> themes/next</span><br><span class="line"><span class="built_in">Remove-Item</span> <span class="literal">-Force</span> <span class="literal">-Recurse</span> .\themes\next\.git</span><br></pre></td></tr></table></figure>
 
+<p>(Note.)<br>這邊建議大家可能會看到兩種安裝方式：npm install &amp; git clone 到 themes。<br>推薦使用 git clone，可以比較多的自由度。</p>
 <p>於 _config.yml 的 theme 設定中</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">icarus</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
 
 <p>每個主題的安裝方式略有不同，可以參考他們的 github 。</p>
 <p>再下一次指令，看看主題變更的如何吧！</p>
@@ -293,8 +294,31 @@
 <blockquote>
 <p>Step 6: 將部落格部署到 github.io</p>
 </blockquote>
-<p>首先在 github 新增一個 repository 來將 source code 推上去。</p>
-<p>接著新增另一個 username.github.io 的 repository 來作為靜態頁面。<br>可參考 <a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/quickstart">GitHub Pages</a>。</p>
+<p>首先在 github 新增一個 private repository 來將 source code 推上去。</p>
+<p><img src="/../images/notes/2023/08/create-private-blog-repository.png"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:&#123;username&#125;/blog.git</span><br><span class="line">git push <span class="literal">-u</span> origin main</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>git push error (optional)</li>
+</ul>
+<p><img src="/../images/notes/2023/08/git-push-error.png"></p>
+<p>如果有遇到上述錯誤的話，可參考以下流程。</p>
+<blockquote>
+<p>先查看 git config 中的 email name</p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>用上述的 email name 產生 ssh key，其中 {your_name} 請替換成電腦的使用者名稱</p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh<span class="literal">-keygen</span> <span class="literal">-t</span> rsa <span class="literal">-b</span> <span class="number">4096</span> <span class="literal">-C</span> <span class="string">&quot;&#123;your_email&#125;@example.com&quot;</span></span><br><span class="line"><span class="built_in">Get-Content</span> C:\Users\&#123;your_name&#125;\.ssh\id_rsa.pub | <span class="built_in">Set-Clipboard</span></span><br></pre></td></tr></table></figure>
+
+<p>之後到 GitHub &#x2F; Settings &#x2F; SH and GPG keys &#x2F; New SSH Key</p>
+<p><img src="/../images/notes/2023/08/add_ssh_key.png"></p>
+<hr>
+<p>接著新增另一個 username.github.io 的 repository 來作為靜態頁面。</p>
+<p><img src="/../images/notes/2023/08/create-github-io-repository.png"></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo<span class="literal">-deployer-git</span> <span class="literal">--save</span></span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -306,10 +330,40 @@
 
 <p>最後設定 github page 即大功告成！</p>
 <p><img src="/../images/notes/2023/08/github-page.png"></p>
+<blockquote>
+<p>Step 7: 產生 sitemap，讓 Google 搜尋</p>
+</blockquote>
+<ul>
+<li>安裝 hexo-generator-sitemap</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo<span class="literal">-generator-sitemap</span> <span class="literal">--save</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>設定 _config.yml</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.txt</span></span><br><span class="line">  <span class="attr">rel:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>將 sitemap 推上去</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>檢查 sitemap.txt</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://&#123;username&#125;.github.io/sitemap.txt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>設定 Google Search Console</li>
+</ul>
+<p><img src="/../images/notes/2023/08/google-search-console.png"></p>
+<p><img src="/../images/2023/08/sitemap.png"></p>
 <hr>
 <p>(Reference.)</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/">Hexo</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</a></li>
+<li><a target="_blank" rel="noopener" href="https://askie.today/upload-sitemap-google-search-console-seo-hexo-blog/">輕鬆地提交 Hexo 部落格的 Sitemap.xml 到 Google Search Console</a></li>
 </ul>
 <hr>
 <p>ʕ •ᴥ•ʔ：希望大家都能 enjoy 寫部落格的過程。</p>
@@ -332,10 +386,10 @@
         "genre": "Programming",
         "datePublished": "2023-08-15",
         "dateCreated": "2023-08-15",
-        "dateModified": "2023-08-23",
+        "dateModified": "2023-08-25",
         "url": "https://yncbearz.github.io/2023/08/15/How-To-Create-Blog-With-Hexo/",
         "description": "How-To-Create-Blog-With-Hexo",
-        "wordCount": 231
+        "wordCount": 425
     }
 </script>
 
@@ -684,7 +738,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1692759175348')
+  navigator.serviceWorker.register('/sw.js?t=1692954248454')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
