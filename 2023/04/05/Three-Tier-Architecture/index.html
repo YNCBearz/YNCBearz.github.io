@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/hamburger.webp">
 <meta property="article:published_time" content="2023-04-05T08:03:20.000Z">
-<meta property="article:modified_time" content="2023-08-23T02:51:38.515Z">
+<meta property="article:modified_time" content="2023-09-07T07:19:33.870Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
@@ -239,7 +239,7 @@
 
             
 
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在瀏覽網頁時，其實是在跟三個不同層次組成的系統進行互動。<br>這個系統就是Web的三層式架構：</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在瀏覽網頁時，其實是在跟三個不同層次組成的系統進行互動。<br>這個系統就是 Web 的三層式架構：</p>
 <ul>
 <li>Presentation Layer (View, Middleware, Controller, …)</li>
 <li>Application Layer (Service, Domain Model, …)</li>
@@ -248,32 +248,39 @@
 <hr>
 <h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p><strong>職責：</strong></p>
 <ul>
-<li>Routing解析 (Http, gRPC, …)</li>
-<li>驗證Request (確保格式、權限等是正確的)</li>
-<li>將Request轉成DTO，交給Service處理</li>
-<li>依據Service回傳的Domain Model，準備Response</li>
-<li>Exception處理</li>
-<li>Cache管理</li>
+<li>Routing 解析 (Http, gRPC, …)</li>
+<li>驗證 Request (確保格式、權限等是正確的)</li>
+<li>將 Request 轉成 DTO，交給 Service 處理</li>
+<li>依據 Service 回傳的 Domain Model，準備 Response</li>
+<li>Exception 處理</li>
+<li>Cache 管理</li>
+</ul>
+<hr>
+<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p><strong>職責：</strong></p>
+<ul>
+<li>Global Exception Handler</li>
+<li>Log Handler</li>
+<li>Validator</li>
 </ul>
 <hr>
 <h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p><strong>職責：</strong></p>
 <ul>
-<li>Transaction處理 (begin, commit, rollback)</li>
-<li>調用Domain Model (包含從Repository取得、自己Contruct等)</li>
-<li>讓Domain Model彼此去互動</li>
+<li>Transaction 處理 (begin, commit, rollback)</li>
+<li>調用 Domain Model (包含從 Repository 取得、自己 Contruct 等)</li>
+<li>讓 Domain Model 彼此去互動</li>
 <li>資料驗證 (確保其合法性、完整性等)</li>
 </ul>
 <hr>
 <h2 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h2><p><strong>職責：</strong></p>
 <ul>
 <li>處理DB Connection</li>
-<li>處理外部API呼叫 (Signature, Url, …)</li>
-<li>從資料來源檢索並轉換成Domain Model</li>
-<li>進或出會是Domain Model</li>
-<li>Repository的命名依據Domain Model為主，跟table name只是剛好撞名！！</li>
+<li>處理外部 API 呼叫 (Signature, Url, …)</li>
+<li>從資料來源檢索並轉換成 Domain Model</li>
+<li>進或出會是 Domain Model</li>
+<li>Repository的命名依據 Domain Model 為主，跟 table name 只是剛好撞名</li>
 </ul>
 <hr>
-<p>ʕ •ᴥ•ʔ：這是目前與<a target="_blank" rel="noopener" href="https://github.com/yohey03518">Erwin</a>討論及請教chatgpt後的理解，未來有可能因開發經驗的增加或團隊組成而再發生改變。</p>
+<p>ʕ •ᴥ•ʔ：這是目前與 <a target="_blank" rel="noopener" href="https://github.com/yohey03518">Erwin</a> 討論及請教<a target="_blank" rel="noopener" href="https://github.com/hatelove">91</a> 後的理解，<br>未來有可能因開發經驗的增加或團隊組成而再發生改變。</p>
 
         </div>
         <footer class="article-footer">
@@ -293,10 +300,10 @@
         "genre": "Programming",
         "datePublished": "2023-04-05",
         "dateCreated": "2023-04-05",
-        "dateModified": "2023-08-23",
+        "dateModified": "2023-09-07",
         "url": "https://yncbearz.github.io/2023/04/05/Three-Tier-Architecture/",
         "description": "Three-Tier-Architecture",
-        "wordCount": 54
+        "wordCount": 96
     }
 </script>
 
@@ -655,7 +662,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1693895619328')
+  navigator.serviceWorker.register('/sw.js?t=1694071278720')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
