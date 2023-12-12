@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>Kubernetes | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Private Note" />
+    
+    <meta name="description" content="Password-Protected-Content">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes">
+<meta property="og:url" content="https://yncbearz.github.io/2023/11/28/Kubernetes/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Password-Protected-Content">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/boat.webp">
+<meta property="article:published_time" content="2023-11-28T15:08:03.000Z">
+<meta property="article:modified_time" content="2023-12-04T07:55:53.805Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Private Note">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/boat.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Kubernetes"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        Kubernetes
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/11/28/Kubernetes/" class="article-date">
+       <time datetime="2023-11-28T15:08:03.000Z" itemprop="datePublished">2023-11-28</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Private-Note/" rel="tag">Private Note</a>
+    </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="The password is incorrect. Try again." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="aad4d6f4342f1b82a0493c74e3240d33269f6068acba2649074e37f0e99e233d">c6651e4bcda59a4397bcdc1be7da6fb5f6cd3b44e6519c5f5998fbf3afff026f36faa8089829239d0307326a7de53a64319a01f47c2b193e5182ddcdf5352c90dc309d767df6fa98ae173ba9d304f69863cd57185b43431049b1b31148d2b21d85fd241f53361090bd7f871b979140210e4172fa534c5c23b6ce7c296f6fbbd88bb49b2bba622909fdbf0b56a7e4eb965a086a12c684770d064b08600ae0fdf43fd022982c62fbc530a0fd55d1b3dc1b9aaf4de12214b9ebde01c2af12022162172fd9a9f44cb6c9c33706e0d38bd7e6c0b206e9c7533c74e0d1fff2512a8bca04a80ab1729e7c84bf5734ab99cc472636b2a102503f5fe6ccb98e160e5e70bec68c50d4d00cb0b43caf37441f008daadab1607cdc31290d9368f79e73743a89ff012de324a1856e35b0a5e1315747603691259ee180e5129497068c3c7373df86a4dbf77aa4b945cbd60b95665ebe24fbcb8f4f4eb5e70bf4aaba4a1d435c705ff52921cfe74654684e90b54b64a3c556da5e183e21e3b7e6c96f1fcc93a416b76b4066783873ccfeee84893bea75924bab5595606c12d83d897f6e05bfcdb1f6da79b5fc58d919b2cbd25f1f391c5d112d9dba6bbd486e8e39265bb6eb6db731c24cf862eb5ae023247a83bb28b6e1839c8f3156967888938864f9c7536f4b2675a1848493ce5c049f78d6def4aacdb5851f0949f0a70ddc9aecf4cae88d83ff550c083858b56fb0bb9fd9d20f36d1abe0506dcab248414b8195e9cd7e24192183a3383c424e9452af95883bbc16259ac5a1a78586153b90a8b4394ec950c458aba4282f8d4119b6a94429656bfa60f11611e9d75d16af5d986d87d705ee005d21d89e77feebd09d8095e4d9b5266243f1ab524124a8f1e48f4b2e904b2a15fdb5cc978ffb3f6e05aeefb39b4da57095b6acf217b882a8cd378358dd1b80b3f45054e3d4116c7f03803c7c68225c6607649979febebc0a465f1a8674e801f9e450119a7c414fcaf6287ad5d86a53c3d84bffc2577b61f3b2080e75c0d6de935bdde410018dfc24c54c90b9294244d2f2adece6cb333845a5c033e2632ed4f039736ba1057fa17e84e127b1c4edcf98570deebb8de9430af5198ae2a440419ef21b30d194f0b52246d7941ef9eccde32e3c358d8b56ce161225f614a19c22bd63726442215106b8d8fe4e3972690548a3cc2ad817b6c156f2d97d8166c365dd4715fafbe313639d86b602aae90c5b300f2ae7a2b1cda62a29f93fef667508e6488cdc6840464011693dbcc59a2205dbd707db9cef31d2fa9c01eab4dfd0d33d575b596d6fa0115b582065faeaa8594364826d74f6d9b61197aaede8cc472117c32cefcf19845ea95b7768becc1493aceb7f888e535061128ffe976da0ecad8c81b9cec2fb18ecb031a95dc06c52b08e06414547b34a1cc38312b917a20e0104f3e322a0191d437881b9da10fab337510dda8a96f7a5a943b9261bc37bf63d31254e3eb4b61129de7a76f808d3a2af23ede7d5435e2f9de8ba0de16f9cfc10fbbe7bb37a9d2021ab456c488f40833b243c4544dcb4d445cc6adc5e265bd851ab0c3fa7bc5c17c67cf64cee4d0ca18605cab605c5b37829258dc2a71fd6b3672f74ce33bf3e5a1dc5ad89c678dc906915e1c7c070f2ba43e25fb0876e61e041899a080f019dc6f92d6ca954e19fbbc4a6f1a358fec6fc8981c2928a413e42003405da1fc6b294cfcd3170e5208da7784b6d8d25d29a2c3b696da011adacdfb61d12262a15fa9ae6a12cd79d41f645139283cd7136bc2ae5ddbfe886771b506aee9afcf83f6e4803283272411dcbff2655318f0d0a84a92dee93bb6abb1ef379d31f0b8411c20e825dacb79d34ed3f0bbc76a5e63cd40a9cc0500d27601eeab2e3073ba7b1b8887df3003074023447732975221bca8ef37e5540c72c5f64486072443f2bf6e3bc01487ca600dcb34d07cad02fac912114e7c646a699c2207416ba81cc15c78ba18fe5dfaf23c49f02832e2f547c947e5dda7f373e6c2aec5e92f3f8b05862fa395e81b83c130f0cfe92b0e013c94c29efe6c8397177972390891d681e11e352d292116678ea0ec508513c9e07610e6e0a2891bde2fde703b4c3fe907b1bbe589b418e26cfa4b94d2ca2243f9d8624c46c80822259c6d759562df20a476fb3cfec590e6d4d4b36ccc0daa44687162ab52672efa5d5e63d70f760e29b22dfbd5439e4ab437f7345ef935b26d3bdb338633f417a4751009e63bedfbab126cd30cad1eb5482db4352510e3d5cb7083281e3a6ae5b0919644cd55df0b7710918e26ed1d98ce19e9250018a6be38a12a60873067a12f02fea2c825fae540ae4f28ca5aabdc33f21f974d5995e91d11c344f47af3d07fe6da8d78f7aee783e8fca9f9e663660ede08ef43d79a96f1cea13312e47ac6dc54bbaedd4bb17805ecca0848a9290873e8e22a457e39326a96613ceeea22911984a768ce2a73542440ca9930e810c0c58cc0938c7f60e207b81dd1b7156509f6303b325be05fa53b5fe83732573ac6de7421b153c63e2dc22217ddccd41e697b311a00b8120102c8a37e609fbb826d8e4d4e4f389f640579bb43dab69d5e1348a3f0ea20dbbc7aa798eebdc074eba99e425500ebeaa8f437007f72f32f363cd07aafcb73dc5c5902f162234378dbf0c2a4212e439f22bbb2a98966d7f18c74b7167df3d1ccb9df5cc59f8af0f4f16b98115b70e70dcd5f339d6cb4247688ddca108c7312e847b580a0a978dd4d092b7c9f2c362e0e6cc6c694b61413ba6888e18fbc368790961494925a21a53c41d4aa26ba5b0e3bcf03225c6d8b7a58495f793b78a0a5b159d271e12a9010da54d233bb8601c06b357f89d2ff682ad639078f14a98e8682625f952cef6598b4ec251ef77297c07ce8f7fdc807390264aa6c1b2404540d2260e30282f602c991c3a312159a40595221193d7494b51f0aa4c9633b8fe47f4d027833d0a9ff2a51b08ad61827b5e038c3d7777cfbbc3ee8f8189becd37ec74d373f8ea144c8b5bdaf83577a303275dc53da9bc82970448f6f3261b57f7045c5e3f3878b9201d82e5b737048ab5dc6b9a369ff11bf256acb81239cdbcc9d439295909bb2549c452ab5276cac7798f7b7f6ee69939cccf34f3e4133c6a05aaaff6ba9a109da7f87f50a6aa50ca0da6e0735760b34dd09fe673ce97306e6515b0c0b6e2a2bcdd0291cddc6a5c465e83531c3408aec80c50082e3f1dc1f7f7b9ce0c6afcd22f999c8d96d0e02c734eff344a5b6f15023493b7b9869c35dfe29ac205bc6f80cb6d5a70b4010326a64dd0ff9c227cc29602fdf20a417de65454c277e99569585650205f7f855a6b1f5fc08b539c83ebd29ed9135129947e31b19041d38f60a76146762b0069c7b249d85dbbc491bb892a9dbc19a3688d179c91615587a2072f8bd6ed334380d1201a634bc5c9763c377ba6262c5e3497915d82ea6f1238bdd3796a0c8180f9efe8bea943a149a4e09a9874ba9957034cff1d7d1d99559c512179b0733310f7ef64e1c569d3e6c87cbe5e7f666804831b2bd97683a281fba0280c08a3b6d6b15c068bab97c93455e78e05869d3b403004a8741249908ff502d69e24e219676ce278a79285e79a4b3ca4cc710894d0a66787bfb0d603c816eba035ef4c6743eab371d8540a0941edf693c7e875153421d02c6a7defd1bb235a419261292da7cc86584a75c7d7024a1dfdc166b12a97821c7410043b13017acea9c69dec54ee50ff7bb21e472398c2452a5b97c7037fbb3d42f0bd3919cfc95dd33b29924c704c0ecf20af69ea752b1878e392ad963b9ca0c5997382afe03e5ed1e149cb9d54188715e2043062058391f065d86d12e55005404127df7f962654d26ee34a08627ada798853bf71105592ba3f111979a442c7ef421fb30978ace179b4c14aef480a0c4b3358f8d57789a43755e5fdf892c8c661cfe51f48b6a76a4adc7620e42ff0c5c3385c81fd358f78697955a682ee50415269c8b5f0498f4a61aa9b778c2c0307c35c0dd439cd45045d9c6ac113ca07bc35d5d0aff26a61bad5afe06ecc83308bc0cab21c55a76c5f53f5f17dfa102f80031f43aaf4223b771906925f51e11da6cc15df286da28062b3ae8a238487e9676dd2528708d5dd95a0ef8c397c6eed5064e35ff407e109d1dadb099e75a120e29f17b8cd276c7971e38e3cd933b041450c220bcc23b5d8dd250cad9cc4c3110cc9dff4e644c4cff25abcf8ca18ed8f170bfd97b87bafae98f88154ae6c0cce7b20e34786fbdf9f4cf2cfdbd4e97663576a8a5d8e1ceb4dda92844fedf71ee65b7aee7927f7915fe76b6f6781e3b0863f6da6065be794afcf080fae4593ffadcee144ce42a6e1873e6f4d270a0ad15fcb6502ce44b2a3239155726def928b672b05fa26b4459e875be2f1874cab95c52ab4385ef82ee9b1c9a20cfa020b9d748cca8e01717086cf5804c1a94e1f3d9f479e26fe8878f94382fdc3f8b791eb8d4934c9390b1fec4004c08ee95b4b4cf902075147be01fab094f6391eb4e125fc9b3c4587483a0fea90d3f8d9d50243c72e9ba2edc2894717117dbba013dfa56927d0f5518675bec4b62769eac4fedef551b8c08eca39389f2439177f34d7490f07e6c0c4f55e38c23335a994d9c944b49c9b3dacdb30d84372d7dfb2e44f00c24a3bfebeca29f3cf86ad0a9757276b2be9d3a24c0532ca189d26fba263bae195d0af5ab643fe1280c56f27d9eece9cbc1621c8315052558533ac2cf692b1825e5e88c0d1e6b4bad6cdccd8682c8ba51f3d38c7eac1dbacc085c4bf0de965033ec202cb12b6a4aac1b995bf57de066a99f4c51d96f6789ee38d8eb7186f73c510a51e003226170a22559aa33ac2fd06c0e84ffdddc831bf2d1ec88bc269ca18dd915cd5bf4a3fc27368d3b746b0bca1523726b4c3b9eea8d925db6c6037285aec9d62dc5f5a59043d861f51f9f071318d31a00052835234fcce34d73b3c83f4457b989852a06812aa214b6e2b8861e6bb60e905d9073401ec71d5b090e54f5fa084b9958839772611aa2c3f231f5f39c19550f4d8a023530a9a071ebd35f457c05eb8f41903472fa83141afc7e3e5755ec22d5cf3e95a91fc59c4efa7fbd052faad0f0a266b4a5cd030161a058d5e3a33d8c7e80b41054844d54aaf08d75305b85a3b8f238b8aa7cf7971668d8f72a117c0fe643718ae5ef5af8ea43572e3c896c1befa3eabfda40b51ee60def77531867e1f0ce9dd8bf29da22e971f9f65456a28377b77e8b0255d04da504c48d106850abb4c5acd02e2e64c5c21c4691d9b158c06595b728df9473dc5888059d0207622ab73512f73e9577904983ff75974927f94189c2e250bde6e7f5138e58f04f6fb913e6f119f8a650260cf2856cf9c8d03105308e8bfaf27e506333bd5ff20cc2e71f4e06f396d17ed2631e73cecbf1837cbc46e403a1dcab883d7d752f9f7f1085e4acff1e021a524abbe888a5d785be46c9b480ee660b6cfa5c9ff25866374c8b13939cd63c9572b4f30b0c6b966ed0b04478bb10569cc57c4afecd3606a9d371d2af7413d0dc6e8be1b802dd1e0740cf009f33f73f670ad56978713db70a4fddd5528876da2fdc2e4e983e6903af740b448d881dde817c6e25d9cf57c968d4659e68d422b26c834b6ba962d7eabd857cef1499d56c0ffa52728b562773189f15c7018ab030b5d2d50ab20e16bb38b9d3a39d642d37ec5960c629dbe504bd8ad03d5212da4b140e0a131e3c635c7b6aaf9f5f84959d5b8c3c3ce4fb212f6cce8a102e0218e2e613cce9ed393f1bf938016b29a00a730455c33a8ca30d2a60ecd013b715561e06d93eb8499d81e0c634f39e083ffecd343d03412cf642c77e5ba92c0de7db7b6074fe880f4edbf15e45aa5d24ce27cddd5109232c06cae99834a508b7ade8d50db6442a4f7c469515bcf861005aab01f28a72255785968a85af5a5513ce2b7e10db939a30e8125e8af0b5f5fe619399cc8ffddd5d87c8f0fc6e3661cdc697a1e64f304a536f7a3bdf3e15f0f711d65be5f3ba507040396f56554d76ebf7020f377f1a1f95edeba89d6b32641e72719c39ea65675b3f2a86ca4f76d336b27a0e71d8ae82537fc679d88dbfe36b87b223368e0f80b8e78b1c4df44c435eb7825307add361737ced0990ba22ea197c7209fddad411daceb06fc9a22f277537990b6fa46ce9c9d84bce6a32138faa77807e1bdcaa1f3dc251c4d6ac1f8cafcf99592b14121c87ccfe1a2312be57a1c5347b14d33e825dcd1c53bfc7b93cab8a4b830108ef3f2ba8fad3d89fa7dd72ffef19cff83c16f318da6b3b0dab0b0cb452ab33e2222617736930c6579c6ba1fbd23660114f60efe801f1413f2dc14068aa1a40ffcb93d1082fc76067cba9f673f4ac0903c58dfb559a191e4b9519ae69e331a2386a1c57c31b113282809104652d3e483309ca87f294215fa8d533ed093903d429ba2729c9312ca6a83d8dee2adec2ebc07fc6c9405f48bf6b01918d418d89ba009e7326b4a64670fa8db2d2f3e8649bb07d3d0d4b43be33b6e7131e806a24b4bb7457eb36c24436ac7f96018809c16c8652905b54b04f67328fe4584c13ceaa79a25ecad80dcc7fd4570dc731e30f058b864c58fe997af7215713b4f34b1069837773abbe58896b3e713f60b393e929716751f02a0867c8a1b064b7379c55b21a3b35a8225fcdd4df633b13b8b50c4284a693800cba94b357b2fdb623b025da9e7bfb18ed527ea2acc65716d0607ddf6c614cfa26198f97e4631d1b7819682a48f8922ce33400e6c68c560adca2bc37c46bb3c6cb203c0848073fdc7211959210ac9dde810dd29f964ad48578d87e3f97f205b442b00e91993706f73d825b94459f51b3ebe310a657c9435a488bb0ce04250f3d911e77938e701f31599c1212af9f139b4e9de729674efd2959a10d7509c986a66147902a26e5db3a5aef20acc30b5e8bbb4fa4d9adfb80453e0b4c15587bfd99fc23f74edc51ea8c8d794b1dfc7b848e85c98e0c22a9eaa8f58967d368a31d20def697660d9bf838da81dc6fd29b0a836cd066aae97258898be797e0447617f2bb0ad11e909db35718fbc0ad16ebb8ea88f561158041fd85784960449c6a947bbe4d346ad9abbb05701cade071db5bab8b1b11ceb5c4e428635dd0d65bf07c192c2691486077c8d6b9c24d2ab330899c2786c0df108b1abe6c0fd729b08930d4744de891ecfc33b706520e12a3994a9a65c830362a9cb7795f1d6e8e171004026c1c8112d4868475b6a5a053196f9a1be4b95e8dcb847200d1ec2d43bfc3709b5c6393470ef45f9e6034db21dda4abf737978d708cb87a8ff7b1dc7448eb9d9023121ef848fb1ee9367caaff13645458ac197452a46d58e5e40e5c6436e3b4b555fddb1aefaa35cb0bd83e70906e5fc70df2ae2dd1f898725f070c01df3efb0c5747a15575a1d554ff81af9900a4f0066babfcb152ea418fbb40c1dc8c0c4aa003906cbd463686ccb0bb5ca50ea02d7e3b2f8580d7657f0181234252a8627e645c0262169338ea9cf9a855eee797e4c34e4e895c85de5e35124e19ab9e1a61883bf872cdb806892eab4c0caf6a3c6e2ca8f2b24046d3017f018e210ec7263eb61260eb3e7d5f2577575f8e3b7190d122fbf701359303bd028f0132c79e1c151624b51dd832bf2e58ba9e51206c3c0b58fe0684c5cf6f49e4a5c0558b7ff0d49f4e66aae47ef6889b5c2fdc68318c5e662526d403502f79f76e5e08c76160d2b5c36ef7ec3098b1f214fda01d2603e68c3669acd6cb69f24d30149e1267e478bfaecb223333ca5f4786f325d88d895038becdf4db34b3d9ea731b416c254e60d5e2f4d299c80d75a5d11f7752445a438f5ee4bf27d5b8922e6036dd800539293ab60a3f8ded21faf199d0c5f5e23dd41afc33be3da673814b0f2445cdef6ae4377c47122e3c1cec3c8b63c78a9a0f4bd39939fd65ca817fb5e6ece830d958939b70b8295b03778faf9db04cc1492b12819803b30d367ddb9ecd12337756d5e87efadd64219ca49465a457b45f1de2c6b9e4aa85d01fe023c872142f037f8fe7d6b9f402c5f14ee79b18c9ab74488b0fb65a18e7ccb066975819950eeeed990bcf41debb088a269d8bc48082eb115cc12dbc6cc9ec85f3a09f2728087a1cf1a10f496c6805d98919a42fb366b11f3df136ff4dd855e53fc33836857c4d8ec2bac73fba9bcd77dfa86c84109ac0b3173bf10dc48446aac3e1adf1c621b2186da54de80101bb6587e5ed86eef89c49e82595be47ea9039d6cdc74f3545b087c9942d3126fba266252edd08809851f1f9b3f33582560845059b56ce6b39661a741eaf1c160db1a1da4e6c9dad2d50c8a1b02f5e30886e63e6d86fd248eb9c9e5fdf71297599e3b915c1a75613fd77a16ba251a2088d6305d18583835e1bd47eeda5d191af729023c6fc357281487ec614c09c7eae47ab88d9ea3bb5cf0948c216ffb053e9b3fbac2697966d7cb9fc906d7d822a977fc1d59abf8e0d586183f3f79cb2e33b43c569bdd81c9c4780d11f1a304ddf4ca1e8daa102d97014dbed3ea096c8b06e055906b7fe7d3fc88bacefaa32875b9da5bd0779c2aba540c89a945379469798b7f374fd12416c48278233b5a753dcb21a2f6e43fc1c957628bc896677c88acb430fa3677e1902b544f1422229e3e64292a87809e5a3ae0e8d6f3f73ce97e92a8a740901fd78a406e78e2536b13135f3c076f41de41a5bde643ad0d44abab3c4679830900db686ac1d041438f14ed98366f4bb1d9ff11b169d6046e438d16e3f5da47a879ad54aea54b985af57214ff6ea672aa4d2236f7269618d0a0078d15ac695cbccdb038146fc9b66122dc3dc7aacf8e38b89efeb42d38f3e4912ce27cf3ecadbcbbd7e2de4dc95084cfff3c88e7d60f0855a889225d7eeda3ac6e304831a5f9bb6f8ca7c937b69f76f25d0ec5e622382f447dbfb88fbe02e4dcf8fe505a0243a09470dca49a810a514c26af78d55dd6c5ae9919dfe28ae872892a89c75b49a1372e887a39a3ce7ef7673a428746e2a3eb90a4e6568f25907473172861a156bc595abc86e4b8e672f6014c13136f12124d4fbae242435429d9</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-surge">
+      <input class="hbe hbe-input-field hbe-input-field-surge" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-surge" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-surge" data-content="Please enter the password to view the content.">Please enter the password to view the content.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-surge" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        </div>
+        <footer class="article-footer">
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "Kubernetes",
+        "image": "https://yncbearz.github.io/images/thumbnails/boat.webp",
+        "keywords": "Private Note",
+        "genre": "Programming",
+        "datePublished": "2023-11-28",
+        "dateCreated": "2023-11-28",
+        "dateModified": "2023-12-04",
+        "url": "https://yncbearz.github.io/2023/11/28/Kubernetes/",
+        "description": "Password-Protected-Content",
+        "wordCount": 135
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2023/10/23/GuanShan-Trip-2023/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">關山之旅@2023</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/11/28/Kubernetes/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/boat.webp)" alt="Kubernetes" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/11/28/Kubernetes/" class="title">Kubernetes</a></p>
+                            <p class="item-date"><time datetime="2023-11-28T15:08:03.000Z" itemprop="datePublished">2023-11-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/10/23/GuanShan-Trip-2023/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/train.webp)" alt="關山之旅@2023" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/10/23/GuanShan-Trip-2023/" class="title">關山之旅@2023</a></p>
+                            <p class="item-date"><time datetime="2023-10-23T07:13:26.000Z" itemprop="datePublished">2023-10-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/make-the-world-a-pretty-place.webp)" alt="如何使用 Hexo 來寫部落格" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2023/08/15/How-To-Create-Blog-With-Hexo/" class="title">如何使用 Hexo 來寫部落格</a></p>
+                            <p class="item-date"><time datetime="2023-08-15T02:28:53.000Z" itemprop="datePublished">2023-08-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/08/08/Unicode-And-Character-Sets/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/code.webp)" alt="Unicode 與字元集" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2023/08/08/Unicode-And-Character-Sets/" class="title">Unicode 與字元集</a></p>
+                            <p class="item-date"><time datetime="2023-08-08T02:12:16.000Z" itemprop="datePublished">2023-08-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/07/02/Taipei-Trip-2023/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/tm_starry_night.webp)" alt="台北之旅@2023" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2023/07/02/Taipei-Trip-2023/" class="title">台北之旅@2023</a></p>
+                            <p class="item-date"><time datetime="2023-07-02T03:56:45.000Z" itemprop="datePublished">2023-07-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Coding-Interview/" rel="tag">Cracking the Coding Interview</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knowledge/" rel="tag">Knowledge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '59c1a53ff7332001ad0c72fd296a66da',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1702393326910')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
