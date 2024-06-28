@@ -2211,12 +2211,13 @@ i.icon:before {
   -ms-animation-timing-function: ease-in;
   animation-timing-function: ease-in;
 }
+.tooltipped-s::after,
 .tooltipped-sw::after {
   top: 100%;
   right: 50%;
   margin-top: 6px;
-  margin-right: -16px;
 }
+.tooltipped-s::before,
 .tooltipped-sw::before {
   top: auto;
   right: 50%;
@@ -2224,21 +2225,14 @@ i.icon:before {
   margin-right: -6px;
   border-bottom-color: #616161;
 }
-.tooltipped-s::after {
-  top: 100%;
-  left: 50%;
-  margin-top: 6px;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+.tooltipped-sw::after {
+  margin-right: -16px;
 }
-.tooltipped-s::before {
-  top: auto;
-  left: 50%;
-  bottom: -7px;
-  margin-left: -6px;
-  border-bottom-color: #616161;
+.tooltipped-s::after {
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
 }
 @-moz-keyframes tooltip-appear {
   from {
