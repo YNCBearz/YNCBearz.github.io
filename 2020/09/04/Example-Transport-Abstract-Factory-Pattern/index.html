@@ -31,16 +31,16 @@
     
     <meta name="keywords" content="Example" />
     
-    <meta name="description" content="Example:Transport (Abstract Factory Pattern)">
+    <meta name="description" content="Example-Transport-Abstract-Factory-Pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="範例：運輸系統 （抽象工廠模式）">
 <meta property="og:url" content="https://yncbearz.github.io/2020/09/04/Example-Transport-Abstract-Factory-Pattern/index.html">
 <meta property="og:site_name" content="YNCBearz">
-<meta property="og:description" content="Example:Transport (Abstract Factory Pattern)">
+<meta property="og:description" content="Example-Transport-Abstract-Factory-Pattern">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/airport.webp">
 <meta property="article:published_time" content="2020-09-04T13:21:08.000Z">
-<meta property="article:modified_time" content="2024-06-10T04:22:18.238Z">
+<meta property="article:modified_time" content="2024-06-28T19:44:09.204Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="Example">
 <meta name="twitter:card" content="summary">
@@ -243,7 +243,7 @@
 <p>Class Diagram: <a href="/2020/09/08/Class-Diagram-Transport-Abstract-Factory-Pattern/" title="類別圖：運輸系統（抽象工廠模式）">運輸系統</a></p>
 <hr>
 <blockquote>
-<p> 前情提要：鐵路運輸系統，參考<a href="/2020/08/30/Example-Transport-Factory-Method-Pattern/" title="範例：運輸系統（工廠方法模式）">範例：運輸系統（工廠方法模式）</a></p>
+<p>前情提要：鐵路運輸系統，參考<a href="/2020/08/30/Example-Transport-Factory-Method-Pattern/" title="範例：運輸系統（工廠方法模式）">範例：運輸系統（工廠方法模式）</a></p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">FactoryPattern</span>\<span class="title class_">Transport</span>\<span class="title class_">AbstractFactoryPattern</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">FactoryPattern</span>\<span class="title">Transport</span>\<span class="title">AbstractFactoryPattern</span>\<span class="title">Contracts</span>\<span class="title">ModelFactory</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">ReflectionClass</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $modelName</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getModel</span>(<span class="params"><span class="variable">$modelName</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$modelFactory</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">createModelFactory</span>(<span class="variable">$modelName</span>);</span><br><span class="line">        <span class="variable">$model</span> = <span class="variable">$modelFactory</span>-&gt;<span class="title function_ invoke__">createModel</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">getName</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $modelName</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> ModelFactory</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">createModelFactory</span>(<span class="params"><span class="variable">$modelName</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$namespace</span> = <span class="string">&#x27;App\FactoryPattern\Transport\AbstractFactoryPattern\ModelFactories&#x27;</span>;</span><br><span class="line">        <span class="variable">$className</span> = <span class="variable">$modelName</span> . <span class="string">&#x27;Factory&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$reflector</span> = <span class="keyword">new</span> <span class="title class_">ReflectionClass</span>(<span class="variable">$namespace</span> . <span class="string">&#x27;\\&#x27;</span> . <span class="variable">$className</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$reflector</span>-&gt;<span class="title function_ invoke__">newInstance</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -331,10 +331,10 @@
         "genre": "Clean Code",
         "datePublished": "2020-09-04",
         "dateCreated": "2020-09-04",
-        "dateModified": "2024-06-10",
+        "dateModified": "2024-06-29",
         "url": "https://yncbearz.github.io/2020/09/04/Example-Transport-Abstract-Factory-Pattern/",
-        "description": "Example:Transport (Abstract Factory Pattern)",
-        "wordCount": 2007
+        "description": "Example-Transport-Abstract-Factory-Pattern",
+        "wordCount": 2006
     }
 </script>
 
@@ -693,7 +693,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1718728561106')
+  navigator.serviceWorker.register('/sw.js?t=1719604920699')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
