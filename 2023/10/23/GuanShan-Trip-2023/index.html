@@ -260,19 +260,19 @@
 
 
 
-    <a class="article-share-link tooltipped" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2023/10/23/GuanShan-Trip-2023/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2023/10/23/GuanShan-Trip-2023/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
 <script>
     (function ($) {
         var clipboard = new ClipboardJS('.article-share-link');
 
         clipboard.on('success', e => {
-			e.trigger.setAttribute('aria-label', 'Copied!');
-			e.clearSelection();
-		});
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
 
-		// Replace tooltip message when mouse leaves button
-		// and prevent page refresh after click button
-		var btn = document.querySelector('.article-share-link');
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
         btn.addEventListener('mouseleave', e => {
             e.target.setAttribute('aria-label', 'Copy to clipboard');
             e.target.blur();
@@ -664,7 +664,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1719615519411')
+  navigator.serviceWorker.register('/sw.js?t=1719656873801')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
