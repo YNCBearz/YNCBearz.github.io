@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>【摘要】簡報的技術 | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Private Note" />
+    
+    <meta name="description" content="Password-Protected-Content">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【摘要】簡報的技術">
+<meta property="og:url" content="https://yncbearz.github.io/2024/07/28/Presentation-Techniques/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Password-Protected-Content">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/book-shelf.webp">
+<meta property="article:published_time" content="2024-07-28T08:56:31.000Z">
+<meta property="article:modified_time" content="2024-07-28T10:04:48.533Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Private Note">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/book-shelf.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Other/">Other</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Presentation-Techniques"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        【摘要】簡報的技術
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/07/28/Presentation-Techniques/" class="article-date">
+       <time datetime="2024-07-28T08:56:31.000Z" itemprop="datePublished">2024-07-28</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Private-Note/" rel="tag">Private Note</a>
+    </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="The password is incorrect. Try again." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="432346c1073cb5dd1de626c84460b81cc2af47c15d36ceafcfed984827aa27b2">c6651e4bcda59a4397bcdc1be7da6fb59fa0d727fe097f0c5b67aad44da379372770d612be3e946ffdac4a07a9bb1ac5661f2273c3da6fa300ee7da0c27ba90f94cd51cb12d0a5e7dafd808be3b168fe28986a85f3462026a48ed655dba602f3b7eaad77108bf0882efe65066a6b1f399522d48b2240d9f3601058c785ef41762a29ddf2daa863117a84a77494c01c426a892c30e55dee34ab72f647d89f9150d99f1fac79b9eefa5140888252bd749d5595f528605b570050409e33b1b6fdda241bb64d133174f68fb8efefb7068245235e138d9f42fa8b3eb87ddaad8ecaebdc091953d63ac8e9d1a8d1f2d06b40f039a6820031f69d4a0be7500e23430f4aea2602c8cc416af66ddbb56b801fcbed895a37fa473fd697038938d7ff88ed5e769315a2dc721b537fe4f637be7c4b914af4c2b0264424363565e4489f32fa0f3c1f2f2d0ee89d3fb8f6b4e9e27d064bce3e852cf31690daa8eb6a91e80873f9d1d3d66b95a694ea8371a825a5addc34d2c201250158522ad82a72f85681b286b675b0d451e0b8666e7bf39691cfa1405f18836632ee07ee7379afb720b821a207bfb8d67c0bc60a0a6a194fd3e5c875ad962e8ba7235b5dbc8b396a6aa07b18b6217c744a643b0441ec829f7e1c3eb9de75ca5bb2a8bf6f6fef7ac197cf1212f826a5c5f354df91dd178723224175b49ed42e6210454ff542e4dfc0602d706089dcd294ed755993d8a918bfe756ef9a8591a8f308cd1ce7495158b221cfa1de43ff0c8a837c7c916db0f7fdb990ae2fd6f0c80e61847cce6d30e536c0293c2a340399b9e77207fcf75e7ccdd05e6463655643a9ff56262a10ace209b6a41239ec10bc633f8b7068b0587cef121e2a40b0ac5de676a99a8ad7381b1ad47494a929aeaf0f6fab5da22d658aa9c43db36bbb30efbfcaa15af0fc617f20951b18dce7bdf0b1f2c6d925c467f6504b7205ce2a0646b87f61cbedf31f9a9a9cba13157cde51b4d996cb842bc545532594b58eed669af3c6334cfc7ffdb94667adb52bed267be742a4751eeae8383d99d1fb22d50fdd1bf031bcc4bfe3df7ce62d076937ea8e5774575d554e9a53497c3df6021e90894bf78ab9b8347ea165ad0545925e6dc255e22a926c64629bf1f6d8cb61711247601ac05d94ee237a5d9168d4ef4b03009454a24c7c74ab1f6896021af78708ec9616207ddca1b0a3dfbb011c419cbcdfa89c9976c08b9447c3bebb926be176a7cf2f03e3d59a2f8ec57a0476c1340c398beac9b6920423bebbea32d8238985822103f7ca648e5f7be2ad8d3445cc7115bdf6514fefd95524e9078933b4960301eec1ab64f6f2403852080a0f2d50cc330359a747183441d4e6f346c728fe11abb4c822f65d15ea1a6cc1abc86e005ac43054d33a8142660ef57c0029e37743c28bdb9502b2e8824a78880e024f957ec5f4ee0a3eafd62987d6fe72a9cc932ea5ce6a82a3c240356901c2f2595b94636d342fa6742e140c39f7299ec257cc124ee0a1bccd6b08106a81c205efa636e14944a26540092159fcfe1d036b440db66a0052d3bd11a1119ad32aa059f9036621b6b193fa70571fd5ef50423fd08e80fb558bd29f42ff93938af57a97548ef18cd90ef1a95ac48db62936014fe2306b14c336f1bf8980659e7168779ee32690037093e3c92e1c259a49ede0d9853c932f56459131caa9ccfa358b6c7efacc05d423e41b173fd12574fc9adeeaf1ce240fbdd7d285640c0c02808ceae2d49e78e627c5cbb15a14a1c703848bb4636c0c4b7768f055e896f83db79ba63462536a4c4d88a906812304684df1303a007a80d5df684bfb269e5daf0f7caf71341493f139038e9ffe458f336905fd334d549958a3be079be63e08a8060252475802d332874fe973f8509c3d0fc503a3d7498ed36b7b01c23fb1168ce5f3ab4ab5644105327b5fe9e6f61730a2d0cac4f1cb26cffbb748dc032225668434c925136a878c4bd7893973603287e1326a4ae16bfaf3e113ff9728865327445276c1d29d9e8b251afa744e1e9f7e332779736344bb59f53b370867c1c178cb94794fe85eb212bd5b38c56daa6d6536ecbe751e1ebefaa52317bb8962393682e5bb26d7c73e68ddf87a2bddc97243cd69824322198fdf72ec4f5ffb653af9fb6d49dc03e229e6ec6d1962a4e3202d5dea3fad800bce1ca959751a3dde95ecd353f6ed0327e365a44c67c9a9e0276320460c5f44408dc79562bf37eb99b75cddf04940e30c62872ad7a57b1ae006e074d3d63a8341659a34ac7e69e12779ee2a40de8a0809782c0cc98b769fee30b069595ba128898dc18ea9753ad7b47e1cddd1bbc74047cffc5d83678959b644ef20e4773299f885f25a46684a7107cf12d67adfb6cfd79338fbbb756fe77b858bbe9769a1338176e6296a1eb857f31d513457ec7ebd471e23710ba04a1d6e0acacb1225e2e3b51cddfbbcc39d44695943b2d70945720f85d143fd44170010be850f8d1fc3c9dd96930abc122f5ab49b23f56b1239d02e47164d8f38fdc8a93fbbbcb4ac5ac1d7be9d6d6cf989b41b0c3cef09f7dfb1eee2093414012c5357ba1537854d2f1f4788096523a714523d063c3faa0d6f7eea0fe69c1c6be1509346ed3af07d585436685131c4d57753fe4bb4ba304030e10aeffff1c8223590861c2a48a2c494a629fecc91585d9209525896d16ea0cde180e8ebffc3993086250f219ec690310b168d42662442e5c6e8d2ae308fef29458bc79fc93a9d01976d6b8d638010580d3c3598769c9112078375bfc33e4f0a244c78d66a3f7260b985c1de172713f002aac65b823b1c1ba9cfa7dd0139f3d22f2c189a04fd636f6bbbb0d0eea6391ad1b86aa76ba63ae2bf20d3de05aea7e622ea464c0c38d842eb7569124205f54d34e47f3380855662fa9db0fb49cf9bca140ad3d4edf614d2f931761d869bcad2b49c888a00c8c6d7eaee5f6eec40656ade3f0ec706a4712445d2b559092655164949fa74003436550e0b6dd6e16b63b9569d331dccafdab2d7bb2f382579f022f3224283fe526c954f51d90f67d1a6be4bfd742293d44ccd909feca27a41bcb98c557494af399b2cb899b7cb83f3e58dfc0486b35f2bef59b537abde728ae51bad15a127189938271ca9305b0ed7abd1f1b9216c91073ae5fbe4721afcba34e36ccd94c4d7ac881f12fc6ec16fdbcaee1647966f29a73814b10727f0d9aefa270564965f5d33ca0449a35b1cd23dd8613745e763970da66e58806546050726b95ff23f7a1086d5d0350ecd950b347a49de430f6068d60a8cf643df695bbede7773ebc8f423cfee09c7392bbb860b9e29ed1b42971e6c132ac00730dc1233dffc8c1c2f30417ec54e8f3026015345b80b56133a9b1025f326fc9242da3038ef889a298fe66a5a2523875d6ffa57115bcbaf08aab815142482b75a08b5853a8d3f4bc9848b9567112af73e56387204f6de939ab484709e7478ef95c23fa7a861740feaef0eec46c5b9480215cd8d5cfae41c7ad451b60b18e5ca218f81897641f91399ccf93d1917be918c8d8b6b79e213bbbc411876e4607681a7fada19501c29568c850c2f8e29b4399b967f4934d2ebcc0f0dae99eeff074d34a5e3c6fdbbba6aba6fc493d372b978e5e89a188d82677ddaa0b98eb2bf602afc869789f505a4135241b892640577666e1d8c4aada3bb21ae3dcc405813e6a7ab68ca686f5de4efbf6ff1f6e84903fd0640a1d79de15ee4a6e564c8f04e0835ae897bba2a56fabf1c516cabde88a213862e8961e88e8df21a722b78fbed2267e777eb6c3ab49fec12ebf5d984dbb353166b0c27d667b30fe675e2c3b65a3b63eab2ffc982ed57e0</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-surge">
+      <input class="hbe hbe-input-field hbe-input-field-surge" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-surge" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-surge" data-content="Please enter the password to view the content.">Please enter the password to view the content.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-surge" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2024/07/28/Presentation-Techniques/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "【摘要】簡報的技術",
+        "image": "https://yncbearz.github.io/images/thumbnails/book-shelf.webp",
+        "keywords": "Private Note",
+        "genre": "Other",
+        "datePublished": "2024-07-28",
+        "dateCreated": "2024-07-28",
+        "dateModified": "2024-07-28",
+        "url": "https://yncbearz.github.io/2024/07/28/Presentation-Techniques/",
+        "description": "Password-Protected-Content",
+        "wordCount": 135
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2024/07/09/Class-Diagram-Age-Of-Empires-Abstract-Factory-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">類別圖：世紀帝國（抽象工廠模式)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/28/Presentation-Techniques/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/book-shelf.webp)" alt="【摘要】簡報的技術" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2024/07/28/Presentation-Techniques/" class="title">【摘要】簡報的技術</a></p>
+                            <p class="item-date"><time datetime="2024-07-28T08:56:31.000Z" itemprop="datePublished">2024-07-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/09/Class-Diagram-Age-Of-Empires-Abstract-Factory-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/puzzle.webp)" alt="類別圖：世紀帝國（抽象工廠模式)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/07/09/Class-Diagram-Age-Of-Empires-Abstract-Factory-Pattern/" class="title">類別圖：世紀帝國（抽象工廠模式)</a></p>
+                            <p class="item-date"><time datetime="2024-07-08T21:51:25.000Z" itemprop="datePublished">2024-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/09/Example-Age-Of-Empires-Abstract-Factory-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/clay-doll.webp)" alt="範例：世紀帝國（抽象工廠模式)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/07/09/Example-Age-Of-Empires-Abstract-Factory-Pattern/" class="title">範例：世紀帝國（抽象工廠模式)</a></p>
+                            <p class="item-date"><time datetime="2024-07-08T21:44:25.000Z" itemprop="datePublished">2024-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/09/Class-Diagram-Age-Of-Empires-Factory-Method-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/schedule-plan.webp)" alt="類別圖：世紀帝國（工廠方法模式)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/07/09/Class-Diagram-Age-Of-Empires-Factory-Method-Pattern/" class="title">類別圖：世紀帝國（工廠方法模式)</a></p>
+                            <p class="item-date"><time datetime="2024-07-08T20:15:25.000Z" itemprop="datePublished">2024-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/09/Example-Age-Of-Empires-Factory-Method-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/wooden-doll.webp)" alt="範例：世紀帝國（工廠方法模式)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/07/09/Example-Age-Of-Empires-Factory-Method-Pattern/" class="title">範例：世紀帝國（工廠方法模式)</a></p>
+                            <p class="item-date"><time datetime="2024-07-08T19:53:25.000Z" itemprop="datePublished">2024-07-09</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'b91c04ac75fbadd05b0917828eaba8bb',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1722161232484')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
