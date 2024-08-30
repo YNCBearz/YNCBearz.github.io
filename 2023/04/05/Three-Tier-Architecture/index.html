@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/hamburger.webp">
 <meta property="article:published_time" content="2023-04-05T08:03:20.000Z">
-<meta property="article:modified_time" content="2024-08-29T07:42:01.547Z">
+<meta property="article:modified_time" content="2024-08-30T09:58:30.638Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
@@ -239,12 +239,13 @@
 
             
 
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在瀏覽網頁時，其實是在跟三個不同層次組成的系統進行互動。<br>這個系統就是 Web 的三層式架構：</p>
+            <h2 id="Three-Tier-Architecture"><a href="#Three-Tier-Architecture" class="headerlink" title="Three-Tier Architecture"></a>Three-Tier Architecture</h2><p>當你在瀏覽網頁時，其實是在跟三個不同層次組成的系統進行互動。<br>這個系統就是 Web 的三層式架構：</p>
 <ul>
 <li>Presentation Layer (View, Middleware, Controller, …)</li>
 <li>Application Layer (Service, Domain Model, …)</li>
-<li>Data Access Layer (Repository, Proxy, …)</li>
+<li>Data Access Layer (Repository, Proxy, Dao, Client…)</li>
 </ul>
+<p><strong>由於在討論這些架構時，大家使用的名稱常略有不同，下面列出其職責。</strong></p>
 <hr>
 <h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p><strong>職責：</strong></p>
 <ul>
@@ -273,15 +274,18 @@
 <hr>
 <h2 id="Repository-Proxy"><a href="#Repository-Proxy" class="headerlink" title="Repository &#x2F; Proxy"></a>Repository &#x2F; Proxy</h2><p><strong>職責：</strong></p>
 <ul>
-<li>處理DB Connection</li>
+<li>處理 DB Connection</li>
 <li>處理外部 API 呼叫 (Signature, Url, …)</li>
 <li>從資料來源檢索並轉換成 Domain Model</li>
 <li>進或出會是 Domain Model</li>
-<li>命名參照 Domain Model，跟 table name 只是剛好撞名<ul>
-<li>DB 可以利用 Dao 來 1-1 mapping table，可以透過多個 Dao 來組成 Domain Model</li>
-<li>Api 可以利用 Client 來 mapping，取得原始回傳值後，再將其組成 Domain Model</li>
+<li>命名參照 Domain Model，跟 table name 只是剛好撞名</li>
+<li>內含數個 Dao、Client，呼叫後將各個結果組合成 Domain Model</li>
 </ul>
-</li>
+<hr>
+<h2 id="Dao-Client"><a href="#Dao-Client" class="headerlink" title="Dao &#x2F; Client"></a>Dao &#x2F; Client</h2><p><strong>職責：</strong></p>
+<ul>
+<li>Dao 命名通常 1-1 mapping table，處理與 DB 的互動，<br>但要留意效能問題，適時使用 join 語法調校</li>
+<li>Client 處理 api 的 request&#x2F;response，回傳原始值給 Repository &#x2F; Proxy</li>
 </ul>
 <hr>
 <h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><h3 id="Simple-Design"><a href="#Simple-Design" class="headerlink" title="Simple Design"></a>Simple Design</h3><ol>
@@ -291,8 +295,8 @@
 <li>Fewest elements</li>
 </ol>
 <hr>
-<p>ʕ •ᴥ•ʔ：這是目前與 <a target="_blank" rel="noopener" href="https://github.com/yohey03518">Erwin</a> 討論及請教<a target="_blank" rel="noopener" href="https://github.com/hatelove">91</a> 後的理解，<br>未來有可能因開發經驗的增加或團隊組成而再發生改變。</p>
-<p>跟 <a target="_blank" rel="noopener" href="https://github.com/CodeMachine0121">James</a> 討論後，新增了 <strong>Client</strong> 架構，角色類似 Dao，用來 call api 取得 raw response。</p>
+<p>ʕ •ᴥ•ʔ：這是目前與 <a target="_blank" rel="noopener" href="https://github.com/yohey03518">Erwin</a> 討論及請教 <a target="_blank" rel="noopener" href="https://github.com/hatelove">91</a> 後的理解，<br>未來有可能因開發經驗的增加或團隊組成而再發生改變。</p>
+<p>[2024-08-30 更新]<br>跟 <a target="_blank" rel="noopener" href="https://github.com/CodeMachine0121">James</a> 討論後，新增了 Client 架構，角色類似於 Dao。<br>跟 <a target="_blank" rel="noopener" href="https://github.com/kyoforing">Kyo</a> 討論時，有提到使用 Dao 的效能問題。</p>
 
         </div>
         <footer class="article-footer">
@@ -342,10 +346,10 @@
         "genre": "Programming",
         "datePublished": "2023-04-05",
         "dateCreated": "2023-04-05",
-        "dateModified": "2024-08-29",
+        "dateModified": "2024-08-30",
         "url": "https://yncbearz.github.io/2023/04/05/Three-Tier-Architecture/",
         "description": "Three-Tier-Architecture",
-        "wordCount": 141
+        "wordCount": 157
     }
 </script>
 
@@ -704,7 +708,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1724917894382')
+  navigator.serviceWorker.register('/sw.js?t=1725011930891')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
