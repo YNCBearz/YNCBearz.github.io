@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/wedding.webp">
 <meta property="article:published_time" content="2020-12-27T08:36:50.000Z">
-<meta property="article:modified_time" content="2023-08-23T02:51:38.505Z">
+<meta property="article:modified_time" content="2024-09-26T16:10:31.241Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="Example">
 <meta name="twitter:card" content="summary">
@@ -243,7 +243,7 @@
 <p>Class Diagram: <a href="/2020/12/27/Class-Diagram-Wedding-Visitor-Pattern/" title="類別圖：各國婚禮（訪問者模式）">各國婚禮</a></p>
 <hr>
 <blockquote>
-<p>情境：這是一間國際婚禮公司</p>
+<p>情境：這是一間國際婚禮公司</p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">VisitorPattern</span>\<span class="title class_">Wedding</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $weddingType</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getWedding</span>(<span class="params"><span class="variable">$weddingType</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (<span class="variable">$weddingType</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;Chinese&#x27;</span>:</span><br><span class="line">                <span class="keyword">echo</span></span><br><span class="line">                    <span class="string">&#x27;新郎：中式囍袍</span></span><br><span class="line"><span class="string">新郎：黑色秀禾鞋</span></span><br><span class="line"><span class="string">新娘：龍鳳褂</span></span><br><span class="line"><span class="string">新娘：紅色秀禾鞋</span></span><br><span class="line"><span class="string">&#x27;</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;Japanese&#x27;</span>:</span><br><span class="line">                <span class="keyword">echo</span></span><br><span class="line">                    <span class="string">&#x27;新郎：繡有家紋的和服</span></span><br><span class="line"><span class="string">新郎：雪駄</span></span><br><span class="line"><span class="string">新娘：純潔的白無垢</span></span><br><span class="line"><span class="string">新娘：草履</span></span><br><span class="line"><span class="string">&#x27;</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -289,8 +289,8 @@
 </ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">VisitorPattern</span>\<span class="title class_">Wedding</span>\<span class="title class_">Contracts</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">WeddingType</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> WeddingRole $role</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getClothes</span>(<span class="params"><span class="variable">$role</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> WeddingRole $role</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getShoes</span>(<span class="params"><span class="variable">$role</span></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>WeddingRole是原本的**元素類別 (Element)**。</p>
-<p>WeddingType則是原本元素類別中的操作，會成為我們的**訪問者類別 (Visitor)<strong>。<br>根據傳入的</strong>元素類別 (Element)**，而有對應的行為。</p>
+<p>WeddingRole 是原本的 <strong>元素類別 (Element)</strong> 。</p>
+<p>WeddingType 則是原本元素類別中的操作，會成為我們的 <strong>訪問者類別 (Visitor)</strong> 。<br>根據傳入的 <strong>元素類別 (Element)</strong> ，而有對應的行為。</p>
 <hr>
 <ul>
 <li>修改原本的新郎類別</li>
@@ -302,7 +302,7 @@
 </ul>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">VisitorPattern</span>\<span class="title class_">Wedding</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">VisitorPattern</span>\<span class="title">Wedding</span>\<span class="title">Contracts</span>\<span class="title">WeddingRole</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">VisitorPattern</span>\<span class="title">Wedding</span>\<span class="title">Contracts</span>\<span class="title">WeddingType</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bride</span> <span class="keyword">implements</span> <span class="title">WeddingRole</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$name</span> = <span class="string">&#x27;Bride&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> WeddingType $weddingType</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getClothes</span>(<span class="params"><span class="variable">$weddingType</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$weddingType</span>-&gt;<span class="title function_ invoke__">getClothes</span>(<span class="variable">$this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> WeddingType $weddingType</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getShoes</span>(<span class="params"><span class="variable">$weddingType</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$weddingType</span>-&gt;<span class="title function_ invoke__">getShoes</span>(<span class="variable">$this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>BrideGroom與Bride會由客戶端將WeddingType傳入（第一次分派）<br>之後再將自己傳給WeddingType （第二次分派）。</p>
+<p>BrideGroom 與 Bride 會由客戶端將 WeddingType 傳入（第一次分派）<br>之後再將自己傳給 WeddingType （第二次分派）。</p>
 <hr>
 <ul>
 <li>實作中式婚禮</li>
@@ -332,10 +332,10 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">VisitorPattern</span>\<span class="title class_">Wedding</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">VisitorPattern</span>\<span class="title">Wedding</span>\<span class="title">Contracts</span>\<span class="title">WeddingType</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">VisitorPattern</span>\<span class="title">Wedding</span>\<span class="title">WeddingTypeFactory</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">VisitorPattern</span>\<span class="title">Wedding</span>\<span class="title">Composite</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">VisitorPattern</span>\<span class="title">Wedding</span>\<span class="title">BrideGroom</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">VisitorPattern</span>\<span class="title">Wedding</span>\<span class="title">Bride</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> WeddingTypeFactory</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$weddingTypeFactory</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;weddingTypeFactory = <span class="keyword">new</span> <span class="title class_">WeddingTypeFactory</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $weddingType</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getWedding</span>(<span class="params"><span class="variable">$weddingType</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$weddingType</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">createWeddingType</span>(<span class="variable">$weddingType</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$composite</span> = <span class="keyword">new</span> <span class="title class_">Composite</span>();</span><br><span class="line"></span><br><span class="line">        <span class="variable">$brideGroom</span> = <span class="keyword">new</span> <span class="title class_">BrideGroom</span>();</span><br><span class="line">        <span class="variable">$bride</span> = <span class="keyword">new</span> <span class="title class_">Bride</span>();</span><br><span class="line"></span><br><span class="line">        <span class="variable">$composite</span>-&gt;<span class="title function_ invoke__">add</span>(<span class="variable">$brideGroom</span>);</span><br><span class="line">        <span class="variable">$composite</span>-&gt;<span class="title function_ invoke__">add</span>(<span class="variable">$bride</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$composite</span>-&gt;<span class="title function_ invoke__">display</span>(<span class="variable">$weddingType</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $weddingType</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> WeddingType</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">createWeddingType</span>(<span class="params"><span class="variable">$weddingType</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;weddingTypeFactory-&gt;<span class="title function_ invoke__">create</span>(<span class="variable">$weddingType</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <hr>
-<p><strong>[<a href="/2020/05/28/Single-Responsibility-Principle/" title="單一職責原則">單一職責原則</a>]</strong><br>我們將<strong>婚禮角色（資料結構）</strong>與<strong>婚禮類型（操作）</strong>視作兩種不同的職責。</p>
-<p><strong>[<a href="/2020/05/30/Open-Close-Principle/" title="開放封閉原則">開放封閉原則</a>]</strong><br>新增&#x2F;修改婚禮類型時，不會修改到所有的程式碼。</p>
-<p><strong>[<a href="/2020/06/03/Interface-Segregation-Principle/" title="介面隔離原則">介面隔離原則</a>]</strong><br>婚禮角色介面：會根據客戶端傳入的婚禮類型，再將自己傳入後，完成行為。<br>婚禮類型介面：會根據傳入的婚禮角色，完成行為。</p>
-<p><strong>[<a href="/2020/06/08/Dependency-Inversion-Principle/" title="依賴反轉原則">依賴反轉原則</a>]</strong><br>依賴於抽象的婚禮角色介面與婚禮類型介面。</p>
+<p><strong>[<a href="/2020/05/28/Single-Responsibility-Principle/" title="單一職責原則">單一職責原則</a>]</strong><br>我們將婚禮角色（資料結構）與婚禮類型（操作）視作兩種不同的職責。</p>
+<p><strong>[<a href="/2020/05/30/Open-Close-Principle/" title="開放封閉原則">開放封閉原則</a>]</strong><br>新增&#x2F;修改婚禮類型時，不會修改到所有的程式碼。</p>
+<p><strong>[<a href="/2020/06/03/Interface-Segregation-Principle/" title="介面隔離原則">介面隔離原則</a>]</strong><br>婚禮角色介面：會根據客戶端傳入的婚禮類型，再將自己傳入後，完成行為。<br>婚禮類型介面：會根據傳入的婚禮角色，完成行為。</p>
+<p><strong>[<a href="/2020/06/08/Dependency-Inversion-Principle/" title="依賴反轉原則">依賴反轉原則</a>]</strong><br>依賴於抽象的婚禮角色介面與婚禮類型介面。</p>
 <p>ʕ •ᴥ•ʔ：揉合許多模式的範例。</p>
 
         </div>
@@ -386,10 +386,10 @@
         "genre": "Clean Code",
         "datePublished": "2020-12-27",
         "dateCreated": "2020-12-27",
-        "dateModified": "2023-08-23",
+        "dateModified": "2024-09-27",
         "url": "https://yncbearz.github.io/2020/12/27/Example-Wedding-Visitor-Pattern/",
         "description": "Example-Wedding-Visitor-Pattern",
-        "wordCount": 4379
+        "wordCount": 4393
     }
 </script>
 
@@ -478,6 +478,46 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/chalkboard.webp)" alt="類別圖：動物園管理員（訪問者模式）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="title">類別圖：動物園管理員（訪問者模式）</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T16:27:50.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/27/Example-ZooKeeper-Visitor-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/koala.webp)" alt="範例：動物園管理員（訪問者模式）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Example-ZooKeeper-Visitor-Pattern/" class="title">範例：動物園管理員（訪問者模式）</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T16:13:35.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2024/08/18/Law-Of-Conversation-Of-Code-Complexity/" class="thumbnail">
     
     
@@ -535,46 +575,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/07/28/Presentation-Techniques/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnails/book-shelf.webp)" alt="【摘要】簡報的技術" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
-                            <p class="item-title"><a href="/2024/07/28/Presentation-Techniques/" class="title">【摘要】簡報的技術</a></p>
-                            <p class="item-date"><time datetime="2024-07-28T08:56:31.000Z" itemprop="datePublished">2024-07-28</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2024/07/09/Class-Diagram-Age-Of-Empires-Abstract-Factory-Pattern/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnails/puzzle.webp)" alt="類別圖：世紀帝國（抽象工廠模式)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
-                            <p class="item-title"><a href="/2024/07/09/Class-Diagram-Age-Of-Empires-Abstract-Factory-Pattern/" class="title">類別圖：世紀帝國（抽象工廠模式)</a></p>
-                            <p class="item-date"><time datetime="2024-07-08T21:51:25.000Z" itemprop="datePublished">2024-07-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -584,7 +584,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-Diagram/" rel="tag">Class Diagram</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -748,7 +748,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1727104530853')
+  navigator.serviceWorker.register('/sw.js?t=1727717928666')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
