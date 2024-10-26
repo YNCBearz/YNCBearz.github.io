@@ -1,4 +1,3 @@
-https://yncbearz.github.io/2024/10/24/How-To-Make-Stand-Up-Meeting-Awesome/
 https://yncbearz.github.io/2024/05/20/Common-MSSQL-Syntax/
 https://yncbearz.github.io/2023/11/28/Kubernetes/
 https://yncbearz.github.io/about/index.html
@@ -24,8 +23,8 @@ https://yncbearz.github.io/2022/04/02/Math-And-Logic-Puzzles/
 https://yncbearz.github.io/2022/06/12/Sorting-and-Searching/
 https://yncbearz.github.io/2022/02/21/Stacks-And-Queues/
 https://yncbearz.github.io/2022/02/26/Trees-And-Graphs/
-https://yncbearz.github.io/2021/01/22/95-unique-binary-search-trees-ii/
 https://yncbearz.github.io/2022/05/28/460-lfu-cache/
+https://yncbearz.github.io/2021/01/22/95-unique-binary-search-trees-ii/
 https://yncbearz.github.io/2022/02/13/Arrays-And-Strings/
 https://yncbearz.github.io/2022/02/14/Linked-Lists/
 https://yncbearz.github.io/2021/04/10/100-same-tree/
@@ -125,18 +124,18 @@ https://yncbearz.github.io/2020/07/15/Singleton-Pattern/
 https://yncbearz.github.io/2020/10/04/Proxy-Pattern/
 https://yncbearz.github.io/2023/04/27/Problem-Solving/
 https://yncbearz.github.io/2020/10/11/Prototype-Pattern/
-https://yncbearz.github.io/2020/10/25/Memento-Pattern/
 https://yncbearz.github.io/2021/01/01/Note-Exists-And-Not-Exists/
+https://yncbearz.github.io/2020/10/25/Memento-Pattern/
 https://yncbearz.github.io/2020/12/20/Mediator-Pattern/
-https://yncbearz.github.io/2020/11/04/Interpreter-Pattern/
 https://yncbearz.github.io/2020/09/27/Iterator-Pattern/
+https://yncbearz.github.io/2020/11/04/Interpreter-Pattern/
 https://yncbearz.github.io/2020/08/16/Facade-Pattern/
 https://yncbearz.github.io/2020/12/20/Example-Say-Hello-Mediator-Pattern/
 https://yncbearz.github.io/2020/07/12/Example-Burgers-Ordering-System-Decorator-Pattern/
 https://yncbearz.github.io/2022/09/03/Component-Cohesion/
+https://yncbearz.github.io/2020/07/12/Decorator-Pattern/
 https://yncbearz.github.io/2022/09/16/Component-Coupling/
 https://yncbearz.github.io/2020/11/15/Composite-Pattern/
-https://yncbearz.github.io/2020/07/12/Decorator-Pattern/
 https://yncbearz.github.io/2020/07/20/Command-Pattern/
 https://yncbearz.github.io/2020/12/20/Class-Diagram-Say-Hello-Mediator-Pattern/
 https://yncbearz.github.io/2020/11/21/Bridge-Pattern/
