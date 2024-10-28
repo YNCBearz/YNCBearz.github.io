@@ -1571,7 +1571,7 @@ a.article-title:hover {
   border: none !important;
 }
 #page-nav .pages:before {
-  content: "\f15c";
+  content: "\f02d";
   font-family: FontAwesome;
   margin-right: 6px;
 }
