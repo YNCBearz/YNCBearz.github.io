@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/2022-goals.webp">
 <meta property="article:published_time" content="2024-05-20T08:49:03.000Z">
-<meta property="article:modified_time" content="2024-10-20T11:21:52.253Z">
+<meta property="article:modified_time" content="2025-01-17T08:04:34.941Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -268,6 +268,14 @@
 <td align="left">—</td>
 </tr>
 <tr>
+<td align="left">Plan</td>
+<td align="left"><a href="#Read-Plan">Read</a></td>
+</tr>
+<tr>
+<td align="left">—</td>
+<td align="left">—</td>
+</tr>
+<tr>
 <td align="left">Rank</td>
 <td align="left"><a href="#Rank-Schema">Rank</a></td>
 </tr>
@@ -276,11 +284,15 @@
 <td align="left">—</td>
 </tr>
 </tbody></table>
-<h1 id="Read-Index"><a href="#Read-Index" class="headerlink" title="Read Index"></a>Read Index</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> i.name <span class="keyword">AS</span> index_name</span><br><span class="line">    ,i.type_desc</span><br><span class="line">    ,is_unique</span><br><span class="line">    ,ds.type_desc <span class="keyword">AS</span> filegroup_or_partition_scheme</span><br><span class="line">    ,ds.name <span class="keyword">AS</span> filegroup_or_partition_scheme_name</span><br><span class="line">    ,ignore_dup_key</span><br><span class="line">    ,is_primary_key</span><br><span class="line">    ,is_unique_constraint</span><br><span class="line">    ,fill_factor</span><br><span class="line">    ,is_padded</span><br><span class="line">    ,is_disabled</span><br><span class="line">    ,allow_row_locks</span><br><span class="line">    ,allow_page_locks</span><br><span class="line"><span class="keyword">FROM</span> sys.indexes <span class="keyword">AS</span> i  <span class="keyword">with</span> (nolock)</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> sys.data_spaces <span class="keyword">AS</span> ds <span class="keyword">ON</span> i.data_space_id <span class="operator">=</span> ds.data_space_id</span><br><span class="line"><span class="keyword">WHERE</span> is_hypothetical <span class="operator">=</span> <span class="number">0</span> <span class="keyword">AND</span> i.index_id <span class="operator">&lt;&gt;</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">AND</span> i.object_id <span class="operator">=</span> OBJECT_ID(<span class="string">&#x27;GlobalSettings&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="Read-Index"><a href="#Read-Index" class="headerlink" title="Read Index"></a>Read Index</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> i.name <span class="keyword">AS</span> index_name</span><br><span class="line">    ,i.type_desc</span><br><span class="line">    ,is_unique</span><br><span class="line">    ,ds.type_desc <span class="keyword">AS</span> filegroup_or_partition_scheme</span><br><span class="line">    ,ds.name <span class="keyword">AS</span> filegroup_or_partition_scheme_name</span><br><span class="line">    ,ignore_dup_key</span><br><span class="line">    ,is_primary_key</span><br><span class="line">    ,is_unique_constraint</span><br><span class="line">    ,fill_factor</span><br><span class="line">    ,is_padded</span><br><span class="line">    ,is_disabled</span><br><span class="line">    ,allow_row_locks</span><br><span class="line">    ,allow_page_locks</span><br><span class="line"><span class="keyword">FROM</span> sys.indexes <span class="keyword">AS</span> i  <span class="keyword">with</span> (nolock)</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> sys.data_spaces <span class="keyword">AS</span> ds <span class="keyword">ON</span> i.data_space_id <span class="operator">=</span> ds.data_space_id</span><br><span class="line"><span class="keyword">WHERE</span> is_hypothetical <span class="operator">=</span> <span class="number">0</span> <span class="keyword">AND</span> i.index_id <span class="operator">&lt;&gt;</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">AND</span> i.object_id <span class="operator">=</span> OBJECT_ID(<span class="string">&#x27;tabel_name&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <p><a href="#Menu">(Back to Menu)</a></p>
 <hr>
-<h1 id="Read-Schema"><a href="#Read-Schema" class="headerlink" title="Read Schema"></a>Read Schema</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS</span><br><span class="line"><span class="keyword">where</span> TABLE_NAME<span class="operator">=</span><span class="string">&#x27;tableName&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="Read-Schema"><a href="#Read-Schema" class="headerlink" title="Read Schema"></a>Read Schema</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS</span><br><span class="line"><span class="keyword">where</span> TABLE_NAME<span class="operator">=</span><span class="string">&#x27;table_name&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="#Menu">(Back to Menu)</a></p>
+<hr>
+<h1 id="Read-Plan"><a href="#Read-Plan" class="headerlink" title="Read Plan"></a>Read Plan</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    q.text <span class="keyword">AS</span> QueryText,</span><br><span class="line">    cp.usecounts,</span><br><span class="line">    p.query_plan</span><br><span class="line"><span class="keyword">FROM</span> sys.dm_exec_cached_plans <span class="keyword">AS</span> cp <span class="keyword">with</span> (nolock)</span><br><span class="line"><span class="keyword">CROSS</span> APPLY sys.dm_exec_sql_text(cp.plan_handle) <span class="keyword">AS</span> q</span><br><span class="line"><span class="keyword">CROSS</span> APPLY sys.dm_exec_query_plan(cp.plan_handle) <span class="keyword">AS</span> p</span><br><span class="line"><span class="keyword">WHERE</span> q.text <span class="keyword">LIKE</span> <span class="string">&#x27;%stored_procedure_name%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p><a href="#Menu">(Back to Menu)</a></p>
 <hr>
@@ -338,10 +350,10 @@
         "genre": "Programming",
         "datePublished": "2024-05-20",
         "dateCreated": "2024-05-20",
-        "dateModified": "2024-10-20",
+        "dateModified": "2025-01-17",
         "url": "https://yncbearz.github.io/2024/05/20/Common-MSSQL-Syntax/",
         "description": "Common-MSSQL-Syntax",
-        "wordCount": 394
+        "wordCount": 470
     }
 </script>
 
@@ -609,7 +621,7 @@
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2024 YNCBearz</p>
+                <p>&copy; 2025 YNCBearz</p>
                 
                 <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
                 
@@ -700,7 +712,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1730131650250')
+  navigator.serviceWorker.register('/sw.js?t=1737101113599')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
