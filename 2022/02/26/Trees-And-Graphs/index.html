@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>Trees And Graphs | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Study Group" />
+    
+    <meta name="description" content="Trees-And-Graphs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Trees And Graphs">
+<meta property="og:url" content="https://yncbearz.github.io/2022/02/26/Trees-And-Graphs/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Trees-And-Graphs">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/green-tree-in-the-night.webp">
+<meta property="article:published_time" content="2022-02-26T02:33:00.000Z">
+<meta property="article:modified_time" content="2025-05-30T08:15:23.257Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Study Group">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/green-tree-in-the-night.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Trees-And-Graphs"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        Trees And Graphs
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2022/02/26/Trees-And-Graphs/" class="article-date">
+       <time datetime="2022-02-26T02:33:00.000Z" itemprop="datePublished">2022-02-26</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Study-Group/" rel="tag">Study Group</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="樹的類型-Types-of-Trees"><a href="#樹的類型-Types-of-Trees" class="headerlink" title="樹的類型 (Types of Trees)"></a>樹的類型 (Types of Trees)</h1><h2 id="樹與二元樹-Trees-vs-Binary-Trees"><a href="#樹與二元樹-Trees-vs-Binary-Trees" class="headerlink" title="樹與二元樹 (Trees vs. Binary Trees)"></a>樹與二元樹 (Trees vs. Binary Trees)</h2><p>指每個節點最多兩個子節點的樹。並非所有的樹是二元樹。</p>
+<p><img src="/images/notes/2022/02/ternary-tree.png" alt="ternary-tree"></p>
+<p>無子節點的節點稱為葉 (leaf)。</p>
+<h2 id="二元樹與二元搜尋樹-Binary-Tree-vs-Binary-Search-Tree"><a href="#二元樹與二元搜尋樹-Binary-Tree-vs-Binary-Search-Tree" class="headerlink" title="二元樹與二元搜尋樹 (Binary Tree vs. Binary Search Tree)"></a>二元樹與二元搜尋樹 (Binary Tree vs. Binary Search Tree)</h2><p>二元搜尋樹指每個節點都有特定排序的二元樹：<br>所有左邊 &lt;&#x3D; n &lt; 所有右邊。此條件對每個節點n都成立。</p>
+<p><img src="/images/notes/2022/02/binary-search-tree.png" alt="binary-search-tree"><br><img src="/images/notes/2022/02/not-binary-search-tree.png" alt="not-binary-search-tree"></p>
+<h2 id="平衡與非平衡-Balanced-vs-Unbalanced"><a href="#平衡與非平衡-Balanced-vs-Unbalanced" class="headerlink" title="平衡與非平衡 (Balanced vs. Unbalanced)"></a>平衡與非平衡 (Balanced vs. Unbalanced)</h2><p>注意平衡樹並不表示左右子樹大小完全相同。</p>
+<p>實際意義是類似「未到糟糕等級的不平衡」。<br>它的平衡程度足以<strong>確保insert與find在$O(logn)$時間內</strong>。<br>(不一定要最佳平衡)</p>
+<p>常見的平衡樹是紅黑樹(Red Black Tree)和AVL樹。</p>
+<h2 id="完全二元樹-Complete-Binary-Trees"><a href="#完全二元樹-Complete-Binary-Trees" class="headerlink" title="完全二元樹 (Complete Binary Trees)"></a>完全二元樹 (Complete Binary Trees)</h2><p>指的是除了最後一層外，每層都填滿的二元樹。<br>最後一層從左至右填入。</p>
+<p><img src="/images/notes/2022/02/not-complete-binary-tree.png" alt="not-complete-binary-tree"><br><img src="/images/notes/2022/02/complete-binary-tree.png" alt="complete-binary-tree"></p>
+<h2 id="滿二元樹-Full-Binary-Trees"><a href="#滿二元樹-Full-Binary-Trees" class="headerlink" title="滿二元樹 (Full Binary Trees)"></a>滿二元樹 (Full Binary Trees)</h2><p>指的是每個節點有零或兩個子節點的二元樹。<br>也就是說沒有節點只有一個子節點。</p>
+<p><img src="/images/notes/2022/02/not-full-binary-tree.png" alt="not-full-binary-tree"><br><img src="/images/notes/2022/02/full-binary-tree.png" alt="full-binary-tree"></p>
+<h2 id="完美二元樹-Perfect-Binary-Trees"><a href="#完美二元樹-Perfect-Binary-Trees" class="headerlink" title="完美二元樹 (Perfect Binary Trees)"></a>完美二元樹 (Perfect Binary Trees)</h2><p>指的是所有葉節點均在同一層且葉具有最大節點數量。<br>剛好有$2^k-1$個節點。($k$為層數)</p>
+<p><img src="/images/notes/2022/02/perfect-binary-tree.png" alt="perfect-binary-tree"></p>
+<hr>
+<h1 id="二元樹遍歷-Binary-Tree-Traversal"><a href="#二元樹遍歷-Binary-Tree-Traversal" class="headerlink" title="二元樹遍歷 (Binary Tree Traversal)"></a>二元樹遍歷 (Binary Tree Traversal)</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    4</span><br><span class="line">   / \</span><br><span class="line">  2   6</span><br><span class="line"> / \ / \</span><br><span class="line">1  3 5  7</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">遍歷方式</th>
+<th align="left">輸出結果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Pre-Order Traversal</td>
+<td align="left">4213657</td>
+</tr>
+<tr>
+<td align="left">In-Order Traversal</td>
+<td align="left">1234567</td>
+</tr>
+<tr>
+<td align="left">Post-Order Traversal</td>
+<td align="left">1325764</td>
+</tr>
+</tbody></table>
+<p>Pre-, In-, Post- 是指<strong>parent node相對於child node的順序</strong>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinaryTreeNode</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">mixed</span> <span class="variable">$data</span>;</span><br><span class="line">    <span class="keyword">public</span> ?BinaryTreeNode <span class="variable">$left</span>;</span><br><span class="line">    <span class="keyword">public</span> ?BinaryTreeNode <span class="variable">$right</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;data = <span class="variable">$data</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;left = <span class="literal">null</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;right = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="前序遍歷-Pre-Order-Traversal"><a href="#前序遍歷-Pre-Order-Traversal" class="headerlink" title="前序遍歷 (Pre-Order Traversal)"></a>前序遍歷 (Pre-Order Traversal)</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PreOrder</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">string</span> <span class="variable">$result</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">BinaryTreeNode <span class="variable">$node</span></span>): <span class="title">string</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">preOrderTraversal</span>(<span class="variable">$node</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">preOrderTraversal</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$node</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">visit</span>(<span class="variable">$node</span>);</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">preOrderTraversal</span>(<span class="variable">$node</span>-&gt;left);</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">preOrderTraversal</span>(<span class="variable">$node</span>-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">visit</span>(<span class="params">BinaryTreeNode <span class="variable">$node</span></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;result = <span class="variable language_">$this</span>-&gt;result . <span class="variable">$node</span>-&gt;data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="中序遍歷-In-Order-Traversal"><a href="#中序遍歷-In-Order-Traversal" class="headerlink" title="中序遍歷 (In-Order Traversal)"></a>中序遍歷 (In-Order Traversal)</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InOrder</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">string</span> <span class="variable">$result</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">BinaryTreeNode <span class="variable">$node</span></span>): <span class="title">string</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">InOrderTraversal</span>(<span class="variable">$node</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">InOrderTraversal</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$node</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">InOrderTraversal</span>(<span class="variable">$node</span>-&gt;left);</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">visit</span>(<span class="variable">$node</span>);</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">InOrderTraversal</span>(<span class="variable">$node</span>-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">visit</span>(<span class="params">BinaryTreeNode <span class="variable">$node</span></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;result = <span class="variable language_">$this</span>-&gt;result . <span class="variable">$node</span>-&gt;data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="後序遍歷-Post-Order-Traversal"><a href="#後序遍歷-Post-Order-Traversal" class="headerlink" title="後序遍歷 (Post-Order Traversal)"></a>後序遍歷 (Post-Order Traversal)</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PostOrder</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">string</span> <span class="variable">$result</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">BinaryTreeNode <span class="variable">$node</span></span>): <span class="title">string</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">PostOrderTraversal</span>(<span class="variable">$node</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">PostOrderTraversal</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$node</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">PostOrderTraversal</span>(<span class="variable">$node</span>-&gt;left);</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">PostOrderTraversal</span>(<span class="variable">$node</span>-&gt;right);</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">visit</span>(<span class="variable">$node</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">visit</span>(<span class="params">BinaryTreeNode <span class="variable">$node</span></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="variable language_">$this</span>-&gt;result = <span class="variable language_">$this</span>-&gt;result . <span class="variable">$node</span>-&gt;data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="二元堆積-最小堆積與最大堆積-Binary-Heaps-Min-Heaps-and-Max-Heaps"><a href="#二元堆積-最小堆積與最大堆積-Binary-Heaps-Min-Heaps-and-Max-Heaps" class="headerlink" title="二元堆積 - 最小堆積與最大堆積 (Binary Heaps - Min-Heaps and Max-Heaps)"></a>二元堆積 - 最小堆積與最大堆積 (Binary Heaps - Min-Heaps and Max-Heaps)</h1><p>最小堆積是個完全二元樹，其每個節點都小於子節點，<br>因此根是樹中的最小元素。</p>
+<p><img src="/images/notes/2022/02/min-heap.png" alt="min-heap"></p>
+<p>有兩個關鍵操作：<strong>insert</strong>與<strong>extract_min</strong>。</p>
+<blockquote>
+<p>Insert</p>
+</blockquote>
+<p>插入到最小堆積時，我們總是從底最右插入元素以維持完全樹。</p>
+<p>然後我們改正樹，交換新元素與父元素直到新元素落在正確位置。<br>基本上就是將最小元素浮上去。</p>
+<p><img src="/images/notes/2022/02/min-heap-insert.png" alt="min-heap-insert"></p>
+<p>需要$O(logn)$時間，$n$為堆積的節點數量。</p>
+<blockquote>
+<p>Extract Minimum Element</p>
+</blockquote>
+<p>首先我們刪除最小元素並與堆積中最後一個元素(最下最右的元素)交換。<br>然後與子元素交換直到恢復成最小堆積。</p>
+<p>與左或右的子元素交換？視其值而定。<br>左右元素間沒有自然的順序，但你必須取用較小者以維持最小堆積的順序。</p>
+<p><img src="/images/notes/2022/02/min-heap-extract-minimum-element.png" alt="min-heap-extract-minimum-element"></p>
+<p>(註: pdf版本的80並不符合最小堆積，書上的圖給的值是96)</p>
+<p>此演算法也需要$O(logn)$時間。</p>
+<hr>
+<h1 id="前綴樹-Tries-Prefix-Trees"><a href="#前綴樹-Tries-Prefix-Trees" class="headerlink" title="前綴樹 (Tries - Prefix Trees)"></a>前綴樹 (Tries - Prefix Trees)</h1><p><img src="/images/notes/2022/02/trie.png" alt="trie"></p>
+<p>前綴樹常用於儲存供前綴查詢的語言(英文)。</p>
+<p>雖然雜湊表可以快速查詢某個字是否為合法的詞，<br>但無法告訴我們字串是否為前綴。<br>這點前綴樹可以做到。</p>
+<hr>
+<h1 id="圖-Graphs"><a href="#圖-Graphs" class="headerlink" title="圖 (Graphs)"></a>圖 (Graphs)</h1><p>樹為圖的一種，但並非所有圖都是樹。</p>
+<p>圖是群有邊 (edge) 的節點。</p>
+<ul>
+<li>圖可分有向 (directed) 或無向。</li>
+<li>圖可能由多個獨立的子圖組成。若每個點之間都有路徑連接則稱為「連通圖」(connected graph)。</li>
+<li>圖也可以有環。沒有環的圖稱為「無環圖」(acyclic graph)。</li>
+</ul>
+<p><img src="/images/notes/2022/02/graph.png" alt="graph"></p>
+<p>通常有兩種常見的表示方式。</p>
+<h2 id="相鄰清單-Adjacency-List"><a href="#相鄰清單-Adjacency-List" class="headerlink" title="相鄰清單 (Adjacency List)"></a>相鄰清單 (Adjacency List)</h2><p>這是最常見的表示圖方式。<br>每個頂點 (vertex)(或稱為節點)儲存相鄰頂點的清單。<br>在無向圖中，(a, b)的邊會儲存兩次：<br>一次是a的相鄰頂點，一次是b的相鄰頂點。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Graph</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> Node[] <span class="variable">$nodes</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$name</span>;</span><br><span class="line">	<span class="keyword">public</span> Node[] <span class="variable">$children</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此Graph類別是必要的，因為不像樹可從一個節點找到使用節點。</p>
+<p>你不一定要額外的類別來表示圖。<br>上面的圖可表示為：<br>0: 1<br>1: 2<br>2: 0, 3<br>3: 2<br>4: 6<br>5: 4<br>6: 5</p>
+<h2 id="相鄰矩陣-Adjacency-Matrices"><a href="#相鄰矩陣-Adjacency-Matrices" class="headerlink" title="相鄰矩陣 (Adjacency Matrices)"></a>相鄰矩陣 (Adjacency Matrices)</h2><p>相鄰矩陣是N*N布林矩陣 (N為節點數量)。<br>**matrix[i][j]**的true值表示節點i與節點j有邊。</p>
+<p>在無向圖中，相鄰矩陣是對稱的。<br>在有向圖不一定對稱。</p>
+<p><img src="/images/notes/2022/02/adjacency-matrices.png" alt="adjacency-matrices"></p>
+<hr>
+<h1 id="圖搜尋-Graph-Search"><a href="#圖搜尋-Graph-Search" class="headerlink" title="圖搜尋 (Graph Search)"></a>圖搜尋 (Graph Search)</h1><h2 id="深度優先搜尋-Depth-First-Search-DFS"><a href="#深度優先搜尋-Depth-First-Search-DFS" class="headerlink" title="深度優先搜尋 (Depth-First Search, DFS)"></a>深度優先搜尋 (Depth-First Search, DFS)</h2><p>在DFS中，我們造訪節點a然後迭代a的每個鄰居。<br>造訪a的鄰居b節點時，我們在進入a的其他鄰居前造訪b的所有鄰居。<br>也就是進入其他鄰居前完整搜尋b的分支。</p>
+<p>注意前序與其他形式的樹遍歷也是一種DFS。<br>關鍵在於對圖實作時，我們必須檢查節點是否已經造訪過。</p>
+<h2 id="廣度優先搜尋-Breadth-First-Search-BFS"><a href="#廣度優先搜尋-Breadth-First-Search-BFS" class="headerlink" title="廣度優先搜尋 (Breadth-First Search, BFS)"></a>廣度優先搜尋 (Breadth-First Search, BFS)</h2><p>在BFS中，節點a在造訪鄰居的鄰居前會造訪每一個鄰居。<br>你可以想像從a開始一層一層搜尋。<br>使用<strong>佇列</strong>的迭代方案通常最好。</p>
+<h2 id="雙向搜尋-Bidirectional-Search"><a href="#雙向搜尋-Bidirectional-Search" class="headerlink" title="雙向搜尋 (Bidirectional Search)"></a>雙向搜尋 (Bidirectional Search)</h2><p>用於找出來源與目標節點間的最短路徑。<br>基本上是同時從兩個節點執行兩個廣度搜尋。</p>
+<p><img src="/images/notes/2022/02/bidirectional-search.png" alt="bidirectional-search"></p>
+<p>以每個節點最多有k個相鄰節點的圖來說，<br>從節點s到節點t的最短路徑長度為d。</p>
+<ul>
+<li><p>在廣度優先搜尋中，我們會在第一層搜尋最多$k$個節點。<br>第二層對$k$個節點各搜尋$k$個節點，共有$k^2$個節點。<br>會執行$d$次，因此有$O(k^d)$個節點。</p>
+</li>
+<li><p>在雙向搜尋中，兩個搜尋約在$d&#x2F;2$層後碰撞(路徑中點)。<br>從s開始搜尋造訪約$O(k^{d&#x2F;2})$次，從t開始也是。<br>總共是$2*k^{d&#x2F;2}$，或$O(k^{d&#x2F;2})$個節點。</p>
+</li>
+</ul>
+<hr>
+<h1 id="面試題目"><a href="#面試題目" class="headerlink" title="面試題目"></a>面試題目</h1><ul>
+<li>Binary Tree Node</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinaryTreeNode</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">mixed</span> <span class="variable">$data</span>;</span><br><span class="line">    <span class="keyword">public</span> ?BinaryTreeNode <span class="variable">$left</span>;</span><br><span class="line">    <span class="keyword">public</span> ?BinaryTreeNode <span class="variable">$right</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;data = <span class="variable">$data</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;left = <span class="literal">null</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;right = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-Check-Balanced"><a href="#4-4-Check-Balanced" class="headerlink" title="4.4 Check Balanced"></a>4.4 Check Balanced</h2><h3 id="Implement-a-function-to-check-if-a-binary-tree-is-balanced-For-the-purposes-of-this-question-a-balanced-tree-is-defined-to-be-a-tree-such-that-the-heights-of-the-two-subtrees-of-any-node-never-differ-by-more-than-one"><a href="#Implement-a-function-to-check-if-a-binary-tree-is-balanced-For-the-purposes-of-this-question-a-balanced-tree-is-defined-to-be-a-tree-such-that-the-heights-of-the-two-subtrees-of-any-node-never-differ-by-more-than-one" class="headerlink" title="Implement a function to check if a binary tree is balanced. For the purposes of this question, a balanced tree is defined to be a tree such that the heights of the two subtrees of any node never differ by more than one."></a>Implement a function to check if a binary tree is balanced. For the purposes of this question, a balanced tree is defined to be a tree such that the heights of the two subtrees of any node never differ by more than one.</h3><blockquote>
+<p>First Answer</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BalancedTreeChecker</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isBalanced</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">is_null</span>(<span class="variable">$node</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$heightDiff</span> = <span class="title function_ invoke__">abs</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">getHeight</span>(<span class="variable">$node</span>-&gt;left) - <span class="built_in">self</span>::<span class="title function_ invoke__">getHeight</span>(<span class="variable">$node</span>-&gt;right));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$heightDiff</span> &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">self</span>::<span class="title function_ invoke__">isBalanced</span>(<span class="variable">$node</span>-&gt;left) &amp;&amp; <span class="built_in">self</span>::<span class="title function_ invoke__">isBalanced</span>(<span class="variable">$node</span>-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getHeight</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span></span>): <span class="title">int</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">is_null</span>(<span class="variable">$node</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">max</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">getHeight</span>(<span class="variable">$node</span>-&gt;left), <span class="built_in">self</span>::<span class="title function_ invoke__">getHeight</span>(<span class="variable">$node</span>-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Second Answer</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BalancedTreeChecker</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isBalanced</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">is_null</span>(<span class="variable">$node</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">self</span>::<span class="title function_ invoke__">getHeight</span>(<span class="variable">$node</span>) != PHP_INT_MIN;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getHeight</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span></span>): <span class="title">int</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">is_null</span>(<span class="variable">$node</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$leftHeight</span> = <span class="built_in">self</span>::<span class="title function_ invoke__">getHeight</span>(<span class="variable">$node</span>-&gt;left);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$leftHeight</span> == PHP_INT_MIN) &#123;</span><br><span class="line">            <span class="keyword">return</span> PHP_INT_MIN;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$rightHeight</span> = <span class="built_in">self</span>::<span class="title function_ invoke__">getHeight</span>(<span class="variable">$node</span>-&gt;right);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$rightHeight</span> == PHP_INT_MIN) &#123;</span><br><span class="line">            <span class="keyword">return</span> PHP_INT_MIN;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$heightDiff</span> = <span class="title function_ invoke__">abs</span>(<span class="variable">$leftHeight</span> - <span class="variable">$rightHeight</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$heightDiff</span> &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> PHP_INT_MIN;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="title function_ invoke__">max</span>(<span class="variable">$leftHeight</span>, <span class="variable">$rightHeight</span>) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-5-Validate-BST"><a href="#4-5-Validate-BST" class="headerlink" title="4.5 Validate BST"></a>4.5 Validate BST</h2><h3 id="Implement-a-function-to-check-if-a-binary-tree-is-a-binary-search-tree"><a href="#Implement-a-function-to-check-if-a-binary-tree-is-a-binary-search-tree" class="headerlink" title="Implement a function to check if a binary tree is a binary search tree."></a>Implement a function to check if a binary tree is a binary search tree.</h3><blockquote>
+<p>First Answer (In-Order Traversal)</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySearchTreeChecker</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="built_in">static</span> ?<span class="keyword">int</span> <span class="variable">$lastPrinted</span> = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isBinarySearchTree</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span>, <span class="variable">$min</span> = <span class="literal">null</span>, <span class="variable">$max</span> = <span class="literal">null</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = <span class="built_in">self</span>::<span class="title function_ invoke__">checkBST</span>(<span class="variable">$node</span>);</span><br><span class="line">        <span class="built_in">self</span>::<span class="variable">$lastPrinted</span> = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">checkBST</span>(<span class="params">?BinaryTreeNode <span class="variable">$node</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">is_null</span>(<span class="variable">$node</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">self</span>::<span class="title function_ invoke__">checkBST</span>(<span class="variable">$node</span>-&gt;left)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!<span class="title function_ invoke__">is_null</span>(<span class="built_in">self</span>::<span class="variable">$lastPrinted</span>) &amp;&amp; <span class="variable">$node</span>-&gt;data &lt; <span class="built_in">self</span>::<span class="variable">$lastPrinted</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">self</span>::<span class="variable">$lastPrinted</span> = <span class="variable">$node</span>-&gt;data;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">self</span>::<span class="title function_ invoke__">checkBST</span>(<span class="variable">$node</span>-&gt;right)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-6-Successor"><a href="#4-6-Successor" class="headerlink" title="4.6 Successor"></a>4.6 Successor</h2><h3 id="Write-an-algorithm-to-find-the-“next”-node-i-e-in-order-successor-of-a-given-node-in-a-binary-search-tree-You-may-assume-that-each-node-has-a-link-to-its-parent"><a href="#Write-an-algorithm-to-find-the-“next”-node-i-e-in-order-successor-of-a-given-node-in-a-binary-search-tree-You-may-assume-that-each-node-has-a-link-to-its-parent" class="headerlink" title="Write an algorithm to find the “next” node (i.e., in-order successor) of a given node in a binary search tree. You may assume that each node has a link to its parent."></a>Write an algorithm to find the “next” node (i.e., in-order successor) of a given node in a binary search tree. You may assume that each node has a link to its parent.</h3><p><img src="/images/notes/2022/02/binary-search-tree-01.png" alt="binary-search-tree"></p>
+<p><strong>Ideas:</strong></p>
+<ol>
+<li>若有右子樹，則是右子樹上最左邊的節點。</li>
+</ol>
+<p><img src="/images/notes/2022/02/binary-search-tree-02.png" alt="有右子樹的情況"></p>
+<ol start="2">
+<li>若沒有右子樹，則要看節點與父節點的相對位置<ul>
+<li>若節點在父節點的左邊，則下一個節點是父節點。</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/notes/2022/02/binary-search-tree-03.png" alt="節點在父節點的左邊"></p>
+<ul>
+<li>若節點在父節點的右邊，則下一個節點是父節點往上還沒遍歷的節點。<br>即是下一個從左邊回去的節點。</li>
+</ul>
+<p><img src="/images/notes/2022/02/binary-search-tree-04.png" alt="節點在父節點的右邊"></p>
+<ol start="3">
+<li>要小心若一路向上的過程中，沒有從左邊回去的節點。</li>
+</ol>
+<p><img src="/images/notes/2022/02/binary-search-tree-05.png" alt="沒有從左邊回去的節點"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">inorderSuccessor(Node n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n has a right subtree) &#123;</span><br><span class="line">    <span class="keyword">return</span> leftmost child of right subtree;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> (n.parent != <span class="literal">null</span> &amp;&amp; n is a right child of n.parent) &#123;</span><br><span class="line">        n = n.parent;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n.parent;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Binary Tree Node With Parent</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinaryTreeNodeWithParent</span> <span class="keyword">extends</span> <span class="title">BinaryTreeNode</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$parent</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">parent</span>::<span class="title function_ invoke__">__construct</span>(<span class="variable">$data</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>First Answer</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuccessorNodeFinder</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">inorderSuccessor</span>(<span class="params">?BinaryTreeNodeWithParent <span class="variable">$node</span></span>): ?<span class="title">BinaryTreeNode</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">is_null</span>(<span class="variable">$node</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!<span class="title function_ invoke__">is_null</span>(<span class="variable">$node</span>-&gt;right)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">self</span>::<span class="title function_ invoke__">leftMostChild</span>(<span class="variable">$node</span>-&gt;right);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$parent</span> = <span class="variable">$node</span>-&gt;<span class="built_in">parent</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (!<span class="title function_ invoke__">is_null</span>(<span class="variable">$parent</span>) &amp;&amp; (<span class="variable">$parent</span>-&gt;left != <span class="variable">$node</span>)) &#123;</span><br><span class="line">                <span class="variable">$node</span> = <span class="variable">$parent</span>;</span><br><span class="line">                <span class="variable">$parent</span> = <span class="variable">$parent</span>-&gt;<span class="built_in">parent</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$parent</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">leftMostChild</span>(<span class="params">BinaryTreeNode <span class="variable">$node</span></span>): <span class="title">BinaryTreeNode</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (!<span class="title function_ invoke__">is_null</span>(<span class="variable">$node</span>-&gt;left)) &#123;</span><br><span class="line">            <span class="variable">$node</span> = <span class="variable">$node</span>-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$node</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>ʕ •ᴥ•ʔ：程式碼可參考：<a target="_blank" rel="noopener" href="https://github.com/YNCBearz/CtCI-6th-Edition-php">CtCI-6th-php</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2022/02/26/Trees-And-Graphs/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "Trees And Graphs",
+        "image": "https://yncbearz.github.io/images/thumbnails/green-tree-in-the-night.webp",
+        "keywords": "Study Group",
+        "genre": "Programming",
+        "datePublished": "2022-02-26",
+        "dateCreated": "2022-02-26",
+        "dateModified": "2025-05-30",
+        "url": "https://yncbearz.github.io/2022/02/26/Trees-And-Graphs/",
+        "description": "Trees-And-Graphs",
+        "wordCount": 3157
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2022/04/02/Math-And-Logic-Puzzles/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Math And Logic Puzzles
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2022/02/21/Stacks-And-Queues/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Stacks And Queues</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/Blog-Feature-List/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/schedule-plan.webp)" alt="部落格功能清單" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/06/19/Blog-Feature-List/" class="title">部落格功能清單</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T02:17:52.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
+                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/laptop-coffee.webp)" alt="如何使用 Cursor 來寫程式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="title">如何使用 Cursor 來寫程式</a></p>
+                            <p class="item-date"><time datetime="2025-02-22T12:28:53.000Z" itemprop="datePublished">2025-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/chalkboard.webp)" alt="類別圖：動物園管理員（訪問者模式）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="title">類別圖：動物園管理員（訪問者模式）</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T16:27:50.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'ec8ff8fd3a89fc8b584d9980492c2a45',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+    
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1753875325087')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

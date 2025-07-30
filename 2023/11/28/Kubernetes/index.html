@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>Kubernetes | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Note" />
+    
+    <meta name="description" content="Kubernetes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes">
+<meta property="og:url" content="https://yncbearz.github.io/2023/11/28/Kubernetes/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Kubernetes">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/boat.webp">
+<meta property="article:published_time" content="2023-11-28T15:08:03.000Z">
+<meta property="article:modified_time" content="2025-05-30T08:15:23.247Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Note">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/boat.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Kubernetes"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        Kubernetes
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/11/28/Kubernetes/" class="article-date">
+       <time datetime="2023-11-28T15:08:03.000Z" itemprop="datePublished">2023-11-28</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Note/" rel="tag">Note</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h1><ul>
+<li>CKAD</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> &lt;(kubectl completion bash)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> k=kubectl</span><br><span class="line">complete -o default -F __start_kubectl k</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>minikube start for wsl</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube start</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>設定 Windows Path 方便定位</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export WINDOWS=/mnt/c/Users/$&#123;USER&#125;/&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$WINDOWS</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Terminal-Basic"><a href="#Terminal-Basic" class="headerlink" title="Terminal Basic"></a>Terminal Basic</h1><ul>
+<li>Ctrl + z: 讓前台指令移轉至後台並處於<strong>暫停</strong>的狀態</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 顯示所有運行的程式</span></span><br><span class="line"><span class="built_in">jobs</span> -l</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 將後台所有暫停的指令執行</span></span><br><span class="line"><span class="built_in">bg</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 將後台暫停的指令執行</span></span><br><span class="line"><span class="built_in">bg</span> %<span class="variable">$&#123;JOB_NUMBER&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 將後台所有的指令移轉至前台</span></span><br><span class="line"><span class="built_in">fg</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 將後台指令移轉至前台</span></span><br><span class="line"><span class="built_in">fg</span> %<span class="variable">$&#123;JOB_NUMBER&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 移除特定指令</span></span><br><span class="line"><span class="built_in">kill</span> %<span class="variable">$&#123;JOB_NUMBER&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>於指令末端加入 &amp; ，便可以直接在背景執行</li>
+</ul>
+<hr>
+<h1 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h1><ul>
+<li>Create Namespace</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k create namespace practice-231216</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Change Namespace for all subsequent commands</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k config set-context --current --namespace=practice-231216</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>確認有成功改變 Namespace</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k config view --minify | grep namespace:</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h1><ul>
+<li><strong>pod.yaml</strong> via vim</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-231204</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">hour:</span> <span class="number">15</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nginx</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nginx:1.14.2</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>pod.yaml</strong> via dry-run</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl run nginx --image=nginx:1.14.2 --dry-run=client -o yaml &gt; pod.yaml</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Apply</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k apply -f pod.yaml</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Get Pods</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get pods</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get pods --show-labels</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get pods -l hour=15</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列出所有 Pods 的詳細訊息</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get pods <span class="literal">-o</span> json</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>透過上面得到的 json 欄位來作 filter</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get pods <span class="literal">--field-selector</span>=status.phase=Succeeded</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>透過 filter 出來的 json 配置文件來刪除對應的 pod</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get pods <span class="literal">--field-selector</span>=status.phase=Succeeded <span class="literal">-o</span> json | k delete <span class="operator">-f</span> -</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>取出 traefik deployment 中 livenessProbe 內容</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get deploy traefik <span class="literal">-o</span> jsonpath=<span class="string">&#x27;&#123;.spec.template.spec.containers[*].livenessProbe&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>刪除某種類型的 Pods</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k delete pod <span class="literal">--field-selector</span>=status.phase=Succeeded</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k delete pods <span class="literal">-l</span> app=web<span class="literal">-crawler</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k delete pod <span class="literal">--field-selector</span>=status.phase=Succeeded <span class="literal">-l</span> app=klikbca<span class="literal">-crawler</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Debug Running Pods</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k describe pod <span class="variable">$&#123;POD_NAME&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Event</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get events</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get events --sort-by=.lastTimestamp</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Port forward</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k port-forward pod/<span class="variable">$&#123;POD_NAME&#125;</span> &lt;local-port&gt;:&lt;container-port&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(Note.)</p>
+<ol>
+<li>nginx 跑在 80 port</li>
+<li>在WSL中，某些低於 1024 的 port 可能需要 root(sudo) 權限</li>
+</ol>
+<ul>
+<li>Execute in Pod</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k <span class="built_in">exec</span> -it <span class="variable">$&#123;POD_NAME&#125;</span> -- bash</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;Hello Bear&#x27;</span> &gt; /usr/share/nginx/html/index.html</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Pod log</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k logs -f <span class="variable">$&#123;POD_NAME&#125;</span> -c <span class="variable">$&#123;CONTAINER_NAME&#125;</span> --<span class="built_in">tail</span>=5 --timestamps</span><br></pre></td></tr></table></figure>
+
+<p>(Note.)</p>
+<ol>
+<li><strong>-f, –follow</strong> : 即時跟蹤 log 的變化。</li>
+<li><strong>–tail</strong> : 顯示顯示數量的最後幾行。</li>
+<li><strong>–timestamps</strong> : 顯示 timestamp。</li>
+</ol>
+<ul>
+<li>Delete Pod</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k delete pod <span class="variable">$&#123;POD_NAME&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Label for Pod via CLI</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k label pod <span class="variable">$&#123;POD_NAME&#125;</span> <span class="variable">$&#123;KEY&#125;</span>=<span class="variable">$&#123;VALUE&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Label for Pod via vim</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k edit pod <span class="variable">$&#123;POD_NAME&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>確認有成功上 Label</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get pods --show-labels</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Remove Label</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k label pod <span class="variable">$&#123;POD_NAME&#125;</span> <span class="variable">$&#123;KEY&#125;</span>-</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Debug skill (use bash)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k run foobar --<span class="built_in">rm</span> -it --image=busybox -- bash</span><br></pre></td></tr></table></figure>
+
+<p>(Note.)</p>
+<p>–rm: 執行結束後刪除</p>
+<hr>
+<h1 id="Top"><a href="#Top" class="headerlink" title="Top"></a>Top</h1><ul>
+<li>可以用來看 resource CPU&#x2F;memory</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k top node</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k top pod</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Volume"><a href="#Volume" class="headerlink" title="Volume"></a>Volume</h1><ul>
+<li>Create nginx-volume.yaml</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k run nginx<span class="literal">-volume</span> <span class="literal">--image</span>=nginx:<span class="number">1.16</span> <span class="literal">--dry-run</span>=client <span class="literal">-o</span> yaml &gt; nginx<span class="literal">-volume</span>.yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">creationTimestamp:</span> <span class="literal">null</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">nginx-volume</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-volume</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">nginx:1.16</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">nginx-volume</span></span><br><span class="line">    <span class="attr">resources:</span> &#123;&#125;</span><br><span class="line">  <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">  <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line"><span class="attr">status:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Add volume settings</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h1><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k expose deployment nginx<span class="literal">-deployment-15</span> <span class="literal">--port</span>=<span class="number">81</span> <span class="literal">--target-port</span>=<span class="number">80</span> <span class="literal">--protocol</span>=TCP <span class="literal">--name</span>=rover <span class="literal">--type</span>=NodePort <span class="literal">-o</span> yaml <span class="literal">--dry-run</span>=client &gt; rover.yaml</span><br></pre></td></tr></table></figure>
+
+<p>(Note.)</p>
+<ul>
+<li>若直接 create service，需手動寫好 label 來關聯 deployment!!!</li>
+</ul>
+<hr>
+<h1 id="Secret"><a href="#Secret" class="headerlink" title="Secret"></a>Secret</h1><ul>
+<li>Create secret.yaml</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k create secret generic <span class="literal">--from-literal</span>=key1=value2 <span class="literal">-h</span> <span class="literal">--dry-run</span>=client <span class="literal">-o</span> yaml &gt; another<span class="literal">-secret</span>.yaml</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Apply</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k apply <span class="operator">-f</span> another<span class="literal">-secret</span>.yaml</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Create nginx-secret.yaml</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k run nginx<span class="literal">-secret</span> <span class="literal">--image</span>=nginx:<span class="number">1.16</span> <span class="literal">--dry-run</span>=client <span class="literal">-o</span> yaml &gt; nginx<span class="literal">-secret</span>.yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">creationTimestamp:</span> <span class="literal">null</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">nginx-secret</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-secret</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">nginx:1.16</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">nginx-secret</span></span><br><span class="line">    <span class="attr">resources:</span> &#123;&#125;</span><br><span class="line">  <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">  <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line"><span class="attr">status:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Add secret settings (env &amp; secret KeyRef)</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">creationTimestamp:</span> <span class="literal">null</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">nginx-secret</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-secret</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">nginx:1.16</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">nginx-secret</span></span><br><span class="line">    <span class="attr">resources:</span> &#123;&#125;</span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">COOL_VARIABLE</span></span><br><span class="line">      <span class="attr">valueFrom:</span></span><br><span class="line">        <span class="attr">secretKeyRef:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">another-secret</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">key1</span></span><br><span class="line">  <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">  <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line"><span class="attr">status:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="ConfigMap"><a href="#ConfigMap" class="headerlink" title="ConfigMap"></a>ConfigMap</h1><ul>
+<li>Create configmap.yaml</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k create configmap some<span class="literal">-config</span> <span class="literal">--from-literal</span>=key3=value4 <span class="literal">--dry-run</span>=client <span class="literal">-o</span> yaml &gt; some<span class="literal">-config</span>.yaml</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Apply</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k apply <span class="operator">-f</span> some<span class="literal">-config</span>.yaml</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Create nginx-configmap.yaml</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k run nginx<span class="literal">-configmap</span> <span class="literal">--image</span>=nginx:stable <span class="literal">--dry-run</span>=client <span class="literal">-o</span> yaml &gt; nginx<span class="literal">-configmap</span>.yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">creationTimestamp:</span> <span class="literal">null</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">nginx-configmap</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-configmap</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">nginx:stable</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">nginx-configmap</span></span><br><span class="line">    <span class="attr">resources:</span> &#123;&#125;</span><br><span class="line">  <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">  <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line"><span class="attr">status:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Add configmap settings (volumeMounts &amp; volumes)</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">creationTimestamp:</span> <span class="literal">null</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">nginx-configmap</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-configmap</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">nginx:stable</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">nginx-configmap</span></span><br><span class="line">    <span class="attr">resources:</span> &#123;&#125;</span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">some-config</span></span><br><span class="line">      <span class="attr">mountPath:</span> <span class="string">&quot;/some/path&quot;</span></span><br><span class="line">      <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">  <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">some-config</span></span><br><span class="line">    <span class="attr">configMap:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">some-config</span></span><br><span class="line"><span class="attr">status:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><hr>
+<h1 id="DaemonSet"><a href="#DaemonSet" class="headerlink" title="DaemonSet"></a>DaemonSet</h1><hr>
+<h1 id="StatefulSet"><a href="#StatefulSet" class="headerlink" title="StatefulSet"></a>StatefulSet</h1><blockquote>
+<p>建立 redis cluster 為例</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ConfigMap</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">mario-redis-cluster-config</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">mario</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">redis.conf:</span> <span class="string">|</span></span><br><span class="line"><span class="string">    appendonly yes</span></span><br><span class="line"><span class="string">    cluster-enabled yes</span></span><br><span class="line"><span class="string">    cluster-config-file /var/lib/redis/nodes.conf</span></span><br><span class="line"><span class="string">    dir /var/lib/redis</span></span><br><span class="line"><span class="string">    port 6379</span></span><br><span class="line"><span class="string"></span><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">mario-redis-headless-server</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">mario</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">redis-cluster-app</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">redis-port</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">  <span class="attr">clusterIP:</span> <span class="string">None</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">redis-cluster-app</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">StatefulSet</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">mario-redis-app</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">mario</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">redis-cluster-app</span></span><br><span class="line">  <span class="attr">serviceName:</span> <span class="string">&quot;mario-redis-headless-server&quot;</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">6</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">redis-cluster-app</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">dnsConfig:</span></span><br><span class="line">        <span class="attr">options:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ndots</span></span><br><span class="line">            <span class="attr">value:</span> <span class="string">&quot;1&quot;</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">redis</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">&quot;redis:6.0.9-alpine&quot;</span></span><br><span class="line">          <span class="attr">env:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">MY_POD_IP</span></span><br><span class="line">              <span class="attr">valueFrom:</span></span><br><span class="line">                <span class="attr">fieldRef:</span></span><br><span class="line">                  <span class="attr">fieldPath:</span> <span class="string">status.podIP</span></span><br><span class="line">          <span class="attr">command:</span> [ <span class="string">&quot;redis-server&quot;</span> ]</span><br><span class="line">          <span class="attr">args:</span> [ <span class="string">&quot;/etc/redis/redis.conf&quot;</span>, <span class="string">&quot;--protected-mode&quot;</span>, <span class="string">&quot;no&quot;</span>, <span class="string">&quot;--cluster-announce-ip&quot;</span>, <span class="string">&quot;$(MY_POD_IP)&quot;</span> ]</span><br><span class="line">          <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">redis</span></span><br><span class="line">              <span class="attr">containerPort:</span> <span class="number">6379</span></span><br><span class="line">              <span class="attr">protocol:</span> <span class="string">&quot;TCP&quot;</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">cluster</span></span><br><span class="line">              <span class="attr">containerPort:</span> <span class="number">16379</span></span><br><span class="line">              <span class="attr">protocol:</span> <span class="string">&quot;TCP&quot;</span></span><br><span class="line">          <span class="attr">volumeMounts:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;redis-conf&quot;</span></span><br><span class="line">              <span class="attr">mountPath:</span> <span class="string">&quot;/etc/redis&quot;</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;redis-data&quot;</span></span><br><span class="line">              <span class="attr">mountPath:</span> <span class="string">&quot;/var/lib/redis&quot;</span></span><br><span class="line">          <span class="attr">resources:</span></span><br><span class="line">            <span class="attr">limits:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">&quot;50m&quot;</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">&quot;100Mi&quot;</span></span><br><span class="line">            <span class="attr">requests:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">&quot;20m&quot;</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">&quot;50Mi&quot;</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;redis-data&quot;</span></span><br><span class="line">          <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;redis-conf&quot;</span></span><br><span class="line">          <span class="attr">configMap:</span></span><br><span class="line">            <span class="attr">name:</span> <span class="string">&quot;mario-redis-cluster-config&quot;</span></span><br><span class="line">            <span class="attr">items:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&quot;redis.conf&quot;</span></span><br><span class="line">                <span class="attr">path:</span> <span class="string">&quot;redis.conf&quot;</span></span><br><span class="line">  <span class="attr">volumeClaimTemplates:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">metadata:</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">redis-data</span></span><br><span class="line">      <span class="attr">spec:</span></span><br><span class="line">        <span class="attr">accessModes:</span> [ <span class="string">&quot;ReadWriteOnce&quot;</span> ]</span><br><span class="line">        <span class="attr">resources:</span></span><br><span class="line">          <span class="attr">requests:</span></span><br><span class="line">            <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">mario-redis-service</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">mario</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">redis-cluster-app</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">redis-port</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">&quot;TCP&quot;</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">6379</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">redis-cluster-app</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="創建-redis-cluster-關係"><a href="#創建-redis-cluster-關係" class="headerlink" title="創建 redis cluster 關係"></a>創建 redis cluster 關係</h2><ul>
+<li>取得各個 redis pod 的 ip</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k get pods <span class="literal">-l</span> app=redis<span class="literal">-cluster-app</span> <span class="literal">-o</span> jsonpath=<span class="string">&#x27;&#123;range.items[*]&#125;&#123;.status.podIP&#125;:6379 &#123;end&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>建立 redis cluster</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k exec <span class="literal">-it</span> mario<span class="literal">-redis-app-0</span> <span class="literal">--</span> redis<span class="literal">-cli</span> <span class="literal">--cluster</span> create <span class="literal">--cluster-replicas</span> <span class="number">1</span> &#123;填上上面指令取得的 IP&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解除-redis-cluster-關係"><a href="#解除-redis-cluster-關係" class="headerlink" title="解除 redis cluster 關係"></a>解除 redis cluster 關係</h2><ul>
+<li>解除所有節點的 Cluster 關係</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span>&lt;<span class="number">6</span>; <span class="variable">$i</span>++)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">Write-Host</span> <span class="string">&quot;Resetting mario-redis-app-<span class="variable">$i</span>&quot;</span></span><br><span class="line">  kubectl exec <span class="literal">-it</span> <span class="string">&quot;mario-redis-app-<span class="variable">$i</span>&quot;</span> <span class="literal">--</span> redis<span class="literal">-cli</span> CLUSTER RESET</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看-redis-cluster-關係"><a href="#查看-redis-cluster-關係" class="headerlink" title="查看 redis cluster 關係"></a>查看 redis cluster 關係</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k exec <span class="literal">-it</span> mario<span class="literal">-redis-app-0</span> <span class="literal">--</span> redis<span class="literal">-cli</span> cluster nodes</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k exec <span class="literal">-it</span> mario<span class="literal">-redis-app-0</span> <span class="literal">--</span> redis<span class="literal">-cli</span> <span class="literal">-c</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Job"><a href="#Job" class="headerlink" title="Job"></a>Job</h1><h1 id="CronJob"><a href="#CronJob" class="headerlink" title="CronJob"></a>CronJob</h1><hr>
+<h1 id="Rollout-Rollback"><a href="#Rollout-Rollback" class="headerlink" title="Rollout &amp; Rollback"></a>Rollout &amp; Rollback</h1><blockquote>
+<p>指令都是 rollout</p>
+</blockquote>
+<ul>
+<li>查看 history</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k rollout <span class="built_in">history</span> deployment webapp</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回滾前版本</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k rollout undo deployment webapp</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Pod-Lifecycle"><a href="#Pod-Lifecycle" class="headerlink" title="Pod Lifecycle"></a>Pod Lifecycle</h1><p><img src="/../images/notes/2023/11/pod-lifecycle.png"></p>
+<hr>
+<h1 id="Probe"><a href="#Probe" class="headerlink" title="Probe"></a>Probe</h1><hr>
+<h1 id="IngressClass"><a href="#IngressClass" class="headerlink" title="IngressClass"></a>IngressClass</h1><h1 id="Ingress"><a href="#Ingress" class="headerlink" title="Ingress"></a>Ingress</h1><hr>
+<h1 id="GatewayClass"><a href="#GatewayClass" class="headerlink" title="GatewayClass"></a>GatewayClass</h1><h1 id="Gateway"><a href="#Gateway" class="headerlink" title="Gateway"></a>Gateway</h1><hr>
+<h1 id="Affinity-Anti-Affinity"><a href="#Affinity-Anti-Affinity" class="headerlink" title="Affinity &amp; Anti-Affinity"></a>Affinity &amp; Anti-Affinity</h1><hr>
+<h1 id="RBAC"><a href="#RBAC" class="headerlink" title="RBAC"></a>RBAC</h1><h2 id="Role"><a href="#Role" class="headerlink" title="Role"></a>Role</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k create role roleForList <span class="literal">-o</span> yaml <span class="literal">--dry-run</span>=client <span class="literal">--verb</span>=list <span class="literal">--resource</span>=pod <span class="literal">-n</span> default</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Role</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">creationTimestamp:</span> <span class="literal">null</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pod-reader</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">rules:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">apiGroups:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pods</span></span><br><span class="line">  <span class="attr">verbs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">list</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="RoleBinding"><a href="#RoleBinding" class="headerlink" title="RoleBinding"></a>RoleBinding</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k create rolebinding pod<span class="literal">-reader-binding</span> <span class="literal">--role</span>=pod<span class="literal">-reader</span> <span class="literal">--dry-run</span>=client <span class="literal">-o</span> yaml <span class="literal">-n</span> dev <span class="literal">--serviceaccount</span>=dev:sa</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">RoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">creationTimestamp:</span> <span class="literal">null</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pod-reader-binding</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">Role</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pod-reader</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">sa</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">dev</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Scale"><a href="#Scale" class="headerlink" title="Scale"></a>Scale</h1><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k scale deployment webapp <span class="literal">--replicas</span>=<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Redeploy"><a href="#Redeploy" class="headerlink" title="Redeploy"></a>Redeploy</h1><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k rollout restart deployment webapp</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><ul>
+<li>Explain 來看 yaml 結構</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k explain job</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k explain job.spec</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k explain pod.spec.containers.resources.requests</span><br></pre></td></tr></table></figure>
+
+<h2 id="Kubernetes-Local"><a href="#Kubernetes-Local" class="headerlink" title="Kubernetes Local"></a>Kubernetes Local</h2><ul>
+<li>Install kubectl</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install kubectl</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Download Kubernetes Cluster token from Rancher</li>
+</ul>
+<p><img src="/../images/notes/2023/12/Kubernetes-Cluster-Token.png"></p>
+<ul>
+<li>Put them to a separated folder and explore by command</li>
+</ul>
+<p><img src="/../images/notes/2023/12/Separated-Folder.png"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod <span class="literal">-n</span> b2c<span class="literal">-payment</span> <span class="literal">--kubeconfig</span>=<span class="string">&#x27;D:/k8s-certs/k8s-stg.yaml&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Easy way to switch between different clusters via wsl bash</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">KUBECONFIG=./host-uat-gke.yaml:./host-prod-gke.yaml:./host-staging-gke.yaml:./k8s-prod-backup.yaml:./k8s-prod.yaml:./k8s-stg.yaml:./mt-host-prod.yaml:./mt-host-stag-gke.yaml kubectl config view --flatten &gt; config</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Put the outputed file config to ~&#x2F;.kube</li>
+</ul>
+<p><img src="/../images/notes/2023/12/kube-config.png"></p>
+<ul>
+<li>Restart your Powershell and type command</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl config <span class="built_in">use-context</span> k8s<span class="literal">-stg</span></span><br><span class="line">kubectl get pod <span class="literal">-n</span> b2c<span class="literal">-payment</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Install kubectx and fzf for fast switching</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop install kubectx</span><br><span class="line">scoop install fzf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectx</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/notes/2023/12/kubectx-fzf.png"></p>
+<ul>
+<li>Switch between namespaces (by kubectl)</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl config <span class="built_in">set-context</span> k8s<span class="literal">-stg</span> <span class="literal">--namespace</span>=<span class="variable">$</span>&#123;NAMESPACE&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Switch between namespaces (by kubens)</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install kubens</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubens <span class="variable">$</span>&#123;NAMESPACE&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Set Alais</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-Alias</span> k kubectl</span><br><span class="line"><span class="built_in">Set-Alias</span> kx kubectx</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Auto Completion</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable kubectl autocompletion with alias k</span></span><br><span class="line">(kubectl completion powershell)  <span class="operator">-replace</span> <span class="string">&quot;&#x27;kubectl&#x27;&quot;</span>, <span class="string">&quot;&#x27;k&#x27;&quot;</span> | <span class="built_in">Out-String</span> | <span class="built_in">Invoke-Expression</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>(Reference.)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/home/">Kubernetes Documentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/srcmesh-workshop/kubernetes-adoption-hands-on">Kubernetes Adoption Hands On</a></li>
+<li><a target="_blank" rel="noopener" href="https://space.bilibili.com/394023377/channel/seriesdetail?sid=3850790">CKAD 題庫詳解</a></li>
+</ul>
+<hr>
+<p>ʕ •ᴥ•ʔ：上完 CKAD 的課程後，對相關的概念更熟悉了！</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2023/11/28/Kubernetes/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "Kubernetes",
+        "image": "https://yncbearz.github.io/images/thumbnails/boat.webp",
+        "keywords": "Note",
+        "genre": "Programming",
+        "datePublished": "2023-11-28",
+        "dateCreated": "2023-11-28",
+        "dateModified": "2025-05-30",
+        "url": "https://yncbearz.github.io/2023/11/28/Kubernetes/",
+        "description": "Kubernetes",
+        "wordCount": 3410
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2024/03/29/Vietnam-Trip-2024/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            越南之旅@2024
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/10/23/GuanShan-Trip-2023/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">關山之旅@2023</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/Blog-Feature-List/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/schedule-plan.webp)" alt="部落格功能清單" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/06/19/Blog-Feature-List/" class="title">部落格功能清單</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T02:17:52.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
+                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/laptop-coffee.webp)" alt="如何使用 Cursor 來寫程式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="title">如何使用 Cursor 來寫程式</a></p>
+                            <p class="item-date"><time datetime="2025-02-22T12:28:53.000Z" itemprop="datePublished">2025-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/chalkboard.webp)" alt="類別圖：動物園管理員（訪問者模式）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="title">類別圖：動物園管理員（訪問者模式）</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T16:27:50.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '59c1a53ff7332001ad0c72fd296a66da',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+    
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1753875325087')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

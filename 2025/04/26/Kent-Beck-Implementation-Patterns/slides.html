@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Kent Beck 的實作模式</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+    .reveal .slides {
+      text-align: center;
+    }
+    .reveal .slides section {
+      text-align: center;
+    }
+    .reveal p,
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-align: center;
+    }
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-transform: none;
+      margin-bottom: 0.5em;
+    }
+    .reveal pre {
+      width: 100%;
+      padding: 15px;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    .reveal code {
+      font-family: monospace;
+    }
+    .reveal pre {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .reveal pre code {
+      padding: 5px;
+      overflow-x: auto;
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+    /* Base16 Atelier Savanna Dark - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/savanna) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+.highlight {
+  color: #87928a;
+  background: #171c19;
+}
+.highlight .code .comment,
+.highlight .code .quote,
+.highlight .code .hljs-comment,
+.highlight .code .hljs-quote {
+  color: #78877d;
+}
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .attribute,
+.highlight .code .tag,
+.highlight .code .name,
+.highlight .code .regexp,
+.highlight .code .link,
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .hljs-variable,
+.highlight .code .hljs-template-variable,
+.highlight .code .hljs-attribute,
+.highlight .code .hljs-tag,
+.highlight .code .hljs-name,
+.highlight .code .hljs-regexp,
+.highlight .code .hljs-link,
+.highlight .code .hljs-selector-id,
+.highlight .code .hljs-selector-class {
+  color: #b16139;
+}
+.highlight .code .number,
+.highlight .code .meta,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .literal,
+.highlight .code .type,
+.highlight .code .params,
+.highlight .code .hljs-number,
+.highlight .code .hljs-meta,
+.highlight .code .hljs-built_in,
+.highlight .code .hljs-builtin-name,
+.highlight .code .hljs-literal,
+.highlight .code .hljs-type,
+.highlight .code .hljs-params {
+  color: #9f713c;
+}
+.highlight .code .string,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .hljs-string,
+.highlight .code .hljs-symbol,
+.highlight .code .hljs-bullet {
+  color: #489963;
+}
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .hljs-title,
+.highlight .code .hljs-section,
+.highlight .code .hljs-function .hljs-title {
+  color: #478c90;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .hljs-keyword,
+.highlight .code .hljs-selector-tag {
+  color: #55859b;
+}
+.highlight .code .deletion,
+.highlight .code .addition,
+.highlight .code .hljs-deletion,
+.highlight .code .hljs-addition {
+  color: #171c19;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .deletion,
+.highlight .code .hljs-deletion {
+  background-color: #b16139;
+}
+.highlight .code .addition,
+.highlight .code .hljs-addition {
+  background-color: #489963;
+}
+.highlight .code .emphasis,
+.highlight .code .hljs-emphasis {
+  font-style: italic;
+}
+.highlight .code .strong,
+.highlight .code .hljs-strong {
+  font-weight: bold;
+}
+/* Support using hljs class directly on the page, not inside .highlight .code wrapper */
+.hljs {
+  color: #87928a;
+  background: #171c19;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #78877d;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #b16139;
+}
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #9f713c;
+}
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #489963;
+}
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+  color: #478c90;
+}
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #55859b;
+}
+.hljs-deletion {
+  background-color: #b16139;
+}
+.hljs-addition {
+  background-color: #489963;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+
+    .reveal ul,
+    .reveal ol {
+      display: block;
+      margin-left: 2em;
+    }
+    .back-to-post {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      padding: 10px 15px;
+      background-color: rgba(0,0,0,0.6);
+      color: white !important;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .back-to-post:hover {
+      background-color: rgba(0,0,0,0.8);
+      color: white !important;
+      text-decoration: none;
+    }
+    .hljs-line-numbers {
+      padding-left: 3.5em !important;
+      position: relative;
+    }
+
+    .line-number {
+      position: absolute;
+      left: 0;
+      width: 2.5em;
+      text-align: right;
+      color: #888;
+      user-select: none;
+      margin-right: 0.5em;
+      padding-right: 0.5em;
+    }
+    /* Image styles for slides */
+    .reveal img {
+      max-width: 95%;
+      max-height: 85vh;
+      object-fit: contain;
+      margin: 15px auto;
+      display: block;
+    }
+
+    .reveal section img {
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Special styles for image-only slides */
+    .reveal section:has(img:only-child) img {
+      max-width: 98%;
+      max-height: 90vh;
+    }
+
+    /* Responsive image sizing */
+    @media (max-width: 768px) {
+      .reveal img {
+        max-width: 98%;
+        max-height: 80vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown data-separator="^---$" data-separator-vertical="^--$" data-charset="utf-8">
+        <textarea data-template>
+
+## Chapter 4 動機
+
+---
+
+## 軟體成本 = 初始成本 + 維護成本
+
+---
+
+## 維護成本 = 理解成本 + 修改成本
+## + 測試成本 + 部署成本
+
+
+---
+
+## 在初期的開發中投入更多精力，來減少維護的需要？
+
+---
+
+## Kent Beck 的策略
+
+---
+
+## 注重程式設計師之間的溝通
+
+減少理解程式碼的代價
+
+---
+
+## 記錄自己的實作模式，並嚴格地遵守它
+
+---
+
+## 模式給人們和經濟的影響
+
+---
+
+## Chapter 5 類別
+
+---
+
+## 類別 (Class)
+
+這些資料應該放在一起，還有這些邏輯也是。
+
+---
+
+## 資料會變，邏輯不變
+
+學會如何用類別來包裝邏輯和如何表達邏輯的變化。
+
+---
+
+## 繼承
+
+把多個類別放進繼承體系可以縮減程式碼的數量。
+
+---
+
+## 簡單的超類別名稱 (Simple Superclass Name)
+
+位於繼承體系上的根類別，應該有個簡單的名字，用以描繪它的隱喻。
+
+---
+
+## 命名
+
+在所有的命名中，類別的命名是最重要的。
+
+---
+
+## 簡短與表達力之間存在張力
+
+類別名稱應該簡單扼要，但有時候需要好幾個單字才能足夠精確。
+
+---
+
+## 隱喻
+
+替計算邏輯找個強有力的隱喻。
+
+讓名稱變成一張張「關係、連接和暗示」的大綱。
+
+---
+
+## 交談
+
+當嘗試把物件的用途解釋給別人聽時，就得尋找具有表達力和感染力的名稱。
+
+---
+
+## 重要的類別
+
+盡量用一個單字來為它命名。
+
+---
+
+## 適當的子類別名稱 (Qualified Subclass Name)
+
+子類別的名稱應該表達出與超類別間的相似性和差異性。
+
+---
+
+## 子類別的命名
+
+要描述子類別像什麼，
+還要說明它們之間的區別是什麼。
+
+---
+
+## 簡短與表達力間的選擇
+
+由於子類別在交談中並不頻繁，所以可以「犧牲簡明」。
+
+---
+
+## 例外
+
+如果只是利用繼承來實作貢獻機制，則這樣的子類別也該用簡單的命名。
+
+---
+
+## 多層繼承體系的命名
+
+是個難題，一般來說要進行重構，改用委派。
+
+若還是存在，則要思考閱讀者需要知道什麼資訊。
+
+---
+
+## 抽象介面 (Abstract Interface)
+
+界面與實作分離。
+
+---
+
+## 介面的成本
+
+需要學習它、理解它、替它寫文件、除錯、組織它，甚至替它命名。
+
+---
+
+## 經濟的考量
+
+只要一開始設計正確，軟體就不需要進行任何改動？
+
+---
+
+## 軟體變更清單
+
+程式設計師沒有弄清需求、客戶改變了想法，
+
+唯一沒有提到的是「正當的變更」。
+
+---
+
+## Interface
+
+---
+
+## 多重繼承
+
+一個類別可以實作多個 interface。
+
+---
+
+## 介面的命名
+
+如果 interface 叫 File，那實作類別只好叫 ActualFile, ConcreteFile 或 FileImpl。
+
+可以給 interface 加上 I 字首。例如：IFile。
+
+---
+
+## 抽象類別 (Abstract Class)
+
+用抽象類別來表現可能會產生變化的抽象界面。
+
+---
+
+## Interface vs Abstract Class
+
+取捨的關鍵，介面會如何變化及實作類別是否需要同時支援多個介面。
+
+---
+
+## 使用 Interface 作抽象類別
+
+當修改時，所有的實作類別都必須進行修改。
+
+容易導致現有的設計癱瘓，需借助有版本的 interface。
+
+---
+
+## 使用 Abstract Class 作抽象類別
+
+局限在「實作類別必須對其忠心不二」。
+
+如果需要從另一個角度看待同一個實作類別，則只能讓它實作 interface。
+
+---
+
+## 兩者並非互斥
+
+可以提供介面，再提供超類別表達一種實作。
+
+在這種情況下，變數宣告應使用介面類型的參考，
+這樣將來的維護者就可以根據需要替換。
+
+---
+
+## 有版本的 interface (Versioned Interface)
+
+引入 sub-interface，進而安全地對 interface 進行拓展。
+
+---
+
+```java
+interface Command {
+	void run();
+}
+```
+
+---
+
+```java
+interface ReversibleCommand extends Command {
+	void undo();
+}
+```
+
+---
+
+```java
+public void undoIfReversible(Command recent) {
+    if (recent instanceof ReversibleCommand) {
+        ReversibleCommand downcasted = (ReversibleCommand) recent;
+        downcasted.undo();
+    }
+}
+```
+
+---
+
+## 使用 instanceof
+
+會降低靈活性，也是個醜陋的解決方案。
+
+但真的遇到這種尷尬局面時，知道該如何修改總是好的。
+
+---
+
+## 值物件 (Value Object)
+
+這種物件扮演的角色如同數值一樣。
+
+---
+
+## 函數式
+
+永遠不會改變任何狀態，只是建立新的值。
+
+---
+
+## 程序式
+
+如果面對的情景總在不斷變化，則狀態式比較適合。
+
+---
+
+```java
+class Transaction {
+	int value;
+	Transaction(int value, Account credit, Account debit) {
+		this.value = value;
+		credit.addCredit(this);
+		debit.addDebit(this);
+	}
+
+	int getValue() {
+		return value;
+	}
+}
+```
+
+---
+
+## 效能
+
+使用值物件，最大的反對意見是建立臨時物件。
+
+但考慮整條成本，大部分的情況，都不是效能瓶頸。
+
+---
+
+## 邊界
+
+對於「狀態需要變化」與「物件不能變化」的邊界難以劃清。
+
+大部分是值物件，但又不純粹是值物件的風格是最糟糕的。
+
+---
+
+## 物件、函數式和程序式
+
+將「使用狀態的可變物件」與「像數值一樣不可變的物件」
+搭配一起，能讓程式表達地更好。
+
+---
+
+## 特殊化 (Specialization)
+
+描繪相關計算的相似性和差異性。
+
+---
+
+## 簡單的變化
+
+abc 與 def 是不同的。
+
+但計算字串長度的演算法相同。
+
+---
+
+## 大部分的程式
+
+「相同的邏輯處理不同的資料」和「不同的邏輯處理相同的資料」。
+
+---
+
+## 複雜的變化
+
+邏輯完全不同。
+
+例如符號積分程式與數學排版程式。
+
+---
+
+## 子類別 (Subclass)
+
+用一個子類別表現一個維度上的變化。
+
+---
+
+## 繼承
+
+有些人發現繼承做的就是共用實作的萬靈丹。
+
+---
+
+## 繼承的局限
+
+- 這張牌只能打一次織。
+- 要理解子類別，需先理解超類別。
+- 對超類別的修改充滿風險。
+
+---
+
+## 平行的繼承
+
+「這個」繼承體系中的子類別都需要「那個」繼承體系的某個子類別。
+
+這是特別糟糕的繼承用法。
+
+---
+
+## 關鍵
+
+把超類別的邏輯徹底劃分，直到每個方法只做一件事。
+
+但當子類別修改超類別方法時，需檢查兩者隱晦的耦合。
+
+---
+
+## 子類別的局限
+
+沒辦法表現不斷變化的邏輯，因建立物件時已決定。
+
+如果需要表達邏輯會隨時變化，則條件陳述式或委派更適合。
+
+---
+
+## Chapter 7 行為（下)
+
+---
+
+## 邀請性訊息 (Inviting Message)
+
+透過發送可採用不同方式實作的訊息，邀請未來的實作變體。
+
+---
+
+## 實作
+
+如果邏輯存在預設實作，則令其成為訊息的實作。
+
+如果不存在，則令其為抽象方法，以便表達出邀請。
+
+---
+
+## 解釋性訊息 (Explaining Message)
+
+發送訊息去解釋一段邏輯的意圖。
+
+---
+
+## 區別
+
+將「意圖」與「實作」區別很重要。
+
+---
+
+## 傳達意圖
+
+```java
+void highlight(Rectangle area) {
+	reverse(area);
+}
+```
+
+---
+
+## 傳達意圖
+
+```java
+flags|= LOADED_BIT; //Set the loaded bit
+```
+
+```java
+setLoadedFlag();
+
+void setLoadedFlag() {
+	flags|= LOADED_BIT;
+}
+```
+
+---
+
+## 溝通
+
+未來解釋性訊息有可能成為擴充點，
+
+但主要目的還是更清晰地表達意圖。
+
+---
+
+## 例外流 (Exceptional Flow)
+
+清晰地表達非尋常的控制流，不干擾主體流的表達。
+
+---
+
+## 常見方式
+
+1. 防衛子句
+2. 例外
+
+---
+
+## 表達意圖
+
+當程式存在多條路徑，我們又以相同程度的方式表達，
+結果就會變得一團亂。
+
+---
+
+## 執行了哪些語句
+
+要回答這個問題，需要經過一番考古與邏輯學的練習時，
+我們可以考慮用「防衛子句」和「例外」。
+
+---
+
+## 防衛子句 (Guard Clause)
+
+透過 early return 來表達局部的例外流。
+
+---
+
+## 控制流
+
+與 if-then-else 相比，
+防衛子句表達的是「這裡的控制流比其他地方重要」。
+
+---
+
+## 變體
+
+在迴圈中的 continue 子句表達：
+「先別管這個元素，繼續下一個」
+
+---
+
+## 例外 (Exception)
+
+用例外來表達非局部的例外流。
+
+---
+
+## 使用
+
+當意識到呼叫堆疊中，有一層發生問題，
+在發現情況的點拋出例外並捕捉。
+
+---
+
+## 設計漏洞
+
+優先使用前述的循序、訊息、反覆和條件來表達控制流，
+當不使用例外會令主體流表達混亂，應使用例外。
+
+---
+
+## 已檢查例外 (Checked Exception)
+
+透過明確宣告來保證例外被捕獲。
+
+---
+
+## 例外的危險
+
+當拋出一個錯誤，卻沒有捕捉它時，程式會終止。
+
+---
+
+## 解法
+
+捕捉例外或者繼續傳播。
+
+---
+
+## 代價
+
+會讓方法變得複雜，難以閱讀及重構。
+
+---
+
+## 例外傳播 (Exception Propagation)
+
+根據需要來轉換例外，使其包含的資訊合乎捕獲者的要求。
+
+---
+
+## 不知所措
+
+捕捉及報告一個低層次的例外，會令沒有預期的人不知所措。
+
+---
+
+## 解法
+
+用高層次的例外來包裝低層次的例外，剩下的例外資訊輸出到日誌中。
+
+---
+
+## ʕ •ᴥ•ʔ：Thank you
+        </textarea>
+      </section>
+    </div>
+  </div>
+  <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="back-to-post">
+    <i class="fas fa-arrow-left"></i> 返回文章
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        transition: 'slide',
+        center: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        highlight: {
+          highlightOnLoad: true,
+          escapeHTML: false
+        },
+        markdown: {
+          smartypants: true
+        }
+      });
+
+      // add line numbers to code blocks
+      Reveal.on('ready', function() {
+        document.querySelectorAll('pre code').forEach(function(block) {
+          block.classList.add('hljs-line-numbers');
+
+          // get code content and split into lines
+          const lines = block.innerHTML.split('\n');
+          let numberedCode = '';
+
+          // add line numbers to code blocks
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].trim() !== '') {
+              numberedCode += '<span class="line-number">' + (i + 1) + '</span>' + lines[i] + '\n';
+            } else {
+              numberedCode += '<span class="line-number">' + (i + 1) + '</span>\n';
+            }
+          }
+
+          block.innerHTML = numberedCode;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+  

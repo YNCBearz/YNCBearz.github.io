@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>費茲法則</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+    .reveal .slides {
+      text-align: center;
+    }
+    .reveal .slides section {
+      text-align: center;
+    }
+    .reveal p,
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-align: center;
+    }
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-transform: none;
+      margin-bottom: 0.5em;
+    }
+    .reveal pre {
+      width: 100%;
+      padding: 15px;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    .reveal code {
+      font-family: monospace;
+    }
+    .reveal pre {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .reveal pre code {
+      padding: 5px;
+      overflow-x: auto;
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+    /* Base16 Atelier Savanna Dark - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/savanna) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+.highlight {
+  color: #87928a;
+  background: #171c19;
+}
+.highlight .code .comment,
+.highlight .code .quote,
+.highlight .code .hljs-comment,
+.highlight .code .hljs-quote {
+  color: #78877d;
+}
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .attribute,
+.highlight .code .tag,
+.highlight .code .name,
+.highlight .code .regexp,
+.highlight .code .link,
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .hljs-variable,
+.highlight .code .hljs-template-variable,
+.highlight .code .hljs-attribute,
+.highlight .code .hljs-tag,
+.highlight .code .hljs-name,
+.highlight .code .hljs-regexp,
+.highlight .code .hljs-link,
+.highlight .code .hljs-selector-id,
+.highlight .code .hljs-selector-class {
+  color: #b16139;
+}
+.highlight .code .number,
+.highlight .code .meta,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .literal,
+.highlight .code .type,
+.highlight .code .params,
+.highlight .code .hljs-number,
+.highlight .code .hljs-meta,
+.highlight .code .hljs-built_in,
+.highlight .code .hljs-builtin-name,
+.highlight .code .hljs-literal,
+.highlight .code .hljs-type,
+.highlight .code .hljs-params {
+  color: #9f713c;
+}
+.highlight .code .string,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .hljs-string,
+.highlight .code .hljs-symbol,
+.highlight .code .hljs-bullet {
+  color: #489963;
+}
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .hljs-title,
+.highlight .code .hljs-section,
+.highlight .code .hljs-function .hljs-title {
+  color: #478c90;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .hljs-keyword,
+.highlight .code .hljs-selector-tag {
+  color: #55859b;
+}
+.highlight .code .deletion,
+.highlight .code .addition,
+.highlight .code .hljs-deletion,
+.highlight .code .hljs-addition {
+  color: #171c19;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .deletion,
+.highlight .code .hljs-deletion {
+  background-color: #b16139;
+}
+.highlight .code .addition,
+.highlight .code .hljs-addition {
+  background-color: #489963;
+}
+.highlight .code .emphasis,
+.highlight .code .hljs-emphasis {
+  font-style: italic;
+}
+.highlight .code .strong,
+.highlight .code .hljs-strong {
+  font-weight: bold;
+}
+/* Support using hljs class directly on the page, not inside .highlight .code wrapper */
+.hljs {
+  color: #87928a;
+  background: #171c19;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #78877d;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #b16139;
+}
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #9f713c;
+}
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #489963;
+}
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+  color: #478c90;
+}
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #55859b;
+}
+.hljs-deletion {
+  background-color: #b16139;
+}
+.hljs-addition {
+  background-color: #489963;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+
+    .reveal ul,
+    .reveal ol {
+      display: block;
+      margin-left: 2em;
+    }
+    .back-to-post {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      padding: 10px 15px;
+      background-color: rgba(0,0,0,0.6);
+      color: white !important;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .back-to-post:hover {
+      background-color: rgba(0,0,0,0.8);
+      color: white !important;
+      text-decoration: none;
+    }
+    .hljs-line-numbers {
+      padding-left: 3.5em !important;
+      position: relative;
+    }
+
+    .line-number {
+      position: absolute;
+      left: 0;
+      width: 2.5em;
+      text-align: right;
+      color: #888;
+      user-select: none;
+      margin-right: 0.5em;
+      padding-right: 0.5em;
+    }
+    /* Image styles for slides */
+    .reveal img {
+      max-width: 95%;
+      max-height: 85vh;
+      object-fit: contain;
+      margin: 15px auto;
+      display: block;
+    }
+
+    .reveal section img {
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Special styles for image-only slides */
+    .reveal section:has(img:only-child) img {
+      max-width: 98%;
+      max-height: 90vh;
+    }
+
+    /* Responsive image sizing */
+    @media (max-width: 768px) {
+      .reveal img {
+        max-width: 98%;
+        max-height: 80vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown data-separator="^---$" data-separator-vertical="^--$" data-charset="utf-8">
+        <textarea data-template>
+
+## 費茲法則 (Fitts's Law)
+
+目標的選取時間取決於目標的距離與大小。
+
+---
+
+## 起源
+
+費茲法則是由心理學家 Paul Fitts 在 1954 年提出的，
+
+描述人類移動到目標所需的時間與目標距離和大小之間的關係。
+
+---
+
+## 費茲法則公式
+
+### ID = log₂(2D/W)
+
+**其中：**
+- **ID** = 輸入困難度 (index of difficulty)
+- **D** = 起始點到目標中心的距離
+- **W** = 目標的寬度
+
+---
+
+## 核心概念
+
+- **目標越大，移動時間越短**
+- **目標越近，移動時間越短**
+- **對數關係表示邊際效益遞減**
+
+---
+
+## 人因因素：美國空軍失誤事件
+
+1950年代，美國空軍面臨嚴重的飛行事故問題。
+
+飛行員在操作飛機控制桿時經常出現失誤，導致飛機墜毀。
+
+---
+
+### 費茲的研究
+
+他發現大多數的墜機是因為飛行員在高壓情況下混淆了外觀幾乎相同的按鈕。
+
+---
+
+### 解決方案
+
+重新設計按鈕：透過不同的形狀，讓飛行員僅透過觸感便能輕鬆識別。
+
+---
+
+### 影響與啟示
+
+更好的設計意味著要理解人在分析、困惑或壓力下，無法理性思考的行為模式，
+並確保在這些情況下仍能安全有效地運作。
+
+---
+
+## 設計啟示：目標大小與距離
+
+### 重要按鈕要夠大
+
+- 觸控目標要有足夠的大小，讓使用者可以清楚辨識並點選
+- 觸控目標間需要保持適當距離
+- 觸控目標應放在使用者容易觸及的介面區域
+
+---
+
+## 實際應用：網頁設計
+
+- **導航欄設計**：主要導航項目要夠大且容易點擊
+- **CTA 按鈕**：行動呼籲按鈕要突出且易於點擊
+- **表單設計**：輸入框和提交按鈕的合理佈局
+
+---
+
+## 實際應用：行動應用
+
+- **拇指友好設計**：考慮單手操作時的觸控範圍
+- **底部導航**：重要功能放在拇指容易到達的區域
+- **手勢設計**：滑動、點擊等手勢的目標區域設計
+
+---
+
+![](/images/notes/2025/06/MostAccurateAreaInMobile.png)
+
+---
+
+![](/images/notes/2025/06/HowToHoldPhoneInDifferentTasks.png)
+
+---
+
+## 實際應用：桌面應用
+
+- **工具列設計**：常用工具要容易找到和點擊
+- **選單設計**：下拉選單的項目大小和間距
+- **快捷鍵**：減少滑鼠移動的需求
+
+---
+
+## 常見錯誤：❌ 錯誤做法
+
+1. **過小的按鈕**：用戶難以準確點擊
+2. **功能分散**：相關功能距離太遠
+3. **忽略邊緣**：沒有利用螢幕邊緣的優勢（到達邊界後，游標會自然停止）
+4. **不一致的目標大小**：相同重要性的元素大小不一
+
+---
+
+## 正確做法：✅ 最佳實踐
+
+1. **適當的目標大小**：確保易於點擊
+2. **合理的功能分組**：相關功能放在一起
+3. **利用邊緣優勢**：重要控制項放在邊緣
+4. **一致的設計語言**：相似功能使用相似的目標大小
+
+---
+
+## 測試與驗證方法
+
+### 可用性測試
+
+1. **點擊測試**：測量用戶點擊不同大小目標的時間
+2. **A/B 測試**：比較不同設計的效果
+3. **熱點圖分析**：了解用戶的點擊模式
+4. **脈絡訪查**：針對小規模樣本，進行深入觀察和訪談
+
+---
+
+## 質性驗證方式：脈絡訪查
+
+### 什麼是脈絡訪查？
+
+脈絡訪查是一種用戶研究方法，通過在用戶的自然環境中觀察和訪談，深入了解用戶的真實使用情境和需求。
+
+---
+
+### 優點
+
+- **真實性**：在用戶實際使用環境中進行，數據更真實
+- **深度性**：能夠發現用戶自己都未察覺的需求
+- **情境性**：了解不同環境對用戶行為的影響
+- **即時性**：能夠觀察到用戶的即時反應和問題
+
+---
+
+### 實施步驟
+
+1. **準備階段**
+   - 確定研究目標和問題
+   - 選擇合適的參與者
+   - 準備觀察工具和記錄設備
+
+2. **執行階段**
+   - 在用戶自然環境中進行觀察
+   - 記錄用戶的操作行為和時間
+   - 進行深度訪談了解動機
+
+3. **分析階段**
+   - 整理觀察數據和訪談記錄
+   - 識別用戶痛點和需求
+   - 提出設計改進建議
+
+---
+
+## 量化驗證方式：指標
+
+- **點擊準確率**：目標是否容易被準確點擊
+- **完成時間**：完成任務所需的時間
+- **錯誤率**：點擊錯誤的頻率
+- **用戶滿意度**：主觀的使用體驗評價
+
+---
+
+## 總結
+
+費茲法則是 UX 設計中的基礎法則，它提醒我們：
+
+1. **目標要夠大**：確保用戶能夠輕鬆點擊
+2. **距離要合理**：減少不必要的移動
+3. **利用邊緣優勢**：螢幕邊緣是「無限大」的目標
+4. **考慮用戶習慣**：設計要符合用戶的使用模式
+
+**記住：好的設計應該是直覺的，用戶不需要思考就能完成操作。**
+
+---
+
+## References
+
+- [簡介費茲定律 (Fitt’s Law)](https://deephci.wordpress.com/2018/07/28/fitts-law/)
+- [Fitts's Law](https://lawsofux.com/fittss-law/)
+
+---
+
+## ʕ •ᴥ•ʔ：Thank you
+        </textarea>
+      </section>
+    </div>
+  </div>
+  <a href="/2025/07/26/Fitts-Law/" class="back-to-post">
+    <i class="fas fa-arrow-left"></i> 返回文章
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        transition: 'slide',
+        center: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        highlight: {
+          highlightOnLoad: true,
+          escapeHTML: false
+        },
+        markdown: {
+          smartypants: true
+        }
+      });
+
+      // add line numbers to code blocks
+      Reveal.on('ready', function() {
+        document.querySelectorAll('pre code').forEach(function(block) {
+          block.classList.add('hljs-line-numbers');
+
+          // get code content and split into lines
+          const lines = block.innerHTML.split('\n');
+          let numberedCode = '';
+
+          // add line numbers to code blocks
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].trim() !== '') {
+              numberedCode += '<span class="line-number">' + (i + 1) + '</span>' + lines[i] + '\n';
+            } else {
+              numberedCode += '<span class="line-number">' + (i + 1) + '</span>\n';
+            }
+          }
+
+          block.innerHTML = numberedCode;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+  

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>Kent Beck 的實作模式 | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Study Group" />
+    
+    <meta name="description" content="Kent-Beck-Implementation-Patterns">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kent Beck 的實作模式">
+<meta property="og:url" content="https://yncbearz.github.io/2025/04/26/Kent-Beck-Implementation-Patterns/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Kent-Beck-Implementation-Patterns">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/christmas-cookies.webp">
+<meta property="article:published_time" content="2025-04-26T14:05:09.000Z">
+<meta property="article:modified_time" content="2025-07-26T11:43:42.928Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Study Group">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/christmas-cookies.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Kent-Beck-Implementation-Patterns"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        Kent Beck 的實作模式
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="article-date">
+       <time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Study-Group/" rel="tag">Study Group</a>
+    </div>
+
+            
+  <div class="article-slide">
+    <i class="fa fa-tv"></i>
+    <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/slides.html">
+      SLIDES
+    </a>
+  </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="Chapter-4-動機"><a href="#Chapter-4-動機" class="headerlink" title="Chapter 4 動機"></a>Chapter 4 動機</h2><hr>
+<h2 id="軟體成本-初始成本-維護成本"><a href="#軟體成本-初始成本-維護成本" class="headerlink" title="軟體成本 &#x3D; 初始成本 + 維護成本"></a>軟體成本 &#x3D; 初始成本 + 維護成本</h2><hr>
+<h2 id="維護成本-理解成本-修改成本"><a href="#維護成本-理解成本-修改成本" class="headerlink" title="維護成本 &#x3D; 理解成本 + 修改成本"></a>維護成本 &#x3D; 理解成本 + 修改成本</h2><h2 id="測試成本-部署成本"><a href="#測試成本-部署成本" class="headerlink" title="+ 測試成本 + 部署成本"></a>+ 測試成本 + 部署成本</h2><hr>
+<h2 id="在初期的開發中投入更多精力，來減少維護的需要？"><a href="#在初期的開發中投入更多精力，來減少維護的需要？" class="headerlink" title="在初期的開發中投入更多精力，來減少維護的需要？"></a>在初期的開發中投入更多精力，來減少維護的需要？</h2><hr>
+<h2 id="Kent-Beck-的策略"><a href="#Kent-Beck-的策略" class="headerlink" title="Kent Beck 的策略"></a>Kent Beck 的策略</h2><hr>
+<h2 id="注重程式設計師之間的溝通"><a href="#注重程式設計師之間的溝通" class="headerlink" title="注重程式設計師之間的溝通"></a>注重程式設計師之間的溝通</h2><p>減少理解程式碼的代價</p>
+<hr>
+<h2 id="記錄自己的實作模式，並嚴格地遵守它"><a href="#記錄自己的實作模式，並嚴格地遵守它" class="headerlink" title="記錄自己的實作模式，並嚴格地遵守它"></a>記錄自己的實作模式，並嚴格地遵守它</h2><hr>
+<h2 id="模式給人們和經濟的影響"><a href="#模式給人們和經濟的影響" class="headerlink" title="模式給人們和經濟的影響"></a>模式給人們和經濟的影響</h2><hr>
+<h2 id="Chapter-5-類別"><a href="#Chapter-5-類別" class="headerlink" title="Chapter 5 類別"></a>Chapter 5 類別</h2><hr>
+<h2 id="類別-Class"><a href="#類別-Class" class="headerlink" title="類別 (Class)"></a>類別 (Class)</h2><p>這些資料應該放在一起，還有這些邏輯也是。</p>
+<hr>
+<h2 id="資料會變，邏輯不變"><a href="#資料會變，邏輯不變" class="headerlink" title="資料會變，邏輯不變"></a>資料會變，邏輯不變</h2><p>學會如何用類別來包裝邏輯和如何表達邏輯的變化。</p>
+<hr>
+<h2 id="繼承"><a href="#繼承" class="headerlink" title="繼承"></a>繼承</h2><p>把多個類別放進繼承體系可以縮減程式碼的數量。</p>
+<hr>
+<h2 id="簡單的超類別名稱-Simple-Superclass-Name"><a href="#簡單的超類別名稱-Simple-Superclass-Name" class="headerlink" title="簡單的超類別名稱 (Simple Superclass Name)"></a>簡單的超類別名稱 (Simple Superclass Name)</h2><p>位於繼承體系上的根類別，應該有個簡單的名字，用以描繪它的隱喻。</p>
+<hr>
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><p>在所有的命名中，類別的命名是最重要的。</p>
+<hr>
+<h2 id="簡短與表達力之間存在張力"><a href="#簡短與表達力之間存在張力" class="headerlink" title="簡短與表達力之間存在張力"></a>簡短與表達力之間存在張力</h2><p>類別名稱應該簡單扼要，但有時候需要好幾個單字才能足夠精確。</p>
+<hr>
+<h2 id="隱喻"><a href="#隱喻" class="headerlink" title="隱喻"></a>隱喻</h2><p>替計算邏輯找個強有力的隱喻。</p>
+<p>讓名稱變成一張張「關係、連接和暗示」的大綱。</p>
+<hr>
+<h2 id="交談"><a href="#交談" class="headerlink" title="交談"></a>交談</h2><p>當嘗試把物件的用途解釋給別人聽時，就得尋找具有表達力和感染力的名稱。</p>
+<hr>
+<h2 id="重要的類別"><a href="#重要的類別" class="headerlink" title="重要的類別"></a>重要的類別</h2><p>盡量用一個單字來為它命名。</p>
+<hr>
+<h2 id="適當的子類別名稱-Qualified-Subclass-Name"><a href="#適當的子類別名稱-Qualified-Subclass-Name" class="headerlink" title="適當的子類別名稱 (Qualified Subclass Name)"></a>適當的子類別名稱 (Qualified Subclass Name)</h2><p>子類別的名稱應該表達出與超類別間的相似性和差異性。</p>
+<hr>
+<h2 id="子類別的命名"><a href="#子類別的命名" class="headerlink" title="子類別的命名"></a>子類別的命名</h2><p>要描述子類別像什麼，<br>還要說明它們之間的區別是什麼。</p>
+<hr>
+<h2 id="簡短與表達力間的選擇"><a href="#簡短與表達力間的選擇" class="headerlink" title="簡短與表達力間的選擇"></a>簡短與表達力間的選擇</h2><p>由於子類別在交談中並不頻繁，所以可以「犧牲簡明」。</p>
+<hr>
+<h2 id="例外"><a href="#例外" class="headerlink" title="例外"></a>例外</h2><p>如果只是利用繼承來實作貢獻機制，則這樣的子類別也該用簡單的命名。</p>
+<hr>
+<h2 id="多層繼承體系的命名"><a href="#多層繼承體系的命名" class="headerlink" title="多層繼承體系的命名"></a>多層繼承體系的命名</h2><p>是個難題，一般來說要進行重構，改用委派。</p>
+<p>若還是存在，則要思考閱讀者需要知道什麼資訊。</p>
+<hr>
+<h2 id="抽象介面-Abstract-Interface"><a href="#抽象介面-Abstract-Interface" class="headerlink" title="抽象介面 (Abstract Interface)"></a>抽象介面 (Abstract Interface)</h2><p>界面與實作分離。</p>
+<hr>
+<h2 id="介面的成本"><a href="#介面的成本" class="headerlink" title="介面的成本"></a>介面的成本</h2><p>需要學習它、理解它、替它寫文件、除錯、組織它，甚至替它命名。</p>
+<hr>
+<h2 id="經濟的考量"><a href="#經濟的考量" class="headerlink" title="經濟的考量"></a>經濟的考量</h2><p>只要一開始設計正確，軟體就不需要進行任何改動？</p>
+<hr>
+<h2 id="軟體變更清單"><a href="#軟體變更清單" class="headerlink" title="軟體變更清單"></a>軟體變更清單</h2><p>程式設計師沒有弄清需求、客戶改變了想法，</p>
+<p>唯一沒有提到的是「正當的變更」。</p>
+<hr>
+<h2 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h2><hr>
+<h2 id="多重繼承"><a href="#多重繼承" class="headerlink" title="多重繼承"></a>多重繼承</h2><p>一個類別可以實作多個 interface。</p>
+<hr>
+<h2 id="介面的命名"><a href="#介面的命名" class="headerlink" title="介面的命名"></a>介面的命名</h2><p>如果 interface 叫 File，那實作類別只好叫 ActualFile, ConcreteFile 或 FileImpl。</p>
+<p>可以給 interface 加上 I 字首。例如：IFile。</p>
+<hr>
+<h2 id="抽象類別-Abstract-Class"><a href="#抽象類別-Abstract-Class" class="headerlink" title="抽象類別 (Abstract Class)"></a>抽象類別 (Abstract Class)</h2><p>用抽象類別來表現可能會產生變化的抽象界面。</p>
+<hr>
+<h2 id="Interface-vs-Abstract-Class"><a href="#Interface-vs-Abstract-Class" class="headerlink" title="Interface vs Abstract Class"></a>Interface vs Abstract Class</h2><p>取捨的關鍵，介面會如何變化及實作類別是否需要同時支援多個介面。</p>
+<hr>
+<h2 id="使用-Interface-作抽象類別"><a href="#使用-Interface-作抽象類別" class="headerlink" title="使用 Interface 作抽象類別"></a>使用 Interface 作抽象類別</h2><p>當修改時，所有的實作類別都必須進行修改。</p>
+<p>容易導致現有的設計癱瘓，需借助有版本的 interface。</p>
+<hr>
+<h2 id="使用-Abstract-Class-作抽象類別"><a href="#使用-Abstract-Class-作抽象類別" class="headerlink" title="使用 Abstract Class 作抽象類別"></a>使用 Abstract Class 作抽象類別</h2><p>局限在「實作類別必須對其忠心不二」。</p>
+<p>如果需要從另一個角度看待同一個實作類別，則只能讓它實作 interface。</p>
+<hr>
+<h2 id="兩者並非互斥"><a href="#兩者並非互斥" class="headerlink" title="兩者並非互斥"></a>兩者並非互斥</h2><p>可以提供介面，再提供超類別表達一種實作。</p>
+<p>在這種情況下，變數宣告應使用介面類型的參考，<br>這樣將來的維護者就可以根據需要替換。</p>
+<hr>
+<h2 id="有版本的-interface-Versioned-Interface"><a href="#有版本的-interface-Versioned-Interface" class="headerlink" title="有版本的 interface (Versioned Interface)"></a>有版本的 interface (Versioned Interface)</h2><p>引入 sub-interface，進而安全地對 interface 進行拓展。</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Command</span> &#123;</span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">ReversibleCommand</span> <span class="keyword">extends</span> <span class="title class_">Command</span> &#123;</span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">undo</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">undoIfReversible</span><span class="params">(Command recent)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (recent <span class="keyword">instanceof</span> ReversibleCommand) &#123;</span><br><span class="line">        <span class="type">ReversibleCommand</span> <span class="variable">downcasted</span> <span class="operator">=</span> (ReversibleCommand) recent;</span><br><span class="line">        downcasted.undo();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="使用-instanceof"><a href="#使用-instanceof" class="headerlink" title="使用 instanceof"></a>使用 instanceof</h2><p>會降低靈活性，也是個醜陋的解決方案。</p>
+<p>但真的遇到這種尷尬局面時，知道該如何修改總是好的。</p>
+<hr>
+<h2 id="值物件-Value-Object"><a href="#值物件-Value-Object" class="headerlink" title="值物件 (Value Object)"></a>值物件 (Value Object)</h2><p>這種物件扮演的角色如同數值一樣。</p>
+<hr>
+<h2 id="函數式"><a href="#函數式" class="headerlink" title="函數式"></a>函數式</h2><p>永遠不會改變任何狀態，只是建立新的值。</p>
+<hr>
+<h2 id="程序式"><a href="#程序式" class="headerlink" title="程序式"></a>程序式</h2><p>如果面對的情景總在不斷變化，則狀態式比較適合。</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Transaction</span> &#123;</span><br><span class="line">	<span class="type">int</span> value;</span><br><span class="line">	Transaction(<span class="type">int</span> value, Account credit, Account debit) &#123;</span><br><span class="line">		<span class="built_in">this</span>.value = value;</span><br><span class="line">		credit.addCredit(<span class="built_in">this</span>);</span><br><span class="line">		debit.addDebit(<span class="built_in">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> value;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="效能"><a href="#效能" class="headerlink" title="效能"></a>效能</h2><p>使用值物件，最大的反對意見是建立臨時物件。</p>
+<p>但考慮整條成本，大部分的情況，都不是效能瓶頸。</p>
+<hr>
+<h2 id="邊界"><a href="#邊界" class="headerlink" title="邊界"></a>邊界</h2><p>對於「狀態需要變化」與「物件不能變化」的邊界難以劃清。</p>
+<p>大部分是值物件，但又不純粹是值物件的風格是最糟糕的。</p>
+<hr>
+<h2 id="物件、函數式和程序式"><a href="#物件、函數式和程序式" class="headerlink" title="物件、函數式和程序式"></a>物件、函數式和程序式</h2><p>將「使用狀態的可變物件」與「像數值一樣不可變的物件」<br>搭配一起，能讓程式表達地更好。</p>
+<hr>
+<h2 id="特殊化-Specialization"><a href="#特殊化-Specialization" class="headerlink" title="特殊化 (Specialization)"></a>特殊化 (Specialization)</h2><p>描繪相關計算的相似性和差異性。</p>
+<hr>
+<h2 id="簡單的變化"><a href="#簡單的變化" class="headerlink" title="簡單的變化"></a>簡單的變化</h2><p>abc 與 def 是不同的。</p>
+<p>但計算字串長度的演算法相同。</p>
+<hr>
+<h2 id="大部分的程式"><a href="#大部分的程式" class="headerlink" title="大部分的程式"></a>大部分的程式</h2><p>「相同的邏輯處理不同的資料」和「不同的邏輯處理相同的資料」。</p>
+<hr>
+<h2 id="複雜的變化"><a href="#複雜的變化" class="headerlink" title="複雜的變化"></a>複雜的變化</h2><p>邏輯完全不同。</p>
+<p>例如符號積分程式與數學排版程式。</p>
+<hr>
+<h2 id="子類別-Subclass"><a href="#子類別-Subclass" class="headerlink" title="子類別 (Subclass)"></a>子類別 (Subclass)</h2><p>用一個子類別表現一個維度上的變化。</p>
+<hr>
+<h2 id="繼承-1"><a href="#繼承-1" class="headerlink" title="繼承"></a>繼承</h2><p>有些人發現繼承做的就是共用實作的萬靈丹。</p>
+<hr>
+<h2 id="繼承的局限"><a href="#繼承的局限" class="headerlink" title="繼承的局限"></a>繼承的局限</h2><ul>
+<li>這張牌只能打一次織。</li>
+<li>要理解子類別，需先理解超類別。</li>
+<li>對超類別的修改充滿風險。</li>
+</ul>
+<hr>
+<h2 id="平行的繼承"><a href="#平行的繼承" class="headerlink" title="平行的繼承"></a>平行的繼承</h2><p>「這個」繼承體系中的子類別都需要「那個」繼承體系的某個子類別。</p>
+<p>這是特別糟糕的繼承用法。</p>
+<hr>
+<h2 id="關鍵"><a href="#關鍵" class="headerlink" title="關鍵"></a>關鍵</h2><p>把超類別的邏輯徹底劃分，直到每個方法只做一件事。</p>
+<p>但當子類別修改超類別方法時，需檢查兩者隱晦的耦合。</p>
+<hr>
+<h2 id="子類別的局限"><a href="#子類別的局限" class="headerlink" title="子類別的局限"></a>子類別的局限</h2><p>沒辦法表現不斷變化的邏輯，因建立物件時已決定。</p>
+<p>如果需要表達邏輯會隨時變化，則條件陳述式或委派更適合。</p>
+<hr>
+<h2 id="Chapter-7-行為（下"><a href="#Chapter-7-行為（下" class="headerlink" title="Chapter 7 行為（下)"></a>Chapter 7 行為（下)</h2><hr>
+<h2 id="邀請性訊息-Inviting-Message"><a href="#邀請性訊息-Inviting-Message" class="headerlink" title="邀請性訊息 (Inviting Message)"></a>邀請性訊息 (Inviting Message)</h2><p>透過發送可採用不同方式實作的訊息，邀請未來的實作變體。</p>
+<hr>
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><p>如果邏輯存在預設實作，則令其成為訊息的實作。</p>
+<p>如果不存在，則令其為抽象方法，以便表達出邀請。</p>
+<hr>
+<h2 id="解釋性訊息-Explaining-Message"><a href="#解釋性訊息-Explaining-Message" class="headerlink" title="解釋性訊息 (Explaining Message)"></a>解釋性訊息 (Explaining Message)</h2><p>發送訊息去解釋一段邏輯的意圖。</p>
+<hr>
+<h2 id="區別"><a href="#區別" class="headerlink" title="區別"></a>區別</h2><p>將「意圖」與「實作」區別很重要。</p>
+<hr>
+<h2 id="傳達意圖"><a href="#傳達意圖" class="headerlink" title="傳達意圖"></a>傳達意圖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">highlight</span><span class="params">(Rectangle area)</span> &#123;</span><br><span class="line">	reverse(area);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="傳達意圖-1"><a href="#傳達意圖-1" class="headerlink" title="傳達意圖"></a>傳達意圖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flags|= LOADED_BIT; <span class="comment">//Set the loaded bit</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setLoadedFlag();</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setLoadedFlag</span><span class="params">()</span> &#123;</span><br><span class="line">	flags|= LOADED_BIT;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="溝通"><a href="#溝通" class="headerlink" title="溝通"></a>溝通</h2><p>未來解釋性訊息有可能成為擴充點，</p>
+<p>但主要目的還是更清晰地表達意圖。</p>
+<hr>
+<h2 id="例外流-Exceptional-Flow"><a href="#例外流-Exceptional-Flow" class="headerlink" title="例外流 (Exceptional Flow)"></a>例外流 (Exceptional Flow)</h2><p>清晰地表達非尋常的控制流，不干擾主體流的表達。</p>
+<hr>
+<h2 id="常見方式"><a href="#常見方式" class="headerlink" title="常見方式"></a>常見方式</h2><ol>
+<li>防衛子句</li>
+<li>例外</li>
+</ol>
+<hr>
+<h2 id="表達意圖"><a href="#表達意圖" class="headerlink" title="表達意圖"></a>表達意圖</h2><p>當程式存在多條路徑，我們又以相同程度的方式表達，<br>結果就會變得一團亂。</p>
+<hr>
+<h2 id="執行了哪些語句"><a href="#執行了哪些語句" class="headerlink" title="執行了哪些語句"></a>執行了哪些語句</h2><p>要回答這個問題，需要經過一番考古與邏輯學的練習時，<br>我們可以考慮用「防衛子句」和「例外」。</p>
+<hr>
+<h2 id="防衛子句-Guard-Clause"><a href="#防衛子句-Guard-Clause" class="headerlink" title="防衛子句 (Guard Clause)"></a>防衛子句 (Guard Clause)</h2><p>透過 early return 來表達局部的例外流。</p>
+<hr>
+<h2 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h2><p>與 if-then-else 相比，<br>防衛子句表達的是「這裡的控制流比其他地方重要」。</p>
+<hr>
+<h2 id="變體"><a href="#變體" class="headerlink" title="變體"></a>變體</h2><p>在迴圈中的 continue 子句表達：<br>「先別管這個元素，繼續下一個」</p>
+<hr>
+<h2 id="例外-Exception"><a href="#例外-Exception" class="headerlink" title="例外 (Exception)"></a>例外 (Exception)</h2><p>用例外來表達非局部的例外流。</p>
+<hr>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>當意識到呼叫堆疊中，有一層發生問題，<br>在發現情況的點拋出例外並捕捉。</p>
+<hr>
+<h2 id="設計漏洞"><a href="#設計漏洞" class="headerlink" title="設計漏洞"></a>設計漏洞</h2><p>優先使用前述的循序、訊息、反覆和條件來表達控制流，<br>當不使用例外會令主體流表達混亂，應使用例外。</p>
+<hr>
+<h2 id="已檢查例外-Checked-Exception"><a href="#已檢查例外-Checked-Exception" class="headerlink" title="已檢查例外 (Checked Exception)"></a>已檢查例外 (Checked Exception)</h2><p>透過明確宣告來保證例外被捕獲。</p>
+<hr>
+<h2 id="例外的危險"><a href="#例外的危險" class="headerlink" title="例外的危險"></a>例外的危險</h2><p>當拋出一個錯誤，卻沒有捕捉它時，程式會終止。</p>
+<hr>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>捕捉例外或者繼續傳播。</p>
+<hr>
+<h2 id="代價"><a href="#代價" class="headerlink" title="代價"></a>代價</h2><p>會讓方法變得複雜，難以閱讀及重構。</p>
+<hr>
+<h2 id="例外傳播-Exception-Propagation"><a href="#例外傳播-Exception-Propagation" class="headerlink" title="例外傳播 (Exception Propagation)"></a>例外傳播 (Exception Propagation)</h2><p>根據需要來轉換例外，使其包含的資訊合乎捕獲者的要求。</p>
+<hr>
+<h2 id="不知所措"><a href="#不知所措" class="headerlink" title="不知所措"></a>不知所措</h2><p>捕捉及報告一個低層次的例外，會令沒有預期的人不知所措。</p>
+<hr>
+<h2 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h2><p>用高層次的例外來包裝低層次的例外，剩下的例外資訊輸出到日誌中。</p>
+<hr>
+<h2 id="ʕ-•ᴥ•ʔ：Thank-you"><a href="#ʕ-•ᴥ•ʔ：Thank-you" class="headerlink" title="ʕ •ᴥ•ʔ：Thank you"></a>ʕ •ᴥ•ʔ：Thank you</h2>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2025/04/26/Kent-Beck-Implementation-Patterns/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "Kent Beck 的實作模式",
+        "image": "https://yncbearz.github.io/images/thumbnails/christmas-cookies.webp",
+        "keywords": "Study Group",
+        "genre": "Clean Code",
+        "datePublished": "2025-04-26",
+        "dateCreated": "2025-04-26",
+        "dateModified": "2025-07-26",
+        "url": "https://yncbearz.github.io/2025/04/26/Kent-Beck-Implementation-Patterns/",
+        "description": "Kent-Beck-Implementation-Patterns",
+        "wordCount": 682
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2025/06/19/Blog-Feature-List/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            部落格功能清單
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2025/02/22/How-To-Write-Code-With-Cursor/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">如何使用 Cursor 來寫程式</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/Blog-Feature-List/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/schedule-plan.webp)" alt="部落格功能清單" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/06/19/Blog-Feature-List/" class="title">部落格功能清單</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T02:17:52.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
+                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/laptop-coffee.webp)" alt="如何使用 Cursor 來寫程式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="title">如何使用 Cursor 來寫程式</a></p>
+                            <p class="item-date"><time datetime="2025-02-22T12:28:53.000Z" itemprop="datePublished">2025-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/chalkboard.webp)" alt="類別圖：動物園管理員（訪問者模式）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="title">類別圖：動物園管理員（訪問者模式）</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T16:27:50.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'e7fce9405c701c33676ad0b4e132fe0f',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+    
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1753875325087')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

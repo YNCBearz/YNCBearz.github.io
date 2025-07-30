@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>Arrays And Strings | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Study Group" />
+    
+    <meta name="description" content="Arrays-And-Strings">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arrays And Strings">
+<meta property="og:url" content="https://yncbearz.github.io/2022/02/13/Arrays-And-Strings/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Arrays-And-Strings">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/keychain.webp">
+<meta property="article:published_time" content="2022-02-13T10:19:34.000Z">
+<meta property="article:modified_time" content="2025-05-30T08:15:23.215Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Study Group">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/keychain.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Arrays-And-Strings"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        Arrays And Strings
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2022/02/13/Arrays-And-Strings/" class="article-date">
+       <time datetime="2022-02-13T10:19:34.000Z" itemprop="datePublished">2022-02-13</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Study-Group/" rel="tag">Study Group</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="雜湊表-Hash-Tables"><a href="#雜湊表-Hash-Tables" class="headerlink" title="雜湊表 (Hash Tables)"></a>雜湊表 (Hash Tables)</h1><p>雜湊表是對應鍵(key)與值(value)，以供高效率查詢的資料結構。</p>
+<p>以下描述簡單但最常見的實作。</p>
+<p>我們使用一個鏈接清單(linked list)陣列與一個雜湊編碼函式(hash code function)。<br>當要插入鍵與值時，我們會執行：</p>
+<ol>
+<li>首先計算鍵的雜湊編碼，通常為int或long。</li>
+</ol>
+<p>注意<strong>兩個不同的鍵可能有相同的雜湊編碼。</strong></p>
+<ol start="2">
+<li>對應該雜湊編碼到陣列的一個索引(index)。<br>它可以是<strong>hash(key)% array_length</strong>。</li>
+</ol>
+<p><strong>兩個不同的雜湊編碼可能對應到同一個索引。</strong></p>
+<ol start="3">
+<li>此索引有個鍵與值的鏈接清單。將鍵與值存在這個索引中。<br>我們必須使用鏈接清單是因為有衝突(collision):<br><strong>兩個不同的鍵具有相同的雜湊編碼，或不同的雜湊編碼對應到相同索引。</strong></li>
+</ol>
+<p>若衝突量很高，最差的執行時間是$O(n)$，N為鍵的數量。<br>但好的實作可以將衝突降至最少，此時的查詢時間為$O(1)$。</p>
+<p><img src="/images/notes/2022/02/hash-tables.png" alt="hash-tables"></p>
+<p>另外我們也可以用平衡二元搜尋樹(balanced binary search tree)實作雜湊表。<br>它具有$O(logN)$查詢時間。好處是使用較少空間，因為不需要分配(allocate)大陣列。<br>還能夠依序迭代(iterate)所有鍵，在某些情況很實用。</p>
+<p><strong>Binary Search Tree(BST):</strong></p>
+<ul>
+<li>Key(L)&lt;Key(Current)&lt;Key(R)</li>
+<li>Both subtrees of each node are also BSTs</li>
+</ul>
+<p><strong>Balanced Binary Search Tree:</strong></p>
+<ul>
+<li>A binary search tree in which the left and right subtrees of every node differ in height by no more than 1</li>
+</ul>
+<hr>
+<h1 id="ArrayList-與可變大小陣列"><a href="#ArrayList-與可變大小陣列" class="headerlink" title="ArrayList 與可變大小陣列"></a>ArrayList 與可變大小陣列</h1><p>有些語言的陣列可以自動調整大小 (通常稱為清單)。<br>Java等其他語言的陣列大小是固定的。</p>
+<p>你需要可動態調整大小的類陣列結構時，通常可使用ArrayList。<br>ArrayList是自行調整大小的陣列但存取還是$O(1)$。<br>典型的實作會在陣列滿時，加倍大小。</p>
+<p>每次加倍需要$O(n)$時間，但很少發生，插入時間平攤後還是$O(1)$。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; <span class="title function_">merge</span><span class="params">(String[] words, String[] more)</span> &#123;</span><br><span class="line">  ArrayList&lt;String&gt; sentence = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">  <span class="keyword">for</span> (String w : words) sentence.add(w);</span><br><span class="line">  <span class="keyword">for</span> (String w : more) sentence.add(w);</span><br><span class="line">  <span class="keyword">return</span> sentence;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>為什麼分攤後的插入時間是$O(1)$?</p>
+</blockquote>
+<p>參考先前的<a href="/2022/01/23/Big-O/#%E5%B9%B3%E6%94%A4%E6%99%82%E9%96%93">平攤時間</a>。</p>
+<hr>
+<h1 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h1><p>假設要如下連接字串清單，這段程式的執行時間是什麼？</p>
+<p>假設字串的長度(x)都相等且有n個字串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">joinWords</span><span class="params">(String[] words)</span> &#123;</span><br><span class="line">  <span class="type">String</span> <span class="variable">sentence</span> <span class="operator">=</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span> (String w : words) &#123;</span><br><span class="line">    sentence = sentence + w;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sentence;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每個連接都產生新的字串拷貝，將兩個字串複製並連接在一起。<br>第一個迭代需要複製x個字元、第二個迭代需要複製2x個字元、…</p>
+<p>因此總時間為$O(x+2x+…+nx) &#x3D; O(xn^2)$</p>
+<p>(因為$1+2+…+n &#x3D; n(n+1)&#x2F;2$)</p>
+<p>StringBuilder可以避免這個問題。<br>StringBuilder建構可調整大小的陣列，只在有需要時再複製成字串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">joinWords</span><span class="params">(String[] words)</span> &#123;</span><br><span class="line">  <span class="type">StringBuilder</span> <span class="variable">sentence</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">  <span class="keyword">for</span> (String w : words) &#123;</span><br><span class="line">    sentence.append(w);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sentence.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="面試題目"><a href="#面試題目" class="headerlink" title="面試題目"></a>面試題目</h1><h2 id="1-1-Is-Unique"><a href="#1-1-Is-Unique" class="headerlink" title="1.1 Is Unique"></a>1.1 Is Unique</h2><h3 id="Implement-an-algorithm-to-determine-if-a-string-has-all-unique-characters-What-if-you-cannot-use-additional-data-structures"><a href="#Implement-an-algorithm-to-determine-if-a-string-has-all-unique-characters-What-if-you-cannot-use-additional-data-structures" class="headerlink" title="Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?"></a>Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?</h3><blockquote>
+<p>先詢問字串是<strong>ASCII</strong>或<strong>Unicode</strong>。</p>
+</blockquote>
+<p><strong>補充:</strong></p>
+<ol>
+<li><p><strong>ASCII</strong> (American Standard Code for Information Interchange，美國標準資訊交換碼)<br>用一個位元組(bite)，即8個位元(bit)，來表示一個字元。<br>位元組的最高位統一規定為0，剩餘7位用來存儲數據。共128種編碼。<br>擴展的ASCII編碼，則是把位元組的最高位原本統一設置為0的，也用來存儲字符數據。<br>但各國在擴展的部分定義不同。共256種編碼。</p>
+</li>
+<li><p><strong>Unicode</strong>，又被稱為統一碼、萬國碼，使用兩個位元組，即16位元來表示字元。</p>
+</li>
+<li><p><strong>UTF-8</strong> (8-bit Unicode Transformation Format)，是Unicode的一種編碼方式。<br>可以用一至四個位元組對Unicode字元集中的所有有效編碼點進行編碼。為解決向下相容ASCII碼而設計。</p>
+</li>
+</ol>
+<p>假設為ASCII的128個字元。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isUnique</span>(<span class="params"><span class="variable">$string</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">strlen</span>(<span class="variable">$string</span>) &gt; <span class="number">128</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$charSet</span> = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">strlen</span>(<span class="variable">$string</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$value</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$string</span>, <span class="variable">$i</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$charSet</span>[<span class="variable">$value</span>])) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$charSet</span>[<span class="variable">$value</span>] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此程式的時間複雜度為$O(n)$，n為字串長度。<br>空間複雜度為$O(1)$。<br>也可以說時間複雜度為$O(1)$，因為不會迭代超過128個字元。</p>
+<p>若不想假設字元集的大小，可以說時間複雜度為$O(min(c,n))$。<br>其中c為字元集的大小。</p>
+<blockquote>
+<p>提示：使用位元向量。</p>
+</blockquote>
+<p>使用位元向量可降低使用空間。</p>
+<p>假設字串只使用a到z的小寫字母。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isUnique</span>(<span class="params"><span class="variable">$string</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$checker</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">strlen</span>(<span class="variable">$string</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$value</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$string</span>, <span class="variable">$i</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$asciiDiff</span> = <span class="title function_ invoke__">ord</span>(<span class="variable">$value</span>) - <span class="title function_ invoke__">ord</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * $a &amp; $b: 取位元的交集。</span></span><br><span class="line"><span class="comment">         * $a &lt;&lt; $b: 將位元向左移動b次(即乘以2的b次方)。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">if</span> ((<span class="variable">$checker</span> &amp; (<span class="number">1</span> &lt;&lt; <span class="variable">$asciiDiff</span>)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * $a |= $b: $a = $a | $b。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="variable">$checker</span> |= (<span class="number">1</span> &lt;&lt; <span class="variable">$asciiDiff</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>若不能使用其他資料結構呢？</p>
+</blockquote>
+<ol>
+<li><p>相互比較字串的每個字元，需要$O(n^2)$的時間與$O(1)$空間。</p>
+</li>
+<li><p>若可以修改字元，我們可以用$O(nlog(n))$時間將字串排序，<br>然後線性檢查相鄰字元是否相同。<br>注意：許多排序演算法需要額外空間。</p>
+</li>
+</ol>
+<hr>
+<h2 id="1-5-One-Away"><a href="#1-5-One-Away" class="headerlink" title="1.5 One Away"></a>1.5 One Away</h2><h3 id="There-are-three-types-of-edits-that-can-be-performed-on-strings-Insert-a-character-remove-a-character-or-replace-a-character-Given-two-strings-write-a-function-to-check-if-they-are-one-edit-or-zero-edits-away"><a href="#There-are-three-types-of-edits-that-can-be-performed-on-strings-Insert-a-character-remove-a-character-or-replace-a-character-Given-two-strings-write-a-function-to-check-if-they-are-one-edit-or-zero-edits-away" class="headerlink" title="There are three types of edits that can be performed on strings: Insert a character, remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away."></a>There are three types of edits that can be performed on strings: Insert a character, remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away.</h3><p>[Example]<br><strong>pale, ple -&gt; true</strong><br><strong>pales, pale -&gt; true</strong><br><strong>pale, bale -&gt; true</strong><br><strong>pale, bake -&gt; false</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isOneOrZeroAway</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$string1</span>, <span class="keyword">string</span> <span class="variable">$string2</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="variable">$length1</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$string1</span>);</span><br><span class="line">  <span class="variable">$length2</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$string2</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="variable">$length1</span> == <span class="variable">$length2</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">self</span>::<span class="title function_ invoke__">isReplaceCharacter</span>(<span class="variable">$string1</span>, <span class="variable">$string2</span>);</span><br><span class="line">  &#125; <span class="keyword">elseif</span> (<span class="title function_ invoke__">abs</span>(<span class="variable">$length1</span> - <span class="variable">$length2</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> (<span class="variable">$length1</span> &gt; <span class="variable">$length2</span>)</span><br><span class="line">          ? <span class="built_in">self</span>::<span class="title function_ invoke__">isOneCharacterDifferent</span>(<span class="variable">$string1</span>, <span class="variable">$string2</span>)</span><br><span class="line">          : <span class="built_in">self</span>::<span class="title function_ invoke__">isOneCharacterDifferent</span>(<span class="variable">$string2</span>, <span class="variable">$string1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isReplaceCharacter</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$string1</span>, <span class="keyword">string</span> <span class="variable">$string2</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="variable">$result</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$isReplaceOneTime</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">strlen</span>(<span class="variable">$string1</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="variable">$string1</span>[<span class="variable">$i</span>] == <span class="variable">$string2</span>[<span class="variable">$i</span>]) &#123;</span><br><span class="line">          <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="variable">$isReplaceOneTime</span>) &#123;</span><br><span class="line">          <span class="variable">$result</span> = <span class="literal">false</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="variable">$isReplaceOneTime</span> = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Think of</span></span><br><span class="line"><span class="comment"> * (i) bed &amp; ed</span></span><br><span class="line"><span class="comment"> * (ii) bed &amp; bd</span></span><br><span class="line"><span class="comment"> * (iii) bed &amp; be</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> string $longString</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> string $shortString</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isOneCharacterDifferent</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$longString</span>, <span class="keyword">string</span> <span class="variable">$shortString</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="variable">$result</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$isOneCharacterDifferent</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">strlen</span>(<span class="variable">$longString</span>) - <span class="number">1</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="variable">$isOneCharacterDifferent</span> &amp;&amp; (<span class="variable">$longString</span>[<span class="variable">$i</span>] != <span class="variable">$shortString</span>[<span class="variable">$i</span> - <span class="number">1</span>])) &#123;</span><br><span class="line">          <span class="variable">$result</span> = <span class="literal">false</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="variable">$longString</span>[<span class="variable">$i</span>] == <span class="variable">$shortString</span>[<span class="variable">$i</span>]) &#123;</span><br><span class="line">          <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="variable">$isOneCharacterDifferent</span> = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="1-9-String-Rotation"><a href="#1-9-String-Rotation" class="headerlink" title="1.9 String Rotation"></a>1.9 String Rotation</h2><h3 id="Assume-you-have-a-method-isSubstring-which-checks-if-oneword-is-a-substring-of-another-Given-two-strings-sl-and-s2-write-code-to-check-if-s2-is-a-rotation-of-sl-using-only-one-call-to-isSubstring"><a href="#Assume-you-have-a-method-isSubstring-which-checks-if-oneword-is-a-substring-of-another-Given-two-strings-sl-and-s2-write-code-to-check-if-s2-is-a-rotation-of-sl-using-only-one-call-to-isSubstring" class="headerlink" title="Assume you have a method isSubstring which checks if oneword is a substring of another. Given two strings, sl and s2, write code to check if s2 is a rotation of sl using only one call to isSubstring."></a>Assume you have a method isSubstring which checks if oneword is a substring of another. Given two strings, sl and s2, write code to check if s2 is a rotation of sl using only one call to isSubstring.</h3><h3 id="e-g-“waterbottle”-is-a-rotation-of”erbottlewat”"><a href="#e-g-“waterbottle”-is-a-rotation-of”erbottlewat”" class="headerlink" title="(e.g. “waterbottle” is a rotation of”erbottlewat”)"></a>(e.g. “waterbottle” is a rotation of”erbottlewat”)</h3><blockquote>
+<p>First Answer:</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isRotation</span>(<span class="params"><span class="variable">$string1</span>, <span class="variable">$string2</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="variable">$length1</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$string1</span>);</span><br><span class="line">  <span class="variable">$length2</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$string2</span>);</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable">$length1</span> != <span class="variable">$length2</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$stringRotations</span> = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="variable">$offset</span> = <span class="number">1</span>; <span class="variable">$offset</span> &lt; <span class="variable">$length1</span>; <span class="variable">$offset</span>++) &#123;</span><br><span class="line">      <span class="variable">$partA</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$string1</span>, <span class="variable">$offset</span>);</span><br><span class="line">      <span class="variable">$partB</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$string1</span>, <span class="number">0</span>, <span class="variable">$offset</span>);</span><br><span class="line"></span><br><span class="line">      <span class="variable">$stringRotations</span>[] = <span class="variable">$partA</span> . <span class="variable">$partB</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_ invoke__">in_array</span>(<span class="variable">$string2</span>, <span class="variable">$stringRotations</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Best Answer:</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">isRotation</span>(<span class="params"><span class="variable">$string1</span>, <span class="variable">$string2</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="variable">$length1</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$string1</span>);</span><br><span class="line">  <span class="variable">$length2</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$string2</span>);</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable">$length1</span> != <span class="variable">$length2</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_ invoke__">strpos</span>(<span class="variable">$string1</span> . <span class="variable">$string1</span>, <span class="variable">$string2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>ʕ •ᴥ•ʔ：程式碼可參考：<a target="_blank" rel="noopener" href="https://github.com/YNCBearz/CtCI-6th-Edition-php">CtCI-6th-php</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2022/02/13/Arrays-And-Strings/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "Arrays And Strings",
+        "image": "https://yncbearz.github.io/images/thumbnails/keychain.webp",
+        "keywords": "Study Group",
+        "genre": "Programming",
+        "datePublished": "2022-02-13",
+        "dateCreated": "2022-02-13",
+        "dateModified": "2025-05-30",
+        "url": "https://yncbearz.github.io/2022/02/13/Arrays-And-Strings/",
+        "description": "Arrays-And-Strings",
+        "wordCount": 1852
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2022/02/14/Linked-Lists/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Linked Lists
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2022/01/23/Big-O/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Big O</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/Blog-Feature-List/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/schedule-plan.webp)" alt="部落格功能清單" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/06/19/Blog-Feature-List/" class="title">部落格功能清單</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T02:17:52.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
+                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/laptop-coffee.webp)" alt="如何使用 Cursor 來寫程式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="title">如何使用 Cursor 來寫程式</a></p>
+                            <p class="item-date"><time datetime="2025-02-22T12:28:53.000Z" itemprop="datePublished">2025-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/chalkboard.webp)" alt="類別圖：動物園管理員（訪問者模式）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="title">類別圖：動物園管理員（訪問者模式）</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T16:27:50.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '433df0ea1a9b65d31d7d77177a6a8922',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+    
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1753875325087')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

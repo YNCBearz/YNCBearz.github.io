@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>費茲法則 | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Study Group" />
+    
+    <meta name="description" content="Fitts-Law">
+<meta property="og:type" content="article">
+<meta property="og:title" content="費茲法則">
+<meta property="og:url" content="https://yncbearz.github.io/2025/07/26/Fitts-Law/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Fitts-Law">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/music-control.webp">
+<meta property="article:published_time" content="2025-07-26T11:26:41.000Z">
+<meta property="article:modified_time" content="2025-07-30T02:58:29.082Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Study Group">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/music-control.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Other/">Other</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Fitts-Law"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        費茲法則
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2025/07/26/Fitts-Law/" class="article-date">
+       <time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Study-Group/" rel="tag">Study Group</a>
+    </div>
+
+            
+  <div class="article-slide">
+    <i class="fa fa-tv"></i>
+    <a href="/2025/07/26/Fitts-Law/slides.html">
+      SLIDES
+    </a>
+  </div>
+
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="費茲法則-Fitts’s-Law"><a href="#費茲法則-Fitts’s-Law" class="headerlink" title="費茲法則 (Fitts’s Law)"></a>費茲法則 (Fitts’s Law)</h2><p>目標的選取時間取決於目標的距離與大小。</p>
+<hr>
+<h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>費茲法則是由心理學家 Paul Fitts 在 1954 年提出的，</p>
+<p>描述人類移動到目標所需的時間與目標距離和大小之間的關係。</p>
+<hr>
+<h2 id="費茲法則公式"><a href="#費茲法則公式" class="headerlink" title="費茲法則公式"></a>費茲法則公式</h2><h3 id="ID-log₂-2D-W"><a href="#ID-log₂-2D-W" class="headerlink" title="ID &#x3D; log₂(2D&#x2F;W)"></a>ID &#x3D; log₂(2D&#x2F;W)</h3><p><strong>其中：</strong></p>
+<ul>
+<li><strong>ID</strong> &#x3D; 輸入困難度 (index of difficulty)</li>
+<li><strong>D</strong> &#x3D; 起始點到目標中心的距離</li>
+<li><strong>W</strong> &#x3D; 目標的寬度</li>
+</ul>
+<hr>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><ul>
+<li><strong>目標越大，移動時間越短</strong></li>
+<li><strong>目標越近，移動時間越短</strong></li>
+<li><strong>對數關係表示邊際效益遞減</strong></li>
+</ul>
+<hr>
+<h2 id="人因因素：美國空軍失誤事件"><a href="#人因因素：美國空軍失誤事件" class="headerlink" title="人因因素：美國空軍失誤事件"></a>人因因素：美國空軍失誤事件</h2><p>1950年代，美國空軍面臨嚴重的飛行事故問題。</p>
+<p>飛行員在操作飛機控制桿時經常出現失誤，導致飛機墜毀。</p>
+<hr>
+<h3 id="費茲的研究"><a href="#費茲的研究" class="headerlink" title="費茲的研究"></a>費茲的研究</h3><p>他發現大多數的墜機是因為飛行員在高壓情況下混淆了外觀幾乎相同的按鈕。</p>
+<hr>
+<h3 id="解決方案"><a href="#解決方案" class="headerlink" title="解決方案"></a>解決方案</h3><p>重新設計按鈕：透過不同的形狀，讓飛行員僅透過觸感便能輕鬆識別。</p>
+<hr>
+<h3 id="影響與啟示"><a href="#影響與啟示" class="headerlink" title="影響與啟示"></a>影響與啟示</h3><p>更好的設計意味著要理解人在分析、困惑或壓力下，無法理性思考的行為模式，<br>並確保在這些情況下仍能安全有效地運作。</p>
+<hr>
+<h2 id="設計啟示：目標大小與距離"><a href="#設計啟示：目標大小與距離" class="headerlink" title="設計啟示：目標大小與距離"></a>設計啟示：目標大小與距離</h2><h3 id="重要按鈕要夠大"><a href="#重要按鈕要夠大" class="headerlink" title="重要按鈕要夠大"></a>重要按鈕要夠大</h3><ul>
+<li>觸控目標要有足夠的大小，讓使用者可以清楚辨識並點選</li>
+<li>觸控目標間需要保持適當距離</li>
+<li>觸控目標應放在使用者容易觸及的介面區域</li>
+</ul>
+<hr>
+<h2 id="實際應用：網頁設計"><a href="#實際應用：網頁設計" class="headerlink" title="實際應用：網頁設計"></a>實際應用：網頁設計</h2><ul>
+<li><strong>導航欄設計</strong>：主要導航項目要夠大且容易點擊</li>
+<li><strong>CTA 按鈕</strong>：行動呼籲按鈕要突出且易於點擊</li>
+<li><strong>表單設計</strong>：輸入框和提交按鈕的合理佈局</li>
+</ul>
+<hr>
+<h2 id="實際應用：行動應用"><a href="#實際應用：行動應用" class="headerlink" title="實際應用：行動應用"></a>實際應用：行動應用</h2><ul>
+<li><strong>拇指友好設計</strong>：考慮單手操作時的觸控範圍</li>
+<li><strong>底部導航</strong>：重要功能放在拇指容易到達的區域</li>
+<li><strong>手勢設計</strong>：滑動、點擊等手勢的目標區域設計</li>
+</ul>
+<hr>
+<p><img src="/../images/notes/2025/06/MostAccurateAreaInMobile.png"></p>
+<hr>
+<p><img src="/../images/notes/2025/06/HowToHoldPhoneInDifferentTasks.png"></p>
+<hr>
+<h2 id="實際應用：桌面應用"><a href="#實際應用：桌面應用" class="headerlink" title="實際應用：桌面應用"></a>實際應用：桌面應用</h2><ul>
+<li><strong>工具列設計</strong>：常用工具要容易找到和點擊</li>
+<li><strong>選單設計</strong>：下拉選單的項目大小和間距</li>
+<li><strong>快捷鍵</strong>：減少滑鼠移動的需求</li>
+</ul>
+<hr>
+<h2 id="常見錯誤：❌-錯誤做法"><a href="#常見錯誤：❌-錯誤做法" class="headerlink" title="常見錯誤：❌ 錯誤做法"></a>常見錯誤：❌ 錯誤做法</h2><ol>
+<li><strong>過小的按鈕</strong>：用戶難以準確點擊</li>
+<li><strong>功能分散</strong>：相關功能距離太遠</li>
+<li><strong>忽略邊緣</strong>：沒有利用螢幕邊緣的優勢（到達邊界後，游標會自然停止）</li>
+<li><strong>不一致的目標大小</strong>：相同重要性的元素大小不一</li>
+</ol>
+<hr>
+<h2 id="正確做法：✅-最佳實踐"><a href="#正確做法：✅-最佳實踐" class="headerlink" title="正確做法：✅ 最佳實踐"></a>正確做法：✅ 最佳實踐</h2><ol>
+<li><strong>適當的目標大小</strong>：確保易於點擊</li>
+<li><strong>合理的功能分組</strong>：相關功能放在一起</li>
+<li><strong>利用邊緣優勢</strong>：重要控制項放在邊緣</li>
+<li><strong>一致的設計語言</strong>：相似功能使用相似的目標大小</li>
+</ol>
+<hr>
+<h2 id="測試與驗證方法"><a href="#測試與驗證方法" class="headerlink" title="測試與驗證方法"></a>測試與驗證方法</h2><h3 id="可用性測試"><a href="#可用性測試" class="headerlink" title="可用性測試"></a>可用性測試</h3><ol>
+<li><strong>點擊測試</strong>：測量用戶點擊不同大小目標的時間</li>
+<li><strong>A&#x2F;B 測試</strong>：比較不同設計的效果</li>
+<li><strong>熱點圖分析</strong>：了解用戶的點擊模式</li>
+<li><strong>脈絡訪查</strong>：針對小規模樣本，進行深入觀察和訪談</li>
+</ol>
+<hr>
+<h2 id="質性驗證方式：脈絡訪查"><a href="#質性驗證方式：脈絡訪查" class="headerlink" title="質性驗證方式：脈絡訪查"></a>質性驗證方式：脈絡訪查</h2><h3 id="什麼是脈絡訪查？"><a href="#什麼是脈絡訪查？" class="headerlink" title="什麼是脈絡訪查？"></a>什麼是脈絡訪查？</h3><p>脈絡訪查是一種用戶研究方法，通過在用戶的自然環境中觀察和訪談，深入了解用戶的真實使用情境和需求。</p>
+<hr>
+<h3 id="優點"><a href="#優點" class="headerlink" title="優點"></a>優點</h3><ul>
+<li><strong>真實性</strong>：在用戶實際使用環境中進行，數據更真實</li>
+<li><strong>深度性</strong>：能夠發現用戶自己都未察覺的需求</li>
+<li><strong>情境性</strong>：了解不同環境對用戶行為的影響</li>
+<li><strong>即時性</strong>：能夠觀察到用戶的即時反應和問題</li>
+</ul>
+<hr>
+<h3 id="實施步驟"><a href="#實施步驟" class="headerlink" title="實施步驟"></a>實施步驟</h3><ol>
+<li><p><strong>準備階段</strong></p>
+<ul>
+<li>確定研究目標和問題</li>
+<li>選擇合適的參與者</li>
+<li>準備觀察工具和記錄設備</li>
+</ul>
+</li>
+<li><p><strong>執行階段</strong></p>
+<ul>
+<li>在用戶自然環境中進行觀察</li>
+<li>記錄用戶的操作行為和時間</li>
+<li>進行深度訪談了解動機</li>
+</ul>
+</li>
+<li><p><strong>分析階段</strong></p>
+<ul>
+<li>整理觀察數據和訪談記錄</li>
+<li>識別用戶痛點和需求</li>
+<li>提出設計改進建議</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="量化驗證方式：指標"><a href="#量化驗證方式：指標" class="headerlink" title="量化驗證方式：指標"></a>量化驗證方式：指標</h2><ul>
+<li><strong>點擊準確率</strong>：目標是否容易被準確點擊</li>
+<li><strong>完成時間</strong>：完成任務所需的時間</li>
+<li><strong>錯誤率</strong>：點擊錯誤的頻率</li>
+<li><strong>用戶滿意度</strong>：主觀的使用體驗評價</li>
+</ul>
+<hr>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>費茲法則是 UX 設計中的基礎法則，它提醒我們：</p>
+<ol>
+<li><strong>目標要夠大</strong>：確保用戶能夠輕鬆點擊</li>
+<li><strong>距離要合理</strong>：減少不必要的移動</li>
+<li><strong>利用邊緣優勢</strong>：螢幕邊緣是「無限大」的目標</li>
+<li><strong>考慮用戶習慣</strong>：設計要符合用戶的使用模式</li>
+</ol>
+<p><strong>記住：好的設計應該是直覺的，用戶不需要思考就能完成操作。</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://deephci.wordpress.com/2018/07/28/fitts-law/">簡介費茲定律 (Fitt’s Law)</a></li>
+<li><a target="_blank" rel="noopener" href="https://lawsofux.com/fittss-law/">Fitts’s Law</a></li>
+</ul>
+<hr>
+<h2 id="ʕ-•ᴥ•ʔ：Thank-you"><a href="#ʕ-•ᴥ•ʔ：Thank-you" class="headerlink" title="ʕ •ᴥ•ʔ：Thank you"></a>ʕ •ᴥ•ʔ：Thank you</h2>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2025/07/26/Fitts-Law/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "費茲法則",
+        "image": "https://yncbearz.github.io/images/thumbnails/music-control.webp",
+        "keywords": "Study Group",
+        "genre": "Other",
+        "datePublished": "2025-07-26",
+        "dateCreated": "2025-07-26",
+        "dateModified": "2025-07-30",
+        "url": "https://yncbearz.github.io/2025/07/26/Fitts-Law/",
+        "description": "Fitts-Law",
+        "wordCount": 146
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2025/06/19/Blog-Feature-List/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">部落格功能清單</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/Blog-Feature-List/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/schedule-plan.webp)" alt="部落格功能清單" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/06/19/Blog-Feature-List/" class="title">部落格功能清單</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T02:17:52.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
+                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/laptop-coffee.webp)" alt="如何使用 Cursor 來寫程式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="title">如何使用 Cursor 來寫程式</a></p>
+                            <p class="item-date"><time datetime="2025-02-22T12:28:53.000Z" itemprop="datePublished">2025-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/chalkboard.webp)" alt="類別圖：動物園管理員（訪問者模式）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="title">類別圖：動物園管理員（訪問者模式）</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T16:27:50.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '9820877d1e4ddf00eb0b0284b41319dc',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+    
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1753875325087')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>MSSQL 報表語法 | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="SQL" />
+    
+    <meta name="description" content="MSSQL-Report-Syntax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MSSQL 報表語法">
+<meta property="og:url" content="https://yncbearz.github.io/2023/01/15/MSSQL-Report-Syntax/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="MSSQL-Report-Syntax">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/chalkboard.webp">
+<meta property="article:published_time" content="2023-01-15T06:58:48.000Z">
+<meta property="article:modified_time" content="2025-05-30T08:15:23.249Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="SQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/chalkboard.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-MSSQL-Report-Syntax"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        MSSQL 報表語法
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/01/15/MSSQL-Report-Syntax/" class="article-date">
+       <time datetime="2023-01-15T06:58:48.000Z" itemprop="datePublished">2023-01-15</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/SQL/" rel="tag">SQL</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>(參考<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-tw/sql/sql-server/editions-and-components-of-sql-server-2019?view=sql-server-ver15">MSSQL</a>)</p>
+<h1 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h1><blockquote>
+<p>我們是個中文教學的網絡平台，透過跟不同的課程提供者合作來盈利。<br>擁有以下的資料表，來記錄平台的狀況。</p>
+</blockquote>
+<p>為求簡化，我們不會列出所有的表跟欄位。<br>其中有些表可能違反了正規化。</p>
+<ul>
+<li>Table: SessionInfo</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Column</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Id</td>
+<td align="left">課程編號</td>
+</tr>
+<tr>
+<td align="left">Browser</td>
+<td align="left">使用的瀏覽器 (Chrome, Firefox, Safari, …)</td>
+</tr>
+<tr>
+<td align="left">ServiceProvider</td>
+<td align="left">課程服務的提供者 (TutorChinese, ChineseTalker, ChineseCamp, …)</td>
+</tr>
+<tr>
+<td align="left">Country</td>
+<td align="left">連線的國家 (Japan, Korea, Singapore, …)</td>
+</tr>
+<tr>
+<td align="left">Cost</td>
+<td align="left">課程花費 (<strong>單位為連線國家的貨幣</strong>)</td>
+</tr>
+<tr>
+<td align="left">TeachingFee</td>
+<td align="left">給提供者的教學費用 (<strong>單位為連線國家的貨幣</strong>)</td>
+</tr>
+<tr>
+<td align="left">ConnectionTime</td>
+<td align="left">連線時間 (以秒記)</td>
+</tr>
+<tr>
+<td align="left">UserId</td>
+<td align="left">使用者編號</td>
+</tr>
+<tr>
+<td align="left">Type</td>
+<td align="left">課程類型 (Listening, Speaking, Reading, Writing)</td>
+</tr>
+<tr>
+<td align="left">Status</td>
+<td align="left">課程狀態 (Started, Cancelled, Done)</td>
+</tr>
+<tr>
+<td align="left">Date</td>
+<td align="left">連線日期 (UTC 時間)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Table: ExchangeRate</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Column</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Id</td>
+<td align="left">貨幣換算編號</td>
+</tr>
+<tr>
+<td align="left">Country</td>
+<td align="left">貨幣換算的國家 (Japan, Korea, Singapore, Thailand, US, …)</td>
+</tr>
+<tr>
+<td align="left">MonthKey</td>
+<td align="left">貨幣換算的時間 (格式: 202301)</td>
+</tr>
+<tr>
+<td align="left">Rate</td>
+<td align="left">匯率</td>
+</tr>
+</tbody></table>
+<h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h1><ul>
+<li>Table: SessionInfo</li>
+</ul>
+<blockquote>
+<p>Create Table</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span></span><br><span class="line">  SessionInfo (</span><br><span class="line">    Id <span class="type">INT</span> <span class="keyword">IDENTITY</span> (<span class="number">1</span>, <span class="number">1</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    Browser nvarchar (<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    ServiceProvider nvarchar (<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    Country nvarchar (<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    Cost <span class="type">DECIMAL</span>(<span class="number">18</span>, <span class="number">6</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    TeachingFee <span class="type">DECIMAL</span>(<span class="number">18</span>, <span class="number">6</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    ConnectionTime <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    UserId <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    Type <span class="type">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    Status <span class="type">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="type">DATE</span> datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Insert Data</p>
+</blockquote>
+<ul>
+<li>利用 <a target="_blank" rel="noopener" href="https://onlinephp.io/c/3e8a6">PHP</a>，產生隨機資料的程式碼</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$browsers</span> = [<span class="string">&#x27;Chrome&#x27;</span>, <span class="string">&#x27;Firefox&#x27;</span>, <span class="string">&#x27;Safari&#x27;</span>];</span><br><span class="line"><span class="variable">$serviceProviders</span> = [<span class="string">&#x27;TutorChinese&#x27;</span>, <span class="string">&#x27;ChineseTalker&#x27;</span>, <span class="string">&#x27;ChineseCamp&#x27;</span>];</span><br><span class="line"><span class="variable">$countries</span> = [<span class="string">&#x27;Japan&#x27;</span>, <span class="string">&#x27;Korea&#x27;</span>, <span class="string">&#x27;Singapore&#x27;</span>];</span><br><span class="line"><span class="variable">$types</span> = [<span class="string">&#x27;Listening&#x27;</span>, <span class="string">&#x27;Speaking&#x27;</span>, <span class="string">&#x27;Reading&#x27;</span>, <span class="string">&#x27;Writing&#x27;</span>];</span><br><span class="line"><span class="variable">$statuses</span> = [<span class="string">&#x27;Starting&#x27;</span>, <span class="string">&#x27;Cancelled&#x27;</span>, <span class="string">&#x27;Done&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$result</span> = <span class="string">&#x27;INSERT INTO SessionInfo (Browser, ServiceProvider, Country, Cost, TeachingFee, ConnectionTime, UserId, Type, Status, DATE)</span></span><br><span class="line"><span class="string">VALUES &#x27;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">1000</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">	<span class="title function_ invoke__">shuffle</span>(<span class="variable">$browsers</span>);</span><br><span class="line">	<span class="title function_ invoke__">shuffle</span>(<span class="variable">$serviceProviders</span>);</span><br><span class="line">	<span class="title function_ invoke__">shuffle</span>(<span class="variable">$countries</span>);</span><br><span class="line">	<span class="variable">$cost</span> = <span class="title function_ invoke__">rand</span>(<span class="number">8443</span>, <span class="number">243427</span>);</span><br><span class="line">	<span class="variable">$fee</span> = (<span class="title function_ invoke__">rand</span>(<span class="number">300</span>, <span class="number">800</span>)) * <span class="number">0.001</span> * <span class="variable">$cost</span>;</span><br><span class="line">	<span class="variable">$connectionTime</span> = <span class="title function_ invoke__">rand</span>(<span class="number">3550</span>, <span class="number">11000</span>);</span><br><span class="line">	<span class="variable">$userId</span> = <span class="title function_ invoke__">rand</span>(<span class="number">1</span>,<span class="number">1000</span>);</span><br><span class="line">	<span class="title function_ invoke__">shuffle</span>(<span class="variable">$types</span>);</span><br><span class="line">	<span class="title function_ invoke__">shuffle</span>(<span class="variable">$statuses</span>);</span><br><span class="line">	<span class="variable">$dateInt2022</span>= <span class="title function_ invoke__">mt_rand</span>(<span class="number">1640995200</span> ,<span class="number">1672444800</span>);</span><br><span class="line">	<span class="variable">$date</span> = <span class="title function_ invoke__">date</span>(<span class="string">&quot;Y-m-d H:i:s&quot;</span>,<span class="variable">$dateInt2022</span>);</span><br><span class="line"></span><br><span class="line">	<span class="variable">$result</span> .= <span class="string">&quot;(&#x27;<span class="subst">$browsers</span>[0]&#x27;, &#x27;<span class="subst">$serviceProviders</span>[0]&#x27;, &#x27;<span class="subst">$countries</span>[0]&#x27;, <span class="subst">$cost</span>, <span class="subst">$fee</span>, <span class="subst">$connectionTime</span>, <span class="subst">$userId</span>, &#x27;<span class="subst">$types</span>[0]&#x27;, &#x27;<span class="subst">$statuses</span>[0]&#x27;, &#x27;<span class="subst">$date</span>&#x27;),\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$result</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$result</span>, <span class="number">0</span>, -<span class="number">2</span>) . <span class="string">&#x27;;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span>(<span class="variable">$result</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>產生的範例</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> SessionInfo (Browser, ServiceProvider, Country, Cost, TeachingFee, ConnectionTime, UserId, Type, Status, <span class="type">DATE</span>)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;Chrome&#x27;</span>, <span class="string">&#x27;TutorChinese&#x27;</span>, <span class="string">&#x27;Japan&#x27;</span>, <span class="number">8443</span>, <span class="number">6332</span>, <span class="number">3600</span>, <span class="number">1</span>, <span class="string">&#x27;Speaking&#x27;</span>, <span class="string">&#x27;Done&#x27;</span>, <span class="string">&#x27;2022-01-15 09:00:00&#x27;</span>),</span><br><span class="line">(<span class="string">&#x27;Chrome&#x27;</span>, <span class="string">&#x27;TutorChinese&#x27;</span>, <span class="string">&#x27;Korea&#x27;</span>, <span class="number">81709</span>, <span class="number">61283</span>, <span class="number">3610</span>, <span class="number">2</span>, <span class="string">&#x27;Speaking&#x27;</span>, <span class="string">&#x27;Done&#x27;</span>, <span class="string">&#x27;2022-01-15 09:00:00&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>(Note.)</p>
+<p>利用上述程式碼產生的資料，<br>主要盈利的分佈會是 <strong>Singapore &gt; Japan &gt;&gt;&gt; Korea</strong></p>
+<ul>
+<li>Table: ExchangeRate</li>
+</ul>
+<blockquote>
+<p>Create Table</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span></span><br><span class="line">  ExchangeRate (</span><br><span class="line">    Id <span class="type">INT</span> <span class="keyword">IDENTITY</span> (<span class="number">1</span>, <span class="number">1</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    Country nvarchar (<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    Rate <span class="type">DECIMAL</span>(<span class="number">10</span>, <span class="number">6</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    MonthKey datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Insert Data</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ExchangeRate (Country, Rate, MonthKey)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2408</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220101&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.242</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220201&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2443</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220301&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2341</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220401&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2264</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220501&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.224</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220601&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2205</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220701&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2292</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220801&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2181</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220901&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2198</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221001&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2173</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221101&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Japan&#x27;</span>, <span class="number">0.2263</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221201&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0233</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220101&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0231</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220201&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0233</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220301&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0235</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220401&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0233</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220501&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0235</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220601&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.023</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220701&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0231</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220801&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0225</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220901&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0221</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221001&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0227</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221101&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Korea&#x27;</span>, <span class="number">0.0235</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221201&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">20.552</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220101&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">20.5859</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220201&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">20.6607</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220301&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">21.1392</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220401&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">21.2932</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220501&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">21.2106</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220601&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">21.3519</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220701&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">21.9154</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220801&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">21.8025</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20220901&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">22.1604</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221001&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">22.711</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221101&#x27;</span>, <span class="number">112</span>)),</span><br><span class="line">(<span class="string">&#x27;Singapore&#x27;</span>, <span class="number">22.5993</span>, <span class="keyword">CONVERT</span>(DATETIME,<span class="string">&#x27;20221201&#x27;</span>, <span class="number">112</span>));</span><br></pre></td></tr></table></figure>
+
+<h1 id="Menu"><a href="#Menu" class="headerlink" title="Menu"></a>Menu</h1><blockquote>
+<p><a href="#Annual-Report-By-Country">Annual Report By Country</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">Quarter</th>
+<th align="left">Type</th>
+<th align="left">Country</th>
+<th align="left">Count</th>
+<th align="left">QAU</th>
+<th align="left">Volume(TWD)</th>
+<th align="left">Fee(TWD)</th>
+<th align="left">FeePercentage(TWD)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Q1</td>
+<td align="left">Listening</td>
+<td align="left">Japan</td>
+<td align="left">30</td>
+<td align="left">12</td>
+<td align="left">73000</td>
+<td align="left">51100</td>
+<td align="left">70%</td>
+</tr>
+<tr>
+<td align="left">…</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a href="#Volume-Over-50k-Users-By-Country">Volume Over 50k Users By Country</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">Quarter</th>
+<th align="left">Country</th>
+<th align="left">Count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Q1</td>
+<td align="left">Japan</td>
+<td align="left">112</td>
+</tr>
+<tr>
+<td align="left">…</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a href="#Connection-Time-Over-2-Hours-Percentage-By-Type">Connection Time Over 2 Hours Percentage By Type</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">Quarter</th>
+<th align="left">Type</th>
+<th align="left">Percentage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Q1</td>
+<td align="left">Speaking</td>
+<td align="left">24%</td>
+</tr>
+<tr>
+<td align="left">…</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a href="#Favorite-Service-Provider-By-Browser">Favorite Service Provider By Browser</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">Browser</th>
+<th align="left">ServiceProvider</th>
+<th align="left">MaxCount</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Chrome</td>
+<td align="left">TutorChinese</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="left">…</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a href="#Done-Rate-By-Country">Done Rate By Country</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Country</th>
+<th align="left">DoneRate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Speaking</td>
+<td align="left">Japan</td>
+<td align="left">75%</td>
+</tr>
+<tr>
+<td align="left">…</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a href="#Japan-Consumption-Quartile">Japan Consumption Quartile</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">25th</th>
+<th align="left">50th</th>
+<th align="left">75th</th>
+<th align="left">Volume</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2353</td>
+<td align="left">6794</td>
+<td align="left">8443</td>
+<td align="left">250</td>
+</tr>
+<tr>
+<td align="left">…</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="Annual-Report-By-Country"><a href="#Annual-Report-By-Country" class="headerlink" title="Annual Report By Country"></a>Annual Report By Country</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="keyword">WITH</span> SessionInfoV2 <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	si.Browser ,</span><br><span class="line">	si.ServiceProvider ,</span><br><span class="line">	si.Country ,</span><br><span class="line">	si.ConnectionTime ,</span><br><span class="line">	si.UserId ,</span><br><span class="line">	si.[Type] ,</span><br><span class="line">	si.Status ,</span><br><span class="line">	CONCAT(<span class="string">&#x27;Q&#x27;</span>, DATEPART(QUARTER, si.[<span class="type">DATE</span>])) <span class="keyword">AS</span> Quarter,</span><br><span class="line">	DATEADD(<span class="keyword">MONTH</span>, DATEDIFF(<span class="keyword">MONTH</span>, <span class="number">0</span>, si.[<span class="type">DATE</span>]), <span class="number">0</span>) <span class="keyword">AS</span> Monthkey,</span><br><span class="line">	si.Cost ,</span><br><span class="line">	si.TeachingFee</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfo si <span class="keyword">WITH</span> (nolock)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	siv2.Quarter,</span><br><span class="line">	siv2.[Type] ,</span><br><span class="line">	siv2.Country,</span><br><span class="line">	<span class="built_in">Count</span>(<span class="number">1</span>) <span class="keyword">AS</span> Count,</span><br><span class="line">	<span class="built_in">Count</span>(<span class="keyword">DISTINCT</span>(siv2.UserId)) <span class="keyword">AS</span> QAU,</span><br><span class="line">	<span class="built_in">Sum</span>(siv2.Cost <span class="operator">*</span> er.Rate) <span class="keyword">AS</span> <span class="string">&#x27;Volume(TWD)&#x27;</span>,</span><br><span class="line">	<span class="built_in">Sum</span>(siv2.TeachingFee <span class="operator">*</span> er.Rate) <span class="keyword">AS</span> <span class="string">&#x27;Fee(TWD)&#x27;</span>,</span><br><span class="line">	CONCAT(</span><br><span class="line">		<span class="keyword">CONVERT</span> (<span class="type">Decimal</span>(<span class="number">10</span>, <span class="number">2</span>),</span><br><span class="line">		Round(</span><br><span class="line">			<span class="built_in">Sum</span>(siv2.TeachingFee <span class="operator">*</span> er.Rate)<span class="operator">/</span> <span class="built_in">Sum</span>(siv2.Cost <span class="operator">*</span> er.Rate), <span class="number">4</span></span><br><span class="line">		)<span class="operator">*</span> <span class="number">100</span>),</span><br><span class="line">	<span class="string">&#x27;%&#x27;</span>) <span class="keyword">AS</span> <span class="string">&#x27;FeePercentage(TWD)&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfoV2 <span class="keyword">AS</span> siv2 <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">JOIN</span> ExchangeRate <span class="keyword">AS</span> er <span class="keyword">ON</span></span><br><span class="line">	siv2.MonthKey <span class="operator">=</span> er.MonthKey</span><br><span class="line">	<span class="keyword">AND</span> siv2.Country <span class="operator">=</span> er.Country</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	siv2.Status <span class="operator">=</span> <span class="string">&#x27;Done&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">	siv2.Quarter,</span><br><span class="line">	siv2.[Type],</span><br><span class="line">	siv2.Country;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Volume-Over-50k-Users-By-Country"><a href="#Volume-Over-50k-Users-By-Country" class="headerlink" title="Volume Over 50k Users By Country"></a>Volume Over 50k Users By Country</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="keyword">WITH</span> SessionInfoV2 <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	si.Browser ,</span><br><span class="line">	si.ServiceProvider ,</span><br><span class="line">	si.Country ,</span><br><span class="line">	si.ConnectionTime ,</span><br><span class="line">	si.UserId ,</span><br><span class="line">	si.[Type] ,</span><br><span class="line">	si.Status ,</span><br><span class="line">	CONCAT(<span class="string">&#x27;Q&#x27;</span>, DATEPART(QUARTER, si.[<span class="type">DATE</span>])) <span class="keyword">AS</span> Quarter,</span><br><span class="line">	DATEADD(<span class="keyword">MONTH</span>, DATEDIFF(<span class="keyword">MONTH</span>, <span class="number">0</span>, si.[<span class="type">DATE</span>]), <span class="number">0</span>) <span class="keyword">AS</span> Monthkey,</span><br><span class="line">	si.Cost ,</span><br><span class="line">	si.TeachingFee</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfo si <span class="keyword">WITH</span> (nolock)</span><br><span class="line">),</span><br><span class="line">SessionInfoV3 <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">		siv2.Quarter,</span><br><span class="line">		siv2.Country,</span><br><span class="line">		siv2.UserId,</span><br><span class="line">		<span class="built_in">Sum</span>(siv2.Cost <span class="operator">*</span> er.Rate) <span class="keyword">AS</span> <span class="string">&#x27;Volume&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfoV2 siv2 <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">JOIN</span> ExchangeRate <span class="keyword">AS</span> er <span class="keyword">ON</span></span><br><span class="line">	siv2.MonthKey <span class="operator">=</span> er.MonthKey</span><br><span class="line">	<span class="keyword">AND</span> siv2.Country <span class="operator">=</span> er.Country</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	siv2.Status <span class="operator">=</span> <span class="string">&#x27;Done&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">	siv2.Quarter,</span><br><span class="line">	siv2.Country,</span><br><span class="line">	siv2.UserId</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	siv3.Quarter,</span><br><span class="line">	siv3.Country,</span><br><span class="line">	<span class="built_in">Count</span>(<span class="keyword">DISTINCT</span>(siv3.UserId)) <span class="keyword">AS</span> Count</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfoV3 <span class="keyword">AS</span> siv3 <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	siv3.Volume <span class="operator">&gt;</span> <span class="number">50000</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">	siv3.Quarter,</span><br><span class="line">	siv3.Country;</span><br></pre></td></tr></table></figure>
+
+<p><a href="#Menu">(Back to Menu)</a></p>
+<hr>
+<h1 id="Connection-Time-Over-2-Hours-Percentage-By-Type"><a href="#Connection-Time-Over-2-Hours-Percentage-By-Type" class="headerlink" title="Connection Time Over 2 Hours Percentage By Type"></a>Connection Time Over 2 Hours Percentage By Type</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="keyword">WITH</span> SessionInfoV2 <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	si.ConnectionTime ,</span><br><span class="line">	si.[Type] ,</span><br><span class="line">	si.Status ,</span><br><span class="line">	CONCAT(<span class="string">&#x27;Q&#x27;</span>, DATEPART(QUARTER, si.[<span class="type">DATE</span>])) <span class="keyword">AS</span> Quarter</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfo si <span class="keyword">WITH</span> (nolock)</span><br><span class="line">),</span><br><span class="line">Summary <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	siv2.Quarter,</span><br><span class="line">	siv2.[Type],</span><br><span class="line">	<span class="built_in">Count</span>(<span class="number">1</span>) <span class="keyword">AS</span> Count</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfoV2 <span class="keyword">AS</span> siv2 <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	siv2.Status <span class="operator">=</span> <span class="string">&#x27;Done&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">	siv2.Quarter,</span><br><span class="line">	siv2.[Type]</span><br><span class="line">),</span><br><span class="line">Over2Hour <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	siv2.Quarter,</span><br><span class="line">	siv2.[Type],</span><br><span class="line">	<span class="built_in">Count</span>(<span class="number">1</span>) <span class="keyword">AS</span> Count</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfoV2 <span class="keyword">AS</span> siv2 <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	siv2.ConnectionTime <span class="operator">&gt;=</span> <span class="number">7200</span></span><br><span class="line">	<span class="keyword">AND</span> siv2.Status <span class="operator">=</span> <span class="string">&#x27;Done&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">	siv2.Quarter,</span><br><span class="line">	siv2.[Type]</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	sm.Quarter,</span><br><span class="line">	sm.[Type],</span><br><span class="line">	CONCAT (</span><br><span class="line">		<span class="keyword">CONVERT</span>(</span><br><span class="line">			<span class="type">DECIMAL</span>(<span class="number">10</span>, <span class="number">2</span>),</span><br><span class="line">			(</span><br><span class="line">				<span class="keyword">CONVERT</span>(<span class="type">DECIMAL</span>(<span class="number">10</span>, <span class="number">2</span>), ISNULL (o2.Count, <span class="number">0</span>)) <span class="operator">/</span> <span class="keyword">CONVERT</span>(<span class="type">DECIMAL</span>(<span class="number">10</span>, <span class="number">2</span>), sm.Count)</span><br><span class="line">			) <span class="operator">*</span> <span class="number">100</span></span><br><span class="line">		),</span><br><span class="line">		<span class="string">&#x27;%&#x27;</span></span><br><span class="line">	) <span class="keyword">AS</span> Percentage</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	Summary <span class="keyword">AS</span> sm</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Over2Hour <span class="keyword">AS</span> o2 <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">ON</span></span><br><span class="line">	sm.Quarter <span class="operator">=</span> o2.Quarter</span><br><span class="line">	<span class="keyword">AND</span> sm.[Type] <span class="operator">=</span> o2.[Type]</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">	sm.Quarter,</span><br><span class="line">	sm.[Type];</span><br></pre></td></tr></table></figure>
+
+<p><a href="#Menu">(Back to Menu)</a></p>
+<hr>
+<h1 id="Favorite-Service-Provider-By-Browser"><a href="#Favorite-Service-Provider-By-Browser" class="headerlink" title="Favorite Service Provider By Browser"></a>Favorite Service Provider By Browser</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="keyword">WITH</span> Summary <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	si.ServiceProvider ,</span><br><span class="line">	si.Browser,</span><br><span class="line">	<span class="built_in">Count</span>(<span class="keyword">DISTINCT</span> (si.UserId)) <span class="keyword">AS</span> Count</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfo si <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	si.Status <span class="operator">=</span> <span class="string">&#x27;Done&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">	si.ServiceProvider ,</span><br><span class="line">	si.Browser</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	s.ServiceProvider,</span><br><span class="line">	s.Browser,</span><br><span class="line">	s2.MaxCount</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	Summary <span class="keyword">AS</span> s <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		s1.ServiceProvider,</span><br><span class="line">		<span class="built_in">Max</span>(s1.Count) <span class="keyword">AS</span> MaxCount</span><br><span class="line">	<span class="keyword">FROM</span></span><br><span class="line">		Summary <span class="keyword">AS</span> s1 <span class="keyword">WITH</span> (nolock)</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">		s1.ServiceProvider) s2</span><br><span class="line"><span class="keyword">ON</span></span><br><span class="line">	s.ServiceProvider <span class="operator">=</span> s2.ServiceProvider</span><br><span class="line">	<span class="keyword">AND</span> s.Count <span class="operator">=</span> s2.MaxCount;</span><br></pre></td></tr></table></figure>
+
+<p><a href="#Menu">(Back to Menu)</a></p>
+<hr>
+<h1 id="Done-Rate-By-Country"><a href="#Done-Rate-By-Country" class="headerlink" title="Done Rate By Country"></a>Done Rate By Country</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="keyword">WITH</span> SessionInfoV2 <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	si.[Type] ,</span><br><span class="line">	si.Country ,</span><br><span class="line">	si.Status,</span><br><span class="line">	<span class="built_in">Count</span>(si.Id) <span class="keyword">AS</span> Count</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfo si <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">	si.[Type],</span><br><span class="line">	si.Country,</span><br><span class="line">	si.Status</span><br><span class="line">),</span><br><span class="line">Summary <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	siv2.[Type] ,</span><br><span class="line">	siv2.Country ,</span><br><span class="line">	<span class="built_in">Sum</span>(siv2.Count) <span class="keyword">AS</span> Count</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfoV2 siv2 <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">	siv2.[Type],</span><br><span class="line">	siv2.Country</span><br><span class="line">),</span><br><span class="line">Done <span class="keyword">AS</span> (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	siv2.[Type] ,</span><br><span class="line">	siv2.Country ,</span><br><span class="line">	siv2.Count</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	SessionInfoV2 siv2 <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	siv2.Status <span class="operator">=</span> <span class="string">&#x27;Done&#x27;</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	s.[Type],</span><br><span class="line">	s.Country,</span><br><span class="line">	CONCAT(</span><br><span class="line">		<span class="keyword">CONVERT</span>(</span><br><span class="line">			<span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>),</span><br><span class="line">			(</span><br><span class="line">				<span class="keyword">CONVERT</span>(<span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>),ISNULL (d.Count,<span class="number">0</span>)) <span class="operator">/</span> <span class="keyword">CONVERT</span>(<span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>),s.Count)</span><br><span class="line">			) <span class="operator">*</span> <span class="number">100</span></span><br><span class="line">		), <span class="string">&#x27;%&#x27;</span>) <span class="keyword">AS</span> DoneRate</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	Summary <span class="keyword">AS</span> s <span class="keyword">WITH</span> (nolock)</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Done <span class="keyword">AS</span> d <span class="keyword">ON</span></span><br><span class="line">	s.[Type] <span class="operator">=</span> d.[Type]</span><br><span class="line">	<span class="keyword">AND</span> s.Country <span class="operator">=</span> d.Country</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">	s.[Type],</span><br><span class="line">	s.[Country];</span><br></pre></td></tr></table></figure>
+
+<p><a href="#Menu">(Back to Menu)</a></p>
+<hr>
+<h1 id="Japan-Consumption-Quartile"><a href="#Japan-Consumption-Quartile" class="headerlink" title="Japan-Consumption-Quartile"></a>Japan-Consumption-Quartile</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DECLARE</span> <span class="variable">@StartTime</span> DATETIME <span class="operator">=</span> <span class="string">&#x27;2022-01-15 09:00:00&#x27;</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> <span class="variable">@EndTime</span> DATETIME <span class="operator">=</span> <span class="string">&#x27;2022-01-15 10:00:00&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">WITH</span> JapanConsumption <span class="keyword">as</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		Cost</span><br><span class="line">	<span class="keyword">FROM</span></span><br><span class="line">		SessionInfo <span class="keyword">WITH</span> (nolock)</span><br><span class="line">	<span class="keyword">WHERE</span></span><br><span class="line">		Country <span class="operator">=</span> <span class="string">&#x27;Japan&#x27;</span></span><br><span class="line">		<span class="keyword">AND</span> [<span class="type">Date</span>] <span class="operator">&gt;=</span> <span class="variable">@StartTime</span></span><br><span class="line">		<span class="keyword">AND</span> [<span class="type">Date</span>] <span class="operator">&lt;=</span> <span class="variable">@EndTime</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> top <span class="number">1</span></span><br><span class="line">    <span class="built_in">PERCENTILE_CONT</span>(<span class="number">0.25</span>) <span class="keyword">WITHIN</span> <span class="keyword">GROUP</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> Cost) <span class="keyword">over</span>() <span class="keyword">AS</span> <span class="string">&#x27;25th&#x27;</span>,</span><br><span class="line">    <span class="built_in">PERCENTILE_CONT</span>(<span class="number">0.5</span>) <span class="keyword">WITHIN</span> <span class="keyword">GROUP</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> Cost) <span class="keyword">over</span>() <span class="keyword">AS</span> <span class="string">&#x27;50th&#x27;</span>,</span><br><span class="line">    <span class="built_in">PERCENTILE_CONT</span>(<span class="number">0.75</span>) <span class="keyword">WITHIN</span> <span class="keyword">GROUP</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> Cost) <span class="keyword">over</span>()<span class="keyword">AS</span> <span class="string">&#x27;75th&#x27;</span>,</span><br><span class="line">	(<span class="keyword">select</span> <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">FROM</span> JapanConsumption <span class="keyword">WITH</span> (nolock)) <span class="keyword">as</span> Volume</span><br><span class="line"><span class="keyword">FROM</span> JapanConsumption;</span><br></pre></td></tr></table></figure>
+
+<p><a href="#Menu">(Back to Menu)</a></p>
+<hr>
+<p>ʕ •ᴥ•ʔ：整理好久的範例啊</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2023/01/15/MSSQL-Report-Syntax/"><i class="fa fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "MSSQL 報表語法",
+        "image": "https://yncbearz.github.io/images/thumbnails/chalkboard.webp",
+        "keywords": "SQL",
+        "genre": "Programming",
+        "datePublished": "2023-01-15",
+        "dateCreated": "2023-01-15",
+        "dateModified": "2025-05-30",
+        "url": "https://yncbearz.github.io/2023/01/15/MSSQL-Report-Syntax/",
+        "description": "MSSQL-Report-Syntax",
+        "wordCount": 2410
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2023/01/29/Impromptu-Expression-Without-Lack-Of-Words/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            【摘要】不詞窮的即興表達
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2022/09/16/Component-Coupling/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">元素耦合性</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/Blog-Feature-List/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/schedule-plan.webp)" alt="部落格功能清單" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/06/19/Blog-Feature-List/" class="title">部落格功能清單</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T02:17:52.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
+                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/laptop-coffee.webp)" alt="如何使用 Cursor 來寫程式" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/02/22/How-To-Write-Code-With-Cursor/" class="title">如何使用 Cursor 來寫程式</a></p>
+                            <p class="item-date"><time datetime="2025-02-22T12:28:53.000Z" itemprop="datePublished">2025-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/chalkboard.webp)" alt="類別圖：動物園管理員（訪問者模式）" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
+                            <p class="item-title"><a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="title">類別圖：動物園管理員（訪問者模式）</a></p>
+                            <p class="item-date"><time datetime="2024-09-26T16:27:50.000Z" itemprop="datePublished">2024-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2025 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '14491e9cc806a592bfe99eed04dd409c',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+    
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1753875325087')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
