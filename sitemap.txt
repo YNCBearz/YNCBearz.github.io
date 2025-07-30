@@ -1,3 +1,4 @@
+https://yncbearz.github.io/2025/07/26/Fitts-Law/
 https://yncbearz.github.io/2020/11/02/Class-Diagram-Blocks-Flyweight-Pattern/
 https://yncbearz.github.io/2024/08/16/Example-RGB-Monitor-State-Pattern/
 https://yncbearz.github.io/2020/09/21/Example-Power-Systems-Dependency-Inversion-Principle/
@@ -31,7 +32,6 @@ https://yncbearz.github.io/2020/08/16/Class-Diagram-Buffet-Facade-Pattern/
 https://yncbearz.github.io/2024/06/18/Class-Diagram-Age-Of-Empires-Simple-Factory-Pattern/
 https://yncbearz.github.io/2024/07/09/Class-Diagram-Age-Of-Empires-Abstract-Factory-Pattern/
 https://yncbearz.github.io/2024/07/09/Class-Diagram-Age-Of-Empires-Factory-Method-Pattern/
-https://yncbearz.github.io/2025/07/26/Fitts-Law/
 https://yncbearz.github.io/2025/04/26/Kent-Beck-Implementation-Patterns/
 https://yncbearz.github.io/2025/06/19/Blog-Feature-List/
 https://yncbearz.github.io/about/index.html
