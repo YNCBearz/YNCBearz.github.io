@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>耦合與系統設計</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+    .reveal .slides {
+      text-align: center;
+    }
+    .reveal .slides section {
+      text-align: center;
+    }
+    .reveal p,
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-align: center;
+    }
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-transform: none;
+      margin-bottom: 0.5em;
+    }
+    .reveal pre {
+      width: 100%;
+      padding: 15px;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    .reveal code {
+      font-family: monospace;
+    }
+    .reveal pre {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .reveal pre code {
+      padding: 5px;
+      overflow-x: auto;
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+    /* Base16 Atelier Savanna Dark - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/savanna) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+.highlight {
+  color: #87928a;
+  background: #171c19;
+}
+.highlight .code .comment,
+.highlight .code .quote,
+.highlight .code .hljs-comment,
+.highlight .code .hljs-quote {
+  color: #78877d;
+}
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .attribute,
+.highlight .code .tag,
+.highlight .code .name,
+.highlight .code .regexp,
+.highlight .code .link,
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .hljs-variable,
+.highlight .code .hljs-template-variable,
+.highlight .code .hljs-attribute,
+.highlight .code .hljs-tag,
+.highlight .code .hljs-name,
+.highlight .code .hljs-regexp,
+.highlight .code .hljs-link,
+.highlight .code .hljs-selector-id,
+.highlight .code .hljs-selector-class {
+  color: #b16139;
+}
+.highlight .code .number,
+.highlight .code .meta,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .literal,
+.highlight .code .type,
+.highlight .code .params,
+.highlight .code .hljs-number,
+.highlight .code .hljs-meta,
+.highlight .code .hljs-built_in,
+.highlight .code .hljs-builtin-name,
+.highlight .code .hljs-literal,
+.highlight .code .hljs-type,
+.highlight .code .hljs-params {
+  color: #9f713c;
+}
+.highlight .code .string,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .hljs-string,
+.highlight .code .hljs-symbol,
+.highlight .code .hljs-bullet {
+  color: #489963;
+}
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .hljs-title,
+.highlight .code .hljs-section,
+.highlight .code .hljs-function .hljs-title {
+  color: #478c90;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .hljs-keyword,
+.highlight .code .hljs-selector-tag {
+  color: #55859b;
+}
+.highlight .code .deletion,
+.highlight .code .addition,
+.highlight .code .hljs-deletion,
+.highlight .code .hljs-addition {
+  color: #171c19;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .deletion,
+.highlight .code .hljs-deletion {
+  background-color: #b16139;
+}
+.highlight .code .addition,
+.highlight .code .hljs-addition {
+  background-color: #489963;
+}
+.highlight .code .emphasis,
+.highlight .code .hljs-emphasis {
+  font-style: italic;
+}
+.highlight .code .strong,
+.highlight .code .hljs-strong {
+  font-weight: bold;
+}
+/* Support using hljs class directly on the page, not inside .highlight .code wrapper */
+.hljs {
+  color: #87928a;
+  background: #171c19;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #78877d;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #b16139;
+}
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #9f713c;
+}
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #489963;
+}
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+  color: #478c90;
+}
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #55859b;
+}
+.hljs-deletion {
+  background-color: #b16139;
+}
+.hljs-addition {
+  background-color: #489963;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+
+    .reveal ul,
+    .reveal ol {
+      display: block;
+      margin-left: 2em;
+    }
+    .back-to-post {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      padding: 10px 15px;
+      background-color: rgba(0,0,0,0.6);
+      color: white !important;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .back-to-post:hover {
+      background-color: rgba(0,0,0,0.8);
+      color: white !important;
+      text-decoration: none;
+    }
+    .hljs-line-numbers {
+      padding-left: 3.5em !important;
+      position: relative;
+    }
+
+    .line-number {
+      position: absolute;
+      left: 0;
+      width: 2.5em;
+      text-align: right;
+      color: #888;
+      user-select: none;
+      margin-right: 0.5em;
+      padding-right: 0.5em;
+    }
+    /* Image styles for slides */
+    .reveal img {
+      max-width: 95%;
+      max-height: 85vh;
+      object-fit: contain;
+      margin: 15px auto;
+      display: block;
+    }
+
+    .reveal section img {
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Special styles for image-only slides */
+    .reveal section:has(img:only-child) img {
+      max-width: 98%;
+      max-height: 90vh;
+    }
+
+    /* Responsive image sizing */
+    @media (max-width: 768px) {
+      .reveal img {
+        max-width: 98%;
+        max-height: 80vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown data-separator="^---$" data-separator-vertical="^--$" data-charset="utf-8">
+        <textarea data-template>
+
+# 耦合與系統設計
+
+---
+
+*Strong or loose, we live in dread,*
+
+*Of the coupling monster under the bed.*
+
+*Yet without it, your system would flake,*
+
+*Coupling is a pillar you can’t forsake.*
+
+---
+
+## 耦合是一切罪惡的根源？
+
+---
+
+：「這邊的 code 一團亂，有複雜的相依關係。」
+
+---
+
+：「程式碼到底是誰寫的？」
+
+---
+
+git blame 下去，發現是半年前的自己...
+
+---
+
+## 一個完全沒有耦合的系統
+
+---
+
+## 所有元件都彼此獨立、可替換
+
+---
+
+## 寫起來很舒服
+
+## 想怎麼改就怎麼改
+
+---
+
+## 但這是好設計嗎？
+
+## 能滿足商業需求嗎？
+
+---
+
+## 什麼是耦合？
+
+---
+
+### 詞源
+
+Coupling 源自拉丁文 *copulare*：
+
+> **co**：一起
+
+> **apere**：連結、固定
+
+意為「將事物連結在一起」。
+
+---
+
+在生物學，copulare 則為「交配」的意思。
+
+```
+  ∧ ＿ ∧ ∧＿∧
+ (,,´∀`,,)w< )ー♡
+ /   ∩ づ C  \
+```
+
+---
+
+### 服務間存在耦合 = 服務間存在連結
+
+---
+
+#### 手錶內有無數的齒輪與彈簧相互連結
+
+---
+
+#### 引擎、車輪、剎車和其他零件耦合在一起成汽車
+
+---
+
+#### 不同的耦合設計，帶來不同的結果及維護成本
+
+---
+
+#### 我們根據什麼因素決定耦合的強與弱呢？
+
+---
+
+## 耦合程度
+
+---
+
+#### 耦合程度越大，它們需要同時修改的頻率就越高
+
+---
+
+### 什麼原因導致這些元件需要一起改變？
+
+- 共享的生命週期
+- 共享的知識
+
+---
+
+## 共享的生命週期
+
+---
+
+### A. 單體式應用程式
+
+```
+┌─────────────────────────────┐
+│     Monolithic App          │
+│                             │
+│  ┌────────┐   ┌──────────┐  │
+│  │  付款  │───│   授權   │   │
+│  └────────┘   └──────────┘  │
+│                             │
+│   同一個部署單位             │
+│   同時啟動、同時關閉          │
+└─────────────────────────────┘
+```
+
+---
+
+### B. 獨立的模組
+
+```
+┌──────────────┐      ┌──────────────┐
+│  付款服務     │      │  身份驗證服務 │
+│              │      │              │
+│  ┌────────┐  │      │ ┌──────────┐ │
+│  │  付款  │  │ ───> │ │   授權    │ │
+│  └────────┘  │ API  │ └──────────┘ │
+│              │      │              │
+│ 獨立部署      │      │ 獨立部署     │
+│ 獨立生命週期  │      │ 獨立生命週期  │
+└──────────────┘      └──────────────┘
+```
+
+---
+
+## 共享的知識
+
+---
+
+### 元件為了能夠協同合作，必須共享知識
+
+---
+
+### 共享知識可以用幾種不同的方式存在：
+
+- 知曉模組的介面
+- 知悉對方的需求
+- 獲知對方的實作細節
+
+---
+
+### 在耦合元件的邊界，共享越多的知識，
+
+### 你會遭遇的連鎖變動就越多。
+
+---
+
+### A. 直接依賴具體實作
+
+```
+┌──────────────┐
+│ UserService  │
+└──────┬───────┘
+       │ 依賴
+       ▼
+┌─────────────────────┐
+│ <<MySQLRepository>> │
+├─────────────────────┤
+│ BeginTransaction()  │
+│ ExecuteSQL()        │
+│ Commit()            │
+│ Rollback()          │
+└─────────────────────┘
+```
+
+---
+
+### B. 依賴介面，但暴露實作細節
+
+```
+┌──────────────┐
+│ UserService  │
+└──────┬───────┘
+       │ 依賴
+       ▼
+┌─────────────────────┐
+│ <<IRepository>>     │
+├─────────────────────┤
+│ BeginTransaction()  │
+│ ExecuteSQL()        │
+│ Commit()            │
+│ Rollback()          │
+└─────────────────────┘
+```
+
+---
+
+### C. 依賴抽象介面
+
+```
+┌──────────────┐
+│ UserService  │
+└──────┬───────┘
+       │ 依賴
+       ▼
+┌─────────────────────┐
+│ <<IRepository>>     │
+├─────────────────────┤
+│ Save()              │
+│ Query()             │
+└─────────────────────┘
+```
+
+
+---
+
+## 知識的流動方向
+
+---
+
+```
+   ┌───────┐              ┌───────┐
+   │ Sales │              │  CRM  │
+   └───┬───┘              └───┬───┘
+       │                      │
+       │  <----------------   │  知識流動 (Knowledge Flow)
+       │                      │
+       │  ════════════════>   │  依賴方向 (Dependency)
+       │                      │
+```
+
+---
+
+### Upstream and Downstream Component
+
+---
+
+### Upstream Component（上游元件）
+  - 介面會公開**知識**，描述其功能及如何整合
+  - 知識的提供者
+
+---
+
+### Downstream Component（下游元件）
+  - 使用上游元件的功能
+  - 知識的接收者
+
+---
+
+```
+   ┌───────┐              ┌───────┐
+   │ Sales │              │  CRM  │
+   └───┬───┘              └───┬───┘
+       │                      │
+       │  <----------------   │  知識流動 (Knowledge Flow)
+       │                      │
+       │  ════════════════>   │  依賴方向 (Dependency)
+       │                      │
+```
+
+---
+
+## 系統
+
+> 《系統思考》：系統為一組相互連結的元素，其組織方式能夠達成某種目的。
+
+---
+
+## 系統的三個核心要素
+
+- 元件 (component)
+- 連結關係 (interconnection)
+- 目的 (purpose)
+
+---
+
+## 軟體階層
+
+- 類別本身也能視為系統，其元件包含方法和變數
+- 方法本身也是系統，由個別的程式描述來共同實現方法的目的
+
+---
+
+## 系統中的耦合
+
+---
+
+### 系統核心三元素
+
+- <span style="color:orange">**目的**</span>需要**元件**和**連結關係**
+- <span style="color:orange">**元件**</span>和<span style="color:orange">**連結關係**</span>實現**目的**
+- <span style="color:orange">**元件**</span>允許**連結關係**
+- <span style="color:orange">**連結關係**</span>指揮**元件**
+
+---
+
+## 系統的改變
+
+在任何系統中，你不可能只改變其中一個元素，但不影響到另外兩個。
+
+這帶出了系統設計的重要概念： **邊界 (boundaries)** 。
+
+---
+
+## 系統設計的本質
+
+便是關於邊界的取捨。
+
+（裡外有什麼、有哪些會跨過邊界或來回移動）
+
+---
+
+## 耦合
+
+人們經常假設軟體設計要徹底去耦合，使元件完全獨立，但實際上並非如此。
+
+若兩個元件要協作，它們就得**共享知識**。
+
+---
+
+### 軟體工程師的工作
+
+我們必須留意元件的連結關係，即元件間**分享了哪些知識**，
+用**什麼方式**分享的，這些知識分享又會如何影響系統。
+
+---
+
+## References
+
+- [軟體設計耦合的平衡之道](https://www.tenlong.com.tw/products/9786264141802)
+
+---
+
+ʕ •ᴥ•ʔ： Thank you
+        </textarea>
+      </section>
+    </div>
+  </div>
+  <a href="/2025/10/15/Coupling-And-System-Design/" class="back-to-post">
+    <i class="fas fa-arrow-left"></i> 返回文章
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        transition: 'slide',
+        center: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        highlight: {
+          highlightOnLoad: true,
+          escapeHTML: false
+        },
+        markdown: {
+          smartypants: true
+        }
+      });
+
+      // add line numbers to code blocks
+      Reveal.on('ready', function() {
+        document.querySelectorAll('pre code').forEach(function(block) {
+          block.classList.add('hljs-line-numbers');
+
+          // get code content and split into lines
+          const lines = block.innerHTML.split('\n');
+          let numberedCode = '';
+
+          // add line numbers to code blocks
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].trim() !== '') {
+              numberedCode += '<span class="line-number">' + (i + 1) + '</span>' + lines[i] + '\n';
+            } else {
+              numberedCode += '<span class="line-number">' + (i + 1) + '</span>\n';
+            }
+          }
+
+          block.innerHTML = numberedCode;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+  
