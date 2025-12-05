@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>共生性</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+    .reveal .slides {
+      text-align: center;
+    }
+    .reveal .slides section {
+      text-align: center;
+    }
+    .reveal p,
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-align: center;
+    }
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+      text-transform: none;
+      margin-bottom: 0.5em;
+    }
+    .reveal pre {
+      width: 100%;
+      padding: 15px;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    .reveal code {
+      font-family: monospace;
+    }
+    .reveal pre {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .reveal pre code {
+      padding: 5px;
+      overflow-x: auto;
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+    /* Base16 Atelier Savanna Dark - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/savanna) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+.highlight {
+  color: #87928a;
+  background: #171c19;
+}
+.highlight .code .comment,
+.highlight .code .quote,
+.highlight .code .hljs-comment,
+.highlight .code .hljs-quote {
+  color: #78877d;
+}
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .attribute,
+.highlight .code .tag,
+.highlight .code .name,
+.highlight .code .regexp,
+.highlight .code .link,
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .hljs-variable,
+.highlight .code .hljs-template-variable,
+.highlight .code .hljs-attribute,
+.highlight .code .hljs-tag,
+.highlight .code .hljs-name,
+.highlight .code .hljs-regexp,
+.highlight .code .hljs-link,
+.highlight .code .hljs-selector-id,
+.highlight .code .hljs-selector-class {
+  color: #b16139;
+}
+.highlight .code .number,
+.highlight .code .meta,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .literal,
+.highlight .code .type,
+.highlight .code .params,
+.highlight .code .hljs-number,
+.highlight .code .hljs-meta,
+.highlight .code .hljs-built_in,
+.highlight .code .hljs-builtin-name,
+.highlight .code .hljs-literal,
+.highlight .code .hljs-type,
+.highlight .code .hljs-params {
+  color: #9f713c;
+}
+.highlight .code .string,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .hljs-string,
+.highlight .code .hljs-symbol,
+.highlight .code .hljs-bullet {
+  color: #489963;
+}
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .hljs-title,
+.highlight .code .hljs-section,
+.highlight .code .hljs-function .hljs-title {
+  color: #478c90;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .hljs-keyword,
+.highlight .code .hljs-selector-tag {
+  color: #55859b;
+}
+.highlight .code .deletion,
+.highlight .code .addition,
+.highlight .code .hljs-deletion,
+.highlight .code .hljs-addition {
+  color: #171c19;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .deletion,
+.highlight .code .hljs-deletion {
+  background-color: #b16139;
+}
+.highlight .code .addition,
+.highlight .code .hljs-addition {
+  background-color: #489963;
+}
+.highlight .code .emphasis,
+.highlight .code .hljs-emphasis {
+  font-style: italic;
+}
+.highlight .code .strong,
+.highlight .code .hljs-strong {
+  font-weight: bold;
+}
+/* Support using hljs class directly on the page, not inside .highlight .code wrapper */
+.hljs {
+  color: #87928a;
+  background: #171c19;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #78877d;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #b16139;
+}
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #9f713c;
+}
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #489963;
+}
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+  color: #478c90;
+}
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #55859b;
+}
+.hljs-deletion {
+  background-color: #b16139;
+}
+.hljs-addition {
+  background-color: #489963;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+
+    .reveal ul,
+    .reveal ol {
+      display: block;
+      margin-left: 2em;
+    }
+    .back-to-post {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      padding: 10px 15px;
+      background-color: rgba(0,0,0,0.6);
+      color: white !important;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .back-to-post:hover {
+      background-color: rgba(0,0,0,0.8);
+      color: white !important;
+      text-decoration: none;
+    }
+    .hljs-line-numbers {
+      padding-left: 3.5em !important;
+      position: relative;
+    }
+
+    .line-number {
+      position: absolute;
+      left: 0;
+      width: 2.5em;
+      text-align: right;
+      color: #888;
+      user-select: none;
+      margin-right: 0.5em;
+      padding-right: 0.5em;
+    }
+    /* Image styles for slides */
+    .reveal img {
+      max-width: 95%;
+      max-height: 85vh;
+      object-fit: contain;
+      margin: 15px auto;
+      display: block;
+    }
+
+    .reveal section img {
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Special styles for image-only slides */
+    .reveal section:has(img:only-child) img {
+      max-width: 98%;
+      max-height: 90vh;
+    }
+
+    /* Responsive image sizing */
+    @media (max-width: 768px) {
+      .reveal img {
+        max-width: 98%;
+        max-height: 80vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown data-separator="^---$" data-separator-vertical="^--$" data-charset="utf-8">
+        <textarea data-template>
+
+# 共生性
+
+---
+
+## 什麼是共生性
+
+---
+
+共生性是拉丁文，意思是「同時出生」。
+
+---
+
+當兩個模組的生命週期糾纏在一起，
+
+我們就可以說它們具有「共生性」。
+
+---
+
+其中一個做出改變時，另一個就必須隨之改變。
+
+---
+
+## 靜態共生性 (static connascence)
+
+---
+
+描述模組在原始程式碼的連結，即在編譯階段中
+
+有哪些知識能夠跨越模組邊界共享。
+
+---
+
+### 名稱共生性 (connascence of name)
+
+---
+
+暗示相連的模組，為了引用相同的東西，
+
+必須對其名稱達成共識。
+
+---
+
+- 得讀取或更新的變數名稱
+- 想呼叫的方法名稱
+- 想執行的服務名稱
+
+---
+
+```php
+<?php
+
+function greet($name) {
+    echo "Hello, $name!";
+}
+
+greet('world');
+```
+
+- 3 和 4 行對變數名稱 $name 取得共識。
+- 3 和 7 行對方法名稱 greet 取得共識。
+
+---
+
+上述範例中，若要改變變數或方法名稱，
+
+必定會影響其中的兩行程式碼。
+
+---
+
+也能套用到其他層級的模組，
+
+比如多個類別互動時的公開方法與屬性。
+
+---
+
+甚至可以應用到網路服務，
+
+例如允許的 HTTP 方法。
+
+---
+
+### 型別共生性 (connascence of type)
+
+---
+
+當兩個元件針對特定的型別達成共識時，
+
+就會產生「型別」共生性。
+
+---
+
+```c#
+using System;
+
+public class SayHello
+{
+    public static void Greet(string name)
+    {
+        Console.WriteLine($"Hello, {name}!");
+    }
+
+    public static void Main()
+    {
+        Greet("world");
+    }
+}
+```
+
+- 5 和 12 行中，只知道變數名字還不夠
+- 必須使用相同的型別
+
+---
+
+### 意義共生性 (connascence of meaning)
+
+---
+
+若某個值會跨越邊界傳送，並存在特殊意義，
+
+那麼它們就存在意義共生性。
+
+---
+
+```c#
+using System;
+
+public class ReferralService
+{
+    public static void SendReferral(Customer customer, string email)
+    {
+        Console.WriteLine($"Sending referral to {email}");
+        customer.SetMembershipStatus(6);
+    }
+}
+```
+
+- 8 行的 MemberShipStatus 被設定成 「6」
+- 「6」到底代表什麼意思？
+- 我們或許不得而知，ReferralService 和 Customer 顯然都曉得
+
+---
+
+```c#
+public enum MembershipStatus
+{
+    Inactive = 0,
+    Basic = 1,
+    Active = 2,
+    Premium = 3,
+    VIP = 4,
+    Gold = 5,
+    Referrer = 6
+}
+```
+
+我們試著引入 Enum
+
+---
+
+```c#
+public class ReferralService
+{
+    public static void SendReferral(Customer customer, string email)
+    {
+        Console.WriteLine($"Sending referral to {email}");
+        customer.SetMembershipStatus(MembershipStatus.Referrer);
+    }
+
+    public static void Main()
+    {
+        Customer customer = new Customer(1);
+        SendReferral(customer, "test@test.com");
+    }
+}
+```
+
+改寫原本的演算法
+
+---
+
+### 演算法共生性 (connascence of algorithm)
+
+---
+
+某種方面來說，演算法共生性很像意義共生性。
+
+只是把共享的知識再拉高了一個層級。
+
+---
+
+一個典型例子是兩個模組交換加解密資料。
+
+---
+
+```c#
+using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+
+public class StorageService(IStorageRepo storageRepo)
+{
+    public static void UploadFile(string filePath)
+    {
+        var data = File.ReadAllBytes(filePath);
+        var checksum = ComputeMD5Checksum(data);
+
+        storageRepo.Upload(data, checksum);
+    }
+}
+```
+
+---
+
+## References
+
+- [軟體設計耦合的平衡之道](https://www.tenlong.com.tw/products/9786264141802)
+
+---
+
+ʕ •ᴥ•ʔ：Thank you
+        </textarea>
+      </section>
+    </div>
+  </div>
+  <a href="/2025/12/02/Connascence/" class="back-to-post">
+    <i class="fas fa-arrow-left"></i> 返回文章
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        transition: 'slide',
+        center: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        highlight: {
+          highlightOnLoad: true,
+          escapeHTML: false
+        },
+        markdown: {
+          smartypants: true
+        }
+      });
+
+      // add line numbers to code blocks
+      Reveal.on('ready', function() {
+        document.querySelectorAll('pre code').forEach(function(block) {
+          block.classList.add('hljs-line-numbers');
+
+          // get code content and split into lines
+          const lines = block.innerHTML.split('\n');
+          let numberedCode = '';
+
+          // add line numbers to code blocks
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].trim() !== '') {
+              numberedCode += '<span class="line-number">' + (i + 1) + '</span>' + lines[i] + '\n';
+            } else {
+              numberedCode += '<span class="line-number">' + (i + 1) + '</span>\n';
+            }
+          }
+
+          block.innerHTML = numberedCode;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+  
