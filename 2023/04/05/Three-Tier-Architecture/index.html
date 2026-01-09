@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/hamburger.webp">
 <meta property="article:published_time" content="2023-04-05T08:03:20.000Z">
-<meta property="article:modified_time" content="2025-08-05T02:12:52.429Z">
+<meta property="article:modified_time" content="2026-01-09T10:54:35.368Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
@@ -224,7 +224,7 @@
 <ul>
 <li>Presentation Layer (View, Middleware, Controller, …)</li>
 <li>Application Layer (Service, Domain Model, …)</li>
-<li>Data Access Layer (Repository, Proxy, Dao, Client…)</li>
+<li>Data Access Layer (Repository, Proxy, Dal, …)</li>
 </ul>
 <p><strong>由於在討論這些架構時，大家使用的名稱常略有不同，下面列出其職責。</strong></p>
 <hr>
@@ -253,20 +253,21 @@
 <li>資料驗證 (確保其合法性、完整性等)</li>
 </ul>
 <hr>
-<h2 id="Repository-Proxy"><a href="#Repository-Proxy" class="headerlink" title="Repository &#x2F; Proxy"></a>Repository &#x2F; Proxy</h2><p><strong>職責：</strong></p>
+<h2 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h2><p><strong>職責：</strong></p>
 <ul>
 <li>處理 DB Connection</li>
 <li>處理外部 API 呼叫 (Signature, Url, …)</li>
 <li>從資料來源檢索並轉換成 Domain Model</li>
-<li>進或出會是 Domain Model</li>
+<li>input 會以 Domain Model、Dto 為主</li>
+<li>output 會以 Domain Model 為主</li>
 <li>命名參照 Domain Model，跟 table name 只是剛好撞名</li>
-<li>內含數個 Dao、Client，呼叫後將各個結果組合成 Domain Model</li>
+<li>內含數個 Dal、Proxy，呼叫後將各個結果組合成 Domain Model</li>
 </ul>
 <hr>
-<h2 id="Dao-Client"><a href="#Dao-Client" class="headerlink" title="Dao &#x2F; Client"></a>Dao &#x2F; Client</h2><p><strong>職責：</strong></p>
+<h2 id="Dal-Proxy"><a href="#Dal-Proxy" class="headerlink" title="Dal &#x2F; Proxy"></a>Dal &#x2F; Proxy</h2><p><strong>職責：</strong></p>
 <ul>
-<li>Dao 命名通常 1-1 mapping table，處理與 DB 的互動，<br>但要留意效能問題，適時使用 join 語法調校</li>
-<li>Client 處理 api 的 request&#x2F;response，回傳原始值給 Repository &#x2F; Proxy</li>
+<li>Dal 命名通常 1-1 mapping table，處理與 DB 的互動，<br>但要留意效能問題，適時使用 join 語法調校 (ex: UserDal)</li>
+<li>Proxy 處理 api 的 request&#x2F;response，回傳原始值給 Repository</li>
 </ul>
 <hr>
 <h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><h3 id="Simple-Design"><a href="#Simple-Design" class="headerlink" title="Simple Design"></a>Simple Design</h3><ol>
@@ -277,7 +278,8 @@
 </ol>
 <hr>
 <p>ʕ •ᴥ•ʔ：這是目前與 <a target="_blank" rel="noopener" href="https://github.com/yohey03518">Erwin</a> 討論及請教 <a target="_blank" rel="noopener" href="https://github.com/hatelove">91</a> 後的理解，<br>未來有可能因開發經驗的增加或團隊組成而再發生改變。</p>
-<p>[2024-08-30] 更新<br>跟 <a target="_blank" rel="noopener" href="https://github.com/CodeMachine0121">James</a> 討論後，新增了 Client 架構，角色類似於 Dao。<br>跟 <a target="_blank" rel="noopener" href="https://github.com/kyoforing">Kyo</a> 討論時，有提到使用 Dao 的效能問題。</p>
+<p>[2024-08-30] 更新<br>跟 <a target="_blank" rel="noopener" href="https://github.com/CodeMachine0121">James</a> 討論後，新增了 Client 架構，角色類似於 Dal。<br>跟 <a target="_blank" rel="noopener" href="https://github.com/kyoforing">Kyo</a> 討論時，有提到使用 Dal 的效能問題。</p>
+<p>[2026-01-09] 更新<br>跟 <a target="_blank" rel="noopener" href="https://github.com/yohey03518">Erwin</a> 及部門討論後，將 Dal 改名成 Dal，並將 Client &amp; Proxy 合併列入 Dal 層級。</p>
 
         </div>
         <footer class="article-footer">
@@ -327,10 +329,10 @@
         "genre": "Programming",
         "datePublished": "2023-04-05",
         "dateCreated": "2023-04-05",
-        "dateModified": "2025-08-05",
+        "dateModified": "2026-01-09",
         "url": "https://yncbearz.github.io/2023/04/05/Three-Tier-Architecture/",
         "description": "Three-Tier-Architecture",
-        "wordCount": 157
+        "wordCount": 172
     }
 </script>
 
@@ -598,7 +600,7 @@
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2025 YNCBearz</p>
+                <p>&copy; 2026 YNCBearz</p>
                 
                 <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
                 
@@ -649,7 +651,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1764903613847')
+  navigator.serviceWorker.register('/sw.js?t=1767956173242')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
