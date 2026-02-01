@@ -45,7 +45,7 @@
     
 
     
-<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
 
     
 <link rel="stylesheet" href="/libs/titillium-web/styles.css">
@@ -87,7 +87,7 @@
                     
                 </div>
                 <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
                     <div class="nav-container-inner">
                         <ul id="main-nav">
                             
@@ -114,7 +114,7 @@
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
             <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
         </div>
         <div class="ins-section-wrapper">
             <div class="ins-section-container"></div>
@@ -157,7 +157,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>Archive: 2022/4
+    <i class="icon fa-solid fa-box-archive"></i>Archive: 2022/4
     </h1>
 </div>
 
@@ -170,7 +170,7 @@
         
         <section class="archives-wrap">
             <div class="archive-year-wrap">
-                <a href="/archives/2022" class="archive-year"><i class="icon fa fa-calendar-o"></i>2022</a>
+                <a href="/archives/2022" class="archive-year"><i class="icon fa-regular fa-calendar"></i>2022</a>
             </div>
             <div class="archives">
     
@@ -307,18 +307,27 @@
         <p>follow:</p>
         <ul class="social-links">
             
+            
                 
                 <li>
                     <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
-                        <i class="icon fa fa-github"></i>
+                        <i class="icon fa-brands fa-github"></i>
                     </a>
                 </li>
                 
             
                 
                 <li>
-                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UClWx47-swj-zud4t8i8E-AA/featured" target="_blank" rel="noopener">
-                        <i class="icon fa fa-youtube"></i>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
                     </a>
                 </li>
                 
@@ -326,7 +335,7 @@
                 
                 <li>
                     <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
-                        <i class="icon fa fa-paper-plane"></i>
+                        <i class="icon fa-solid fa-paper-plane"></i>
                     </a>
                 </li>
                 
@@ -467,7 +476,7 @@
 		var snippets = document.querySelectorAll('figure.highlight');
 		var htmlCopyButton = `
 			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
-				<i class="fa fa-copy" aria-hidden="true"></i>
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
 			</button>`;
 
 		snippets.forEach(snippet => {
@@ -523,7 +532,7 @@
         <footer id="footer">
     <div class="container">
         <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
             <div class="credit">
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
@@ -579,7 +588,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1769495614626')
+  navigator.serviceWorker.register('/sw.js?t=1769960806440')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

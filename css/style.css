@@ -327,7 +327,7 @@ code {
   margin-right: 8px;
 }
 #main .main-body-header i {
-  font-weight: 400;
+  font-weight: 900;
 }
 #main .main-body-header em,
 #main .main-body-header a {
@@ -458,7 +458,8 @@ code {
   font-size: 14px;
   line-height: 1.2em;
   opacity: 0.5;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
   display: inline-block;
 }
 .nav-container .nav-container-inner #main-nav .main-nav-list-item.top-level-menu:hover > a {
@@ -513,7 +514,7 @@ code {
   content: "\f002";
   margin-right: 8px;
   color: rgba(255,255,255,0.7);
-  font: normal normal normal 16px/1 FontAwesome;
+  font: normal normal 900 16px/1 'Font Awesome 6 Free';
 }
 .search-form-input,
 .search-form-input.ins-search-input,
@@ -775,7 +776,8 @@ code {
   content: "\f0da";
   font-size: 12px;
   margin-right: 6px;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
   -ms-transition: 0.2s ease;
@@ -1210,7 +1212,8 @@ a.article-title:hover {
   position: absolute;
   text-align: center;
   font-style: normal;
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
 }
 .article-entry blockquote footer {
   font-size: 14px;
@@ -1366,7 +1369,8 @@ a.article-title:hover {
 .article-share-pinterest:before,
 .article-share-google:before {
   font-size: 20px;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
 }
 .article-share-twitter:hover,
 .article-share-facebook:hover,
@@ -1446,7 +1450,8 @@ a.article-title:hover {
   line-height: 36px;
   margin-top: -18px;
   position: absolute;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
   color: rgba(255,255,255,0.5);
 }
 .article-gallery .gallery-item:hover:before,
@@ -1589,7 +1594,8 @@ a.article-title:hover {
 }
 #page-nav .pages:before {
   content: "\f02d";
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
   margin-right: 6px;
 }
 #page-nav .page-number,
