@@ -220,7 +220,8 @@
 
             
 
-            <h1 id="堆疊-Stack"><a href="#堆疊-Stack" class="headerlink" title="堆疊 (Stack)"></a>堆疊 (Stack)</h1><p>實作 <strong>LIFO (last-in first-out)</strong> 順序，<br>如同一疊鬆餅，最後疊上去的鬆餅會最先被吃掉。</p>
+            <h1 id="堆疊-stack">堆疊 (Stack)</h1>
+<p>實作 <strong>LIFO (last-in first-out)</strong> 順序，<br>如同一疊鬆餅，最後疊上去的鬆餅會最先被吃掉。</p>
 <p>It uses the following operations:</p>
 <ul>
 <li><strong>pop():</strong> Remove the top item from the stack.</li>
@@ -231,7 +232,8 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> ?StackNode <span class="variable">$top</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">pop</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="title function_ invoke__">is_null</span>(<span class="variable">$this</span>-&gt;top)) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Empty Stack&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="variable">$item</span> = <span class="variable language_">$this</span>-&gt;top-&gt;data;</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;top = <span class="variable language_">$this</span>-&gt;top-&gt;next;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="variable">$item</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params"><span class="variable">$item</span></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      <span class="variable">$stackNode</span> = <span class="keyword">new</span> <span class="title class_">StackNode</span>(<span class="variable">$item</span>);</span><br><span class="line">      <span class="variable">$stackNode</span>-&gt;next = <span class="variable language_">$this</span>-&gt;top;</span><br><span class="line"></span><br><span class="line">      <span class="variable language_">$this</span>-&gt;top = <span class="variable">$stackNode</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">peek</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="title function_ invoke__">is_null</span>(<span class="variable">$this</span>-&gt;top)) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Empty Stack&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;top-&gt;data;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">is_null</span>(<span class="variable">$this</span>-&gt;top);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackNode</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">mixed</span> <span class="variable">$data</span>;</span><br><span class="line">  <span class="keyword">public</span> ?StackNode <span class="variable">$next</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;data = <span class="variable">$data</span>;</span><br><span class="line">      <span class="variable language_">$this</span>-&gt;next = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="佇列-Queue"><a href="#佇列-Queue" class="headerlink" title="佇列 (Queue)"></a>佇列 (Queue)</h1><p>實作 <strong>FIFO (first-in first-out)</strong> 順序，<br>如同售票亭前排隊，最先排隊的人最早拿到票。</p>
+<h1 id="佇列-queue">佇列 (Queue)</h1>
+<p>實作 <strong>FIFO (first-in first-out)</strong> 順序，<br>如同售票亭前排隊，最先排隊的人最早拿到票。</p>
 <p>It uses the following operations:</p>
 <ul>
 <li><strong>add(item):</strong> Add an item to the end of the queue.</li>
@@ -295,7 +297,7 @@
         "dateModified": "2025-05-30",
         "url": "https://yncbearz.github.io/2022/02/21/Stacks-And-Queues/",
         "description": "Stacks-And-Queues",
-        "wordCount": 1012
+        "wordCount": 1004
     }
 </script>
 
@@ -393,6 +395,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2025/12/02/Connascence/" class="thumbnail">
     
     
@@ -470,26 +492,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
-                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
-                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -499,7 +501,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -623,7 +625,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1769960806440')
+  navigator.serviceWorker.register('/sw.js?t=1772284496408')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

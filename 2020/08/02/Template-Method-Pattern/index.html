@@ -220,7 +220,9 @@
 
             
 
-            <h2 id="Template-Method-Pattern"><a href="#Template-Method-Pattern" class="headerlink" title="Template Method Pattern"></a><strong>Template Method Pattern</strong></h2><h3 id="在一個方法中定義一個算法的骨架，而將一些步驟延遲到子類中。"><a href="#在一個方法中定義一個算法的骨架，而將一些步驟延遲到子類中。" class="headerlink" title="在一個方法中定義一個算法的骨架，而將一些步驟延遲到子類中。"></a>在一個方法中定義一個算法的骨架，而將一些步驟延遲到子類中。</h3><p>Example: <a href="/2020/08/02/Example-Video-Maker-Template-Method-Pattern/" title="範例：影片製作大師（樣板方法模式）">影片製作大師</a></p>
+            <h2 id="template-method-pattern"><strong>Template Method Pattern</strong></h2>
+<h3 id="在一個方法中定義一個算法的骨架而將一些步驟延遲到子類中">在一個方法中定義一個算法的骨架，而將一些步驟延遲到子類中。</h3>
+<p>Example: <a href="/2020/08/02/Example-Video-Maker-Template-Method-Pattern/" title="範例：影片製作大師（樣板方法模式）">影片製作大師</a></p>
 <hr>
 <p>樣板方法模式會將類別分為兩類：<br>分別是<strong>抽象規則類 (Abstract Class)</strong> 與 <strong>實體算法類 (Concrete Class)</strong> 。</p>
 <p>抽象規則類負責定義流程，實體算法類則關心細節如何實現。<br>也可以增加鉤子 (hook)，使子類更加容易客製化。</p>
@@ -228,7 +230,8 @@
 <p><strong>優點：</strong><br>可以讓主流程中，相同的部分共用，不同的部分產生變化。</p>
 <p><strong>缺點：</strong><br>會使子類受限於骨架。</p>
 <hr>
-<h4 id="與其他模式的比較："><a href="#與其他模式的比較：" class="headerlink" title="與其他模式的比較："></a>與其他模式的比較：</h4><p><strong>[<a href="/2020/06/21/Simple-Factory-Pattern/" title="簡單工廠模式">簡單工廠模式</a>]：</strong><br>簡單工廠模式，是一個迷你的樣板方法模式，<br>它只提出了<strong>建造類別</strong>這個步驟。</p>
+<h4 id="與其他模式的比較">與其他模式的比較：</h4>
+<p><strong>[<a href="/2020/06/21/Simple-Factory-Pattern/" title="簡單工廠模式">簡單工廠模式</a>]：</strong><br>簡單工廠模式，是一個迷你的樣板方法模式，<br>它只提出了<strong>建造類別</strong>這個步驟。</p>
 <p><strong>[<a href="/2020/07/05/Strategy-Pattern/" title="策略模式">策略模式</a>]：</strong><br>策略模式，可以是樣板方法模式中的某個步驟。</p>
 <p>以上兩個模式都可以與樣板方法模式協作良好。</p>
 <hr>
@@ -286,7 +289,7 @@
         "dateModified": "2025-05-30",
         "url": "https://yncbearz.github.io/2020/08/02/Template-Method-Pattern/",
         "description": "Template-Method-Pattern",
-        "wordCount": 33
+        "wordCount": 22
     }
 </script>
 
@@ -384,6 +387,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2025/12/02/Connascence/" class="thumbnail">
     
     
@@ -461,26 +484,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
-                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
-                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -490,7 +493,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -614,7 +617,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1769960806440')
+  navigator.serviceWorker.register('/sw.js?t=1772284496408')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

@@ -221,13 +221,16 @@
             
 
             <p>Big O是用來評估演算法效能的一種方式。</p>
-<h1 id="時間複雜性"><a href="#時間複雜性" class="headerlink" title="時間複雜性"></a>時間複雜性</h1><h2 id="Big-O、Big-Theta、與Big-Omega"><a href="#Big-O、Big-Theta、與Big-Omega" class="headerlink" title="Big O、Big Theta、與Big Omega"></a>Big O、Big Theta、與Big Omega</h2><ul>
+<h1 id="時間複雜性">時間複雜性</h1>
+<h2 id="big-obig-theta與big-omega">Big O、Big Theta、與Big Omega</h2>
+<ul>
 <li>O (Big O):描述時間上限。</li>
 <li>Ω (Big omega):描述時間下限。</li>
 <li>Θ (Big theta):同時表示O與Ω。</li>
 </ul>
 <p>通常面試時講的Big O，比較接近學術界的Θ。</p>
-<h2 id="最佳情況、最差情況、與預期情況"><a href="#最佳情況、最差情況、與預期情況" class="headerlink" title="最佳情況、最差情況、與預期情況"></a>最佳情況、最差情況、與預期情況</h2><p>我們將以 <strong>快速排序法 (Quick Sort)</strong> 為例。</p>
+<h2 id="最佳情況最差情況與預期情況">最佳情況、最差情況、與預期情況</h2>
+<p>我們將以 <strong>快速排序法 (Quick Sort)</strong> 為例。</p>
 <p><strong>補充:</strong><br>快速排序法的原理是先從原始資料中找一個基準值(Pivot)，<br>接著逐一將資料與基準值比較，小於基準值的資料放在左邊，大於基準值的資料放在右邊，<br>再將兩邊區塊分別再找出基準值，重複前面的步驟，直到排序完為止。</p>
 <p>使用分治法(Divide and Conquer)的概念。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原始資料</span></span><br><span class="line"><span class="number">40</span> <span class="number">60</span> <span class="number">50</span> <span class="number">20</span> <span class="number">10</span> <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 選擇最左邊的資料為基準點</span></span><br><span class="line">[<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span> <span class="number">20</span> <span class="number">10</span> <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 60 &gt; 40，要移到40的右邊</span></span><br><span class="line">[<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span> <span class="number">20</span> <span class="number">10</span> <span class="number">30</span></span><br><span class="line">     ^</span><br><span class="line"></span><br><span class="line"><span class="comment">// 50 &gt; 40，要移到40的右邊</span></span><br><span class="line">[<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span> <span class="number">20</span> <span class="number">10</span> <span class="number">30</span></span><br><span class="line">        ^</span><br><span class="line"></span><br><span class="line"><span class="comment">// 20 &lt; 40，要移到40的左邊</span></span><br><span class="line">[<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span> <span class="number">20</span> <span class="number">10</span> <span class="number">30</span></span><br><span class="line">           ^</span><br><span class="line"><span class="number">20</span> [<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span> <span class="number">10</span> <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 10 &lt; 40，要移到40的左邊</span></span><br><span class="line"><span class="number">20</span> [<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span> <span class="number">10</span> <span class="number">30</span></span><br><span class="line">              ^</span><br><span class="line"><span class="number">20</span> <span class="number">10</span> [<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span> <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 同理30 &lt; 40，要移到40的左邊</span></span><br><span class="line"><span class="number">20</span> <span class="number">10</span> [<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span> <span class="number">30</span></span><br><span class="line">                 ^</span><br><span class="line"><span class="number">20</span> <span class="number">10</span> <span class="number">30</span> [<span class="number">40</span>] <span class="number">60</span> <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一次排序完成</span></span><br><span class="line"><span class="number">20</span> <span class="number">10</span> <span class="number">30</span> <span class="number">40</span> <span class="number">60</span> <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 接著排序40左右兩側的資料</span></span><br><span class="line"><span class="comment">// 先排左側資料，同樣選擇最左邊的資料為基準點</span></span><br><span class="line"><span class="comment">// 左側基準點為20</span></span><br><span class="line">[<span class="number">20</span>] <span class="number">10</span> <span class="number">30</span> <span class="number">40</span> <span class="number">60</span> <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 左側資料排序完成</span></span><br><span class="line"><span class="number">10</span> [<span class="number">20</span>] <span class="number">30</span> <span class="number">40</span> <span class="number">60</span> <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 接著排序右側資料，一樣選擇最左邊的資料為基準點</span></span><br><span class="line"><span class="comment">// 右側基準點為60</span></span><br><span class="line"><span class="number">10</span> <span class="number">20</span> <span class="number">30</span> <span class="number">40</span> [<span class="number">60</span>] <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//右側排序完成</span></span><br><span class="line"><span class="number">10</span> <span class="number">20</span> <span class="number">30</span> <span class="number">40</span> <span class="number">50</span> [<span class="number">60</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//排序結果</span></span><br><span class="line"><span class="number">10</span> <span class="number">20</span> <span class="number">30</span> <span class="number">40</span> <span class="number">50</span> <span class="number">60</span></span><br></pre></td></tr></table></figure>
@@ -238,7 +241,8 @@
 <li>預期情況: 通常不會是最佳情況或最差情況，所以執行時間為$O(nlog{n})$。</li>
 </ul>
 <hr>
-<h1 id="空間複雜度"><a href="#空間複雜度" class="headerlink" title="空間複雜度"></a>空間複雜度</h1><p>空間複雜性與時間複雜性是平行的概念。<br>若建構大小為n的陣列，它需要$O(n)$空間。<br>若需要nxn的二維陣列，則需要$O(n^2)$空間。</p>
+<h1 id="空間複雜度">空間複雜度</h1>
+<p>空間複雜性與時間複雜性是平行的概念。<br>若建構大小為n的陣列，它需要$O(n)$空間。<br>若需要nxn的二維陣列，則需要$O(n^2)$空間。</p>
 <p>遞迴呼叫所需的堆疊(stack)空間也是。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> n + sum(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -250,13 +254,15 @@
 
 <p>有$O(n)$個對pairSum的呼叫，但這些呼叫不同時存在堆疊，<br>因此只需要$O(1)$的空間。</p>
 <hr>
-<h1 id="降低常數"><a href="#降低常數" class="headerlink" title="降低常數"></a>降低常數</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line"><span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> x : array) &#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; min) min = x;</span><br><span class="line">  <span class="keyword">if</span> (x &gt; max) max = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="降低常數">降低常數</h1>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line"><span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> x : array) &#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; min) min = x;</span><br><span class="line">  <span class="keyword">if</span> (x &gt; max) max = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line"><span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> x : array) &#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; min) min = x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> x : array) &#123;</span><br><span class="line">  <span class="keyword">if</span> (x &gt; max) max = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>許多人會視第二個for迴圈為$O(2N)$，認為這樣比較“精確”。並不是。</p>
 <p>在Big O判斷執行時間如何放大時，我們只需接受$O(N)$一定比$O(N^2)$好。</p>
-<h1 id="降低非優勢條件"><a href="#降低非優勢條件" class="headerlink" title="降低非優勢條件"></a>降低非優勢條件</h1><ul>
+<h1 id="降低非優勢條件">降低非優勢條件</h1>
+<ul>
 <li>$O(N^2 + N)$變成$O(N^2)$</li>
 <li>$O(N + log{N})$變成$O(N)$</li>
 <li>$O(5*2^N + 1000N^{100} )$變成$O(2^N)$</li>
@@ -264,7 +270,8 @@
 <p>然而執行時間還是可能有加總。例如$O(B^2 + A)$。</p>
 <p><img src="/images/notes/2022/01/time-complexity.png" alt="常見Big O時間的增加速率"></p>
 <hr>
-<h1 id="多部份演算法：加與乘"><a href="#多部份演算法：加與乘" class="headerlink" title="多部份演算法：加與乘"></a>多部份演算法：加與乘</h1><ul>
+<h1 id="多部份演算法加與乘">多部份演算法：加與乘</h1>
+<ul>
 <li>執行時間相加: $O(A + B)$</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> a : arrA) &#123;</span><br><span class="line">  print(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> b : arrB) &#123;</span><br><span class="line">  print(b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -276,7 +283,8 @@
 
 <p>若演算法形式為“做這個，完成後，做那個”，則執行時間相加。<br>若演算法形式為“每次做這個時要做那個”，則執行時間相乘。</p>
 <hr>
-<h1 id="平攤時間"><a href="#平攤時間" class="headerlink" title="平攤時間"></a>平攤時間</h1><p>ArrayList或動態調整大小的陣列兼具陣列功能與彈性大小。<br>遇到上限時，會建構兩倍大小的新陣列並複製所有元素到新陣列中。</p>
+<h1 id="平攤時間">平攤時間</h1>
+<p>ArrayList或動態調整大小的陣列兼具陣列功能與彈性大小。<br>遇到上限時，會建構兩倍大小的新陣列並複製所有元素到新陣列中。</p>
 <p>那麼你要如何描述插入的執行時間？</p>
 <p>陣列滿的情況(假設有N個元素)，則插入新元素要$O(N)$時間。<br>你必須先建構大小2N的新陣列，然後複製N個元素。</p>
 <p>但我們知道它不常發生。大部分的插入時間為$O(1)$時間。</p>
@@ -285,9 +293,11 @@
 <p>反過來看，就是 $X + X&#x2F;2 + X&#x2F;4 + … + 1$。約為2X。<br>(無限等比級數)</p>
 <p>因此X個插入，需要$O(2X)$時間。<br>每個插入的平攤時間為$O(1)$。</p>
 <hr>
-<h1 id="log-N-執行時間"><a href="#log-N-執行時間" class="headerlink" title="log N 執行時間"></a>log N 執行時間</h1><p>當你看到題目中元素的數量每次折半，它很可能就是$O(log{n})$執行時間。</p>
+<h1 id="log-n-執行時間">log N 執行時間</h1>
+<p>當你看到題目中元素的數量每次折半，它很可能就是$O(log{n})$執行時間。</p>
 <hr>
-<h1 id="遞迴執行時間"><a href="#遞迴執行時間" class="headerlink" title="遞迴執行時間"></a>遞迴執行時間</h1><p>下列這段程式碼的執行時間是？</p>
+<h1 id="遞迴執行時間">遞迴執行時間</h1>
+<p>下列這段程式碼的執行時間是？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">f</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f(n-<span class="number">1</span>) + f(n-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>假設呼叫f(4)</p>
@@ -331,7 +341,9 @@
 </blockquote>
 <p>因此只需要$O(N)$記憶體空間。</p>
 <hr>
-<h1 id="範例與練習"><a href="#範例與練習" class="headerlink" title="範例與練習"></a>範例與練習</h1><h2 id="範例12"><a href="#範例12" class="headerlink" title="範例12"></a>範例12</h2><p>此程式計算字串的排列。<br>請問它的時間複雜度是？</p>
+<h1 id="範例與練習">範例與練習</h1>
+<h2 id="範例12">範例12</h2>
+<p>此程式計算字串的排列。<br>請問它的時間複雜度是？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">permutation</span><span class="params">(String str)</span> &#123;</span><br><span class="line">  permutation(str, <span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">permutation</span><span class="params">(String str, String prefix)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">    System.out.println(prefix);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">      <span class="type">String</span> <span class="variable">rem</span> <span class="operator">=</span> str.substring(<span class="number">0</span>, i) + str.substring(i + <span class="number">1</span>);</span><br><span class="line">      permutation(rem, prefix + str.charAt(i));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -356,7 +368,8 @@
 </blockquote>
 <p>ʕ •ᴥ•ʔ：這題感覺只能求最接近解。</p>
 <hr>
-<h1 id="範例16"><a href="#範例16" class="headerlink" title="範例16"></a>範例16</h1><p>下列函式輸出從1到n(含)的2冪。<br>舉例來說，若n為4，它會輸出1、2與4。其執行時間是？</p>
+<h1 id="範例16">範例16</h1>
+<p>下列函式輸出從1到n(含)的2冪。<br>舉例來說，若n為4，它會輸出1、2與4。其執行時間是？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">powersOf2</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">    System.out.println(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">prev</span> <span class="operator">=</span> powersOf2(n/<span class="number">2</span>);</span><br><span class="line">    <span class="type">int</span> <span class="variable">curr</span> <span class="operator">=</span> prev * <span class="number">2</span>;</span><br><span class="line">    System.out.println(curr);</span><br><span class="line">    <span class="keyword">return</span> curr;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以看出執行時間是$O(log_n)$。</p>
@@ -366,26 +379,31 @@
 <p>每次 $n$ 加倍大小時會加1。</p>
 </blockquote>
 <hr>
-<h2 id="VI-2"><a href="#VI-2" class="headerlink" title="VI.2"></a>VI.2</h2><p>下列程式計算$a^b$。執行時間是？</p>
+<h2 id="vi2">VI.2</h2>
+<p>下列程式計算$a^b$。執行時間是？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">power</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (b &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//錯誤</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a * power(a, b - <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>會由b依序減1呼叫到0，故$O(b)$。</p>
 <hr>
-<h2 id="VI-5"><a href="#VI-5" class="headerlink" title="VI.5"></a>VI.5</h2><p>下列程式計算整數平方根。<br>若數字非完美平方 (沒有整數平方根)則回傳 -1。</p>
+<h2 id="vi5">VI.5</h2>
+<p>下列程式計算整數平方根。<br>若數字非完美平方 (沒有整數平方根)則回傳 -1。</p>
 <p>執行時間是？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">sqrt</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> sqrt_helper(n, <span class="number">1</span>, n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">sqrt_helper</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> min, <span class="type">int</span> max)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (max &lt; min) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> <span class="variable">guess</span> <span class="operator">=</span> (min + max) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (guess *guess == n) &#123;</span><br><span class="line">    <span class="keyword">return</span> guess;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (guess * guess &lt; n) &#123;</span><br><span class="line">    <span class="keyword">return</span> sqrt_helper(n, guess + <span class="number">1</span>, max);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> sqrt_helper(n, min, guess - l);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>ʕ •ᴥ•ʔ：原本以為會是 $O(\sqrt{n})$。<br>但觀察上面第八行，會知道每次減半，故為 $O(log(n))$。</p>
 <hr>
-<h2 id="VI-6"><a href="#VI-6" class="headerlink" title="VI.6"></a>VI.6</h2><p>同上題，求程式計算整數平方根。</p>
+<h2 id="vi6">VI.6</h2>
+<p>同上題，求程式計算整數平方根。</p>
 <p>執行時間是？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">sqrt</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">guess</span> <span class="operator">=</span> <span class="number">1</span>; guess * guess &lt;= n; guess++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (guess * guess == n) &#123;</span><br><span class="line">      <span class="keyword">return</span> guess;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>這題就是$O(\sqrt{n})$了。</p>
 <hr>
-<h2 id="VI-8"><a href="#VI-8" class="headerlink" title="VI.8"></a>VI.8</h2><p>從二元樹查詢特地資料，但其非二元搜尋樹。</p>
+<h2 id="vi8">VI.8</h2>
+<p>從二元樹查詢特地資料，但其非二元搜尋樹。</p>
 <p>執行時間是？</p>
-<h4 id="Note"><a href="#Note" class="headerlink" title="Note."></a>Note.</h4><ol>
+<h4 id="note">Note.</h4>
+<ol>
 <li><p>二元樹(Binary tree)是每個節點最多只有兩個分支的樹結構。</p>
 </li>
 <li><p>二元搜尋樹(Binary Search Tree)，<br>又稱有序二元樹(ordered binary tree)或排序二元樹(sorted binary tree)。</p>
@@ -399,7 +417,8 @@
 </ul>
 <p>由定義，節點可能沒有排序，故為 $O(n)$。</p>
 <hr>
-<h2 id="VI-11"><a href="#VI-11" class="headerlink" title="VI.11"></a>VI.11</h2><p>下列程式輸出字元排序過長度為k的所有字串。<br>它產生所有k長度字串，然後檢查是否有排序。</p>
+<h2 id="vi11">VI.11</h2>
+<p>下列程式輸出字元排序過長度為k的所有字串。<br>它產生所有k長度字串，然後檢查是否有排序。</p>
 <p>執行時間是？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">numChars</span> <span class="operator">=</span> <span class="number">26</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">printSortedStrings</span><span class="params">(<span class="type">int</span> remaining)</span> &#123;</span><br><span class="line">  printSortedStrings(remaining, <span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">printSortedStrings</span><span class="params">(<span class="type">int</span> remaining, String prefix)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (remaining== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (isinOrder(prefix)) &#123;</span><br><span class="line">      System.out.println(prefix);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i= <span class="number">0</span>; i &lt; numchars; i++) &#123;</span><br><span class="line">      <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> ithletter(i);</span><br><span class="line">      printSortedStrings(remaining - <span class="number">1</span>, prefix + c);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">boolean</span> <span class="title function_">isinOrder</span><span class="params">(String s)</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i= <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">    <span class="type">int</span> prev <span class="title function_">ithLetter</span><span class="params">(s.charAt(i - <span class="number">1</span>)</span>);</span><br><span class="line">    <span class="type">int</span> <span class="variable">curr</span> <span class="operator">=</span> ithLetter(s.charAt(i));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (prev &gt; curr) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> <span class="title function_">ithLetter</span><span class="params">(<span class="type">int</span> i)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="type">char</span>) (((<span class="type">int</span>) <span class="string">&#x27;a&#x27;</span>) + i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -411,7 +430,8 @@
 <li>printSortedStrings 這邊則是選擇長度k，再從字母字元數量c中，依次挑選字母。<br>單看挑選字母的執行時間為$O(c^k)$。而我們會根據長度k，遞迴地呼叫。<br>因此執行時間為$O(k\times{c^k})$。</li>
 </ul>
 <hr>
-<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><ul>
+<h4 id="references">References:</h4>
+<ul>
 <li><p><a target="_blank" rel="noopener" href="https://adrianmejia.com/images/time-complexity-examples.png">常見Big O時間的增加速率</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/44145982/why-is-the-time-complexity-of-this-example-from-cracking-the-coding-interview">VI.11 - stackoverflow</a></p>
@@ -471,7 +491,7 @@
         "dateModified": "2025-05-30",
         "url": "https://yncbearz.github.io/2022/01/23/Big-O/",
         "description": "Big-O",
-        "wordCount": 2100
+        "wordCount": 2035
     }
 </script>
 
@@ -569,6 +589,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2025/12/02/Connascence/" class="thumbnail">
     
     
@@ -646,26 +686,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
-                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
-                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -675,7 +695,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -799,7 +819,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1769960806440')
+  navigator.serviceWorker.register('/sw.js?t=1772284496408')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

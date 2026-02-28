@@ -222,7 +222,8 @@
 
             <p><img src="/images/notes/2022/04/how-does-the-internet-work.png" alt="How does the internet works"></p>
 <hr>
-<h1 id="解析URL-Uniform-Resource-Locator"><a href="#解析URL-Uniform-Resource-Locator" class="headerlink" title="解析URL (Uniform Resource Locator)"></a>解析URL (Uniform Resource Locator)</h1><p><a href="https://yncbearz.github.io/">https://yncbearz.github.io/</a></p>
+<h1 id="解析url-uniform-resource-locator">解析URL (Uniform Resource Locator)</h1>
+<p><a href="https://yncbearz.github.io/">https://yncbearz.github.io/</a></p>
 <ul>
 <li>通訊協定類型 (Protocol): https, http, ftp, etc.</li>
 <li>伺服器位址 (Domain): 可放域名或IP address</li>
@@ -230,7 +231,8 @@
 </ul>
 <p>(Note.)<br>Socket &#x3D; IP address + Port</p>
 <hr>
-<h1 id="解析DNS-Domain-Name-Server"><a href="#解析DNS-Domain-Name-Server" class="headerlink" title="解析DNS (Domain Name Server)"></a>解析DNS (Domain Name Server)</h1><ul>
+<h1 id="解析dns-domain-name-server">解析DNS (Domain Name Server)</h1>
+<ul>
 <li>檢查本地的 DNS 快取</li>
 <li>檢查電腦中的 .host 檔</li>
 <li>向DNS伺服器發送詢問</li>
@@ -265,20 +267,25 @@
 </tr>
 </tbody></table>
 <hr>
-<h1 id="建立TCP-IP-Transmission-Control-Protocol-Internet-Protocol"><a href="#建立TCP-IP-Transmission-Control-Protocol-Internet-Protocol" class="headerlink" title="建立TCP&#x2F;IP (Transmission Control Protocol&#x2F;Internet Protocol)"></a>建立TCP&#x2F;IP (Transmission Control Protocol&#x2F;Internet Protocol)</h1><p>HTTPS是指將HTTP使用SSL加密後再利用TCP發送，加強安全性。<br>TCP&#x2F;IP會經由三次握手建立連線，再經由四次揮手斷開連線。</p>
+<h1 id="建立tcpx2fip-transmission-control-protocolx2finternet-protocol">建立TCP&#x2F;IP (Transmission Control Protocol&#x2F;Internet Protocol)</h1>
+<p>HTTPS是指將HTTP使用SSL加密後再利用TCP發送，加強安全性。<br>TCP&#x2F;IP會經由三次握手建立連線，再經由四次揮手斷開連線。</p>
 <hr>
-<h1 id="Get-vs-Post"><a href="#Get-vs-Post" class="headerlink" title="Get vs Post"></a>Get vs Post</h1><ul>
+<h1 id="get-vs-post">Get vs Post</h1>
+<ul>
 <li>Get: 瀏覽器將headers與data同時送出，因此只會產生1個TCP封包，<br>最後伺服器端回應200與資料。</li>
 <li>Post: 瀏覽器先將headers送出，等到伺服器端回應100 continue後再傳送data，<br>因此會產生2個TCP封包，最後伺服器端回應 200與資料。</li>
 </ul>
 <hr>
-<h1 id="伺服器處理請求並返回HTTP回應"><a href="#伺服器處理請求並返回HTTP回應" class="headerlink" title="伺服器處理請求並返回HTTP回應"></a>伺服器處理請求並返回HTTP回應</h1><h2 id="通用標頭-General-Header"><a href="#通用標頭-General-Header" class="headerlink" title="通用標頭 (General Header)"></a>通用標頭 (General Header)</h2><ul>
+<h1 id="伺服器處理請求並返回http回應">伺服器處理請求並返回HTTP回應</h1>
+<h2 id="通用標頭-general-header">通用標頭 (General Header)</h2>
+<ul>
 <li>Request URL: 請求位置。</li>
 <li>Request Method: 請求方式。</li>
 <li>Status Code: 狀態碼。</li>
 <li>Remote Address: 請求遠端伺服器位址，會轉為IP。</li>
 </ul>
-<h2 id="狀態碼-Status-Code"><a href="#狀態碼-Status-Code" class="headerlink" title="狀態碼 (Status Code)"></a>狀態碼 (Status Code)</h2><ul>
+<h2 id="狀態碼-status-code">狀態碼 (Status Code)</h2>
+<ul>
 <li>1XX: 資訊回應 (Informational responses)</li>
 <li>2XX: 成功回應 (Successful responses)</li>
 <li>3XX: 重定向 (Redirects)</li>
@@ -286,7 +293,8 @@
 <li>5XX: 伺服器端錯誤 (Server errors)</li>
 </ul>
 <p>更詳盡的資訊在<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status">這裡</a>。</p>
-<h2 id="請求與回應標頭-Request-Response-Headers"><a href="#請求與回應標頭-Request-Response-Headers" class="headerlink" title="請求與回應標頭 (Request &amp; Response Headers)"></a>請求與回應標頭 (Request &amp; Response Headers)</h2><ul>
+<h2 id="請求與回應標頭-request-amp-response-headers">請求與回應標頭 (Request &amp; Response Headers)</h2>
+<ul>
 <li><strong>:authority</strong>: 要連接的遠端主機和接口訊息。</li>
 <li><strong>:method</strong>: 連接方法。</li>
 <li><strong>:path</strong>: 請求網址的檔案路徑和查詢字串。</li>
@@ -363,7 +371,7 @@
         "dateModified": "2025-05-30",
         "url": "https://yncbearz.github.io/2022/04/21/How-Does-The-Internet-Work/",
         "description": "How-Does-The-Internet-Work",
-        "wordCount": 192
+        "wordCount": 148
     }
 </script>
 
@@ -461,6 +469,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2025/12/02/Connascence/" class="thumbnail">
     
     
@@ -538,26 +566,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
-                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
-                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -567,7 +575,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -691,7 +699,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1769960806440')
+  navigator.serviceWorker.register('/sw.js?t=1772284496408')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>如何使用 AI 加速 API 串接 | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Note" />
+    
+    <meta name="description" content="How-To-Use-AI-To-Accelerate-API-Integrations">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 AI 加速 API 串接">
+<meta property="og:url" content="https://yncbearz.github.io/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/index.html">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="How-To-Use-AI-To-Accelerate-API-Integrations">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/agent.webp">
+<meta property="article:published_time" content="2026-02-28T09:28:53.000Z">
+<meta property="article:modified_time" content="2026-02-28T13:13:26.516Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Note">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/agent.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-How-To-Use-AI-To-Accelerate-API-Integrations"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        如何使用 AI 加速 API 串接
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="article-date">
+       <time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Note/" rel="tag">Note</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="前言">前言</h2>
+<p>約莫是一年前開始，嘗試將 AI 整合進 API 的串接流程中，<br>想跟大家分享這段時間的一些嘗試與心得。</p>
+<p>想像今天我們要幫網路賣家開發後台系統，<br>讓他們能同時在蝦皮、Momo、PChome 上架商品、同步庫存、撈取訂單。</p>
+<p>聽起來很合理，但實際動手做你會發現：<br>每個平台的 API 都長得不一樣，做的事情很像，但格式、規則、欄位命名全都不同。</p>
+<p>這是個典型的「重複但不簡單」的工程問題。</p>
+<p>本文將分享如何導入 AI 輔助開發，<br>從 <strong>v1（claude-3.7-sonnet）</strong> 到 <strong>v2（claude-4-sonnet）</strong> 的演進過程，<br>讓這類工作從耗時的苦差事，變成有方法可循的流程。</p>
+<hr>
+<h2 id="目錄">目錄</h2>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E7%9B%AE%E9%8C%84">目錄</a></li>
+<li><a href="#%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%9B%BB%E5%95%86%E4%B8%B2%E6%8E%A5%E7%9A%84%E6%8C%91%E6%88%B0">多平台電商串接的挑戰</a></li>
+<li><a href="#v1-%E9%9A%8E%E6%AE%B5%E7%94%A8-ai-%E5%8A%A0%E9%80%9F%E6%95%B4%E5%90%88">V1 階段：用 AI 加速整合</a><ul>
+<li><a href="#%E5%95%8F%E9%A1%8C%E4%B8%80%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E4%B8%8D%E4%B8%80%E8%87%B4">問題一：文件格式不一致</a></li>
+<li><a href="#%E5%95%8F%E9%A1%8C%E4%BA%8C%E7%94%A2%E7%94%9F%E4%B8%80%E8%87%B4%E6%80%A7%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC">問題二：產生一致性的程式碼</a></li>
+<li><a href="#%E5%95%8F%E9%A1%8C%E4%B8%89%E6%B8%9B%E5%B0%91-ai-%E5%B9%BB%E8%A6%BAhallucination">問題三：減少 AI 幻覺（Hallucination）</a><ul>
+<li><a href="#shopeedatadocsmd"><code>ShopeeDataDocs.md</code></a></li>
+<li><a href="#datarulesmdccursor-rules-%E6%AA%94%E6%A1%88"><code>DataRules.mdc</code>（Cursor Rules 檔案）</a></li>
+<li><a href="#promptmd"><code>prompt.md</code></a></li>
+</ul>
+</li>
+<li><a href="#%E5%95%8F%E9%A1%8C%E5%9B%9B%E8%BC%B8%E5%87%BA-code-%E7%9A%84%E5%93%81%E8%B3%AA">問題四：輸出 code 的品質</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BD%89%E6%8A%98">轉折</a></li>
+<li><a href="#v2-%E9%9A%8E%E6%AE%B5%E6%9B%B4%E9%80%B2%E4%B8%80%E6%AD%A5%E7%9A%84-ai-%E5%8D%94%E4%BD%9C">V2 階段：更進一步的 AI 協作</a><ul>
+<li><a href="#%E5%BB%BA%E7%AB%8B-arc42-%E6%9E%B6%E6%A7%8B%E6%96%87%E4%BB%B6">建立 arc42 架構文件</a></li>
+<li><a href="#%E5%BB%BA%E7%AB%8B%E6%95%B4%E5%90%88%E6%96%87%E4%BB%B6integration-docs">建立整合文件（Integration Docs）</a></li>
+<li><a href="#%E7%82%BA-domain-model-%E5%8A%A0%E4%B8%8A%E6%8F%8F%E8%BF%B0">為 Domain Model 加上描述</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7%E5%BB%BA%E7%AB%8B%E4%B8%B2%E6%8E%A5%E5%B9%B3%E5%8F%B0%E7%9A%84-api-%E6%96%87%E4%BB%B6">其他技巧：建立串接平台的 API 文件</a></li>
+<li><a href="#v2-%E7%9A%84%E6%95%B4%E5%90%88%E6%B5%81%E7%A8%8B">V2 的整合流程</a></li>
+</ul>
+</li>
+<li><a href="#v1-vs-v2">V1 vs V2：</a></li>
+<li><a href="#%E6%88%90%E6%95%88%E6%AF%94%E8%BC%83">成效比較</a></li>
+<li><a href="#%E7%B5%90%E8%AB%96%E8%88%87%E5%BF%83%E5%BE%97">結論與心得</a><ul>
+<li><a href="#1-context-%E8%88%87-accuracy-%E7%9A%84%E5%B9%B3%E8%A1%A1">1. Context 與 Accuracy 的平衡</a></li>
+<li><a href="#2-%E9%AB%98%E5%B1%A4%E6%AC%A1%E6%96%87%E4%BB%B6%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7">2. 高層次文件的重要性</a></li>
+<li><a href="#3-%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E5%B0%88%E6%A1%88%E6%88%96%E5%9C%98%E9%9A%8A%E7%9A%84%E6%96%87%E4%BB%B6">3. 建立自己專案或團隊的文件</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="多平台電商串接的挑戰">多平台電商串接的挑戰</h2>
+<p>假設今天要串接蝦皮、Momo、PChome 三個平台，每個平台你都要做：</p>
+<ul>
+<li>商品上架（建立商品、設定 SKU、上傳圖片）</li>
+<li>庫存同步（即時更新各平台庫存數量）</li>
+<li>訂單撈取（定時拉取新訂單到後台）</li>
+</ul>
+<p>同樣的事情做三遍，但每家平台都有：</p>
+<ul>
+<li><strong>各自格式不同的 API 文件</strong></li>
+<li><strong>不同的資料格式與欄位命名</strong></li>
+<li><strong>各種特殊規則</strong></li>
+</ul>
+<p>目標：<strong>縮短每新增一個平台所需的時間、提升程式碼品質與一致性</strong>。</p>
+<hr>
+<h2 id="v1-階段用-ai-加速整合">V1 階段：用 AI 加速整合</h2>
+<blockquote>
+<p>使用模型：<strong>claude-3.7-sonnet</strong></p>
+</blockquote>
+<h3 id="問題一文件格式不一致">問題一：文件格式不一致</h3>
+<p><strong>痛點：</strong></p>
+<p>蝦皮的文件是英文 Swagger、Momo 給的是 Word 檔、PChome 只有 HTML 頁面。<br>格式雜亂，無法直接給 AI 閱讀。</p>
+<p><strong>解法：先把文件標準化成 Markdown</strong></p>
+<p>使用 <a target="_blank" rel="noopener" href="https://github.com/microsoft/markitdown">Microsoft markitdown</a> 的 MCP 工具，將各種格式統一轉換為 Markdown。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">平台 API 文件 (Swagger / Word / HTML)</span><br><span class="line">         ↓ markitdown</span><br><span class="line">      統一的 Markdown 格式</span><br><span class="line">         ↓</span><br><span class="line">      AI 更容易理解與比對</span><br></pre></td></tr></table></figure>
+
+<p>Markdown 清楚的結構讓 AI 在解讀文件時大幅減少誤解，<br>也讓開發者在不同平台文件之間的比對更直觀。</p>
+<hr>
+<h3 id="問題二產生一致性的程式碼">問題二：產生一致性的程式碼</h3>
+<p><strong>痛點：</strong> AI 的輸出品質高度依賴給予的參考檔案 (reference files)。</p>
+<p>如果沒有範本，每次串接新平台，AI 產出的程式碼風格、結構都不一樣，<br>後續維護會變得很麻煩。</p>
+<p><strong>解法：建立標準化的範例（Standardized Platform Examples）</strong></p>
+<ul>
+<li>統一程式碼風格與架構（例如：Controller &#x2F; Service &#x2F; Proxy 的分層方式）</li>
+<li>記錄最佳實踐（例如：錯誤處理、API 重試機制）</li>
+<li>讓 AI 有明確的參考基準</li>
+</ul>
+<p>我們建立 <code>ExampleShop</code> 相關的 markdown 及程式碼作為串接其他平台時的參考。</p>
+<p><strong>核心觀念：AI 的輸出品質取決於你給的參考品質。</strong></p>
+<p>ʕ •ᴥ•ʔ：你給 AI 一份好的範例程式碼，它就會照著寫。<br>你給它沒有規範的程式碼，它就會「自由發揮」。</p>
+<hr>
+<h3 id="問題三減少-ai-幻覺hallucination">問題三：減少 AI 幻覺（Hallucination）</h3>
+<p><strong>痛點：</strong> AI 在填入平台特定資料時容易「捏造」不存在的資訊，尤其是：</p>
+<ul>
+<li>商品分類代碼對應（每個平台的 <code>category_id</code> 定義完全不同）</li>
+<li>運費計算規則</li>
+<li>圖片上傳規格（尺寸、格式、大小限制）</li>
+</ul>
+<p><strong>解法：用 Markdown 補充缺失資訊，並透過規則約束 AI 行為</strong></p>
+<p>建立三個關鍵檔案：</p>
+<h4 id="shopeedatadocsmd"><code>ShopeeDataDocs.md</code></h4>
+<p>包含平台所有已確認的資訊：</p>
+<ul>
+<li>支援的商品類別（使用 Table 格式做代碼對應）</li>
+<li>API Routes 清單</li>
+<li>圖片規格與限制</li>
+<li>手續費計算方式</li>
+<li>其他平台特定規則</li>
+</ul>
+<h4 id="datarulesmdccursor-rules-檔案"><code>DataRules.mdc</code>（Cursor Rules 檔案）</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- ExampleShopData.md 是我們期望的格式範例</span><br><span class="line">- 如果找不到某項資訊，請不要做任何假設，保留空白</span><br><span class="line">- 商品分類代碼必須來自平台官方文件，不可自行推測</span><br><span class="line">- 圖片規格若未明確標示，請標記為「待確認」</span><br></pre></td></tr></table></figure>
+
+<h4 id="promptmd"><code>prompt.md</code></h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- Follow @DataRules.mdc</span><br><span class="line">- Using @ShopeeAPI.md and save to @ShopeeDataDocs.md</span><br><span class="line">- Let me know the source of the data you used for each section</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>ExampleShopData.md</code> 是前一步驟建立的格式範例，作為 AI 的輸出參考基準。</li>
+<li><code>ShopeeDataDocs.md</code> 則是針對蝦皮平台實際填入的資料文件。</li>
+</ul>
+<p><strong>關鍵設計：</strong> 要求 AI 標示每個資料的來源，讓人工驗證有跡可循。</p>
+<hr>
+<h3 id="問題四輸出-code-的品質">問題四：輸出 code 的品質</h3>
+<p><strong>痛點：</strong> 準確度不夠高的原因可能是：</p>
+<ul>
+<li>一次給 AI 的 context 太長，資訊互相干擾？</li>
+<li>缺少具體、可驗證的中間結果？</li>
+</ul>
+<p>舉例：如果一次叫 AI 完成「商品上架 + 庫存同步 + 訂單撈取」全部，<br>錯誤率很高，而且很難找出哪裡出問題。</p>
+<p><strong>解法：拆分成更小的範疇（Break into smaller scopes）</strong></p>
+<p>把整合流程拆成多個獨立步驟，每個步驟都有明確的輸入與輸出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">一次完成全部（複雜度高、容易出錯）</span><br><span class="line">         ↓ 拆分</span><br><span class="line">Step 1：先完成商品上架 API</span><br><span class="line">Step 2：再完成庫存同步 API</span><br><span class="line">Step 3：最後完成訂單撈取 API</span><br><span class="line">（每步驟各自可測試、可驗證）</span><br></pre></td></tr></table></figure>
+
+<p>每個小任務完成後立刻測試，問題更容易定位。</p>
+<hr>
+<h2 id="轉折">轉折</h2>
+<p>原本解決輸出 code 品質時，我們懷疑是因為 context 太長導致 AI 表現變差。</p>
+<p>但在 Tech Day 與其他工程師交流後，發現有人使用了相當長的 prompt 來執行，<br>也得到了不錯的結果 —— AI 能夠更完整地理解需求、輸出更符合預期的程式碼。</p>
+<p>這讓我們重新思考：問題可能不是「context 太多」，<br>而是 <strong>context 給的不夠充足</strong>？</p>
+<p>也許 AI 需要的是「更完整的背景資訊」，而不是「更簡短的指令」。</p>
+<hr>
+<h2 id="v2-階段更進一步的-ai-協作">V2 階段：更進一步的 AI 協作</h2>
+<blockquote>
+<p>使用模型：<strong>claude-4-sonnet</strong></p>
+</blockquote>
+<h3 id="建立-arc42-架構文件">建立 arc42 架構文件</h3>
+<p>在開始串接新平台之前，先讓 AI 讀懂整個系統。</p>
+<p><strong><a target="_blank" rel="noopener" href="https://arc42.org/overview">arc42</a></strong> 是一個用於架構溝通與文件記錄的模板：</p>
+<ul>
+<li>Introduction（這個系統是做什麼的）</li>
+<li>System Scope and Context（系統邊界與外部依賴）</li>
+<li>Building Block View（模組與元件關係）</li>
+<li>Runtime View（實際執行時的流程）</li>
+<li>Glossary（重要名詞定義，例如：SKU、平台手續費等）</li>
+</ul>
+<p>使用 Cursor 的 <strong><a target="_blank" rel="noopener" href="https://forum.cursor.com/t/i-created-an-amazing-mode-called-riper-5-mode-fixes-claude-3-7-drastically/65516">Research Mode</a></strong> 搭配以下 prompt：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Help me come out the detail documentation for the current project.</span><br><span class="line">Refer to @https://docs.arc42.org/home/</span><br><span class="line">Need to include:</span><br><span class="line">- Introduction</span><br><span class="line">- System Scope and Context</span><br><span class="line">- Building Block View</span><br><span class="line">- Runtime View</span><br><span class="line">- Glossary</span><br><span class="line">DONT use emoji, ONLY show fact</span><br></pre></td></tr></table></figure>
+
+<p>讓 AI 自動閱讀現有程式碼，產生完整的架構文件。</p>
+<p>有了這份文件，後續所有 AI 的回應更符合系統整體設計。</p>
+<hr>
+<h3 id="建立整合文件integration-docs">建立整合文件（Integration Docs）</h3>
+<p><strong>目標：</strong> 建立一份「如何整合新電商平台」的參考 SOP，<br>讓下一次串接新平台時有標準流程可循。</p>
+<p><strong>Prompt 設計：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Refer to @arc42.md to understand the responsibilities of this project.</span><br><span class="line">Use the ExampleShop integration flow as reference:</span><br><span class="line">  @ExampleShopService.cs</span><br><span class="line">  @AdminExampleShopDataController.cs</span><br><span class="line">  ...</span><br><span class="line">The flow should cover:</span><br><span class="line">  - Adding product data</span><br><span class="line">  - Create listing request</span><br><span class="line">  - Sync inventory</span><br><span class="line">  - Fetch orders</span><br><span class="line">Document the process of &quot;How to integrate a new platform&quot; into @platform-integration.md.</span><br><span class="line">The goal is to create a reference guide for future platform integrations.</span><br></pre></td></tr></table></figure>
+
+<p><strong>迭代過程：</strong></p>
+<ol>
+<li>產生初版文件後，拿真實平台（如蝦皮）來比對差異：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Now, refer to @platform-integration.md and review the Shopee integration flow.</span><br><span class="line">Tell me what is missing from the document or what differs from it.</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>進一步泛化文件，移除平台特定名稱，讓 SOP 真正通用：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I&#x27;d like this document to not just focus on ExampleShop &amp; Shopee (please remove those names),</span><br><span class="line">but instead follow the platform&#x27;s API documentation and adjust accordingly</span><br><span class="line">(e.g., authentication method, product schema mapping, rate limiting rules, etc.).</span><br><span class="line">How should I provide the information so that you can properly revise this document?</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="為-domain-model-加上描述">為 Domain Model 加上描述</h3>
+<p>電商系統的 domain model 往往很複雜，例如一個 <code>Product</code> 可能包含數十個屬性：</p>
+<ul>
+<li><code>spu</code>（Standard Product Unit，標準商品單元）</li>
+<li><code>sku</code>（Stock Keeping Unit，庫存單位）</li>
+<li><code>category_path</code>（分類路徑）</li>
+<li><code>listing_status</code>（上架狀態）</li>
+<li>…</li>
+</ul>
+<p>讓 AI 為 domain model 中的每個屬性加上說明，<br>我們再根據實際情況作修正，<br>新成員就不需要靠猜測來理解每個屬性的用途。</p>
+<hr>
+<h3 id="其他技巧建立串接平台的-api-文件">其他技巧：建立串接平台的 API 文件</h3>
+<p>串接 API 時，最花時間的事之一是：<strong>手動在 Postman 建立測試請求</strong>。</p>
+<p>透過建立 <code>PlatformDocsRules.md</code>，讓 AI 讀取平台的 API 文件後，<br>自動產生 <code>postman_collection.json</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">根據 @ShopeeAPI.md，幫我產生 Postman collection，</span><br><span class="line">包含以下 API：</span><br><span class="line">- 商品上架（Create Product）</span><br><span class="line">- 更新庫存（Update Stock）</span><br><span class="line">- 查詢訂單（Get Orders）</span><br><span class="line">並填入範例參數，讓我可以直接測試。</span><br></pre></td></tr></table></figure>
+
+<p>快速得到可用的測試集，省去手動建立的時間。</p>
+<p>ʕ •ᴥ•ʔ：我們可以在串接前先理解 API 的簽章規則，<br>一旦打通，後面 coding 的工作就變簡單了。</p>
+<hr>
+<h3 id="v2-的整合流程">V2 的整合流程</h3>
+<p>V2 定義了一個更清晰的 AI 協作 SOP：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. 取得平台 API 文件</span><br><span class="line">           ↓</span><br><span class="line">2. 用 AI 驗證文件內容，整理出關鍵資訊</span><br><span class="line">   （有疑問的地方列入 Question_to_&#123;Platform&#125;.md）</span><br><span class="line">           ↓</span><br><span class="line">3. 確認後存入 &#123;Platform&#125;DataDocs.md</span><br><span class="line">           ↓</span><br><span class="line">4. 建立相關的 Postman Collection 測試 Platform APIs</span><br><span class="line">           ↓</span><br><span class="line">5. 執行整合 prompt：</span><br><span class="line">   Follow @platform-integration.md</span><br><span class="line">   Use @&#123;Platform&#125;DataDocs.md to complete the listing flow</span><br><span class="line">           ↓</span><br><span class="line">6. 與 AI 或團隊做 Retro</span><br><span class="line">   - 更新 platform-integration.md</span><br><span class="line">   - 補充範例與說明</span><br><span class="line">   - 記錄這個平台的特殊規則</span><br></pre></td></tr></table></figure>
+
+<p>ʕ •ᴥ•ʔ：<code>Question_to_&#123;Platform&#125;.md</code> 的機制特別實用，<br>在串接前，先讓 AI 整理出「這份文件中有哪些不確定的地方」，<br>我們再去向平台技術支援確認，避免串接到一半才發現無法串接。</p>
+<hr>
+<h2 id="v1-vs-v2">V1 vs V2：</h2>
+<p><strong>V1：人帶著 AI 一起寫程式</strong></p>
+<p>開發者主導，遇到每個細節都跟 AI 討論。</p>
+<blockquote>
+<p><strong>AI 是 pair programming 的一員。</strong></p>
+</blockquote>
+<p><strong>V2：人設計流程，AI 執行，最後再由人 code review</strong></p>
+<p>開發者專注在設計整合 SOP 和驗證結果。<br>AI 負責把文件轉換成程式碼，人作最後的 code review。</p>
+<blockquote>
+<p><strong>AI 是團隊的一員。</strong></p>
+</blockquote>
+<hr>
+<h2 id="成效比較">成效比較</h2>
+<table>
+<thead>
+<tr>
+<th>階段</th>
+<th>串接人數</th>
+<th>時間</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>導入前</strong></td>
+<td>5 位開發者</td>
+<td>每個平台約 4~5 天</td>
+</tr>
+<tr>
+<td><strong>V1 之後</strong></td>
+<td>2~3 位開發者</td>
+<td>每個平台約 2~3 天</td>
+</tr>
+<tr>
+<td><strong>V2 之後</strong></td>
+<td>2 位開發者</td>
+<td>每個平台約 1 天完成</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="結論與心得">結論與心得</h2>
+<h3 id="1-context-與-accuracy-的平衡">1. Context 與 Accuracy 的平衡</h3>
+<p>給 AI 的 context 並非越多越好，也不是越少越好。<br>拆分任務、提供夠用的資訊、逐步驗證，是提升準確度的關鍵。</p>
+<h3 id="2-高層次文件的重要性">2. 高層次文件的重要性</h3>
+<p>有了 arc42 等架構文件，AI 能夠理解「這個系統的長相」，<br>而不是每次都從零開始解讀程式碼。</p>
+<p>讓 AI 的輸出更符合整體設計，而不是隨機地參考。</p>
+<h3 id="3-建立自己專案或團隊的文件">3. 建立自己專案或團隊的文件</h3>
+<p>AI 模型的進步速度很快，但你必須建立好對應的 knowledge base，<br>才能讓 AI 發揮的更好，也可以幫助到新進的團隊成員。</p>
+<hr>
+<p>ʕ •ᴥ•ʔ：這個做法就類似於 2025 年底 Anthropic 推出的 <a target="_blank" rel="noopener" href="https://agentskills.io/home">Agent Skills</a>，<br>兩者的核心都是：<strong>把可重複使用的知識與規則整理成結構化文件</strong>，<br>讓 AI 每次執行時都有一致的參考基準。</p>
+<p>目前 research mode 已演變成官方的 <a target="_blank" rel="noopener" href="https://cursor.com/zh-Hant/docs/agent/modes">plan mode</a>，<br>Claude Sonnet 也出到 4.6 了！</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "如何使用 AI 加速 API 串接",
+        "image": "https://yncbearz.github.io/images/thumbnails/agent.webp",
+        "keywords": "Note",
+        "genre": "Programming",
+        "datePublished": "2026-02-28",
+        "dateCreated": "2026-02-28",
+        "dateModified": "2026-02-28",
+        "url": "https://yncbearz.github.io/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/",
+        "description": "How-To-Use-AI-To-Accelerate-API-Integrations",
+        "wordCount": 880
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2025/12/02/Connascence/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">共生性</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/06/19/Blog-Feature-List/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/schedule-plan.webp)" alt="部落格功能清單" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/06/19/Blog-Feature-List/" class="title">部落格功能清單</a></p>
+                            <p class="item-date"><time datetime="2025-06-19T02:17:52.000Z" itemprop="datePublished">2025-06-19</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '6bbec6ed3b33b12ed07a5d2a4eda9468',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+    
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1772284496408')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

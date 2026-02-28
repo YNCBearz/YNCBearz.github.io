@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/2022-goals.webp">
 <meta property="article:published_time" content="2024-05-20T08:49:03.000Z">
-<meta property="article:modified_time" content="2025-05-30T08:15:23.227Z">
+<meta property="article:modified_time" content="2026-02-28T11:32:41.820Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -221,7 +221,8 @@
             
 
             <p>(參考<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-tw/sql/sql-server/editions-and-components-of-sql-server-2019?view=sql-server-ver15">MSSQL</a>)</p>
-<h1 id="Menu"><a href="#Menu" class="headerlink" title="Menu"></a>Menu</h1><table>
+<h1 id="menu">Menu</h1>
+<table>
 <thead>
 <tr>
 <th align="left">Type</th>
@@ -234,7 +235,7 @@
 </tr>
 <tr>
 <td align="left">Index</td>
-<td align="left"><a href="#Read-Index">Read</a></td>
+<td align="left"><a href="#read-index">Read</a></td>
 </tr>
 <tr>
 <td align="left">—</td>
@@ -242,7 +243,7 @@
 </tr>
 <tr>
 <td align="left">Schema</td>
-<td align="left"><a href="#Read-Schema">Read</a></td>
+<td align="left"><a href="#read-schema">Read</a></td>
 </tr>
 <tr>
 <td align="left">—</td>
@@ -250,7 +251,7 @@
 </tr>
 <tr>
 <td align="left">Plan</td>
-<td align="left"><a href="#Read-Plan">Read</a></td>
+<td align="left"><a href="#read-plan">Read</a></td>
 </tr>
 <tr>
 <td align="left">—</td>
@@ -258,28 +259,32 @@
 </tr>
 <tr>
 <td align="left">Rank</td>
-<td align="left"><a href="#Rank-Schema">Rank</a></td>
+<td align="left"><a href="#rank-schema">Rank</a></td>
 </tr>
 <tr>
 <td align="left">—</td>
 <td align="left">—</td>
 </tr>
 </tbody></table>
-<h1 id="Read-Index"><a href="#Read-Index" class="headerlink" title="Read Index"></a>Read Index</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> i.name <span class="keyword">AS</span> index_name</span><br><span class="line">    ,i.type_desc</span><br><span class="line">    ,is_unique</span><br><span class="line">    ,ds.type_desc <span class="keyword">AS</span> filegroup_or_partition_scheme</span><br><span class="line">    ,ds.name <span class="keyword">AS</span> filegroup_or_partition_scheme_name</span><br><span class="line">    ,ignore_dup_key</span><br><span class="line">    ,is_primary_key</span><br><span class="line">    ,is_unique_constraint</span><br><span class="line">    ,fill_factor</span><br><span class="line">    ,is_padded</span><br><span class="line">    ,is_disabled</span><br><span class="line">    ,allow_row_locks</span><br><span class="line">    ,allow_page_locks</span><br><span class="line"><span class="keyword">FROM</span> sys.indexes <span class="keyword">AS</span> i  <span class="keyword">with</span> (nolock)</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> sys.data_spaces <span class="keyword">AS</span> ds <span class="keyword">ON</span> i.data_space_id <span class="operator">=</span> ds.data_space_id</span><br><span class="line"><span class="keyword">WHERE</span> is_hypothetical <span class="operator">=</span> <span class="number">0</span> <span class="keyword">AND</span> i.index_id <span class="operator">&lt;&gt;</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">AND</span> i.object_id <span class="operator">=</span> OBJECT_ID(<span class="string">&#x27;tabel_name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="read-index">Read Index</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> i.name <span class="keyword">AS</span> index_name</span><br><span class="line">    ,i.type_desc</span><br><span class="line">    ,is_unique</span><br><span class="line">    ,ds.type_desc <span class="keyword">AS</span> filegroup_or_partition_scheme</span><br><span class="line">    ,ds.name <span class="keyword">AS</span> filegroup_or_partition_scheme_name</span><br><span class="line">    ,ignore_dup_key</span><br><span class="line">    ,is_primary_key</span><br><span class="line">    ,is_unique_constraint</span><br><span class="line">    ,fill_factor</span><br><span class="line">    ,is_padded</span><br><span class="line">    ,is_disabled</span><br><span class="line">    ,allow_row_locks</span><br><span class="line">    ,allow_page_locks</span><br><span class="line"><span class="keyword">FROM</span> sys.indexes <span class="keyword">AS</span> i  <span class="keyword">with</span> (nolock)</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> sys.data_spaces <span class="keyword">AS</span> ds <span class="keyword">ON</span> i.data_space_id <span class="operator">=</span> ds.data_space_id</span><br><span class="line"><span class="keyword">WHERE</span> is_hypothetical <span class="operator">=</span> <span class="number">0</span> <span class="keyword">AND</span> i.index_id <span class="operator">&lt;&gt;</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">AND</span> i.object_id <span class="operator">=</span> OBJECT_ID(<span class="string">&#x27;tabel_name&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
-<p><a href="#Menu">(Back to Menu)</a></p>
+<p><a href="#menu">(Back to Menu)</a></p>
 <hr>
-<h1 id="Read-Schema"><a href="#Read-Schema" class="headerlink" title="Read Schema"></a>Read Schema</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS</span><br><span class="line"><span class="keyword">where</span> TABLE_NAME<span class="operator">=</span><span class="string">&#x27;table_name&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="read-schema">Read Schema</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS</span><br><span class="line"><span class="keyword">where</span> TABLE_NAME<span class="operator">=</span><span class="string">&#x27;table_name&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<p><a href="#Menu">(Back to Menu)</a></p>
+<p><a href="#menu">(Back to Menu)</a></p>
 <hr>
-<h1 id="Read-Plan"><a href="#Read-Plan" class="headerlink" title="Read Plan"></a>Read Plan</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    q.text <span class="keyword">AS</span> QueryText,</span><br><span class="line">    cp.usecounts,</span><br><span class="line">    p.query_plan</span><br><span class="line"><span class="keyword">FROM</span> sys.dm_exec_cached_plans <span class="keyword">AS</span> cp <span class="keyword">with</span> (nolock)</span><br><span class="line"><span class="keyword">CROSS</span> APPLY sys.dm_exec_sql_text(cp.plan_handle) <span class="keyword">AS</span> q</span><br><span class="line"><span class="keyword">CROSS</span> APPLY sys.dm_exec_query_plan(cp.plan_handle) <span class="keyword">AS</span> p</span><br><span class="line"><span class="keyword">WHERE</span> q.text <span class="keyword">LIKE</span> <span class="string">&#x27;%stored_procedure_name%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="read-plan">Read Plan</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    q.text <span class="keyword">AS</span> QueryText,</span><br><span class="line">    cp.usecounts,</span><br><span class="line">    p.query_plan</span><br><span class="line"><span class="keyword">FROM</span> sys.dm_exec_cached_plans <span class="keyword">AS</span> cp <span class="keyword">with</span> (nolock)</span><br><span class="line"><span class="keyword">CROSS</span> APPLY sys.dm_exec_sql_text(cp.plan_handle) <span class="keyword">AS</span> q</span><br><span class="line"><span class="keyword">CROSS</span> APPLY sys.dm_exec_query_plan(cp.plan_handle) <span class="keyword">AS</span> p</span><br><span class="line"><span class="keyword">WHERE</span> q.text <span class="keyword">LIKE</span> <span class="string">&#x27;%stored_procedure_name%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-<p><a href="#Menu">(Back to Menu)</a></p>
+<p><a href="#menu">(Back to Menu)</a></p>
 <hr>
-<h1 id="Rank-Schema"><a href="#Rank-Schema" class="headerlink" title="Rank Schema"></a>Rank Schema</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WITH</span> CurrencyTotal <span class="keyword">AS</span> (</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">        c.CurrencyId,</span><br><span class="line">        tl.CustomerId,</span><br><span class="line">        <span class="built_in">SUM</span>(tl.Amount) <span class="keyword">AS</span> TotalAmount</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        [Customer] c <span class="keyword">WITH</span> (nolock)</span><br><span class="line">    <span class="keyword">JOIN</span></span><br><span class="line">        [TransLog] tl</span><br><span class="line">        <span class="keyword">ON</span> tl.CustomerId <span class="operator">=</span> c.CustomerId</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">        c.CurrencyId, tl.CustomerId</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    CurrencyId,</span><br><span class="line">    CustomerId,</span><br><span class="line">    TotalAmount,</span><br><span class="line">    <span class="built_in">RANK</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> CurrencyId <span class="keyword">ORDER</span> <span class="keyword">BY</span> TotalAmount <span class="keyword">DESC</span>) <span class="keyword">AS</span> Ranking</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    CurrencyTotal;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="rank-schema">Rank Schema</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WITH</span> CurrencyTotal <span class="keyword">AS</span> (</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">        c.CurrencyId,</span><br><span class="line">        tl.CustomerId,</span><br><span class="line">        <span class="built_in">SUM</span>(tl.Amount) <span class="keyword">AS</span> TotalAmount</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        [Customer] c <span class="keyword">WITH</span> (nolock)</span><br><span class="line">    <span class="keyword">JOIN</span></span><br><span class="line">        [TransLog] tl</span><br><span class="line">        <span class="keyword">ON</span> tl.CustomerId <span class="operator">=</span> c.CustomerId</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">        c.CurrencyId, tl.CustomerId</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    CurrencyId,</span><br><span class="line">    CustomerId,</span><br><span class="line">    TotalAmount,</span><br><span class="line">    <span class="built_in">RANK</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> CurrencyId <span class="keyword">ORDER</span> <span class="keyword">BY</span> TotalAmount <span class="keyword">DESC</span>) <span class="keyword">AS</span> Ranking</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    CurrencyTotal;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><a href="#Menu">(Back to Menu)</a></p>
+<p><a href="#menu">(Back to Menu)</a></p>
 <hr>
 <p>ʕ •ᴥ•ʔ：記錄一些常見語法，需要時方便查詢。</p>
 
@@ -331,10 +336,10 @@
         "genre": "Programming",
         "datePublished": "2024-05-20",
         "dateCreated": "2024-05-20",
-        "dateModified": "2025-05-30",
+        "dateModified": "2026-02-28",
         "url": "https://yncbearz.github.io/2024/05/20/Common-MSSQL-Syntax/",
         "description": "Common-MSSQL-Syntax",
-        "wordCount": 470
+        "wordCount": 451
     }
 </script>
 
@@ -432,6 +437,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2025/12/02/Connascence/" class="thumbnail">
     
     
@@ -509,26 +534,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/thumbnails/christmas-cookies.webp)" alt="Kent Beck 的實作模式" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Clean-Code/">Clean Code</a></p>
-                            <p class="item-title"><a href="/2025/04/26/Kent-Beck-Implementation-Patterns/" class="title">Kent Beck 的實作模式</a></p>
-                            <p class="item-date"><time datetime="2025-04-26T14:05:09.000Z" itemprop="datePublished">2025-04-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -538,7 +543,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -662,7 +667,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1769960806440')
+  navigator.serviceWorker.register('/sw.js?t=1772284496408')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
