@@ -101,7 +101,7 @@
     
 
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 <body>
     <div id="wrap">
@@ -433,7 +433,7 @@
 <p>V2 定義了一個更清晰的 AI 協作 SOP：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. 取得平台 API 文件</span><br><span class="line">           ↓</span><br><span class="line">2. 用 AI 驗證文件內容，整理出關鍵資訊</span><br><span class="line">   （有疑問的地方列入 Question_to_&#123;Platform&#125;.md）</span><br><span class="line">           ↓</span><br><span class="line">3. 確認後存入 &#123;Platform&#125;DataDocs.md</span><br><span class="line">           ↓</span><br><span class="line">4. 建立相關的 Postman Collection 測試 Platform APIs</span><br><span class="line">           ↓</span><br><span class="line">5. 執行整合 prompt：</span><br><span class="line">   Follow @platform-integration.md</span><br><span class="line">   Use @&#123;Platform&#125;DataDocs.md to complete the listing flow</span><br><span class="line">           ↓</span><br><span class="line">6. 與 AI 或團隊做 Retro</span><br><span class="line">   - 更新 platform-integration.md</span><br><span class="line">   - 補充範例與說明</span><br><span class="line">   - 記錄這個平台的特殊規則</span><br></pre></td></tr></table></figure>
 
-<p>ʕ •ᴥ•ʔ：<code>Question_to_&#123;Platform&#125;.md</code> 的機制特別實用，<br>在串接前，先讓 AI 整理出「這份文件中有哪些不確定的地方」，<br>我們再去向平台技術支援確認，避免串接到一半才發現無法串接。</p>
+<p>ʕ •ᴥ•ʔ：<code>Question_to_{Platform}.md</code> 的機制特別實用，<br>在串接前，先讓 AI 整理出「這份文件中有哪些不確定的地方」，<br>我們再去向平台技術支援確認，避免串接到一半才發現無法串接。</p>
 <hr>
 <h2 id="v1-vs-v2">V1 vs V2：</h2>
 <p><strong>V1：人帶著 AI 一起寫程式</strong></p>
@@ -886,7 +886,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1772354129668')
+  navigator.serviceWorker.register('/sw.js?t=1772361932924')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
