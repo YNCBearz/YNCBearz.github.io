@@ -230,6 +230,36 @@
     #error-msg { color: #fc8181; margin-top: 12px; font-size: 0.9em; min-height: 1.2em; }
     #reveal-wrapper { display: none; width: 100vw; height: 100vh; }
     .back-to-post { display: none; }
+    
+    .chat-marquee-lane {
+      position: fixed; left: 0; right: 0; z-index: 9999;
+      background: transparent; overflow: hidden;
+      height: 3em; display: flex; align-items: center;
+      pointer-events: none;
+    }
+    .chat-marquee-inner {
+      display: inline-block; white-space: nowrap;
+      color: #fff; font-size: 1.5em; font-family: sans-serif;
+      animation: marquee-scroll linear infinite;
+    }
+    @keyframes marquee-scroll {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+    #chat-marquee-0 { top: calc(0 * 3.2em); }
+    
+    #bs-controls {
+      position: fixed; top: 12px; right: 12px; z-index: 9999;
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(0,0,0,0.6); border-radius: 20px;
+      padding: 6px 14px; font-family: sans-serif;
+    }
+    #bs-play-btn {
+      background: none; border: none; color: #fff;
+      font-size: 1em; cursor: pointer; padding: 0; line-height: 1;
+    }
+    #bs-play-btn:hover { color: #adf; }
+    #bs-indicator { color: #ddd; font-size: 0.85em; white-space: nowrap; }
   </style>
 </head>
 <body>
@@ -255,6 +285,8 @@
   <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="back-to-post" id="back-link">
     <i class="fas fa-arrow-left"></i> 返回文章
   </a>
+  <div id="chat-marquee-0" class="chat-marquee-lane" style="display:none"><span id="chat-marquee-inner-0" class="chat-marquee-inner"></span></div>
+  <div id="bs-controls"><button id="bs-play-btn" title="播放 / 暫停">▶</button><span id="bs-indicator">等待中..</span></div>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.min.js"></script>
@@ -346,6 +378,135 @@
           block.innerHTML = numberedCode;
         });
       });
+      
+    (function() {
+      var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwb6gGKIDvhRtYR3mdN7THqh6HbgpQcZwTeelx7kTXZpk650NAPpzoXnuz0OmAKa5pK/exec";
+      var POLL_INTERVAL   = undefined;
+      var LANES           = 1;
+      var AUTO_PLAY       = undefined;
+      var pendingRows     = new Set();
+      var queues          = Array.from({ length: LANES }, function() { return []; });
+      var isAnimating     = Array(LANES).fill(false);
+      var timers          = Array(LANES).fill(null);
+      var timerEndTime    = Array(LANES).fill(null);
+      var isPlaying       = AUTO_PLAY;
+
+      // Embed module-level pure functions directly so tests and client share one definition
+      function filterUnseenMessages(messages, seen) {
+  return messages.filter(function(msg) { return !seen.has(msg.row); });
+}
+      function formatMessage(msg) {
+  return msg.name + '：' + msg.message;
+}
+
+      function totalQueued() {
+        return queues.reduce(function(sum, q) { return sum + q.length; }, 0);
+      }
+      function updateIndicator() {
+        if (AUTO_PLAY) return;
+        var el = document.getElementById('bs-indicator');
+        if (!el) return;
+        var total = totalQueued();
+        el.textContent = total === 0 ? '等待中..' : total + ' 則訊息';
+      }
+
+      function poll() {
+        fetch(APPS_SCRIPT_URL)
+          .then(function(r) { return r.json(); })
+          .then(function(messages) {
+            if (!Array.isArray(messages)) return;
+            var unseen = filterUnseenMessages(messages, pendingRows);
+            unseen.forEach(function(msg) {
+              pendingRows.add(msg.row);
+              var lane = 0;
+              for (var i = 1; i < LANES; i++) {
+                if (queues[i].length < queues[lane].length) lane = i;
+              }
+              queues[lane].push(msg);
+              if (isPlaying && !isAnimating[lane]) showNext(lane);
+            });
+            updateIndicator();
+          })
+          .catch(function() {});
+      }
+
+      function showNext(lane) {
+        if (!isPlaying) { isAnimating[lane] = false; return; }
+        if (queues[lane].length === 0) { isAnimating[lane] = false; updateIndicator(); return; }
+        isAnimating[lane] = true;
+        var msg = queues[lane].shift();
+        updateIndicator();
+        var marquee = document.getElementById('chat-marquee-' + lane);
+        var inner   = document.getElementById('chat-marquee-inner-' + lane);
+        inner.textContent = formatMessage(msg);
+        marquee.style.display = 'flex';
+
+        var len = inner.textContent.length;
+        var duration = Math.max(6, len * 0.18 + len * len * 0.002);
+        inner.style.animationDuration = duration + 's';
+        inner.style.animation = 'none';
+        inner.offsetHeight;
+        inner.style.animation = '';
+        inner.style.animationDuration = duration + 's';
+
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify({ action: 'markProcessed', row: msg.row }),
+        }).catch(function() {});
+
+        var ms = duration * 1000;
+        timerEndTime[lane] = Date.now() + ms;
+        timers[lane] = setTimeout(function() {
+          timers[lane] = null;
+          timerEndTime[lane] = null;
+          if (queues[lane].length === 0) marquee.style.display = 'none';
+          showNext(lane);
+        }, ms);
+      }
+
+      function togglePlay() {
+        isPlaying = !isPlaying;
+        var btn = document.getElementById('bs-play-btn');
+        if (btn) btn.textContent = isPlaying ? '⏸' : '▶';
+        if (!isPlaying) {
+          for (var i = 0; i < LANES; i++) {
+            if (timers[i]) { clearTimeout(timers[i]); timers[i] = null; }
+            var inner = document.getElementById('chat-marquee-inner-' + i);
+            if (inner) inner.style.animationPlayState = 'paused';
+          }
+        } else {
+          for (var i = 0; i < LANES; i++) {
+            if (isAnimating[i]) {
+              var remaining = timerEndTime[i] ? timerEndTime[i] - Date.now() : 0;
+              if (remaining <= 0) {
+                isAnimating[i] = false;
+                showNext(i);
+              } else {
+                var inner = document.getElementById('chat-marquee-inner-' + i);
+                if (inner) inner.style.animationPlayState = 'running';
+                (function(lane, rem) {
+                  timers[lane] = setTimeout(function() {
+                    timers[lane] = null;
+                    timerEndTime[lane] = null;
+                    var marquee = document.getElementById('chat-marquee-' + lane);
+                    if (queues[lane].length === 0 && marquee) marquee.style.display = 'none';
+                    showNext(lane);
+                  }, rem);
+                })(i, remaining);
+              }
+            } else if (queues[i].length > 0) {
+              showNext(i);
+            }
+          }
+        }
+      }
+
+      var btn = document.getElementById('bs-play-btn');
+      if (btn) btn.addEventListener('click', togglePlay);
+
+      setInterval(poll, POLL_INTERVAL);
+      poll();
+    })();
     }
 
     document.addEventListener('DOMContentLoaded', function() {
