@@ -381,9 +381,9 @@
       
     (function() {
       var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwb6gGKIDvhRtYR3mdN7THqh6HbgpQcZwTeelx7kTXZpk650NAPpzoXnuz0OmAKa5pK/exec";
-      var POLL_INTERVAL   = undefined;
+      var POLL_INTERVAL   = 6000;
       var LANES           = 1;
-      var AUTO_PLAY       = undefined;
+      var AUTO_PLAY       = false;
       var pendingRows     = new Set();
       var queues          = Array.from({ length: LANES }, function() { return []; });
       var isAnimating     = Array(LANES).fill(false);
