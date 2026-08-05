@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：快取代理（代理模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Design Pattern" />
+    
+    <meta name="description" content="Class-Diagram-Cache-Proxy-Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：快取代理（代理模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/10/04/Class-Diagram-Cache-Proxy-Pattern/">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class-Diagram-Cache-Proxy-Pattern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/globe.webp">
+<meta property="article:published_time" content="2020-10-04T13:21:32.000Z">
+<meta property="article:modified_time" content="2026-06-25T04:58:53.982Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/globe.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Cache-Proxy-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：快取代理（代理模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2020/10/04/Class-Diagram-Cache-Proxy-Pattern/" class="article-date">
+       <time datetime="2020-10-04T13:21:32.000Z" itemprop="datePublished">2020-10-04</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/10/04/Example-Cache-Proxy-Pattern/" title="範例：快取代理（代理模式）">快取代理</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20data-diagram-type%3D%22CLASS%22%20style%3D%22width%3A766px%3Bheight%3A259px%3Bbackground%3A%23FFFFFF%3B%22%20width%3D%22766px%22%20height%3D%22259px%22%20viewBox%3D%220%200%20766%20259%22%20zoomAndPan%3D%22magnify%22%20preserveAspectRatio%3D%22none%22%20contentStyleType%3D%22text%2Fcss%22%3E%3C%3Fplantuml%201.2026.7beta11%3F%3E%3Cdefs%2F%3E%3Cg%20font-family%3D%22sans-serif%22%20lengthAdjust%3D%22spacing%22%3E%3C!--class%20Readable--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Readable%22%20id%3D%22ent0001%22%20data-source-line%3D%221%22%3E%3Crect%20x%3D%22405.49%22%20y%3D%227%22%20width%3D%22219.184%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22477.944%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M473.866%2C18.766%20L473.866%2C16.609%20L481.257%2C16.609%20L481.257%2C18.766%20L478.788%2C18.766%20L478.788%2C26.844%20L481.257%2C26.844%20L481.257%2C29%20L473.866%2C29%20L473.866%2C26.844%20L476.335%2C26.844%20L476.335%2C18.766%20L473.866%2C18.766%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22498.444%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2265.775%22%20font-style%3D%22italic%22%3EReadable%3C%2Ftext%3E%3Cline%20x1%3D%22406.49%22%20y1%3D%2239%22%20x2%3D%22623.674%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22406.49%22%20y1%3D%2247%22%20x2%3D%22623.674%22%20y2%3D%2247%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22416.49%22%20cy%3D%2260.648%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22425.49%22%20y%3D%2263.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22193.184%22%3Eread(string%20keyword)%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Database--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Database%22%20id%3D%22ent0002%22%20data-source-line%3D%226%22%3E%3Crect%20x%3D%22532.49%22%20y%3D%22155.74%22%20width%3D%22219.184%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22604.431%22%20cy%3D%22171.74%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M607.4%2C177.381%20Q606.822%2C177.677%20606.181%2C177.818%20Q605.541%2C177.974%20604.838%2C177.974%20Q602.338%2C177.974%20601.01%2C176.334%20Q599.697%2C174.677%20599.697%2C171.552%20Q599.697%2C168.427%20601.01%2C166.771%20Q602.338%2C165.115%20604.838%2C165.115%20Q605.541%2C165.115%20606.181%2C165.271%20Q606.838%2C165.427%20607.4%2C165.724%20L607.4%2C168.443%20Q606.775%2C167.865%20606.181%2C167.599%20Q605.588%2C167.318%20604.963%2C167.318%20Q603.619%2C167.318%20602.931%2C168.396%20Q602.244%2C169.459%20602.244%2C171.552%20Q602.244%2C173.646%20602.931%2C174.724%20Q603.619%2C175.787%20604.963%2C175.787%20Q605.588%2C175.787%20606.181%2C175.521%20Q606.775%2C175.24%20607.4%2C174.662%20L607.4%2C177.381%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22624.931%22%20y%3D%22176.587%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2266.801%22%3EDatabase%3C%2Ftext%3E%3Cline%20x1%3D%22533.49%22%20y1%3D%22187.74%22%20x2%3D%22750.674%22%20y2%3D%22187.74%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22533.49%22%20y1%3D%22195.74%22%20x2%3D%22750.674%22%20y2%3D%22195.74%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22543.49%22%20cy%3D%22209.388%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22552.49%22%20y%3D%22212.735%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22193.184%22%3Eread(string%20keyword)%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20CacheProxy--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22CacheProxy%22%20id%3D%22ent0003%22%20data-source-line%3D%2211%22%3E%3Crect%20x%3D%22278.49%22%20y%3D%22131.29%22%20width%3D%22219.184%22%20height%3D%22113.188%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22342.396%22%20cy%3D%22147.29%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M345.365%2C152.931%20Q344.786%2C153.228%20344.146%2C153.368%20Q343.505%2C153.524%20342.802%2C153.524%20Q340.302%2C153.524%20338.974%2C151.884%20Q337.661%2C150.228%20337.661%2C147.103%20Q337.661%2C143.978%20338.974%2C142.321%20Q340.302%2C140.665%20342.802%2C140.665%20Q343.505%2C140.665%20344.146%2C140.821%20Q344.802%2C140.978%20345.365%2C141.274%20L345.365%2C143.993%20Q344.74%2C143.415%20344.146%2C143.149%20Q343.552%2C142.868%20342.927%2C142.868%20Q341.583%2C142.868%20340.896%2C143.946%20Q340.208%2C145.009%20340.208%2C147.103%20Q340.208%2C149.196%20340.896%2C150.274%20Q341.583%2C151.337%20342.927%2C151.337%20Q343.552%2C151.337%20344.146%2C151.071%20Q344.74%2C150.79%20345.365%2C150.212%20L345.365%2C152.931%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22362.896%22%20y%3D%22152.137%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2282.872%22%3ECacheProxy%3C%2Ftext%3E%3Cline%20x1%3D%22279.49%22%20y1%3D%22163.29%22%20x2%3D%22496.674%22%20y2%3D%22163.29%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22289.49%2C171.938%2C293.49%2C175.938%2C289.49%2C179.938%2C285.49%2C175.938%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22298.49%22%20y%3D%22180.285%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2296.469%22%3Ecached%3A%20array%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22289.49%2C188.235%2C293.49%2C192.235%2C289.49%2C196.235%2C285.49%2C192.235%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22298.49%22%20y%3D%22196.582%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22140.875%22%3Edatabase%3A%20Database%3C%2Ftext%3E%3Cline%20x1%3D%22279.49%22%20y1%3D%22203.884%22%20x2%3D%22496.674%22%20y2%3D%22203.884%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22289.49%22%20cy%3D%22217.532%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22298.49%22%20y%3D%22220.879%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2290.658%22%3E__construct()%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22289.49%22%20cy%3D%22233.829%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22298.49%22%20y%3D%22237.176%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22193.184%22%3Eread(string%20keyword)%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Program%22%20id%3D%22ent0007%22%20data-source-line%3D%2225%22%3E%3Crect%20x%3D%229%22%20y%3D%22139.44%22%20width%3D%22234.161%22%20height%3D%2296.891%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2292.019%22%20cy%3D%22155.44%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M94.988%2C161.081%20Q94.41%2C161.377%2093.769%2C161.518%20Q93.128%2C161.674%2092.425%2C161.674%20Q89.925%2C161.674%2088.597%2C160.034%20Q87.285%2C158.377%2087.285%2C155.252%20Q87.285%2C152.127%2088.597%2C150.471%20Q89.925%2C148.815%2092.425%2C148.815%20Q93.128%2C148.815%2093.769%2C148.971%20Q94.425%2C149.127%2094.988%2C149.424%20L94.988%2C152.143%20Q94.363%2C151.565%2093.769%2C151.299%20Q93.175%2C151.018%2092.55%2C151.018%20Q91.207%2C151.018%2090.519%2C152.096%20Q89.832%2C153.159%2089.832%2C155.252%20Q89.832%2C157.346%2090.519%2C158.424%20Q91.207%2C159.487%2092.55%2C159.487%20Q93.175%2C159.487%2093.769%2C159.221%20Q94.363%2C158.94%2094.988%2C158.362%20L94.988%2C161.081%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22112.519%22%20y%3D%22160.287%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2259.623%22%3EProgram%3C%2Ftext%3E%3Cline%20x1%3D%2210%22%20y1%3D%22171.44%22%20x2%3D%22242.161%22%20y2%3D%22171.44%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%2220%2C180.088%2C24%2C184.088%2C20%2C188.088%2C16%2C184.088%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22188.435%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22131.817%22%3Eproxy%3A%20CacheProxy%3C%2Ftext%3E%3Cline%20x1%3D%2210%22%20y1%3D%22195.737%22%20x2%3D%22242.161%22%20y2%3D%22195.737%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22209.385%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22212.732%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2290.658%22%3E__construct()%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22225.682%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22229.029%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22208.161%22%3Esearch(string%20keyword)%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20Readable%20to%20CacheProxy--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0003%22%20id%3D%22lnk4%22%20data-source-line%3D%2220%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M476.059%2C85.229%20C461.109%2C102.499%20453.93%2C110.81%20436.55%2C130.88%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22Readable-backto-CacheProxy%22%20codeLine%3D%2220%22%2F%3E%3Cpolygon%20points%3D%22487.84%2C71.62%2C471.523%2C81.302%2C480.595%2C89.156%2C487.84%2C71.62%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Readable%20to%20Database--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk5%22%20data-source-line%3D%2221%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M554.107%2C85.233%20C575.527%2C109.993%20593.46%2C130.71%20614.88%2C155.46%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22Readable-backto-Database%22%20codeLine%3D%2221%22%2F%3E%3Cpolygon%20points%3D%22542.33%2C71.62%2C549.569%2C89.158%2C558.644%2C81.307%2C542.33%2C71.62%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20CacheProxy%20to%20Database--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0003%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk6%22%20data-source-line%3D%2223%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M497.72%2C187.89%20C509.18%2C187.89%20515.65%2C187.89%20527.12%2C187.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22CacheProxy-to-Database%22%20codeLine%3D%2223%22%2F%3E%3Cpolygon%20points%3D%22532.12%2C187.89%2C523.12%2C183.89%2C527.12%2C187.89%2C523.12%2C191.89%2C532.12%2C187.89%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Program%20to%20CacheProxy--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0007%22%20data-entity-2%3D%22ent0003%22%20id%3D%22lnk8%22%20data-source-line%3D%2233%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M243.52%2C187.89%20C255.1%2C187.89%20261.67%2C187.89%20273.25%2C187.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Program-to-CacheProxy%22%20codeLine%3D%2233%22%2F%3E%3Cpolygon%20points%3D%22278.25%2C187.89%2C269.25%2C183.89%2C273.25%2C187.89%2C269.25%2C191.89%2C278.25%2C187.89%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C%3Fplantuml-src%20bOz13e9034NtSuecRY163a2C6ps0yGAaT2eG4KndZ4xKkyiWP72XqML_Vz__hHhBiaTYs35gp6jMDmKm1-d6o5YfcW8Ex2wjw3W5546d7afHZSR01YtcQFwwMIELl9Nswlgh6P0NzEZpYXwmQGZe-Lb6RTFnpsIZ-9V4yITOtfDaclo-22d10elLH7zLxnQ5u77eVVAsT4hzKD8m2fLVQWvS7nbeJm00%3F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2020/10/04/Class-Diagram-Cache-Proxy-Pattern/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：快取代理（代理模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/globe.webp",
+        "keywords": "Design Pattern",
+        "genre": "Clean Code",
+        "datePublished": "2020-10-04",
+        "dateCreated": "2020-10-04",
+        "dateModified": "2026-06-25",
+        "url": "https://yncbearz.github.io/2020/10/04/Class-Diagram-Cache-Proxy-Pattern/",
+        "description": "Class-Diagram-Cache-Proxy-Pattern",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/10/11/Prototype-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            原型模式
+        
+        </p>
+        <i class="icon fa-solid fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/10/04/Example-Cache-Proxy-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：快取代理（代理模式）</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/I-AM-SHERLOCKED.webp)" alt="畢業前，你沒想過的那些事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="title">畢業前，你沒想過的那些事</a></p>
+                            <p class="item-date"><time datetime="2026-03-22T06:08:05.000Z" itemprop="datePublished">2026-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Talk/" rel="tag">Talk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '9a12e61d10c0c0285b724f8fc1c9cf54',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1785921740718')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：運輸系統（簡單工廠模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Design Pattern" />
+    
+    <meta name="description" content="Class-Diagram-Transport-Simple-Factory-nattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：運輸系統（簡單工廠模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/08/30/Class-Diagram-Transport-Simple-Factory-Pattern/">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class-Diagram-Transport-Simple-Factory-nattern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/buildings-at-night.webp">
+<meta property="article:published_time" content="2020-08-29T18:00:15.000Z">
+<meta property="article:modified_time" content="2026-06-25T04:58:53.985Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/buildings-at-night.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Transport-Simple-Factory-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：運輸系統（簡單工廠模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2020/08/30/Class-Diagram-Transport-Simple-Factory-Pattern/" class="article-date">
+       <time datetime="2020-08-29T18:00:15.000Z" itemprop="datePublished">2020-08-30</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/08/30/Example-Transport-Simple-Factory-Pattern/" title="範例：運輸系統（簡單工廠模式)">運輸系統</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20data-diagram-type%3D%22CLASS%22%20style%3D%22width%3A654px%3Bheight%3A334px%3Bbackground%3A%23FFFFFF%3B%22%20width%3D%22654px%22%20height%3D%22334px%22%20viewBox%3D%220%200%20654%20334%22%20zoomAndPan%3D%22magnify%22%20preserveAspectRatio%3D%22none%22%20contentStyleType%3D%22text%2Fcss%22%3E%3C%3Fplantuml%201.2026.7beta11%3F%3E%3Cdefs%2F%3E%3Cg%20font-family%3D%22sans-serif%22%20lengthAdjust%3D%22spacing%22%3E%3C!--class%20Model--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Model%22%20id%3D%22ent0001%22%20data-source-line%3D%221%22%3E%3Crect%20x%3D%22362.16%22%20y%3D%22131.3%22%20width%3D%22101.216%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22389.392%22%20cy%3D%22147.3%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M385.314%2C143.066%20L385.314%2C140.909%20L392.704%2C140.909%20L392.704%2C143.066%20L390.235%2C143.066%20L390.235%2C151.144%20L392.704%2C151.144%20L392.704%2C153.3%20L385.314%2C153.3%20L385.314%2C151.144%20L387.782%2C151.144%20L387.782%2C143.066%20L385.314%2C143.066%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22406.11%22%20y%3D%22152.147%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2242.034%22%20font-style%3D%22italic%22%3EModel%3C%2Ftext%3E%3Cline%20x1%3D%22363.16%22%20y1%3D%22163.3%22%20x2%3D%22462.376%22%20y2%3D%22163.3%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22363.16%22%20y1%3D%22171.3%22%20x2%3D%22462.376%22%20y2%3D%22171.3%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22373.16%22%20cy%3D%22184.948%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22382.16%22%20y%3D%22188.295%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2275.216%22%3EgetName()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20LocalTrain--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22LocalTrain%22%20id%3D%22ent0002%22%20data-source-line%3D%226%22%3E%3Crect%20x%3D%22203.68%22%20y%3D%22255.59%22%20width%3D%22104.181%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22218.68%22%20cy%3D%22271.59%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M221.649%2C277.231%20Q221.071%2C277.528%20220.43%2C277.668%20Q219.789%2C277.824%20219.086%2C277.824%20Q216.586%2C277.824%20215.258%2C276.184%20Q213.946%2C274.528%20213.946%2C271.403%20Q213.946%2C268.278%20215.258%2C266.621%20Q216.586%2C264.965%20219.086%2C264.965%20Q219.789%2C264.965%20220.43%2C265.121%20Q221.086%2C265.278%20221.649%2C265.574%20L221.649%2C268.293%20Q221.024%2C267.715%20220.43%2C267.449%20Q219.836%2C267.168%20219.211%2C267.168%20Q217.868%2C267.168%20217.18%2C268.246%20Q216.493%2C269.309%20216.493%2C271.403%20Q216.493%2C273.496%20217.18%2C274.574%20Q217.868%2C275.637%20219.211%2C275.637%20Q219.836%2C275.637%20220.43%2C275.371%20Q221.024%2C275.09%20221.649%2C274.512%20L221.649%2C277.231%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22232.68%22%20y%3D%22276.437%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2272.181%22%3ELocalTrain%3C%2Ftext%3E%3Cline%20x1%3D%22204.68%22%20y1%3D%22287.59%22%20x2%3D%22306.861%22%20y2%3D%22287.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22204.68%22%20y1%3D%22295.59%22%20x2%3D%22306.861%22%20y2%3D%22295.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22214.68%22%20cy%3D%22309.238%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22223.68%22%20y%3D%22312.585%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2275.216%22%3EgetName()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20LimitedExpress--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22LimitedExpress%22%20id%3D%22ent0003%22%20data-source-line%3D%2211%22%3E%3Crect%20x%3D%22343.18%22%20y%3D%22255.59%22%20width%3D%22139.181%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22358.18%22%20cy%3D%22271.59%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M361.149%2C277.231%20Q360.571%2C277.528%20359.93%2C277.668%20Q359.289%2C277.824%20358.586%2C277.824%20Q356.086%2C277.824%20354.758%2C276.184%20Q353.446%2C274.528%20353.446%2C271.403%20Q353.446%2C268.278%20354.758%2C266.621%20Q356.086%2C264.965%20358.586%2C264.965%20Q359.289%2C264.965%20359.93%2C265.121%20Q360.586%2C265.278%20361.149%2C265.574%20L361.149%2C268.293%20Q360.524%2C267.715%20359.93%2C267.449%20Q359.336%2C267.168%20358.711%2C267.168%20Q357.368%2C267.168%20356.68%2C268.246%20Q355.993%2C269.309%20355.993%2C271.403%20Q355.993%2C273.496%20356.68%2C274.574%20Q357.368%2C275.637%20358.711%2C275.637%20Q359.336%2C275.637%20359.93%2C275.371%20Q360.524%2C275.09%20361.149%2C274.512%20L361.149%2C277.231%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22372.18%22%20y%3D%22276.437%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22107.181%22%3ELimitedExpress%3C%2Ftext%3E%3Cline%20x1%3D%22344.18%22%20y1%3D%22287.59%22%20x2%3D%22481.361%22%20y2%3D%22287.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22344.18%22%20y1%3D%22295.59%22%20x2%3D%22481.361%22%20y2%3D%22295.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22354.18%22%20cy%3D%22309.238%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22363.18%22%20y%3D%22312.585%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2275.216%22%3EgetName()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20SemiExpress--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22SemiExpress%22%20id%3D%22ent0004%22%20data-source-line%3D%2216%22%3E%3Crect%20x%3D%22517.77%22%20y%3D%22255.59%22%20width%3D%22122.002%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22532.77%22%20cy%3D%22271.59%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M535.739%2C277.231%20Q535.161%2C277.528%20534.52%2C277.668%20Q533.879%2C277.824%20533.176%2C277.824%20Q530.676%2C277.824%20529.348%2C276.184%20Q528.036%2C274.528%20528.036%2C271.403%20Q528.036%2C268.278%20529.348%2C266.621%20Q530.676%2C264.965%20533.176%2C264.965%20Q533.879%2C264.965%20534.52%2C265.121%20Q535.176%2C265.278%20535.739%2C265.574%20L535.739%2C268.293%20Q535.114%2C267.715%20534.52%2C267.449%20Q533.926%2C267.168%20533.301%2C267.168%20Q531.958%2C267.168%20531.27%2C268.246%20Q530.583%2C269.309%20530.583%2C271.403%20Q530.583%2C273.496%20531.27%2C274.574%20Q531.958%2C275.637%20533.301%2C275.637%20Q533.926%2C275.637%20534.52%2C275.371%20Q535.114%2C275.09%20535.739%2C274.512%20L535.739%2C277.231%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22546.77%22%20y%3D%22276.437%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2290.002%22%3ESemiExpress%3C%2Ftext%3E%3Cline%20x1%3D%22518.77%22%20y1%3D%22287.59%22%20x2%3D%22638.772%22%20y2%3D%22287.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22518.77%22%20y1%3D%22295.59%22%20x2%3D%22638.772%22%20y2%3D%22295.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22528.77%22%20cy%3D%22309.238%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22537.77%22%20y%3D%22312.585%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2275.216%22%3EgetName()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20RailwayModelFactory--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22RailwayModelFactory%22%20id%3D%22ent0008%22%20data-source-line%3D%2225%22%3E%3Crect%20x%3D%22281.2%22%20y%3D%227%22%20width%3D%22263.139%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22334.09%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M337.058%2C28.641%20Q336.48%2C28.938%20335.84%2C29.078%20Q335.199%2C29.234%20334.496%2C29.234%20Q331.996%2C29.234%20330.668%2C27.594%20Q329.355%2C25.938%20329.355%2C22.813%20Q329.355%2C19.688%20330.668%2C18.031%20Q331.996%2C16.375%20334.496%2C16.375%20Q335.199%2C16.375%20335.84%2C16.531%20Q336.496%2C16.688%20337.058%2C16.984%20L337.058%2C19.703%20Q336.433%2C19.125%20335.84%2C18.859%20Q335.246%2C18.578%20334.621%2C18.578%20Q333.277%2C18.578%20332.59%2C19.656%20Q331.902%2C20.719%20331.902%2C22.813%20Q331.902%2C24.906%20332.59%2C25.984%20Q333.277%2C27.047%20334.621%2C27.047%20Q335.246%2C27.047%20335.84%2C26.781%20Q336.433%2C26.5%20337.058%2C25.922%20L337.058%2C28.641%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22354.59%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22148.859%22%3ERailwayModelFactory%3C%2Ftext%3E%3Cline%20x1%3D%22282.2%22%20y1%3D%2239%22%20x2%3D%22543.339%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22282.2%22%20y1%3D%2247%22%20x2%3D%22543.339%22%20y2%3D%2247%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22292.2%22%20cy%3D%2260.648%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22301.2%22%20y%3D%2263.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22237.139%22%3EcreateModel(string%20model)%3A%20Model%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Program%22%20id%3D%22ent0010%22%20data-source-line%3D%2232%22%3E%3Crect%20x%3D%227%22%20y%3D%227%22%20width%3D%22239.534%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2292.706%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M95.674%2C28.641%20Q95.096%2C28.938%2094.456%2C29.078%20Q93.815%2C29.234%2093.112%2C29.234%20Q90.612%2C29.234%2089.284%2C27.594%20Q87.971%2C25.938%2087.971%2C22.813%20Q87.971%2C19.688%2089.284%2C18.031%20Q90.612%2C16.375%2093.112%2C16.375%20Q93.815%2C16.375%2094.456%2C16.531%20Q95.112%2C16.688%2095.674%2C16.984%20L95.674%2C19.703%20Q95.049%2C19.125%2094.456%2C18.859%20Q93.862%2C18.578%2093.237%2C18.578%20Q91.893%2C18.578%2091.206%2C19.656%20Q90.518%2C20.719%2090.518%2C22.813%20Q90.518%2C24.906%2091.206%2C25.984%20Q91.893%2C27.047%2093.237%2C27.047%20Q93.862%2C27.047%2094.456%2C26.781%20Q95.049%2C26.5%2095.674%2C25.922%20L95.674%2C28.641%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22113.206%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2259.623%22%3EProgram%3C%2Ftext%3E%3Cline%20x1%3D%228%22%20y1%3D%2239%22%20x2%3D%22245.534%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%228%22%20y1%3D%2247%22%20x2%3D%22245.534%22%20y2%3D%2247%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%2260.648%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2227%22%20y%3D%2263.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22213.534%22%3EgetModel(string%20model)%3A%20string%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20Model%20to%20LocalTrain--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk5%22%20data-source-line%3D%2221%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M358.14%2C207.002%20C334.79%2C225.192%20319.71%2C236.94%20296.33%2C255.14%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22Model-backto-LocalTrain%22%20codeLine%3D%2221%22%2F%3E%3Cpolygon%20points%3D%22372.34%2C195.94%2C354.453%2C202.269%2C361.827%2C211.735%2C372.34%2C195.94%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Model%20to%20LimitedExpress--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0003%22%20id%3D%22lnk6%22%20data-source-line%3D%2222%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M412.77%2C213.94%20C412.77%2C232.2%20412.77%2C237.11%20412.77%2C255.35%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22Model-backto-LimitedExpress%22%20codeLine%3D%2222%22%2F%3E%3Cpolygon%20points%3D%22412.77%2C195.94%2C406.77%2C213.94%2C418.77%2C213.94%2C412.77%2C195.94%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Model%20to%20SemiExpress--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0004%22%20id%3D%22lnk7%22%20data-source-line%3D%2223%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M470.01%2C206.619%20C494.69%2C224.809%20511.16%2C236.94%20535.87%2C255.14%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22Model-backto-SemiExpress%22%20codeLine%3D%2223%22%2F%3E%3Cpolygon%20points%3D%22455.52%2C195.94%2C466.45%2C211.449%2C473.569%2C201.789%2C455.52%2C195.94%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20RailwayModelFactory%20to%20Model--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0008%22%20data-entity-2%3D%22ent0001%22%20id%3D%22lnk9%22%20data-source-line%3D%2230%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M412.77%2C71.64%20C412.77%2C89.9%20412.77%2C107.82%20412.77%2C126.06%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22RailwayModelFactory-to-Model%22%20codeLine%3D%2230%22%2F%3E%3Cpolygon%20points%3D%22412.77%2C131.06%2C416.77%2C122.06%2C412.77%2C126.06%2C408.77%2C122.06%2C412.77%2C131.06%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Program%20to%20RailwayModelFactory--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0010%22%20data-entity-2%3D%22ent0008%22%20id%3D%22lnk11%22%20data-source-line%3D%2237%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M246.86%2C39.15%20C258.21%2C39.15%20264.55%2C39.15%20275.89%2C39.15%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Program-to-RailwayModelFactory%22%20codeLine%3D%2237%22%2F%3E%3Cpolygon%20points%3D%22280.89%2C39.15%2C271.89%2C35.15%2C275.89%2C39.15%2C271.89%2C43.15%2C280.89%2C39.15%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C%3Fplantuml-src%20VP312i8m38RlVOeSDsHx015lUb8PwWk4Bev0kqfQqA6-kziiM67kcEJBzwVbDf1SK1FiNKr6FHJ00XeA1xIKvUgbb3ReFUoSHdCMv7Q6OSk1witzAkJzV-v4bcUWyH9OFSioJKsxlpd993N7i2EokM4tGblKmKaNGxKG1Xe7cG_2RGDsAF9b_8p-bebjA8fr16949QuHjD-tJ3e_vI2DFFIU2VyR%3F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2020/08/30/Class-Diagram-Transport-Simple-Factory-Pattern/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：運輸系統（簡單工廠模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/buildings-at-night.webp",
+        "keywords": "Design Pattern",
+        "genre": "Clean Code",
+        "datePublished": "2020-08-30",
+        "dateCreated": "2020-08-30",
+        "dateModified": "2026-06-25",
+        "url": "https://yncbearz.github.io/2020/08/30/Class-Diagram-Transport-Simple-Factory-Pattern/",
+        "description": "Class-Diagram-Transport-Simple-Factory-nattern",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/08/30/Factory-Method-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            工廠方法模式
+        
+        </p>
+        <i class="icon fa-solid fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/08/30/Example-Transport-Simple-Factory-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：運輸系統（簡單工廠模式)</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/I-AM-SHERLOCKED.webp)" alt="畢業前，你沒想過的那些事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="title">畢業前，你沒想過的那些事</a></p>
+                            <p class="item-date"><time datetime="2026-03-22T06:08:05.000Z" itemprop="datePublished">2026-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Talk/" rel="tag">Talk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '08f51f27277cb552a9a27e1eb89f6215',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1785921740718')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

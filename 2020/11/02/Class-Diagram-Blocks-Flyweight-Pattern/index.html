@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：文字積木 （蠅量模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Design Pattern" />
+    
+    <meta name="description" content="Class-Diagram-Blocks-Flyweight-Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：文字積木 （蠅量模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/11/02/Class-Diagram-Blocks-Flyweight-Pattern/">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class-Diagram-Blocks-Flyweight-Pattern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/playing-card.webp">
+<meta property="article:published_time" content="2020-11-02T13:24:10.000Z">
+<meta property="article:modified_time" content="2026-06-25T04:58:53.982Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/playing-card.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Blocks-Flyweight-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：文字積木 （蠅量模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2020/11/02/Class-Diagram-Blocks-Flyweight-Pattern/" class="article-date">
+       <time datetime="2020-11-02T13:24:10.000Z" itemprop="datePublished">2020-11-02</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/11/02/Example-Blocks-Flyweight-Pattern/" title="範例：文字積木 （蠅量模式）">文字積木</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20data-diagram-type%3D%22CLASS%22%20style%3D%22width%3A497px%3Bheight%3A400px%3Bbackground%3A%23FFFFFF%3B%22%20width%3D%22497px%22%20height%3D%22400px%22%20viewBox%3D%220%200%20497%20400%22%20zoomAndPan%3D%22magnify%22%20preserveAspectRatio%3D%22none%22%20contentStyleType%3D%22text%2Fcss%22%3E%3C%3Fplantuml%201.2026.7beta11%3F%3E%3Cdefs%2F%3E%3Cg%20font-family%3D%22sans-serif%22%20lengthAdjust%3D%22spacing%22%3E%3C!--class%20Block--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Block%22%20id%3D%22ent0001%22%20data-source-line%3D%221%22%3E%3Crect%20x%3D%2217.2%22%20y%3D%2223.3%22%20width%3D%22215.287%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22101.661%22%20cy%3D%2239.3%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M97.583%2C35.066%20L97.583%2C32.909%20L104.974%2C32.909%20L104.974%2C35.066%20L102.505%2C35.066%20L102.505%2C43.144%20L104.974%2C43.144%20L104.974%2C45.3%20L97.583%2C45.3%20L97.583%2C43.144%20L100.052%2C43.144%20L100.052%2C35.066%20L97.583%2C35.066%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22122.161%22%20y%3D%2244.147%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2237.864%22%20font-style%3D%22italic%22%3EBlock%3C%2Ftext%3E%3Cline%20x1%3D%2218.2%22%20y1%3D%2255.3%22%20x2%3D%22231.487%22%20y2%3D%2255.3%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%2218.2%22%20y1%3D%2263.3%22%20x2%3D%22231.487%22%20y2%3D%2263.3%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2228.2%22%20cy%3D%2276.948%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2237.2%22%20y%3D%2280.295%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22127.107%22%3EgetShape()%3A%20string%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2228.2%22%20cy%3D%2293.245%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2237.2%22%20y%3D%2296.592%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22189.287%22%3Edisplay(string%20word)%3A%20string%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20ConcreteBlock--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22ConcreteBlock%22%20id%3D%22ent0002%22%20data-source-line%3D%227%22%3E%3Crect%20x%3D%22267.2%22%20y%3D%227%22%20width%3D%22215.287%22%20height%3D%22113.188%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22319.97%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M322.939%2C28.641%20Q322.361%2C28.938%20321.72%2C29.078%20Q321.079%2C29.234%20320.376%2C29.234%20Q317.876%2C29.234%20316.548%2C27.594%20Q315.236%2C25.938%20315.236%2C22.813%20Q315.236%2C19.688%20316.548%2C18.031%20Q317.876%2C16.375%20320.376%2C16.375%20Q321.079%2C16.375%20321.72%2C16.531%20Q322.376%2C16.688%20322.939%2C16.984%20L322.939%2C19.703%20Q322.314%2C19.125%20321.72%2C18.859%20Q321.126%2C18.578%20320.501%2C18.578%20Q319.158%2C18.578%20318.47%2C19.656%20Q317.783%2C20.719%20317.783%2C22.813%20Q317.783%2C24.906%20318.47%2C25.984%20Q319.158%2C27.047%20320.501%2C27.047%20Q321.126%2C27.047%20321.72%2C26.781%20Q322.314%2C26.5%20322.939%2C25.922%20L322.939%2C28.641%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22340.47%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22101.247%22%3EConcreteBlock%3C%2Ftext%3E%3Cline%20x1%3D%22268.2%22%20y1%3D%2239%22%20x2%3D%22481.487%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22278.2%2C47.648%2C282.2%2C51.648%2C278.2%2C55.648%2C274.2%2C51.648%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22287.2%22%20y%3D%2255.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2291.602%22%3Eshape%3A%20string%3C%2Ftext%3E%3Cline%20x1%3D%22268.2%22%20y1%3D%2263.297%22%20x2%3D%22481.487%22%20y2%3D%2263.297%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22278.2%22%20cy%3D%2276.945%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22287.2%22%20y%3D%2280.292%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22177.543%22%3E__construct(string%20shape)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22278.2%22%20cy%3D%2293.242%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22287.2%22%20y%3D%2296.589%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22127.107%22%3EgetShape()%3A%20string%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22278.2%22%20cy%3D%22109.539%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22287.2%22%20y%3D%22112.886%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22189.287%22%3Edisplay(string%20word)%3A%20string%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20BlockFactory--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22BlockFactory%22%20id%3D%22ent0004%22%20data-source-line%3D%2218%22%3E%3Crect%20x%3D%229%22%20y%3D%22180.19%22%20width%3D%22231.693%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2275.452%22%20cy%3D%22196.19%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M78.421%2C201.831%20Q77.843%2C202.128%2077.202%2C202.268%20Q76.562%2C202.424%2075.858%2C202.424%20Q73.358%2C202.424%2072.03%2C200.784%20Q70.718%2C199.128%2070.718%2C196.003%20Q70.718%2C192.878%2072.03%2C191.221%20Q73.358%2C189.565%2075.858%2C189.565%20Q76.562%2C189.565%2077.202%2C189.721%20Q77.858%2C189.878%2078.421%2C190.174%20L78.421%2C192.893%20Q77.796%2C192.315%2077.202%2C192.049%20Q76.608%2C191.768%2075.983%2C191.768%20Q74.64%2C191.768%2073.952%2C192.846%20Q73.265%2C193.909%2073.265%2C196.003%20Q73.265%2C198.096%2073.952%2C199.174%20Q74.64%2C200.237%2075.983%2C200.237%20Q76.608%2C200.237%2077.202%2C199.971%20Q77.796%2C199.69%2078.421%2C199.112%20L78.421%2C201.831%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%2295.952%22%20y%3D%22201.037%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2290.289%22%3EBlockFactory%3C%2Ftext%3E%3Cline%20x1%3D%2210%22%20y1%3D%22212.19%22%20x2%3D%22239.693%22%20y2%3D%22212.19%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%2220%2C220.838%2C24%2C224.838%2C20%2C228.838%2C16%2C224.838%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22229.185%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22102.396%22%3Eblocks%3A%20Block%5B%5D%3C%2Ftext%3E%3Cline%20x1%3D%2210%22%20y1%3D%22236.487%22%20x2%3D%22239.693%22%20y2%3D%22236.487%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22250.135%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22253.482%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22205.693%22%3EgetBlock(string%20shape)%3A%20Block%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Program%22%20id%3D%22ent0006%22%20data-source-line%3D%2227%22%3E%3Crect%20x%3D%2249.25%22%20y%3D%22320.78%22%20width%3D%22151.193%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2291.057%22%20cy%3D%22336.78%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M94.025%2C342.421%20Q93.447%2C342.718%2092.807%2C342.858%20Q92.166%2C343.014%2091.463%2C343.014%20Q88.963%2C343.014%2087.635%2C341.374%20Q86.322%2C339.718%2086.322%2C336.593%20Q86.322%2C333.468%2087.635%2C331.811%20Q88.963%2C330.155%2091.463%2C330.155%20Q92.166%2C330.155%2092.807%2C330.311%20Q93.463%2C330.468%2094.025%2C330.764%20L94.025%2C333.483%20Q93.4%2C332.905%2092.807%2C332.639%20Q92.213%2C332.358%2091.588%2C332.358%20Q90.244%2C332.358%2089.557%2C333.436%20Q88.869%2C334.499%2088.869%2C336.593%20Q88.869%2C338.686%2089.557%2C339.764%20Q90.244%2C340.827%2091.588%2C340.827%20Q92.213%2C340.827%2092.807%2C340.561%20Q93.4%2C340.28%2094.025%2C339.702%20L94.025%2C342.421%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22111.014%22%20y%3D%22341.627%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2259.623%22%3EProgram%3C%2Ftext%3E%3Cline%20x1%3D%2250.25%22%20y1%3D%22352.78%22%20x2%3D%22199.443%22%20y2%3D%22352.78%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%2250.25%22%20y1%3D%22360.78%22%20x2%3D%22199.443%22%20y2%3D%22360.78%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2260.25%22%20cy%3D%22374.428%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2269.25%22%20y%3D%22377.775%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22125.193%22%3EgetBlocks()%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20Block%20to%20ConcreteBlock--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk3%22%20data-source-line%3D%2216%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M250.76%2C63.6%20C262.14%2C63.6%20255.51%2C63.6%20266.89%2C63.6%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Block-backto-ConcreteBlock%22%20codeLine%3D%2216%22%2F%3E%3Cpolygon%20points%3D%22232.76%2C63.6%2C250.76%2C69.6%2C250.76%2C57.6%2C232.76%2C63.6%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Block%20to%20BlockFactory--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0004%22%20id%3D%22lnk5%22%20data-source-line%3D%2225%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M124.85%2C109.08%20C124.85%2C132.3%20124.85%2C156.56%20124.85%2C179.8%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Block-backto-BlockFactory%22%20codeLine%3D%2225%22%2F%3E%3Cpolygon%20points%3D%22124.85%2C104.08%2C120.85%2C113.08%2C124.85%2C109.08%2C128.85%2C113.08%2C124.85%2C104.08%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20BlockFactory%20to%20Program--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0004%22%20data-entity-2%3D%22ent0006%22%20id%3D%22lnk7%22%20data-source-line%3D%2232%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M124.85%2C265.98%20C124.85%2C285.02%20124.85%2C302.56%20124.85%2C320.43%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22BlockFactory-backto-Program%22%20codeLine%3D%2232%22%2F%3E%3Cpolygon%20points%3D%22124.85%2C260.98%2C120.85%2C269.98%2C124.85%2C265.98%2C128.85%2C269.98%2C124.85%2C260.98%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C%3Fplantuml-src%20fP313e8m44Jl_OfDl40CFq0yQUBPnACXP2qLYTYItHf3r7zNbWBYrUDEPz_CjhBUq0crWNNjz4Kz5C0IIkFtPsnC5AV0dYfRYbnKtDJOHhq4TqV5P7WffMjaXespcemt4t01tD56gy3oN3lx4MxQ3q1nnVyqa4nOFPEV5g6Q35lKtb4RcXqxYTF-wP2f8LtcUR5W-if9aZaonEp8bOJNwJF5nDqjI8JjI0Xx0WfBRm00%3F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2020/11/02/Class-Diagram-Blocks-Flyweight-Pattern/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：文字積木 （蠅量模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/playing-card.webp",
+        "keywords": "Design Pattern",
+        "genre": "Clean Code",
+        "datePublished": "2020-11-02",
+        "dateCreated": "2020-11-02",
+        "dateModified": "2026-06-25",
+        "url": "https://yncbearz.github.io/2020/11/02/Class-Diagram-Blocks-Flyweight-Pattern/",
+        "description": "Class-Diagram-Blocks-Flyweight-Pattern",
+        "wordCount": 11
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/11/04/Interpreter-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            解譯器模式
+        
+        </p>
+        <i class="icon fa-solid fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/11/02/Example-Blocks-Flyweight-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：文字積木 （蠅量模式）</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/I-AM-SHERLOCKED.webp)" alt="畢業前，你沒想過的那些事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="title">畢業前，你沒想過的那些事</a></p>
+                            <p class="item-date"><time datetime="2026-03-22T06:08:05.000Z" itemprop="datePublished">2026-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Talk/" rel="tag">Talk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'a54640ddf2505b47a4bcc79deedbbe5c',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1785921740718')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

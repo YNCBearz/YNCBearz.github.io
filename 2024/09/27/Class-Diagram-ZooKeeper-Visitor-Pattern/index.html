@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：動物園管理員（訪問者模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Design Pattern" />
+    
+    <meta name="description" content="Class-Diagram-ZooKeeper-Visitor-Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：動物園管理員（訪問者模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class-Diagram-ZooKeeper-Visitor-Pattern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/chalkboard.webp">
+<meta property="article:published_time" content="2024-09-26T16:27:50.000Z">
+<meta property="article:modified_time" content="2026-06-25T04:58:53.986Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/chalkboard.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-ZooKeeper-Visitor-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：動物園管理員（訪問者模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/" class="article-date">
+       <time datetime="2024-09-26T16:27:50.000Z" itemprop="datePublished">2024-09-27</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2024/09/27/Example-ZooKeeper-Visitor-Pattern/" title="範例：動物園管理員（訪問者模式）">動物園管理員</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20data-diagram-type%3D%22CLASS%22%20style%3D%22width%3A517px%3Bheight%3A400px%3Bbackground%3A%23FFFFFF%3B%22%20width%3D%22517px%22%20height%3D%22400px%22%20viewBox%3D%220%200%20517%20400%22%20zoomAndPan%3D%22magnify%22%20preserveAspectRatio%3D%22none%22%20contentStyleType%3D%22text%2Fcss%22%3E%3C%3Fplantuml%201.2026.7beta11%3F%3E%3Cdefs%2F%3E%3Cg%20font-family%3D%22sans-serif%22%20lengthAdjust%3D%22spacing%22%3E%3C!--class%20IFeeder--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22IFeeder%22%20id%3D%22ent0001%22%20data-source-line%3D%221%22%3E%3Crect%20x%3D%22107.02%22%20y%3D%227%22%20width%3D%22125.613%22%20height%3D%2296.891%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22140.447%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M136.369%2C18.766%20L136.369%2C16.609%20L143.76%2C16.609%20L143.76%2C18.766%20L141.291%2C18.766%20L141.291%2C26.844%20L143.76%2C26.844%20L143.76%2C29%20L136.369%2C29%20L136.369%2C26.844%20L138.838%2C26.844%20L138.838%2C18.766%20L136.369%2C18.766%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22158.542%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2252.664%22%20font-style%3D%22italic%22%3EIFeeder%3C%2Ftext%3E%3Cline%20x1%3D%22108.02%22%20y1%3D%2239%22%20x2%3D%22231.633%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22108.02%22%20y1%3D%2247%22%20x2%3D%22231.633%22%20y2%3D%2247%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22118.02%22%20cy%3D%2260.648%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22127.02%22%20y%3D%2263.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2299.613%22%3EFeed(Monkey)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22118.02%22%20cy%3D%2276.945%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22127.02%22%20y%3D%2280.292%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2274.881%22%3EFeed(Cow)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22118.02%22%20cy%3D%2293.242%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22127.02%22%20y%3D%2296.589%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2274.218%22%3EFeed(Lion)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Feeder--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Feeder%22%20id%3D%22ent0002%22%20data-source-line%3D%227%22%3E%3Crect%20x%3D%22107.02%22%20y%3D%22163.89%22%20width%3D%22125.613%22%20height%3D%2296.891%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22142.305%22%20cy%3D%22179.89%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M145.274%2C185.531%20Q144.696%2C185.828%20144.055%2C185.968%20Q143.415%2C186.124%20142.711%2C186.124%20Q140.211%2C186.124%20138.883%2C184.484%20Q137.571%2C182.828%20137.571%2C179.703%20Q137.571%2C176.578%20138.883%2C174.921%20Q140.211%2C173.265%20142.711%2C173.265%20Q143.415%2C173.265%20144.055%2C173.421%20Q144.711%2C173.578%20145.274%2C173.874%20L145.274%2C176.593%20Q144.649%2C176.015%20144.055%2C175.749%20Q143.461%2C175.468%20142.836%2C175.468%20Q141.493%2C175.468%20140.805%2C176.546%20Q140.118%2C177.609%20140.118%2C179.703%20Q140.118%2C181.796%20140.805%2C182.874%20Q141.493%2C183.937%20142.836%2C183.937%20Q143.461%2C183.937%20144.055%2C183.671%20Q144.649%2C183.39%20145.274%2C182.812%20L145.274%2C185.531%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22160.813%22%20y%3D%22184.737%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2248.535%22%3EFeeder%3C%2Ftext%3E%3Cline%20x1%3D%22108.02%22%20y1%3D%22195.89%22%20x2%3D%22231.633%22%20y2%3D%22195.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22108.02%22%20y1%3D%22203.89%22%20x2%3D%22231.633%22%20y2%3D%22203.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22118.02%22%20cy%3D%22217.538%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22127.02%22%20y%3D%22220.885%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2299.613%22%3EFeed(Monkey)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22118.02%22%20cy%3D%22233.835%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22127.02%22%20y%3D%22237.182%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2274.881%22%3EFeed(Cow)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22118.02%22%20cy%3D%22250.132%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22127.02%22%20y%3D%22253.479%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2274.218%22%3EFeed(Lion)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20IFeedable--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22IFeedable%22%20id%3D%22ent0003%22%20data-source-line%3D%2213%22%3E%3Crect%20x%3D%22268%22%20y%3D%22180.19%22%20width%3D%22141.644%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22301.621%22%20cy%3D%22196.19%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M297.543%2C191.956%20L297.543%2C189.799%20L304.933%2C189.799%20L304.933%2C191.956%20L302.465%2C191.956%20L302.465%2C200.034%20L304.933%2C200.034%20L304.933%2C202.19%20L297.543%2C202.19%20L297.543%2C200.034%20L300.012%2C200.034%20L300.012%2C191.956%20L297.543%2C191.956%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22319.759%22%20y%3D%22201.037%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2268.264%22%20font-style%3D%22italic%22%3EIFeedable%3C%2Ftext%3E%3Cline%20x1%3D%22269%22%20y1%3D%22212.19%22%20x2%3D%22408.644%22%20y2%3D%22212.19%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22269%22%20y1%3D%22220.19%22%20x2%3D%22408.644%22%20y2%3D%22220.19%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22279%22%20cy%3D%22233.838%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22288%22%20y%3D%22237.185%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22115.644%22%3EFeedBy(IFeeder)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Monkey--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Monkey%22%20id%3D%22ent0004%22%20data-source-line%3D%2217%22%3E%3Crect%20x%3D%227%22%20y%3D%22320.78%22%20width%3D%22141.644%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2246.804%22%20cy%3D%22336.78%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M49.773%2C342.421%20Q49.195%2C342.718%2048.554%2C342.858%20Q47.913%2C343.014%2047.21%2C343.014%20Q44.71%2C343.014%2043.382%2C341.374%20Q42.07%2C339.718%2042.07%2C336.593%20Q42.07%2C333.468%2043.382%2C331.811%20Q44.71%2C330.155%2047.21%2C330.155%20Q47.913%2C330.155%2048.554%2C330.311%20Q49.21%2C330.468%2049.773%2C330.764%20L49.773%2C333.483%20Q49.148%2C332.905%2048.554%2C332.639%20Q47.96%2C332.358%2047.335%2C332.358%20Q45.992%2C332.358%2045.304%2C333.436%20Q44.617%2C334.499%2044.617%2C336.593%20Q44.617%2C338.686%2045.304%2C339.764%20Q45.992%2C340.827%2047.335%2C340.827%20Q47.96%2C340.827%2048.554%2C340.561%20Q49.148%2C340.28%2049.773%2C339.702%20L49.773%2C342.421%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%2266.316%22%20y%3D%22341.627%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2254.523%22%3EMonkey%3C%2Ftext%3E%3Cline%20x1%3D%228%22%20y1%3D%22352.78%22%20x2%3D%22147.644%22%20y2%3D%22352.78%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%228%22%20y1%3D%22360.78%22%20x2%3D%22147.644%22%20y2%3D%22360.78%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%22374.428%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2227%22%20y%3D%22377.775%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22115.644%22%3EFeedBy(IFeeder)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Cow--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Cow%22%20id%3D%22ent0005%22%20data-source-line%3D%2221%22%3E%3Crect%20x%3D%22184%22%20y%3D%22320.78%22%20width%3D%22141.644%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22235.676%22%20cy%3D%22336.78%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M238.645%2C342.421%20Q238.067%2C342.718%20237.426%2C342.858%20Q236.786%2C343.014%20236.083%2C343.014%20Q233.583%2C343.014%20232.254%2C341.374%20Q230.942%2C339.718%20230.942%2C336.593%20Q230.942%2C333.468%20232.254%2C331.811%20Q233.583%2C330.155%20236.083%2C330.155%20Q236.786%2C330.155%20237.426%2C330.311%20Q238.083%2C330.468%20238.645%2C330.764%20L238.645%2C333.483%20Q238.02%2C332.905%20237.426%2C332.639%20Q236.833%2C332.358%20236.208%2C332.358%20Q234.864%2C332.358%20234.176%2C333.436%20Q233.489%2C334.499%20233.489%2C336.593%20Q233.489%2C338.686%20234.176%2C339.764%20Q234.864%2C340.827%20236.208%2C340.827%20Q236.833%2C340.827%20237.426%2C340.561%20Q238.02%2C340.28%20238.645%2C339.702%20L238.645%2C342.421%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22256.176%22%20y%3D%22341.627%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2229.791%22%3ECow%3C%2Ftext%3E%3Cline%20x1%3D%22185%22%20y1%3D%22352.78%22%20x2%3D%22324.644%22%20y2%3D%22352.78%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22185%22%20y1%3D%22360.78%22%20x2%3D%22324.644%22%20y2%3D%22360.78%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22195%22%20cy%3D%22374.428%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22204%22%20y%3D%22377.775%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22115.644%22%3EFeedBy(IFeeder)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Lion--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Lion%22%20id%3D%22ent0006%22%20data-source-line%3D%2225%22%3E%3Crect%20x%3D%22361%22%20y%3D%22320.78%22%20width%3D%22141.644%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22413.008%22%20cy%3D%22336.78%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M415.977%2C342.421%20Q415.398%2C342.718%20414.758%2C342.858%20Q414.117%2C343.014%20413.414%2C343.014%20Q410.914%2C343.014%20409.586%2C341.374%20Q408.273%2C339.718%20408.273%2C336.593%20Q408.273%2C333.468%20409.586%2C331.811%20Q410.914%2C330.155%20413.414%2C330.155%20Q414.117%2C330.155%20414.758%2C330.311%20Q415.414%2C330.468%20415.977%2C330.764%20L415.977%2C333.483%20Q415.352%2C332.905%20414.758%2C332.639%20Q414.164%2C332.358%20413.539%2C332.358%20Q412.195%2C332.358%20411.508%2C333.436%20Q410.82%2C334.499%20410.82%2C336.593%20Q410.82%2C338.686%20411.508%2C339.764%20Q412.195%2C340.827%20413.539%2C340.827%20Q414.164%2C340.827%20414.758%2C340.561%20Q415.352%2C340.28%20415.977%2C339.702%20L415.977%2C342.421%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22433.508%22%20y%3D%22341.627%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2229.128%22%3ELion%3C%2Ftext%3E%3Cline%20x1%3D%22362%22%20y1%3D%22352.78%22%20x2%3D%22501.644%22%20y2%3D%22352.78%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22362%22%20y1%3D%22360.78%22%20x2%3D%22501.644%22%20y2%3D%22360.78%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22372%22%20cy%3D%22374.428%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22381%22%20y%3D%22377.775%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22115.644%22%3EFeedBy(IFeeder)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Zoo--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Zoo%22%20id%3D%22ent0014%22%20data-source-line%3D%2238%22%3E%3Crect%20x%3D%22271.41%22%20y%3D%2223.3%22%20width%3D%22126.83%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22317.214%22%20cy%3D%2239.3%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M320.183%2C44.941%20Q319.605%2C45.238%20318.964%2C45.378%20Q318.324%2C45.534%20317.62%2C45.534%20Q315.12%2C45.534%20313.792%2C43.894%20Q312.48%2C42.238%20312.48%2C39.113%20Q312.48%2C35.988%20313.792%2C34.331%20Q315.12%2C32.675%20317.62%2C32.675%20Q318.324%2C32.675%20318.964%2C32.831%20Q319.62%2C32.988%20320.183%2C33.284%20L320.183%2C36.003%20Q319.558%2C35.425%20318.964%2C35.159%20Q318.37%2C34.878%20317.745%2C34.878%20Q316.402%2C34.878%20315.714%2C35.956%20Q315.027%2C37.019%20315.027%2C39.113%20Q315.027%2C41.206%20315.714%2C42.284%20Q316.402%2C43.347%20317.745%2C43.347%20Q318.37%2C43.347%20318.964%2C43.081%20Q319.558%2C42.8%20320.183%2C42.222%20L320.183%2C44.941%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22337.714%22%20y%3D%2244.147%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2226.722%22%3EZoo%3C%2Ftext%3E%3Cline%20x1%3D%22272.41%22%20y1%3D%2255.3%22%20x2%3D%22397.24%22%20y2%3D%2255.3%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22272.41%22%20y1%3D%2263.3%22%20x2%3D%22397.24%22%20y2%3D%2263.3%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22282.41%22%20cy%3D%2276.948%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22291.41%22%20y%3D%2280.295%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22100.83%22%3EFeedAnimals()%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20IFeeder%20to%20Feeder--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk7%22%20data-source-line%3D%2229%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M169.82%2C122.18%20C169.82%2C141.03%20169.82%2C144.64%20169.82%2C163.49%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22IFeeder-backto-Feeder%22%20codeLine%3D%2229%22%2F%3E%3Cpolygon%20points%3D%22169.82%2C104.18%2C163.82%2C122.18%2C175.82%2C122.18%2C169.82%2C104.18%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20IFeedable%20to%20Monkey--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0003%22%20data-entity-2%3D%22ent0004%22%20id%3D%22lnk8%22%20data-source-line%3D%2230%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M264.061%2C253.208%20C254.011%2C258.558%20259.56%2C255.61%20249.82%2C260.78%20C212.52%2C280.61%20170.64%2C302.81%20137.54%2C320.33%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22IFeedable-backto-Monkey%22%20codeLine%3D%2230%22%2F%3E%3Cpolygon%20points%3D%22279.95%2C244.75%2C261.242%2C247.912%2C266.881%2C258.505%2C279.95%2C244.75%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20IFeedable%20to%20Cow--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0003%22%20data-entity-2%3D%22ent0005%22%20id%3D%22lnk9%22%20data-source-line%3D%2231%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M310.428%2C260.182%20C296.678%2C282.862%20287.54%2C297.95%20273.81%2C320.61%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22IFeedable-backto-Cow%22%20codeLine%3D%2231%22%2F%3E%3Cpolygon%20points%3D%22319.76%2C244.79%2C305.298%2C257.072%2C315.559%2C263.293%2C319.76%2C244.79%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20IFeedable%20to%20Lion--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0003%22%20data-entity-2%3D%22ent0006%22%20id%3D%22lnk10%22%20data-source-line%3D%2232%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M369.95%2C259.736%20C385.17%2C282.416%20395.6%2C297.95%20410.8%2C320.61%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22IFeedable-backto-Lion%22%20codeLine%3D%2232%22%2F%3E%3Cpolygon%20points%3D%22359.92%2C244.79%2C364.968%2C263.08%2C374.932%2C256.393%2C359.92%2C244.79%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Feeder%20to%20Monkey--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0004%22%20id%3D%22lnk11%22%20data-source-line%3D%2234%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M138.16%2C261.03%20C125.06%2C280.77%20113.004%2C298.924%20101.334%2C316.514%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Feeder-to-Monkey%22%20codeLine%3D%2234%22%2F%3E%3Cpolygon%20points%3D%2298.57%2C320.68%2C106.879%2C315.392%2C101.334%2C316.514%2C100.212%2C310.969%2C98.57%2C320.68%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Feeder%20to%20Cow--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0005%22%20id%3D%22lnk12%22%20data-source-line%3D%2235%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M199.07%2C261.03%20C211.18%2C280.77%20222.256%2C298.828%20233.046%2C316.418%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Feeder-to-Cow%22%20codeLine%3D%2235%22%2F%3E%3Cpolygon%20points%3D%22235.66%2C320.68%2C234.364%2C310.917%2C233.046%2C316.418%2C227.544%2C315.1%2C235.66%2C320.68%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Feeder%20to%20Lion--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0006%22%20id%3D%22lnk13%22%20data-source-line%3D%2236%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M232.83%2C250.77%20C238.88%2C254.2%20244.95%2C257.59%20250.82%2C260.78%20C288.84%2C281.46%20327.626%2C301.097%20362.316%2C318.217%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Feeder-to-Lion%22%20codeLine%3D%2236%22%2F%3E%3Cpolygon%20points%3D%22366.8%2C320.43%2C360.5%2C312.86%2C362.316%2C318.217%2C356.959%2C320.034%2C366.8%2C320.43%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Zoo%20to%20Feeder--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0014%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk15%22%20data-source-line%3D%2242%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M301.43%2C87.79%20C278.27%2C109.54%20250.626%2C135.488%20224.366%2C160.138%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Zoo-to-Feeder%22%20codeLine%3D%2242%22%2F%3E%3Cpolygon%20points%3D%22220.72%2C163.56%2C230.02%2C160.317%2C224.366%2C160.138%2C224.544%2C154.484%2C220.72%2C163.56%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Zoo%20to%20IFeedable--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0014%22%20data-entity-2%3D%22ent0003%22%20id%3D%22lnk16%22%20data-source-line%3D%2243%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M335.63%2C87.79%20C336.32%2C114.58%20337.18%2C147.932%20337.88%2C174.772%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Zoo-to-IFeedable%22%20codeLine%3D%2243%22%2F%3E%3Cpolygon%20points%3D%22338.01%2C179.77%2C341.774%2C170.669%2C337.88%2C174.772%2C333.777%2C170.877%2C338.01%2C179.77%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C%3Fplantuml-src%20oymhIIrAIqnELV1qIqrDIIrIgEPIKD06iJLyy_EoKoiruNpd_784noSpFq-JgvQBApadiRXOWKpDcQZM9oRbf2BCSAhKW3eAoIA8kGGK0IqZe0Ba0fnAO45XKwEd1_KP5y9zO568Cz15WVQY2u4iukA26gYhQmVJYIG2qeN4XUY0E3CgFn_XIiUypDp4d68Di1j1CY3LKEV1k73R0G00%3F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<hr>
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：動物園管理員（訪問者模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/chalkboard.webp",
+        "keywords": "Design Pattern",
+        "genre": "Clean Code",
+        "datePublished": "2024-09-27",
+        "dateCreated": "2024-09-27",
+        "dateModified": "2026-06-25",
+        "url": "https://yncbearz.github.io/2024/09/27/Class-Diagram-ZooKeeper-Visitor-Pattern/",
+        "description": "Class-Diagram-ZooKeeper-Visitor-Pattern",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2025/02/22/How-To-Write-Code-With-Cursor/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            如何使用 Cursor 來寫程式
+        
+        </p>
+        <i class="icon fa-solid fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/09/27/Example-ZooKeeper-Visitor-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：動物園管理員（訪問者模式）</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/I-AM-SHERLOCKED.webp)" alt="畢業前，你沒想過的那些事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="title">畢業前，你沒想過的那些事</a></p>
+                            <p class="item-date"><time datetime="2026-03-22T06:08:05.000Z" itemprop="datePublished">2026-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Talk/" rel="tag">Talk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '3113e47a7df282aacfd24c7645aebde9',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1785921740718')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

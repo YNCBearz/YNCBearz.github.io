@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：仿真Git （備忘錄模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Design Pattern" />
+    
+    <meta name="description" content="Class-Diagram-Git-Memento-Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：仿真Git （備忘錄模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/10/26/Class-Diagram-Git-Memento-Pattern/">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class-Diagram-Git-Memento-Pattern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/code.webp">
+<meta property="article:published_time" content="2020-10-26T15:36:16.000Z">
+<meta property="article:modified_time" content="2026-06-25T04:58:53.983Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/code.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Git-Memento-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：仿真Git （備忘錄模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2020/10/26/Class-Diagram-Git-Memento-Pattern/" class="article-date">
+       <time datetime="2020-10-26T15:36:16.000Z" itemprop="datePublished">2020-10-26</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/10/25/Example-Git-Memento-Pattern/" title="範例：仿真Git （備忘錄模式）">仿真Git</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20data-diagram-type%3D%22CLASS%22%20style%3D%22width%3A573px%3Bheight%3A357px%3Bbackground%3A%23FFFFFF%3B%22%20width%3D%22573px%22%20height%3D%22357px%22%20viewBox%3D%220%200%20573%20357%22%20zoomAndPan%3D%22magnify%22%20preserveAspectRatio%3D%22none%22%20contentStyleType%3D%22text%2Fcss%22%3E%3C%3Fplantuml%201.2026.7beta11%3F%3E%3Cdefs%2F%3E%3Cg%20font-family%3D%22sans-serif%22%20lengthAdjust%3D%22spacing%22%3E%3C!--class%20Commit--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Commit%22%20id%3D%22ent0001%22%20data-source-line%3D%221%22%3E%3Crect%20x%3D%227%22%20y%3D%227%22%20width%3D%22195.06%22%20height%3D%2296.891%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2272.782%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M75.751%2C28.641%20Q75.173%2C28.938%2074.532%2C29.078%20Q73.892%2C29.234%2073.188%2C29.234%20Q70.688%2C29.234%2069.36%2C27.594%20Q68.048%2C25.938%2068.048%2C22.813%20Q68.048%2C19.688%2069.36%2C18.031%20Q70.688%2C16.375%2073.188%2C16.375%20Q73.892%2C16.375%2074.532%2C16.531%20Q75.188%2C16.688%2075.751%2C16.984%20L75.751%2C19.703%20Q75.126%2C19.125%2074.532%2C18.859%20Q73.938%2C18.578%2073.313%2C18.578%20Q71.97%2C18.578%2071.282%2C19.656%20Q70.595%2C20.719%2070.595%2C22.813%20Q70.595%2C24.906%2071.282%2C25.984%20Q71.97%2C27.047%2073.313%2C27.047%20Q73.938%2C27.047%2074.532%2C26.781%20Q75.126%2C26.5%2075.751%2C25.922%20L75.751%2C28.641%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%2293.282%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2254.995%22%3ECommit%3C%2Ftext%3E%3Cline%20x1%3D%228%22%20y1%3D%2239%22%20x2%3D%22201.06%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PRIVATE_FIELD%22%3E%3Crect%20x%3D%2215%22%20y%3D%2249.648%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23C82930%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2227%22%20y%3D%2255.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2233.763%22%3Ecode%3C%2Ftext%3E%3Cline%20x1%3D%228%22%20y1%3D%2263.297%22%20x2%3D%22201.06%22%20y2%3D%2263.297%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%2276.945%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2227%22%20y%3D%2280.292%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22169.06%22%3E__construct(string%20code)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%2293.242%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2227%22%20y%3D%2296.589%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22119.109%22%3EgetCode()%3A%20string%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Folder--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Folder%22%20id%3D%22ent0002%22%20data-source-line%3D%229%22%3E%3Crect%20x%3D%22236.7%22%20y%3D%227%22%20width%3D%22321.654%22%20height%3D%2296.891%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22371.395%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M374.364%2C28.641%20Q373.786%2C28.938%20373.145%2C29.078%20Q372.505%2C29.234%20371.802%2C29.234%20Q369.302%2C29.234%20367.973%2C27.594%20Q366.661%2C25.938%20366.661%2C22.813%20Q366.661%2C19.688%20367.973%2C18.031%20Q369.302%2C16.375%20371.802%2C16.375%20Q372.505%2C16.375%20373.145%2C16.531%20Q373.802%2C16.688%20374.364%2C16.984%20L374.364%2C19.703%20Q373.739%2C19.125%20373.145%2C18.859%20Q372.552%2C18.578%20371.927%2C18.578%20Q370.583%2C18.578%20369.895%2C19.656%20Q369.208%2C20.719%20369.208%2C22.813%20Q369.208%2C24.906%20369.895%2C25.984%20Q370.583%2C27.047%20371.927%2C27.047%20Q372.552%2C27.047%20373.145%2C26.781%20Q373.739%2C26.5%20374.364%2C25.922%20L374.364%2C28.641%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22391.895%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2243.764%22%3EFolder%3C%2Ftext%3E%3Cline%20x1%3D%22237.7%22%20y1%3D%2239%22%20x2%3D%22557.354%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PRIVATE_FIELD%22%3E%3Crect%20x%3D%22244.7%22%20y%3D%2249.648%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23C82930%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22256.7%22%20y%3D%2255.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2260.211%22%3Ecommits%3C%2Ftext%3E%3Cline%20x1%3D%22237.7%22%20y1%3D%2263.297%22%20x2%3D%22557.354%22%20y2%3D%2263.297%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22247.7%22%20cy%3D%2276.945%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22256.7%22%20y%3D%2280.292%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22211.053%22%3EsaveCommit(Commit%20commit)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22247.7%22%20cy%3D%2293.242%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22256.7%22%20y%3D%2296.589%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22295.654%22%3EgetPreviousCommit(int%20previous)%3A%20Commit%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Git--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Git%22%20id%3D%22ent0004%22%20data-source-line%3D%2219%22%3E%3Crect%20x%3D%2299.85%22%20y%3D%22163.89%22%20width%3D%22217.358%22%20height%3D%22178.375%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22194.165%22%20cy%3D%22179.89%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M197.134%2C185.531%20Q196.556%2C185.828%20195.915%2C185.968%20Q195.275%2C186.124%20194.572%2C186.124%20Q192.072%2C186.124%20190.744%2C184.484%20Q189.431%2C182.828%20189.431%2C179.703%20Q189.431%2C176.578%20190.744%2C174.921%20Q192.072%2C173.265%20194.572%2C173.265%20Q195.275%2C173.265%20195.915%2C173.421%20Q196.572%2C173.578%20197.134%2C173.874%20L197.134%2C176.593%20Q196.509%2C176.015%20195.915%2C175.749%20Q195.322%2C175.468%20194.697%2C175.468%20Q193.353%2C175.468%20192.665%2C176.546%20Q191.978%2C177.609%20191.978%2C179.703%20Q191.978%2C181.796%20192.665%2C182.874%20Q193.353%2C183.937%20194.697%2C183.937%20Q195.322%2C183.937%20195.915%2C183.671%20Q196.509%2C183.39%20197.134%2C182.812%20L197.134%2C185.531%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22214.665%22%20y%3D%22184.737%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2220.228%22%3EGit%3C%2Ftext%3E%3Cline%20x1%3D%22100.85%22%20y1%3D%22195.89%22%20x2%3D%22316.208%22%20y2%3D%22195.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22110.85%2C204.538%2C114.85%2C208.538%2C110.85%2C212.538%2C106.85%2C208.538%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22119.85%22%20y%3D%22212.885%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2240.64%22%3Efolder%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PRIVATE_FIELD%22%3E%3Crect%20x%3D%22107.85%22%20y%3D%22222.835%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23C82930%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22119.85%22%20y%3D%22229.182%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2233.763%22%3Ecode%3C%2Ftext%3E%3Cline%20x1%3D%22100.85%22%20y1%3D%22236.484%22%20x2%3D%22316.208%22%20y2%3D%22236.484%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22110.85%22%20cy%3D%22250.132%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22119.85%22%20y%3D%22253.479%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22179.512%22%3E__construct(Folder%20folder)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22110.85%22%20cy%3D%22266.429%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22119.85%22%20y%3D%22269.776%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22191.358%22%3EgetUntrackedCode()%3A%20string%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22110.85%22%20cy%3D%22282.726%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22119.85%22%20y%3D%22286.073%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22160.364%22%3EwriteCode(string%20code)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22110.85%22%20cy%3D%22299.023%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22119.85%22%20y%3D%22302.369%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2263.841%22%3Ecommit()%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PRIVATE_METHOD%22%3E%3Crect%20x%3D%22107.85%22%20y%3D%22312.32%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23F24D5C%22%20style%3D%22stroke%3A%23C82930%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22119.85%22%20y%3D%22318.666%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22174.829%22%3EcreateCommit()%3A%20Commit%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22110.85%22%20cy%3D%22331.617%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22119.85%22%20y%3D%22334.963%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22178.91%22%3Ereset(int%20previous)%3A%20string%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Program%22%20id%3D%22ent0005%22%20data-source-line%3D%2232%22%3E%3Crect%20x%3D%22351.72%22%20y%3D%22220.93%22%20width%3D%2291.623%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22366.72%22%20cy%3D%22236.93%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M369.689%2C242.571%20Q369.111%2C242.867%20368.47%2C243.008%20Q367.829%2C243.164%20367.126%2C243.164%20Q364.626%2C243.164%20363.298%2C241.524%20Q361.986%2C239.867%20361.986%2C236.742%20Q361.986%2C233.617%20363.298%2C231.961%20Q364.626%2C230.305%20367.126%2C230.305%20Q367.829%2C230.305%20368.47%2C230.461%20Q369.126%2C230.617%20369.689%2C230.914%20L369.689%2C233.633%20Q369.064%2C233.055%20368.47%2C232.789%20Q367.876%2C232.508%20367.251%2C232.508%20Q365.908%2C232.508%20365.22%2C233.586%20Q364.533%2C234.649%20364.533%2C236.742%20Q364.533%2C238.836%20365.22%2C239.914%20Q365.908%2C240.977%20367.251%2C240.977%20Q367.876%2C240.977%20368.47%2C240.711%20Q369.064%2C240.43%20369.689%2C239.852%20L369.689%2C242.571%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22380.72%22%20y%3D%22241.777%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2259.623%22%3EProgram%3C%2Ftext%3E%3Cline%20x1%3D%22352.72%22%20y1%3D%22252.93%22%20x2%3D%22442.343%22%20y2%3D%22252.93%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22352.72%22%20y1%3D%22260.93%22%20x2%3D%22442.343%22%20y2%3D%22260.93%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22362.72%22%20cy%3D%22274.578%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22371.72%22%20y%3D%22277.925%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2234.426%22%3Erun()%3C%2Ftext%3E%3C%2Fg%3E%3C!--link%20Commit%20to%20Folder--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk3%22%20data-source-line%3D%2217%22%20data-link-type%3D%22aggregation%22%3E%3Cpath%20d%3D%22M202.39%2C55.45%20C213.69%2C55.45%20213%2C55.45%20224.31%2C55.45%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Commit-to-Folder%22%20codeLine%3D%2217%22%2F%3E%3Cpolygon%20points%3D%22236.31%2C55.45%2C230.31%2C51.45%2C224.31%2C55.45%2C230.31%2C59.45%2C236.31%2C55.45%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Git%20to%20Program--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0004%22%20data-entity-2%3D%22ent0005%22%20id%3D%22lnk6%22%20data-source-line%3D%2237%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M322.43%2C253.08%20C333.69%2C253.08%20339.96%2C253.08%20351.22%2C253.08%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Git-backto-Program%22%20codeLine%3D%2237%22%2F%3E%3Cpolygon%20points%3D%22317.43%2C253.08%2C326.43%2C257.08%2C322.43%2C253.08%2C326.43%2C249.08%2C317.43%2C253.08%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Folder%20to%20Program--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0005%22%20id%3D%22lnk7%22%20data-source-line%3D%2238%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M397.53%2C109.31%20C397.53%2C145.5%20397.53%2C189.18%20397.53%2C220.6%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Folder-backto-Program%22%20codeLine%3D%2238%22%2F%3E%3Cpolygon%20points%3D%22397.53%2C104.31%2C393.53%2C113.31%2C397.53%2C109.31%2C401.53%2C113.31%2C397.53%2C104.31%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Folder%20to%20Git--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0004%22%20id%3D%22lnk8%22%20data-source-line%3D%2240%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M347.825%2C107.905%20C330.555%2C125.775%20313.82%2C143.09%20294.14%2C163.47%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Folder-backto-Git%22%20codeLine%3D%2240%22%2F%3E%3Cpolygon%20points%3D%22351.3%2C104.31%2C342.169%2C108.002%2C347.825%2C107.905%2C347.922%2C113.561%2C351.3%2C104.31%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Commit%20to%20Git--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0004%22%20id%3D%22lnk9%22%20data-source-line%3D%2241%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M132.317%2C108.725%20C141.817%2C126.595%20150.59%2C143.09%20161.42%2C163.47%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Commit-backto-Git%22%20codeLine%3D%2241%22%2F%3E%3Cpolygon%20points%3D%22129.97%2C104.31%2C130.663%2C114.134%2C132.317%2C108.725%2C137.727%2C110.379%2C129.97%2C104.31%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C%3Fplantuml-src%20TL0n3i8m3Dpp2aiihL0_WDWgmSh2N4MfgIBQ13bf6H1_nqtSWa1CJkxiEvzDhqE0sW-3ZUgX02emlaN5hoqqZV4kH1fDBBXOroMoJ6I7iUPFKUuWS-gfb4bo1z-tIAlSh1soOj0JPhCY5w5NoHFXPFqOfCcw23U1s4ZsP2EPhlnY9jP7YR61IyR_9yg3qhSkS7QHjBbY-nLkfkza8oRyvnevHb5cFq8TbvpljUS-me0_iRxlToBVaHvI41uP7UiooTbWNwsixF-1lA4g7KAE9DyN%3F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2020/10/26/Class-Diagram-Git-Memento-Pattern/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：仿真Git （備忘錄模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/code.webp",
+        "keywords": "Design Pattern",
+        "genre": "Clean Code",
+        "datePublished": "2020-10-26",
+        "dateCreated": "2020-10-26",
+        "dateModified": "2026-06-25",
+        "url": "https://yncbearz.github.io/2020/10/26/Class-Diagram-Git-Memento-Pattern/",
+        "description": "Class-Diagram-Git-Memento-Pattern",
+        "wordCount": 11
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/11/02/Flyweight-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            蠅量模式
+        
+        </p>
+        <i class="icon fa-solid fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/10/25/Example-Git-Memento-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：仿真Git （備忘錄模式）</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/I-AM-SHERLOCKED.webp)" alt="畢業前，你沒想過的那些事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="title">畢業前，你沒想過的那些事</a></p>
+                            <p class="item-date"><time datetime="2026-03-22T06:08:05.000Z" itemprop="datePublished">2026-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Talk/" rel="tag">Talk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'cdd1c40a9988b9f4cec2e3e51b5b5a11',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1785921740718')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

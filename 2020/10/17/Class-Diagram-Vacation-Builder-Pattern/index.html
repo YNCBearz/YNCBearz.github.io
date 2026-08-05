@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：假期規劃 （建造者模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Design Pattern" />
+    
+    <meta name="description" content="Class-Diagram-Vacation-Builder-Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：假期規劃 （建造者模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/10/17/Class-Diagram-Vacation-Builder-Pattern/">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class-Diagram-Vacation-Builder-Pattern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/travel-car.webp">
+<meta property="article:published_time" content="2020-10-17T07:51:28.000Z">
+<meta property="article:modified_time" content="2026-06-25T04:58:53.985Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/travel-car.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Vacation-Builder-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：假期規劃 （建造者模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2020/10/17/Class-Diagram-Vacation-Builder-Pattern/" class="article-date">
+       <time datetime="2020-10-17T07:51:28.000Z" itemprop="datePublished">2020-10-17</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/10/17/Example-Vacation-Builder-Pattern/" title="範例：假期規劃 （建造者模式）">假期規劃</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20data-diagram-type%3D%22CLASS%22%20style%3D%22width%3A833px%3Bheight%3A546px%3Bbackground%3A%23FFFFFF%3B%22%20width%3D%22833px%22%20height%3D%22546px%22%20viewBox%3D%220%200%20833%20546%22%20zoomAndPan%3D%22magnify%22%20preserveAspectRatio%3D%22none%22%20contentStyleType%3D%22text%2Fcss%22%3E%3C%3Fplantuml%201.2026.7beta11%3F%3E%3Cdefs%2F%3E%3Cg%20font-family%3D%22sans-serif%22%20lengthAdjust%3D%22spacing%22%3E%3C!--class%20Itinerary--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Itinerary%22%20id%3D%22ent0001%22%20data-source-line%3D%221%22%3E%3Crect%20x%3D%22624.02%22%20y%3D%22353.37%22%20width%3D%22194.841%22%20height%3D%22178.375%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22687.505%22%20cy%3D%22369.37%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M690.474%2C375.011%20Q689.896%2C375.308%20689.255%2C375.448%20Q688.615%2C375.604%20687.912%2C375.604%20Q685.412%2C375.604%20684.083%2C373.964%20Q682.771%2C372.308%20682.771%2C369.183%20Q682.771%2C366.058%20684.083%2C364.401%20Q685.412%2C362.745%20687.912%2C362.745%20Q688.615%2C362.745%20689.255%2C362.901%20Q689.912%2C363.058%20690.474%2C363.354%20L690.474%2C366.073%20Q689.849%2C365.495%20689.255%2C365.229%20Q688.662%2C364.948%20688.037%2C364.948%20Q686.693%2C364.948%20686.005%2C366.026%20Q685.318%2C367.089%20685.318%2C369.183%20Q685.318%2C371.276%20686.005%2C372.354%20Q686.693%2C373.417%20688.037%2C373.417%20Q688.662%2C373.417%20689.255%2C373.151%20Q689.849%2C372.87%20690.474%2C372.292%20L690.474%2C375.011%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22708.005%22%20y%3D%22374.217%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2259.37%22%3EItinerary%3C%2Ftext%3E%3Cline%20x1%3D%22625.02%22%20y1%3D%22385.37%22%20x2%3D%22817.861%22%20y2%3D%22385.37%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22635.02%2C394.018%2C639.02%2C398.018%2C635.02%2C402.018%2C631.02%2C398.018%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22644.02%22%20y%3D%22402.365%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2282.243%22%3Efrom%3A%20string%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22635.02%2C410.315%2C639.02%2C414.315%2C635.02%2C418.315%2C631.02%2C414.315%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22644.02%22%20y%3D%22418.662%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2263.41%22%3Eto%3A%20string%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22635.02%2C426.612%2C639.02%2C430.612%2C635.02%2C434.612%2C631.02%2C430.612%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22644.02%22%20y%3D%22434.959%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2253.17%22%3Eday%3A%20int%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22635.02%2C442.909%2C639.02%2C446.909%2C635.02%2C450.909%2C631.02%2C446.909%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22644.02%22%20y%3D%22451.256%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2284.786%22%3Ehotel%3A%20string%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22635.02%2C459.206%2C639.02%2C463.206%2C635.02%2C467.206%2C631.02%2C463.206%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22644.02%22%20y%3D%22467.553%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22114.044%22%3Etransport%3A%20string%3C%2Ftext%3E%3Cline%20x1%3D%22625.02%22%20y1%3D%22474.854%22%20x2%3D%22817.861%22%20y2%3D%22474.854%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22635.02%22%20cy%3D%22488.503%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22644.02%22%20y%3D%22491.849%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22133.164%22%3E__set(name%2C%20value)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22635.02%22%20cy%3D%22504.8%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22644.02%22%20y%3D%22508.146%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22168.841%22%3E__get(name)%3A%20string%20%7C%20int%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22635.02%22%20cy%3D%22521.097%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22644.02%22%20y%3D%22524.443%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22109.054%22%3EtoArray()%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20ItineraryPlanable--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22ItineraryPlanable%22%20id%3D%22ent0002%22%20data-source-line%3D%2214%22%3E%3Crect%20x%3D%22393.11%22%20y%3D%22147.59%22%20width%3D%22238.646%22%20height%3D%22145.781%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22448.621%22%20cy%3D%22163.59%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M444.543%2C159.356%20L444.543%2C157.199%20L451.934%2C157.199%20L451.934%2C159.356%20L449.465%2C159.356%20L449.465%2C167.434%20L451.934%2C167.434%20L451.934%2C169.59%20L444.543%2C169.59%20L444.543%2C167.434%20L447.012%2C167.434%20L447.012%2C159.356%20L444.543%2C159.356%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22469.121%22%20y%3D%22168.437%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22119.123%22%20font-style%3D%22italic%22%3EItineraryPlanable%3C%2Ftext%3E%3Cline%20x1%3D%22394.11%22%20y1%3D%22179.59%22%20x2%3D%22630.756%22%20y2%3D%22179.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22394.11%22%20y1%3D%22187.59%22%20x2%3D%22630.756%22%20y2%3D%22187.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22404.11%22%20cy%3D%22201.238%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22413.11%22%20y%3D%22204.585%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22155.23%22%3Efrom(string%20from)%3A%20self%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22404.11%22%20cy%3D%22217.535%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22413.11%22%20y%3D%22220.882%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22117.564%22%3Eto(string%20to)%3A%20self%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22404.11%22%20cy%3D%22233.832%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22413.11%22%20y%3D%22237.179%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22178.056%22%3EspendDays(int%20days)%3A%20self%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22404.11%22%20cy%3D%22250.129%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22413.11%22%20y%3D%22253.476%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22169.6%22%3EstayAt(string%20hotel)%3A%20self%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22404.11%22%20cy%3D%22266.426%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22413.11%22%20y%3D%22269.773%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22212.646%22%3EtravelBy(string%20transport)%3A%20self%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22404.11%22%20cy%3D%22282.723%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22413.11%22%20y%3D%22286.069%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22161.82%22%3EgetItinerary()%3A%20Itinerary%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20ItineraryBuilder--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22ItineraryBuilder%22%20id%3D%22ent0003%22%20data-source-line%3D%2224%22%3E%3Crect%20x%3D%22435.6%22%20y%3D%22402.27%22%20width%3D%22153.668%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22456.353%22%20cy%3D%22418.27%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M459.322%2C423.911%20Q458.744%2C424.208%20458.103%2C424.348%20Q457.463%2C424.504%20456.76%2C424.504%20Q454.26%2C424.504%20452.931%2C422.864%20Q451.619%2C421.208%20451.619%2C418.083%20Q451.619%2C414.958%20452.931%2C413.301%20Q454.26%2C411.645%20456.76%2C411.645%20Q457.463%2C411.645%20458.103%2C411.801%20Q458.76%2C411.958%20459.322%2C412.254%20L459.322%2C414.973%20Q458.697%2C414.395%20458.103%2C414.129%20Q457.51%2C413.848%20456.885%2C413.848%20Q455.541%2C413.848%20454.853%2C414.926%20Q454.166%2C415.989%20454.166%2C418.083%20Q454.166%2C420.176%20454.853%2C421.254%20Q455.541%2C422.317%20456.885%2C422.317%20Q457.51%2C422.317%20458.103%2C422.051%20Q458.697%2C421.77%20459.322%2C421.192%20L459.322%2C423.911%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22471.632%22%20y%3D%22423.117%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22108.883%22%3EItineraryBuilder%3C%2Ftext%3E%3Cline%20x1%3D%22436.6%22%20y1%3D%22434.27%22%20x2%3D%22588.268%22%20y2%3D%22434.27%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22446.6%2C442.918%2C450.6%2C446.918%2C446.6%2C450.918%2C442.6%2C446.918%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22455.6%22%20y%3D%22451.265%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22127.668%22%3Eitinerary%3A%20Itinerary%3C%2Ftext%3E%3Cline%20x1%3D%22436.6%22%20y1%3D%22458.567%22%20x2%3D%22588.268%22%20y2%3D%22458.567%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22446.6%22%20cy%3D%22472.215%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22455.6%22%20y%3D%22475.562%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2290.658%22%3E__construct()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20TravelAgency--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22TravelAgency%22%20id%3D%22ent0006%22%20data-source-line%3D%2234%22%3E%3Crect%20x%3D%229%22%20y%3D%22163.89%22%20width%3D%22348.875%22%20height%3D%22113.188%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22131.384%22%20cy%3D%22179.89%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M134.353%2C185.531%20Q133.774%2C185.828%20133.134%2C185.968%20Q132.493%2C186.124%20131.79%2C186.124%20Q129.29%2C186.124%20127.962%2C184.484%20Q126.649%2C182.828%20126.649%2C179.703%20Q126.649%2C176.578%20127.962%2C174.921%20Q129.29%2C173.265%20131.79%2C173.265%20Q132.493%2C173.265%20133.134%2C173.421%20Q133.79%2C173.578%20134.353%2C173.874%20L134.353%2C176.593%20Q133.728%2C176.015%20133.134%2C175.749%20Q132.54%2C175.468%20131.915%2C175.468%20Q130.571%2C175.468%20129.884%2C176.546%20Q129.196%2C177.609%20129.196%2C179.703%20Q129.196%2C181.796%20129.884%2C182.874%20Q130.571%2C183.937%20131.915%2C183.937%20Q132.54%2C183.937%20133.134%2C183.671%20Q133.728%2C183.39%20134.353%2C182.812%20L134.353%2C185.531%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22151.884%22%20y%3D%22184.737%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2295.607%22%3ETravelAgency%3C%2Ftext%3E%3Cline%20x1%3D%2210%22%20y1%3D%22195.89%22%20x2%3D%22356.875%22%20y2%3D%22195.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%2220%2C204.538%2C24%2C208.538%2C20%2C212.538%2C16%2C208.538%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22212.885%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22236.934%22%3EitineraryBuilder%3A%20ItineraryPlanable%3C%2Ftext%3E%3Cline%20x1%3D%2210%22%20y1%3D%22220.187%22%20x2%3D%22356.875%22%20y2%3D%22220.187%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22233.835%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22237.182%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22322.875%22%3E__construct(ItineraryPlanable%20itineraryBuilder)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22250.132%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22253.479%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22241.555%22%3EgetHighSpeedRailItinerary()%3A%20array%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%22266.429%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2229%22%20y%3D%22269.776%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22245.26%22%3EgetFiveDaysTokyoItinerary()%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Program%22%20id%3D%22ent0008%22%20data-source-line%3D%2245%22%3E%3Crect%20x%3D%2263.78%22%20y%3D%227%22%20width%3D%22239.309%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22149.373%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M152.342%2C28.641%20Q151.763%2C28.938%20151.123%2C29.078%20Q150.482%2C29.234%20149.779%2C29.234%20Q147.279%2C29.234%20145.951%2C27.594%20Q144.638%2C25.938%20144.638%2C22.813%20Q144.638%2C19.688%20145.951%2C18.031%20Q147.279%2C16.375%20149.779%2C16.375%20Q150.482%2C16.375%20151.123%2C16.531%20Q151.779%2C16.688%20152.342%2C16.984%20L152.342%2C19.703%20Q151.717%2C19.125%20151.123%2C18.859%20Q150.529%2C18.578%20149.904%2C18.578%20Q148.56%2C18.578%20147.873%2C19.656%20Q147.185%2C20.719%20147.185%2C22.813%20Q147.185%2C24.906%20147.873%2C25.984%20Q148.56%2C27.047%20149.904%2C27.047%20Q150.529%2C27.047%20151.123%2C26.781%20Q151.717%2C26.5%20152.342%2C25.922%20L152.342%2C28.641%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22169.873%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2259.623%22%3EProgram%3C%2Ftext%3E%3Cline%20x1%3D%2264.78%22%20y1%3D%2239%22%20x2%3D%22302.089%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%2264.78%22%20y1%3D%2247%22%20x2%3D%22302.089%22%20y2%3D%2247%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2274.78%22%20cy%3D%2260.648%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2283.78%22%20y%3D%2263.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22189.677%22%3EgetDomesticTravel()%3A%20array%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2274.78%22%20cy%3D%2276.945%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2283.78%22%20y%3D%2280.292%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22213.309%22%3EgetInternationalTravel()%3A%20array%3C%2Ftext%3E%3C%2Fg%3E%3C!--reverse%20link%20ItineraryPlanable%20to%20ItineraryBuilder--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0003%22%20id%3D%22lnk4%22%20data-source-line%3D%2231%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M512.44%2C311.85%20C512.44%2C347.81%20512.44%2C371.87%20512.44%2C401.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22ItineraryPlanable-backto-ItineraryBuilder%22%20codeLine%3D%2231%22%2F%3E%3Cpolygon%20points%3D%22512.44%2C293.85%2C506.44%2C311.85%2C518.44%2C311.85%2C512.44%2C293.85%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20ItineraryBuilder%20to%20Itinerary--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0003%22%20data-entity-2%3D%22ent0001%22%20id%3D%22lnk5%22%20data-source-line%3D%2232%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M589.59%2C442.56%20C600.92%2C442.56%20607.25%2C442.56%20618.58%2C442.56%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22ItineraryBuilder-to-Itinerary%22%20codeLine%3D%2232%22%2F%3E%3Cpolygon%20points%3D%22623.58%2C442.56%2C614.58%2C438.56%2C618.58%2C442.56%2C614.58%2C446.56%2C623.58%2C442.56%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20TravelAgency%20to%20ItineraryPlanable--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0006%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk7%22%20data-source-line%3D%2243%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M358.22%2C220.48%20C369.77%2C220.48%20376.31%2C220.48%20387.86%2C220.48%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22TravelAgency-to-ItineraryPlanable%22%20codeLine%3D%2243%22%2F%3E%3Cpolygon%20points%3D%22392.86%2C220.48%2C383.86%2C216.48%2C387.86%2C220.48%2C383.86%2C224.48%2C392.86%2C220.48%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Program%20to%20TravelAgency--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0008%22%20data-entity-2%3D%22ent0006%22%20id%3D%22lnk9%22%20data-source-line%3D%2251%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M183.44%2C88%20C183.44%2C110.42%20183.44%2C133.81%20183.44%2C158.46%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Program-to-TravelAgency%22%20codeLine%3D%2251%22%2F%3E%3Cpolygon%20points%3D%22183.44%2C163.46%2C187.44%2C154.46%2C183.44%2C158.46%2C179.44%2C154.46%2C183.44%2C163.46%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C%3Fplantuml-src%20RL91Ri8m4Bpd5PPwIKJX0QYg149LkQ6MEzewIx1mx6XjaApIlzTE78WJRlRiUdPcrbo2CMnhXK82SjblnjWBEvAkbynO4gfg0QkJQmbkoOIoxUMaBSgqcq2PHfEzenwUiSF1eCqLrFZAhY0lM4IuYd3HzxDRP9_voIiYSBclGJXaVrdcQqX7uFWGlfEWu4TYQs3M6iWZLpW7PfJ7oDXNh1xYfa5LRi2PtFC7YoQfMd0hsxziFIUa15UKQtUdxYCODdcVTy71q2DsRugdcrXVX2oHua943myVnVIuLdxeXTky23oJIDZRRR6O4ey1DdyVSdTozgsjLOMAkx6K-6xvP0aJPLDHOvgYJ-XJLAVl1h7y0Y6JkBhznxOFSSMmhBq-E_sapISn59-uU-ZiNEv8LmHr_3kUVADhD5RmZc4oUnl-dm8hj08vxl638n-R-w534Vy0%3F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2020/10/17/Class-Diagram-Vacation-Builder-Pattern/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：假期規劃 （建造者模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/travel-car.webp",
+        "keywords": "Design Pattern",
+        "genre": "Clean Code",
+        "datePublished": "2020-10-17",
+        "dateCreated": "2020-10-17",
+        "dateModified": "2026-06-25",
+        "url": "https://yncbearz.github.io/2020/10/17/Class-Diagram-Vacation-Builder-Pattern/",
+        "description": "Class-Diagram-Vacation-Builder-Pattern",
+        "wordCount": 11
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/10/25/Memento-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            備忘錄模式
+        
+        </p>
+        <i class="icon fa-solid fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/10/17/Example-Vacation-Builder-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：假期規劃 （建造者模式）</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/I-AM-SHERLOCKED.webp)" alt="畢業前，你沒想過的那些事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="title">畢業前，你沒想過的那些事</a></p>
+                            <p class="item-date"><time datetime="2026-03-22T06:08:05.000Z" itemprop="datePublished">2026-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Talk/" rel="tag">Talk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: 'f878b99f7fcad41e778be207a0fc12d0',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1785921740718')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

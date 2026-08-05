@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>畢業前，你沒想過的那些事</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body { background-color: #fff; margin: 0; }
+    
+    .reveal .slides { text-align: center; }
+    .reveal .slides section { text-align: center; }
+    .reveal p,
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 { text-align: center; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      text-transform: none; margin-bottom: 0.5em;
+    }
+    .reveal h1 { font-size: 2.5em; }
+    .reveal h2 { font-size: 1.9em; }
+    .reveal h3 { font-size: 1.5em; }
+    .reveal h4 { font-size: 1.3em; }
+    .reveal h5 { font-size: 1.0em; }
+    .reveal pre {
+      width: 100%; padding: 15px; margin-top: 0.5em; margin-bottom: 0.5em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15); max-height: 500px; overflow-y: auto;
+    }
+    .reveal code { font-family: monospace; }
+    .reveal pre code { padding: 5px; overflow-x: auto; max-width: 100%; white-space: pre-wrap; }
+    /* Base16 Atelier Savanna Dark - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/savanna) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+.highlight {
+  color: #87928a;
+  background: #171c19;
+}
+.highlight .code .comment,
+.highlight .code .quote,
+.highlight .code .hljs-comment,
+.highlight .code .hljs-quote {
+  color: #78877d;
+}
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .attribute,
+.highlight .code .tag,
+.highlight .code .name,
+.highlight .code .regexp,
+.highlight .code .link,
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .hljs-variable,
+.highlight .code .hljs-template-variable,
+.highlight .code .hljs-attribute,
+.highlight .code .hljs-tag,
+.highlight .code .hljs-name,
+.highlight .code .hljs-regexp,
+.highlight .code .hljs-link,
+.highlight .code .hljs-selector-id,
+.highlight .code .hljs-selector-class {
+  color: #b16139;
+}
+.highlight .code .number,
+.highlight .code .meta,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .literal,
+.highlight .code .type,
+.highlight .code .params,
+.highlight .code .hljs-number,
+.highlight .code .hljs-meta,
+.highlight .code .hljs-built_in,
+.highlight .code .hljs-builtin-name,
+.highlight .code .hljs-literal,
+.highlight .code .hljs-type,
+.highlight .code .hljs-params {
+  color: #9f713c;
+}
+.highlight .code .string,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .hljs-string,
+.highlight .code .hljs-symbol,
+.highlight .code .hljs-bullet {
+  color: #489963;
+}
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .hljs-title,
+.highlight .code .hljs-section,
+.highlight .code .hljs-function .hljs-title {
+  color: #478c90;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .hljs-keyword,
+.highlight .code .hljs-selector-tag {
+  color: #55859b;
+}
+.highlight .code .deletion,
+.highlight .code .addition,
+.highlight .code .hljs-deletion,
+.highlight .code .hljs-addition {
+  color: #171c19;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .deletion,
+.highlight .code .hljs-deletion {
+  background-color: #b16139;
+}
+.highlight .code .addition,
+.highlight .code .hljs-addition {
+  background-color: #489963;
+}
+.highlight .code .emphasis,
+.highlight .code .hljs-emphasis {
+  font-style: italic;
+}
+.highlight .code .strong,
+.highlight .code .hljs-strong {
+  font-weight: bold;
+}
+/* Support using hljs class directly on the page, not inside .highlight .code wrapper */
+.hljs {
+  color: #87928a;
+  background: #171c19;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #78877d;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #b16139;
+}
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #9f713c;
+}
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #489963;
+}
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+  color: #478c90;
+}
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #55859b;
+}
+.hljs-deletion {
+  background-color: #b16139;
+}
+.hljs-addition {
+  background-color: #489963;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+
+    .reveal ul, .reveal ol { display: block; margin-left: 2em; }
+    .back-to-post {
+      position: fixed; bottom: 20px; left: 10px; z-index: 100;
+      padding: 10px 15px; background-color: rgba(0,0,0,0.6);
+      color: white !important; text-decoration: none; border-radius: 4px; font-size: 16px;
+    }
+    .back-to-post:hover { background-color: rgba(0,0,0,0.8); color: white !important; text-decoration: none; }
+    .hljs-line-numbers { padding-left: 3.5em !important; position: relative; }
+    .line-number {
+      position: absolute; left: 0; width: 2.5em; text-align: right;
+      color: #888; user-select: none; margin-right: 0.5em; padding-right: 0.5em;
+    }
+    .reveal iframe {
+      width: 95%; height: 75vh; max-height: 540px; margin: 15px auto;
+      display: block; border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .reveal img {
+      max-width: 95%; max-height: 85vh; object-fit: contain; margin: 15px auto; display: block;
+    }
+    .reveal section img { border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .reveal section:has(img:only-child) img { max-width: 98%; max-height: 90vh; }
+    @media (max-width: 768px) { .reveal img { max-width: 98%; max-height: 80vh; } }
+    .back-to-post { display: block; }
+    
+    .chat-marquee-lane {
+      position: fixed; left: 0; right: 0; z-index: 9999;
+      background: transparent; overflow: hidden;
+      height: 3em; display: flex; align-items: center;
+      pointer-events: none;
+    }
+    .chat-marquee-inner {
+      display: inline-block; white-space: nowrap;
+      color: #fff; font-size: 1.5em; font-family: sans-serif;
+      animation: marquee-scroll linear infinite;
+    }
+    @keyframes marquee-scroll {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+    #chat-marquee-0 { top: calc(0 * 3.2em); }
+    
+    #bs-controls {
+      position: fixed; top: 12px; right: 12px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(0,0,0,0.6); border-radius: 24px;
+      padding: 10px 20px; font-family: sans-serif;
+    }
+    #bs-play-btn {
+      background: none; border: none; color: #fff;
+      font-size: 1.4em; cursor: pointer; padding: 0; line-height: 1;
+    }
+    #bs-play-btn:hover { color: #adf; }
+    #bs-indicator { color: #ddd; font-size: 1.1em; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown data-separator="^---$" data-separator-vertical="^--$" data-charset="utf-8">
+        <textarea data-template>
+
+## 事前準備
+
+請用便條紙寫下**三件**關於自己的事情。
+
+- 你是誰？
+- 你最近在做什麼？
+- 你期待今天發生什麼？
+
+---
+
+# 畢業前，你沒想過的那些事
+
+Bear
+
+---
+
+## Check In
+
+我們起來動一動
+
+---
+
+![](/images/notes/2026/03/introduce-example.webp)
+
+
+---
+
+## 你的夢想是什麼呢？
+
+---
+
+## 出社會前：我的夢想
+
+---
+
+![](/images/notes/2026/03/my-dreams.webp)
+
+---
+
+## 現在：軟體工程師
+
+不曾想過，以致於大學沒去修相關課程
+
+---
+
+## 留言板
+
+![](/images/notes/audience-page.webp)
+
+---
+
+## 進入正題：我是誰
+
+你們都是什麼科系的？
+
+---
+
+![](/images/notes/2026/03/opening.webp)
+
+---
+
+## 故事的起點：第一個專案
+
+---
+
+![](/images/notes/2026/03/library.webp)
+
+---
+
+## 我們學到了什麼？
+
+---
+
+## 還好我要退了！
+
+學弟，這件事就麻煩你了？
+
+---
+
+![](/images/notes/2026/03/coding-is-fun.webp)
+
+---
+
+## 代理教師之路
+
+有人的夢想也是當老師嗎？
+
+---
+
+![](/images/notes/2026/03/chuan-bei-pi-pa-gao.webp)
+
+---
+
+## 轉職
+
+這是我想要的生活嗎？
+
+---
+
+![](/images/notes/2026/03/2018.webp)
+
+---
+
+## 我們學到了什麼？
+
+---
+
+![](/images/notes/2026/03/what-will-the-future-be.webp)
+
+---
+
+![](/images/notes/2026/03/comma.webp)
+
+---
+
+## 轉職 ≠ 失敗
+
+只是路線選擇的不同。
+
+---
+
+- 第一家公司，一開始非常挫折且痛苦
+- 覺得跟不上大家，整天戰戰兢兢地過日子
+
+---
+
+![](/images/notes/2026/03/ask-for-help-about-coding.webp)
+
+---
+
+## 漸入佳境
+
+---
+
+- 在網絡偶然看到程式相關的讀書會，選擇加入
+- 有著不同公司的前輩，請益了更多的問題
+- 一年半後進入舒適圈，沒有猶豫太久，離職進入第二家公司
+
+---
+
+## 如何學習程式
+
+---
+
+- 讀書會讀設計模式
+- 假日跑咖啡廳自己動手寫看看
+- 練習 vim、IDE
+- 架 blog，有了長期的 side project
+- 寫有趣的東西，比如：terminal 版本的猜數字遊戲
+
+---
+
+![](/images/notes/2026/03/design-pattern-repository.webp)
+
+---
+
+
+![](/images/notes/2026/03/coding-in-the-coffee-shop.webp)
+
+---
+
+![](/images/notes/2026/03/build-your-learning-system.webp)
+
+---
+
+## Done is better than perfect.
+
+先求有，再求好。
+
+---
+
+## 推薦書單 (1)
+
+### QBQ：問題背後的問題
+
+---
+
+![](/images/notes/2026/03/qbq.webp)
+
+---
+
+![](/images/notes/2026/03/qbq-content.webp)
+
+---
+
+### 上述的故事中，有哪些符合 QBQ 的精神？
+
+---
+
+## 剛剛聊的是我怎麼走過來的
+
+接下來聊聊你們即將走進去的世界。
+
+---
+
+## AI 時代的軟體開發
+
+- AI 工具在過去幾年徹底改變了軟體開發的樣貌
+- ChatGPT、GitHub Copilot、Cursor、Claude Code...
+
+---
+
+### 什麼改變了？
+
+---
+
+#### **入門難度降低**：人人都可以寫程式
+
+---
+
+#### Junior 工程師的門檻變高
+
+---
+
+####  以前要查半小時的問題，現在可能幾秒鐘就有答案
+
+---
+
+#### **寫程式速度**大幅提升
+
+（寫程式速度 ≠ 開發速度）
+
+---
+
+### 什麼沒有改變？
+
+---
+
+#### 溝通與理解需求
+
+工程師不只寫程式，還要與人合作
+
+---
+
+#### 使用者天馬行空的想法
+
+[Problem Solving](/2023/04/27/Problem-Solving/)
+
+---
+
+#### [Coding Principle](/tags/Principle/)
+
+長期維護的專案，仍然有修改的可能
+
+---
+
+#### AI 給你答案，但你要會問對問題
+
+**判斷 AI 輸出品質的能力**
+
+---
+
+![](/images/notes/2026/03/AI-Ping-Quotient-01.webp)
+
+---
+
+![](/images/notes/2026/03/AI-Ping-Quotient-02.webp)
+
+---
+
+#### **持續學習**：軟體世界不變的法則。
+
+---
+
+### 你們平常會使用 Google 解決問題嗎？
+
+---
+
+### 不要把使用 AI 當作自己的優勢！
+
+就像是很少人會講自己很會用 Google
+
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EWFFaKxsz_s" frameborder="0" allowfullscreen></iframe>
+
+---
+
+## How to Learn AI in 7 steps
+
+✅ 的項目是我自己會使用的技巧，其他會帶過
+
+---
+
+### Step 1: AIM framework ✅
+
+- A (Actor): 告訴 AI 扮演什麼角色
+- I (Input): 提供背景資料與脈絡
+- M (Mission): 明確說明你要它做什麼
+
+---
+
+### Step 2: Pick Your Instrument ✅
+
+專注一個工具，深入學習
+
+---
+
+### Step 3: Build Context with MAP ✅
+
+- M (Memory): 對話歷史與前次紀錄
+- A (Assets): 附加的檔案或資料
+- A (Actions): AI 可執行的外部動作（搜尋、寫程式等）
+- P (Prompt): 指令本身
+
+---
+
+### Step 4: Debug Your Thinking
+
+- 思維鏈模式 ✅：要求 AI 「逐步思考，展示推理過程」
+- 驗證模式 ✅：請 AI 反問 3 個釐清意圖的問題
+- 精煉模式：請 AI 先提出 2 個更精準的問題版本，讓你選擇
+
+---
+
+### Step 5: Steer Toward Experts ✅
+
+避免空泛提問，在提示中點名具體專家、研究或框架
+
+---
+
+### Step 6: Verify the Output
+
+- 假設清單：請 AI 列出所有假設並標示信心程度
+- 引用來源 ✅：請 AI 附上連結與出處
+- 反證：請 AI 找出反駁自身答案的證據
+- 稽核數字：請 AI 重新演算所有數據
+- 跨模型驗證：同一個提示丟給 ChatGPT、Gemini、Claude 互相批評
+
+---
+
+### Step 7: Develop Taste with OCEAN
+
+- O (Original): 要求非顯而易見的觀點
+- C (Concrete): 加入真實案例與數字
+- E (Evident): 呈現可見的推理邏輯
+- A (Assertive): 要求明確立場與論點
+- N (Narrative): 用故事結構組織內容
+
+---
+
+## 推薦書單(2)
+
+### 納瓦爾寶典
+
+---
+
+![](/images/notes/2026/03/naval.webp)
+
+---
+
+- 「正和遊戲」
+- 運用熱情來培養技能
+- 活出真誠的自己來退出競爭
+
+---
+
+## Takeaway
+
+「最有價值的能力，往往來自你覺得最浪費時間的經歷。」
+
+---
+
+## Check Out
+
+---
+
+### Recap: 你今天印象最深刻的一件事？
+
+---
+
+## Q&A
+
+---
+
+## Feedback
+
+![](/images/notes/2026/03/feedback.webp)
+        </textarea>
+      </section>
+    </div>
+  </div>
+  <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="back-to-post">
+    <i class="fas fa-arrow-left"></i> 返回文章
+  </a>
+  <div id="chat-marquee-0" class="chat-marquee-lane" style="display:none"><span id="chat-marquee-inner-0" class="chat-marquee-inner"></span></div>
+  <div id="bs-controls"><button id="bs-play-btn" title="播放 / 暫停">▶</button><span id="bs-indicator">等待中..</span></div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() { 
+      Reveal.initialize({
+        hash: true, slideNumber: true, transition: 'slide',
+        center: true, margin: 0.02, width: 1280, height: 720,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        highlight: { highlightOnLoad: true, escapeHTML: false },
+        markdown: { smartypants: true },
+      });
+      Reveal.on('ready', function() {
+        document.querySelectorAll('pre code').forEach(function(block) {
+          block.classList.add('hljs-line-numbers');
+          const lines = block.innerHTML.split('\n');
+          let numberedCode = '';
+          for (let i = 0; i < lines.length; i++) {
+            numberedCode += '<span class="line-number">' + (i + 1) + '</span>' + lines[i] + '\n';
+          }
+          block.innerHTML = numberedCode;
+        });
+      }); 
+    (function() {
+      var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNSsP3uJKQsmFkFY01dfGh0sKGdaMUpOa-_bjNzM9j1oUobMcM89QUTN9ekbe5OfCD/exec";
+      var POLL_INTERVAL   = 10000;
+      var LANES           = 1;
+      var AUTO_PLAY       = false;
+      var pendingRows     = new Set();
+      var queues          = Array.from({ length: LANES }, function() { return []; });
+      var isAnimating     = Array(LANES).fill(false);
+      var timers          = Array(LANES).fill(null);
+      var timerEndTime    = Array(LANES).fill(null);
+      var isPlaying       = AUTO_PLAY;
+
+      // Embed module-level pure functions directly so tests and client share one definition
+      function filterUnseenMessages(messages, seen) {
+  return messages.filter(function(msg) { return !seen.has(msg.row); });
+}
+      function formatMessage(msg) {
+  return msg.name + '：' + msg.message;
+}
+
+      function totalQueued() {
+        return queues.reduce(function(sum, q) { return sum + q.length; }, 0);
+      }
+      function updateIndicator() {
+        if (AUTO_PLAY) return;
+        var el = document.getElementById('bs-indicator');
+        if (!el) return;
+        var total = totalQueued();
+        el.textContent = total === 0 ? '等待中..' : total + ' 則訊息';
+      }
+
+      function poll() {
+        fetch(APPS_SCRIPT_URL)
+          .then(function(r) { return r.json(); })
+          .then(function(messages) {
+            if (!Array.isArray(messages)) return;
+            var unseen = filterUnseenMessages(messages, pendingRows);
+            unseen.forEach(function(msg) {
+              pendingRows.add(msg.row);
+              var lane = 0;
+              for (var i = 1; i < LANES; i++) {
+                if (queues[i].length < queues[lane].length) lane = i;
+              }
+              queues[lane].push(msg);
+              if (isPlaying && !isAnimating[lane]) showNext(lane);
+            });
+            updateIndicator();
+          })
+          .catch(function() {});
+      }
+
+      function showNext(lane) {
+        if (!isPlaying) { isAnimating[lane] = false; return; }
+        if (queues[lane].length === 0) { isAnimating[lane] = false; updateIndicator(); return; }
+        isAnimating[lane] = true;
+        var msg = queues[lane].shift();
+        updateIndicator();
+        var marquee = document.getElementById('chat-marquee-' + lane);
+        var inner   = document.getElementById('chat-marquee-inner-' + lane);
+        inner.textContent = formatMessage(msg);
+        marquee.style.display = 'flex';
+
+        var len = inner.textContent.length;
+        var duration = Math.max(6, len * 0.18 + len * len * 0.002);
+        inner.style.animationDuration = duration + 's';
+        inner.style.animation = 'none';
+        inner.offsetHeight;
+        inner.style.animation = '';
+        inner.style.animationDuration = duration + 's';
+
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify({ action: 'markProcessed', row: msg.row }),
+        }).catch(function() {});
+
+        var ms = duration * 1000;
+        timerEndTime[lane] = Date.now() + ms;
+        timers[lane] = setTimeout(function() {
+          timers[lane] = null;
+          timerEndTime[lane] = null;
+          if (queues[lane].length === 0) marquee.style.display = 'none';
+          showNext(lane);
+        }, ms);
+      }
+
+      function togglePlay() {
+        isPlaying = !isPlaying;
+        var btn = document.getElementById('bs-play-btn');
+        if (btn) btn.textContent = isPlaying ? '⏸' : '▶';
+        if (!isPlaying) {
+          for (var i = 0; i < LANES; i++) {
+            if (timers[i]) { clearTimeout(timers[i]); timers[i] = null; }
+            var inner = document.getElementById('chat-marquee-inner-' + i);
+            if (inner) inner.style.animationPlayState = 'paused';
+          }
+        } else {
+          for (var i = 0; i < LANES; i++) {
+            if (isAnimating[i]) {
+              var remaining = timerEndTime[i] ? timerEndTime[i] - Date.now() : 0;
+              if (remaining <= 0) {
+                isAnimating[i] = false;
+                showNext(i);
+              } else {
+                var inner = document.getElementById('chat-marquee-inner-' + i);
+                if (inner) inner.style.animationPlayState = 'running';
+                (function(lane, rem) {
+                  timers[lane] = setTimeout(function() {
+                    timers[lane] = null;
+                    timerEndTime[lane] = null;
+                    var marquee = document.getElementById('chat-marquee-' + lane);
+                    if (queues[lane].length === 0 && marquee) marquee.style.display = 'none';
+                    showNext(lane);
+                  }, rem);
+                })(i, remaining);
+              }
+            } else if (queues[i].length > 0) {
+              showNext(i);
+            }
+          }
+        }
+      }
+
+      var btn = document.getElementById('bs-play-btn');
+      if (btn) btn.addEventListener('click', togglePlay);
+
+      setInterval(poll, POLL_INTERVAL);
+      poll();
+    })(); });
+  </script>
+</body>
+</html>

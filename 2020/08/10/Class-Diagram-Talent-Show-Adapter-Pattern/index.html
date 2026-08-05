@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：才藝表演（轉接頭模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Design Pattern" />
+    
+    <meta name="description" content="Class-Diagram-Talent-Show-Adapter-Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：才藝表演（轉接頭模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/08/10/Class-Diagram-Talent-Show-Adapter-Pattern/">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class-Diagram-Talent-Show-Adapter-Pattern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/sheet-music.webp">
+<meta property="article:published_time" content="2020-08-10T00:38:26.000Z">
+<meta property="article:modified_time" content="2026-06-25T04:58:53.984Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/sheet-music.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Talent-Show-Adapter-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：才藝表演（轉接頭模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2020/08/10/Class-Diagram-Talent-Show-Adapter-Pattern/" class="article-date">
+       <time datetime="2020-08-10T00:38:26.000Z" itemprop="datePublished">2020-08-10</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/08/09/Example-Talent-Show-Adapter-Pattern/" title="範例：才藝表演（轉接頭模式）">才藝表演</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20data-diagram-type%3D%22CLASS%22%20style%3D%22width%3A600px%3Bheight%3A367px%3Bbackground%3A%23FFFFFF%3B%22%20width%3D%22600px%22%20height%3D%22367px%22%20viewBox%3D%220%200%20600%20367%22%20zoomAndPan%3D%22magnify%22%20preserveAspectRatio%3D%22none%22%20contentStyleType%3D%22text%2Fcss%22%3E%3C%3Fplantuml%201.2026.7beta11%3F%3E%3Cdefs%2F%3E%3Cg%20font-family%3D%22sans-serif%22%20lengthAdjust%3D%22spacing%22%3E%3C!--class%20ShowInterface--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22ShowInterface%22%20id%3D%22ent0001%22%20data-source-line%3D%221%22%3E%3Crect%20x%3D%22237.46%22%20y%3D%2215.14%22%20width%3D%22132.454%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22252.46%22%20cy%3D%2231.14%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M248.382%2C26.906%20L248.382%2C24.749%20L255.773%2C24.749%20L255.773%2C26.906%20L253.304%2C26.906%20L253.304%2C34.984%20L255.773%2C34.984%20L255.773%2C37.14%20L248.382%2C37.14%20L248.382%2C34.984%20L250.851%2C34.984%20L250.851%2C26.906%20L248.382%2C26.906%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22266.46%22%20y%3D%2235.987%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22100.454%22%20font-style%3D%22italic%22%3EShowInterface%3C%2Ftext%3E%3Cline%20x1%3D%22238.46%22%20y1%3D%2247.14%22%20x2%3D%22368.914%22%20y2%3D%2247.14%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22238.46%22%20y1%3D%2255.14%22%20x2%3D%22368.914%22%20y2%3D%2255.14%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22248.46%22%20cy%3D%2268.788%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22257.46%22%20y%3D%2272.135%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2247.106%22%3Eshow()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20PianoPlayer--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22PianoPlayer%22%20id%3D%22ent0002%22%20data-source-line%3D%226%22%3E%3Crect%20x%3D%2292.73%22%20y%3D%22288.18%22%20width%3D%22113.915%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22107.73%22%20cy%3D%22304.18%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M110.699%2C309.821%20Q110.121%2C310.118%20109.48%2C310.258%20Q108.839%2C310.414%20108.136%2C310.414%20Q105.636%2C310.414%20104.308%2C308.774%20Q102.996%2C307.118%20102.996%2C303.993%20Q102.996%2C300.868%20104.308%2C299.211%20Q105.636%2C297.555%20108.136%2C297.555%20Q108.839%2C297.555%20109.48%2C297.711%20Q110.136%2C297.868%20110.699%2C298.164%20L110.699%2C300.883%20Q110.074%2C300.305%20109.48%2C300.039%20Q108.886%2C299.758%20108.261%2C299.758%20Q106.918%2C299.758%20106.23%2C300.836%20Q105.543%2C301.899%20105.543%2C303.993%20Q105.543%2C306.086%20106.23%2C307.164%20Q106.918%2C308.227%20108.261%2C308.227%20Q108.886%2C308.227%20109.48%2C307.961%20Q110.074%2C307.68%20110.699%2C307.102%20L110.699%2C309.821%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22121.73%22%20y%3D%22309.027%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2281.915%22%3EPianoPlayer%3C%2Ftext%3E%3Cline%20x1%3D%2293.73%22%20y1%3D%22320.18%22%20x2%3D%22205.645%22%20y2%3D%22320.18%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%2293.73%22%20y1%3D%22328.18%22%20x2%3D%22205.645%22%20y2%3D%22328.18%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22103.73%22%20cy%3D%22341.828%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22112.73%22%20y%3D%22345.175%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2240.564%22%3Eplay()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20PianoPlayerAdapter--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22PianoPlayerAdapter%22%20id%3D%22ent0003%22%20data-source-line%3D%2211%22%3E%3Crect%20x%3D%227%22%20y%3D%22147.59%22%20width%3D%22285.383%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2276.59%22%20cy%3D%22163.59%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M79.559%2C169.231%20Q78.98%2C169.528%2078.34%2C169.668%20Q77.699%2C169.824%2076.996%2C169.824%20Q74.496%2C169.824%2073.168%2C168.184%20Q71.855%2C166.528%2071.855%2C163.403%20Q71.855%2C160.278%2073.168%2C158.621%20Q74.496%2C156.965%2076.996%2C156.965%20Q77.699%2C156.965%2078.34%2C157.121%20Q78.996%2C157.278%2079.559%2C157.574%20L79.559%2C160.293%20Q78.934%2C159.715%2078.34%2C159.449%20Q77.746%2C159.168%2077.121%2C159.168%20Q75.777%2C159.168%2075.09%2C160.246%20Q74.402%2C161.309%2074.402%2C163.403%20Q74.402%2C165.496%2075.09%2C166.574%20Q75.777%2C167.637%2077.121%2C167.637%20Q77.746%2C167.637%2078.34%2C167.371%20Q78.934%2C167.09%2079.559%2C166.512%20L79.559%2C169.231%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%2297.09%22%20y%3D%22168.437%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22137.703%22%3EPianoPlayerAdapter%3C%2Ftext%3E%3Cline%20x1%3D%228%22%20y1%3D%22179.59%22%20x2%3D%22291.383%22%20y2%3D%22179.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%228%22%20y1%3D%22187.59%22%20x2%3D%22291.383%22%20y2%3D%22187.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%22201.238%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2227%22%20y%3D%22204.585%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22259.383%22%3E__construct(PianoPlayer%20pianoPlayer)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%22217.535%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2227%22%20y%3D%22220.882%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2247.106%22%3Eshow()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20JokeTeller--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22JokeTeller%22%20id%3D%22ent0004%22%20data-source-line%3D%2217%22%3E%3Crect%20x%3D%22406.33%22%20y%3D%22288.18%22%20width%3D%22100.729%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22421.33%22%20cy%3D%22304.18%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M424.299%2C309.821%20Q423.721%2C310.118%20423.08%2C310.258%20Q422.439%2C310.414%20421.736%2C310.414%20Q419.236%2C310.414%20417.908%2C308.774%20Q416.596%2C307.118%20416.596%2C303.993%20Q416.596%2C300.868%20417.908%2C299.211%20Q419.236%2C297.555%20421.736%2C297.555%20Q422.439%2C297.555%20423.08%2C297.711%20Q423.736%2C297.868%20424.299%2C298.164%20L424.299%2C300.883%20Q423.674%2C300.305%20423.08%2C300.039%20Q422.486%2C299.758%20421.861%2C299.758%20Q420.518%2C299.758%20419.83%2C300.836%20Q419.143%2C301.899%20419.143%2C303.993%20Q419.143%2C306.086%20419.83%2C307.164%20Q420.518%2C308.227%20421.861%2C308.227%20Q422.486%2C308.227%20423.08%2C307.961%20Q423.674%2C307.68%20424.299%2C307.102%20L424.299%2C309.821%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22435.33%22%20y%3D%22309.027%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2268.729%22%3EJokeTeller%3C%2Ftext%3E%3Cline%20x1%3D%22407.33%22%20y1%3D%22320.18%22%20x2%3D%22506.059%22%20y2%3D%22320.18%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22407.33%22%20y1%3D%22328.18%22%20x2%3D%22506.059%22%20y2%3D%22328.18%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22417.33%22%20cy%3D%22341.828%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22426.33%22%20y%3D%22345.175%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2232.806%22%3Etell()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20JokeTellerAdapter--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22JokeTellerAdapter%22%20id%3D%22ent0005%22%20data-source-line%3D%2222%22%3E%3Crect%20x%3D%22327.53%22%20y%3D%22147.59%22%20width%3D%22258.326%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22390.185%22%20cy%3D%22163.59%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M393.154%2C169.231%20Q392.575%2C169.528%20391.935%2C169.668%20Q391.294%2C169.824%20390.591%2C169.824%20Q388.091%2C169.824%20386.763%2C168.184%20Q385.45%2C166.528%20385.45%2C163.403%20Q385.45%2C160.278%20386.763%2C158.621%20Q388.091%2C156.965%20390.591%2C156.965%20Q391.294%2C156.965%20391.935%2C157.121%20Q392.591%2C157.278%20393.154%2C157.574%20L393.154%2C160.293%20Q392.529%2C159.715%20391.935%2C159.449%20Q391.341%2C159.168%20390.716%2C159.168%20Q389.372%2C159.168%20388.685%2C160.246%20Q387.997%2C161.309%20387.997%2C163.403%20Q387.997%2C165.496%20388.685%2C166.574%20Q389.372%2C167.637%20390.716%2C167.637%20Q391.341%2C167.637%20391.935%2C167.371%20Q392.529%2C167.09%20393.154%2C166.512%20L393.154%2C169.231%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22410.685%22%20y%3D%22168.437%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22124.517%22%3EJokeTellerAdapter%3C%2Ftext%3E%3Cline%20x1%3D%22328.53%22%20y1%3D%22179.59%22%20x2%3D%22584.856%22%20y2%3D%22179.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22328.53%22%20y1%3D%22187.59%22%20x2%3D%22584.856%22%20y2%3D%22187.59%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22338.53%22%20cy%3D%22201.238%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22347.53%22%20y%3D%22204.585%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22232.326%22%3E__construct(JokeTeller%20jokeTeller)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22338.53%22%20cy%3D%22217.535%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22347.53%22%20y%3D%22220.882%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2247.106%22%3Eshow()%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Program%22%20id%3D%22ent0010%22%20data-source-line%3D%2233%22%3E%3Crect%20x%3D%2233%22%20y%3D%227%22%20width%3D%22169.377%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2283.627%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M86.596%2C28.641%20Q86.018%2C28.938%2085.377%2C29.078%20Q84.736%2C29.234%2084.033%2C29.234%20Q81.533%2C29.234%2080.205%2C27.594%20Q78.893%2C25.938%2078.893%2C22.813%20Q78.893%2C19.688%2080.205%2C18.031%20Q81.533%2C16.375%2084.033%2C16.375%20Q84.736%2C16.375%2085.377%2C16.531%20Q86.033%2C16.688%2086.596%2C16.984%20L86.596%2C19.703%20Q85.971%2C19.125%2085.377%2C18.859%20Q84.783%2C18.578%2084.158%2C18.578%20Q82.814%2C18.578%2082.127%2C19.656%20Q81.439%2C20.719%2081.439%2C22.813%20Q81.439%2C24.906%2082.127%2C25.984%20Q82.814%2C27.047%2084.158%2C27.047%20Q84.783%2C27.047%2085.377%2C26.781%20Q85.971%2C26.5%2086.596%2C25.922%20L86.596%2C28.641%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22104.127%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2259.623%22%3EProgram%3C%2Ftext%3E%3Cline%20x1%3D%2234%22%20y1%3D%2239%22%20x2%3D%22201.377%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%2234%22%20y1%3D%2247%22%20x2%3D%22201.377%22%20y2%3D%2247%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2244%22%20cy%3D%2260.648%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2253%22%20y%3D%2263.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2234.426%22%3Erun()%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PRIVATE_METHOD%22%3E%3Crect%20x%3D%2241%22%20y%3D%2273.945%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23F24D5C%22%20style%3D%22stroke%3A%23C82930%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2253%22%20y%3D%2280.292%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22143.377%22%3EpreparePerformers()%3C%2Ftext%3E%3C%2Fg%3E%3C!--link%20PianoPlayerAdapter%20to%20PianoPlayer--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0003%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk6%22%20data-source-line%3D%2228%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M149.69%2C228.38%20C149.69%2C247.42%20149.69%2C264.96%20149.69%2C282.83%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22PianoPlayerAdapter-to-PianoPlayer%22%20codeLine%3D%2228%22%2F%3E%3Cpolygon%20points%3D%22149.69%2C287.83%2C153.69%2C278.83%2C149.69%2C282.83%2C145.69%2C278.83%2C149.69%2C287.83%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20ShowInterface%20to%20PianoPlayerAdapter--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0003%22%20id%3D%22lnk7%22%20data-source-line%3D%2229%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M255.37%2C91.781%20C233.18%2C111.751%20217.66%2C125.72%20193.88%2C147.12%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22ShowInterface-backto-PianoPlayerAdapter%22%20codeLine%3D%2229%22%2F%3E%3Cpolygon%20points%3D%22268.75%2C79.74%2C251.357%2C87.321%2C259.384%2C96.241%2C268.75%2C79.74%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20JokeTellerAdapter%20to%20JokeTeller--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0005%22%20data-entity-2%3D%22ent0004%22%20id%3D%22lnk8%22%20data-source-line%3D%2230%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M456.69%2C228.38%20C456.69%2C247.42%20456.69%2C264.96%20456.69%2C282.83%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22JokeTellerAdapter-to-JokeTeller%22%20codeLine%3D%2230%22%2F%3E%3Cpolygon%20points%3D%22456.69%2C287.83%2C460.69%2C278.83%2C456.69%2C282.83%2C452.69%2C278.83%2C456.69%2C287.83%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20ShowInterface%20to%20JokeTellerAdapter--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0005%22%20id%3D%22lnk9%22%20data-source-line%3D%2231%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M351.749%2C91.826%20C373.789%2C111.796%20389.17%2C125.72%20412.79%2C147.12%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22ShowInterface-backto-JokeTellerAdapter%22%20codeLine%3D%2231%22%2F%3E%3Cpolygon%20points%3D%22338.41%2C79.74%2C347.72%2C96.272%2C355.778%2C87.38%2C338.41%2C79.74%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--link%20Program%20to%20ShowInterface--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0010%22%20data-entity-2%3D%22ent0001%22%20id%3D%22lnk11%22%20data-source-line%3D%2239%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M202.7%2C47.29%20C214.14%2C47.29%20220.58%2C47.29%20232.02%2C47.29%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Program-to-ShowInterface%22%20codeLine%3D%2239%22%2F%3E%3Cpolygon%20points%3D%22237.02%2C47.29%2C228.02%2C43.29%2C232.02%2C47.29%2C228.02%2C51.29%2C237.02%2C47.29%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C%3Fplantuml-src%20TP313e8m44Jl_OezGWnyWJ7ng2SIlPEchegMjjcM6AF-krMXW9JRpkPbPcShvP2EN23iplgswHHxC805MBzBKlPYJ4XkBHGLLxgG_8xK4iQB6M9zuCO5i2o5LjPH8rmoWC3qSnhDtEehxb7AuEIyY0FpYJq3bp3-vqrlXonRZKgFdWJBPvx76ayk-leCYaHifYswZv8-4Q_RKjIev7Dt1eRGSCB2csYgaMnRueU33nobl040%3F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2020/08/10/Class-Diagram-Talent-Show-Adapter-Pattern/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：才藝表演（轉接頭模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/sheet-music.webp",
+        "keywords": "Design Pattern",
+        "genre": "Clean Code",
+        "datePublished": "2020-08-10",
+        "dateCreated": "2020-08-10",
+        "dateModified": "2026-06-25",
+        "url": "https://yncbearz.github.io/2020/08/10/Class-Diagram-Talent-Show-Adapter-Pattern/",
+        "description": "Class-Diagram-Talent-Show-Adapter-Pattern",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/08/16/Facade-Pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            外觀模式
+        
+        </p>
+        <i class="icon fa-solid fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/08/09/Example-Talent-Show-Adapter-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：才藝表演（轉接頭模式）</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/I-AM-SHERLOCKED.webp)" alt="畢業前，你沒想過的那些事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="title">畢業前，你沒想過的那些事</a></p>
+                            <p class="item-date"><time datetime="2026-03-22T06:08:05.000Z" itemprop="datePublished">2026-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Talk/" rel="tag">Talk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '2ec2ecedec4fbc55443e6fb5f0fd8ba7',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1785921740718')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

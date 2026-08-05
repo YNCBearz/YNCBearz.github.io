@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head><link rel=manifest href=/manifest.json>
+    <meta charset="utf-8" />
+
+    
+
+
+
+
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icons/512x512.png">
+
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/icons/256x256.png">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/icons/128x128.png">
+
+<meta name="msapplication-TileColor" content="#006bde" />
+
+<meta name="theme-color" content="#006bde" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="YNCBearz" />
+
+
+
+    
+    <title>類別圖：各國婚禮（訪問者模式） | YNCBearz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Design Pattern" />
+    
+    <meta name="description" content="Class-Diagram-Wedding-Visitor-Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="類別圖：各國婚禮（訪問者模式）">
+<meta property="og:url" content="https://yncbearz.github.io/2020/12/27/Class-Diagram-Wedding-Visitor-Pattern/">
+<meta property="og:site_name" content="YNCBearz">
+<meta property="og:description" content="Class-Diagram-Wedding-Visitor-Pattern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/bar-beverage.webp">
+<meta property="article:published_time" content="2020-12-27T08:37:14.000Z">
+<meta property="article:modified_time" content="2026-06-25T04:58:53.985Z">
+<meta property="article:author" content="YNCBearz">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yncbearz.github.io/images/thumbnails/bar-beverage.webp">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/all.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+<script src="/libs/clipboard.js-master/dist/clipboard.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCE43GPQMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCE43GPQMZ');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa-solid fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clean-Code/">Clean Code</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa-solid fa-circle-xmark"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Clean-Code/">Clean Code</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Class-Diagram-Wedding-Visitor-Pattern"
+    class="article article-single article-type-post"
+    itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+    
+        <h1 class="article-title" itemprop="name">
+        類別圖：各國婚禮（訪問者模式）
+        </h1>
+    
+
+        </header>
+        
+        
+        <div class="article-meta">
+            
+  <div class="article-date">
+    <i class="fa-solid fa-calendar"></i>
+    <a href="/2020/12/27/Class-Diagram-Wedding-Visitor-Pattern/" class="article-date">
+       <time datetime="2020-12-27T08:37:14.000Z" itemprop="datePublished">2020-12-27</time>
+    </a>
+  </div>
+
+
+            
+
+            
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a>
+    </div>
+
+            
+            
+
+            
+
+        </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>Example: <a href="/2020/12/27/Example-Wedding-Visitor-Pattern/" title="範例：各國婚禮（訪問者模式）">各國婚禮</a></p>
+<hr>
+<img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20data-diagram-type%3D%22CLASS%22%20style%3D%22width%3A904px%3Bheight%3A573px%3Bbackground%3A%23FFFFFF%3B%22%20width%3D%22904px%22%20height%3D%22573px%22%20viewBox%3D%220%200%20904%20573%22%20zoomAndPan%3D%22magnify%22%20preserveAspectRatio%3D%22none%22%20contentStyleType%3D%22text%2Fcss%22%3E%3C%3Fplantuml%201.2026.7beta11%3F%3E%3Cdefs%2F%3E%3Cg%20font-family%3D%22sans-serif%22%20lengthAdjust%3D%22spacing%22%3E%3C!--class%20WeddingRole--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22WeddingRole%22%20id%3D%22ent0001%22%20data-source-line%3D%221%22%3E%3Crect%20x%3D%2281.24%22%20y%3D%227%22%20width%3D%22309.295%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22185.3%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M181.222%2C18.766%20L181.222%2C16.609%20L188.613%2C16.609%20L188.613%2C18.766%20L186.144%2C18.766%20L186.144%2C26.844%20L188.613%2C26.844%20L188.613%2C29%20L181.222%2C29%20L181.222%2C26.844%20L183.691%2C26.844%20L183.691%2C18.766%20L181.222%2C18.766%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22205.8%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2292.675%22%20font-style%3D%22italic%22%3EWeddingRole%3C%2Ftext%3E%3Cline%20x1%3D%2282.24%22%20y1%3D%2239%22%20x2%3D%22389.535%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%2282.24%22%20y1%3D%2247%22%20x2%3D%22389.535%22%20y2%3D%2247%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2292.24%22%20cy%3D%2260.648%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22101.24%22%20y%3D%2263.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22283.295%22%3EgetClothes(WeddingType%20WeddingType)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2292.24%22%20cy%3D%2276.945%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22101.24%22%20y%3D%2280.292%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22273.027%22%3EgetShoes(WeddingType%20WeddingType)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20WeddingType--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22WeddingType%22%20id%3D%22ent0002%22%20data-source-line%3D%227%22%3E%3Crect%20x%3D%22458.71%22%20y%3D%227%22%20width%3D%22236.362%22%20height%3D%2280.594%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22524.533%22%20cy%3D%2223%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23B4A7E5%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M520.455%2C18.766%20L520.455%2C16.609%20L527.846%2C16.609%20L527.846%2C18.766%20L525.377%2C18.766%20L525.377%2C26.844%20L527.846%2C26.844%20L527.846%2C29%20L520.455%2C29%20L520.455%2C26.844%20L522.924%2C26.844%20L522.924%2C18.766%20L520.455%2C18.766%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22545.033%22%20y%3D%2227.847%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2296.216%22%20font-style%3D%22italic%22%3EWeddingType%3C%2Ftext%3E%3Cline%20x1%3D%22459.71%22%20y1%3D%2239%22%20x2%3D%22694.072%22%20y2%3D%2239%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22459.71%22%20y1%3D%2247%22%20x2%3D%22694.072%22%20y2%3D%2247%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22469.71%22%20cy%3D%2260.648%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22478.71%22%20y%3D%2263.995%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22210.362%22%3EgetClothes(WeddingRole%20role)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22469.71%22%20cy%3D%2276.945%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22478.71%22%20y%3D%2280.292%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22200.095%22%3EgetShoes(WeddingRole%20role)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20BrideGroom--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22BrideGroom%22%20id%3D%22ent0004%22%20data-source-line%3D%2215%22%3E%3Crect%20x%3D%227%22%20y%3D%22296.34%22%20width%3D%22119.775%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%2223.644%22%20cy%3D%22312.34%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M26.612%2C317.981%20Q26.034%2C318.278%2025.394%2C318.418%20Q24.753%2C318.574%2024.05%2C318.574%20Q21.55%2C318.574%2020.222%2C316.934%20Q18.909%2C315.278%2018.909%2C312.153%20Q18.909%2C309.028%2020.222%2C307.371%20Q21.55%2C305.715%2024.05%2C305.715%20Q24.753%2C305.715%2025.394%2C305.871%20Q26.05%2C306.028%2026.612%2C306.324%20L26.612%2C309.043%20Q25.987%2C308.465%2025.394%2C308.199%20Q24.8%2C307.918%2024.175%2C307.918%20Q22.831%2C307.918%2022.144%2C308.996%20Q21.456%2C310.059%2021.456%2C312.153%20Q21.456%2C314.246%2022.144%2C315.324%20Q22.831%2C316.387%2024.175%2C316.387%20Q24.8%2C316.387%2025.394%2C316.121%20Q25.987%2C315.84%2026.612%2C315.262%20L26.612%2C317.981%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%2238.009%22%20y%3D%22317.187%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2284.123%22%3EBrideGroom%3C%2Ftext%3E%3Cline%20x1%3D%228%22%20y1%3D%22328.34%22%20x2%3D%22125.775%22%20y2%3D%22328.34%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_FIELD%22%3E%3Cellipse%20cx%3D%2218%22%20cy%3D%22341.988%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2227%22%20y%3D%22345.335%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2293.775%22%3Ename%3A%20string%3B%3C%2Ftext%3E%3Cline%20x1%3D%228%22%20y1%3D%22352.637%22%20x2%3D%22125.775%22%20y2%3D%22352.637%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3C%2Fg%3E%3C!--class%20Bride--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Bride%22%20id%3D%22ent0005%22%20data-source-line%3D%2220%22%3E%3Crect%20x%3D%22120%22%20y%3D%22147.6%22%20width%3D%22119.775%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22157.961%22%20cy%3D%22163.6%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M160.93%2C169.241%20Q160.352%2C169.537%20159.711%2C169.678%20Q159.071%2C169.834%20158.368%2C169.834%20Q155.868%2C169.834%20154.54%2C168.194%20Q153.227%2C166.537%20153.227%2C163.412%20Q153.227%2C160.287%20154.54%2C158.631%20Q155.868%2C156.975%20158.368%2C156.975%20Q159.071%2C156.975%20159.711%2C157.131%20Q160.368%2C157.287%20160.93%2C157.584%20L160.93%2C160.303%20Q160.305%2C159.725%20159.711%2C159.459%20Q159.118%2C159.178%20158.493%2C159.178%20Q157.149%2C159.178%20156.461%2C160.256%20Q155.774%2C161.319%20155.774%2C163.412%20Q155.774%2C165.506%20156.461%2C166.584%20Q157.149%2C167.647%20158.493%2C167.647%20Q159.118%2C167.647%20159.711%2C167.381%20Q160.305%2C167.1%20160.93%2C166.522%20L160.93%2C169.241%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22177.064%22%20y%3D%22168.447%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2236.75%22%3EBride%3C%2Ftext%3E%3Cline%20x1%3D%22121%22%20y1%3D%22179.6%22%20x2%3D%22238.775%22%20y2%3D%22179.6%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_FIELD%22%3E%3Cellipse%20cx%3D%22131%22%20cy%3D%22193.248%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22140%22%20y%3D%22196.595%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2293.775%22%3Ename%3A%20string%3B%3C%2Ftext%3E%3Cline%20x1%3D%22121%22%20y1%3D%22203.897%22%20x2%3D%22238.775%22%20y2%3D%22203.897%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3C%2Fg%3E%3C!--class%20ChineseWedding--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22ChineseWedding%22%20id%3D%22ent0008%22%20data-source-line%3D%2228%22%3E%3Crect%20x%3D%22345.98%22%20y%3D%22155.75%22%20width%3D%22149.811%22%20height%3D%2248%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22360.98%22%20cy%3D%22171.75%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M363.949%2C177.391%20Q363.371%2C177.688%20362.73%2C177.828%20Q362.089%2C177.984%20361.386%2C177.984%20Q358.886%2C177.984%20357.558%2C176.344%20Q356.246%2C174.688%20356.246%2C171.563%20Q356.246%2C168.438%20357.558%2C166.781%20Q358.886%2C165.125%20361.386%2C165.125%20Q362.089%2C165.125%20362.73%2C165.281%20Q363.386%2C165.438%20363.949%2C165.734%20L363.949%2C168.453%20Q363.324%2C167.875%20362.73%2C167.609%20Q362.136%2C167.328%20361.511%2C167.328%20Q360.168%2C167.328%20359.48%2C168.406%20Q358.793%2C169.469%20358.793%2C171.563%20Q358.793%2C173.656%20359.48%2C174.734%20Q360.168%2C175.797%20361.511%2C175.797%20Q362.136%2C175.797%20362.73%2C175.531%20Q363.324%2C175.25%20363.949%2C174.672%20L363.949%2C177.391%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22374.98%22%20y%3D%22176.597%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22117.811%22%3EChineseWedding%3C%2Ftext%3E%3Cline%20x1%3D%22346.98%22%20y1%3D%22187.75%22%20x2%3D%22494.791%22%20y2%3D%22187.75%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22346.98%22%20y1%3D%22195.75%22%20x2%3D%22494.791%22%20y2%3D%22195.75%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3C%2Fg%3E%3C!--class%20JapaneseWedding--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22JapaneseWedding%22%20id%3D%22ent0010%22%20data-source-line%3D%2229%22%3E%3Crect%20x%3D%22531.16%22%20y%3D%22155.75%22%20width%3D%22157.446%22%20height%3D%2248%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22546.16%22%20cy%3D%22171.75%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M549.129%2C177.391%20Q548.551%2C177.688%20547.91%2C177.828%20Q547.269%2C177.984%20546.566%2C177.984%20Q544.066%2C177.984%20542.738%2C176.344%20Q541.426%2C174.688%20541.426%2C171.563%20Q541.426%2C168.438%20542.738%2C166.781%20Q544.066%2C165.125%20546.566%2C165.125%20Q547.269%2C165.125%20547.91%2C165.281%20Q548.566%2C165.438%20549.129%2C165.734%20L549.129%2C168.453%20Q548.504%2C167.875%20547.91%2C167.609%20Q547.316%2C167.328%20546.691%2C167.328%20Q545.348%2C167.328%20544.66%2C168.406%20Q543.973%2C169.469%20543.973%2C171.563%20Q543.973%2C173.656%20544.66%2C174.734%20Q545.348%2C175.797%20546.691%2C175.797%20Q547.316%2C175.797%20547.91%2C175.531%20Q548.504%2C175.25%20549.129%2C174.672%20L549.129%2C177.391%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22560.16%22%20y%3D%22176.597%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22125.446%22%3EJapaneseWedding%3C%2Ftext%3E%3Cline%20x1%3D%22532.16%22%20y1%3D%22187.75%22%20x2%3D%22687.606%22%20y2%3D%22187.75%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22532.16%22%20y1%3D%22195.75%22%20x2%3D%22687.606%22%20y2%3D%22195.75%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3C%2Fg%3E%3C!--class%20Composite--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Composite%22%20id%3D%22ent0012%22%20data-source-line%3D%2231%22%3E%3Crect%20x%3D%22233.33%22%20y%3D%22271.89%22%20width%3D%22281.124%22%20height%3D%22113.188%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22332.284%22%20cy%3D%22287.89%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M335.252%2C293.531%20Q334.674%2C293.828%20334.034%2C293.968%20Q333.393%2C294.124%20332.69%2C294.124%20Q330.19%2C294.124%20328.862%2C292.484%20Q327.549%2C290.828%20327.549%2C287.703%20Q327.549%2C284.578%20328.862%2C282.921%20Q330.19%2C281.265%20332.69%2C281.265%20Q333.393%2C281.265%20334.034%2C281.421%20Q334.69%2C281.578%20335.252%2C281.874%20L335.252%2C284.593%20Q334.627%2C284.015%20334.034%2C283.749%20Q333.44%2C283.468%20332.815%2C283.468%20Q331.471%2C283.468%20330.784%2C284.546%20Q330.096%2C285.609%20330.096%2C287.703%20Q330.096%2C289.796%20330.784%2C290.874%20Q331.471%2C291.937%20332.815%2C291.937%20Q333.44%2C291.937%20334.034%2C291.671%20Q334.627%2C291.39%20335.252%2C290.812%20L335.252%2C293.531%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22352.784%22%20y%3D%22292.737%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2274.717%22%3EComposite%3C%2Ftext%3E%3Cline%20x1%3D%22234.33%22%20y1%3D%22303.89%22%20x2%3D%22513.454%22%20y2%3D%22303.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%22244.33%2C312.538%2C248.33%2C316.538%2C244.33%2C320.538%2C240.33%2C316.538%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22253.33%22%20y%3D%22320.885%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22169.244%22%3Echildren%3A%20WeddingRole%5B%5D%3C%2Ftext%3E%3Cline%20x1%3D%22234.33%22%20y1%3D%22328.187%22%20x2%3D%22513.454%22%20y2%3D%22328.187%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22244.33%22%20cy%3D%22341.835%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22253.33%22%20y%3D%22345.182%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22161.226%22%3Eadd(WeddingRole%20role)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22244.33%22%20cy%3D%22358.132%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22253.33%22%20y%3D%22361.479%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22188.344%22%3Eremove(WeddingRole%20role)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22244.33%22%20cy%3D%22374.429%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22253.33%22%20y%3D%22377.776%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22255.124%22%3Edisplay(WeddingType%20weddingType)%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20WeddingTypeFactory--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22WeddingTypeFactory%22%20id%3D%22ent0014%22%20data-source-line%3D%2242%22%3E%3Crect%20x%3D%22564.13%22%20y%3D%22296.34%22%20width%3D%22325.517%22%20height%3D%2264.297%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22648.318%22%20cy%3D%22312.34%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M651.287%2C317.981%20Q650.709%2C318.278%20650.068%2C318.418%20Q649.427%2C318.574%20648.724%2C318.574%20Q646.224%2C318.574%20644.896%2C316.934%20Q643.584%2C315.278%20643.584%2C312.153%20Q643.584%2C309.028%20644.896%2C307.371%20Q646.224%2C305.715%20648.724%2C305.715%20Q649.427%2C305.715%20650.068%2C305.871%20Q650.724%2C306.028%20651.287%2C306.324%20L651.287%2C309.043%20Q650.662%2C308.465%20650.068%2C308.199%20Q649.474%2C307.918%20648.849%2C307.918%20Q647.505%2C307.918%20646.818%2C308.996%20Q646.13%2C310.059%20646.13%2C312.153%20Q646.13%2C314.246%20646.818%2C315.324%20Q647.505%2C316.387%20648.849%2C316.387%20Q649.474%2C316.387%20650.068%2C316.121%20Q650.662%2C315.84%20651.287%2C315.262%20L651.287%2C317.981%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22668.818%22%20y%3D%22317.187%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22148.641%22%3EWeddingTypeFactory%3C%2Ftext%3E%3Cline%20x1%3D%22565.13%22%20y1%3D%22328.34%22%20x2%3D%22888.647%22%20y2%3D%22328.34%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cline%20x1%3D%22565.13%22%20y1%3D%22336.34%22%20x2%3D%22888.647%22%20y2%3D%22336.34%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%22575.13%22%20cy%3D%22349.988%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22584.13%22%20y%3D%22353.335%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22299.517%22%3Ecreate(string%20weddingType)%3A%20WeddingType%3C%2Ftext%3E%3C%2Fg%3E%3C!--class%20Program--%3E%3Cg%20class%3D%22entity%22%20data-qualified-name%3D%22Program%22%20id%3D%22ent0016%22%20data-source-line%3D%2249%22%3E%3Crect%20x%3D%2266.02%22%20y%3D%22445.08%22%20width%3D%22421.732%22%20height%3D%22113.188%22%20fill%3D%22%23F1F1F1%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%20rx%3D%222.5%22%20ry%3D%222.5%22%2F%3E%3Cellipse%20cx%3D%22242.825%22%20cy%3D%22461.08%22%20rx%3D%2211%22%20ry%3D%2211%22%20fill%3D%22%23ADD1B2%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%2F%3E%3Cpath%20d%3D%22M245.793%2C466.721%20Q245.215%2C467.018%20244.575%2C467.158%20Q243.934%2C467.314%20243.231%2C467.314%20Q240.731%2C467.314%20239.403%2C465.674%20Q238.09%2C464.018%20238.09%2C460.893%20Q238.09%2C457.768%20239.403%2C456.111%20Q240.731%2C454.455%20243.231%2C454.455%20Q243.934%2C454.455%20244.575%2C454.611%20Q245.231%2C454.768%20245.793%2C455.064%20L245.793%2C457.783%20Q245.168%2C457.205%20244.575%2C456.939%20Q243.981%2C456.658%20243.356%2C456.658%20Q242.012%2C456.658%20241.325%2C457.736%20Q240.637%2C458.799%20240.637%2C460.893%20Q240.637%2C462.986%20241.325%2C464.064%20Q242.012%2C465.127%20243.356%2C465.127%20Q243.981%2C465.127%20244.575%2C464.861%20Q245.168%2C464.58%20245.793%2C464.002%20L245.793%2C466.721%20Z%20%22%20fill%3D%22%23000%22%2F%3E%3Ctext%20x%3D%22263.325%22%20y%3D%22465.927%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2259.623%22%3EProgram%3C%2Ftext%3E%3Cline%20x1%3D%2267.02%22%20y1%3D%22477.08%22%20x2%3D%22486.752%22%20y2%3D%22477.08%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PROTECTED_FIELD%22%3E%3Cpolygon%20points%3D%2277.02%2C485.728%2C81.02%2C489.728%2C77.02%2C493.728%2C73.02%2C489.728%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23B38D22%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2286.02%22%20y%3D%22494.075%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22304.056%22%3EweddingTypeFactory%3A%20WeddingTypeFactory%3C%2Ftext%3E%3Cline%20x1%3D%2267.02%22%20y1%3D%22501.377%22%20x2%3D%22486.752%22%20y2%3D%22501.377%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A0.5%3B%22%2F%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2277.02%22%20cy%3D%22515.025%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2286.02%22%20y%3D%22518.372%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%2290.658%22%3E__construct()%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2277.02%22%20cy%3D%22531.322%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2286.02%22%20y%3D%22534.669%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22234.254%22%3EgetWedding(string%20weddingType)%3C%2Ftext%3E%3Cg%20data-visibility-modifier%3D%22PUBLIC_METHOD%22%3E%3Cellipse%20cx%3D%2277.02%22%20cy%3D%22547.619%22%20rx%3D%223%22%20ry%3D%223%22%20fill%3D%22%2384BE84%22%20style%3D%22stroke%3A%23038048%3Bstroke-width%3A1%3B%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2286.02%22%20y%3D%22550.966%22%20fill%3D%22%23000%22%20font-size%3D%2214%22%20textLength%3D%22395.732%22%3EcreateWeddingType(string%20weddingType)%3A%20WeddingType%3C%2Ftext%3E%3C%2Fg%3E%3C!--link%20WeddingRole%20to%20WeddingType--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0002%22%20id%3D%22lnk3%22%20data-source-line%3D%2213%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M395.74%2C47.3%20C418.28%2C47.3%20430.82%2C47.3%20453.36%2C47.3%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22WeddingRole-WeddingType%22%20codeLine%3D%2213%22%2F%3E%3Cpolygon%20points%3D%22390.74%2C47.3%2C399.74%2C51.3%2C395.74%2C47.3%2C399.74%2C43.3%2C390.74%2C47.3%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3Cpolygon%20points%3D%22458.36%2C47.3%2C449.36%2C43.3%2C453.36%2C47.3%2C449.36%2C51.3%2C458.36%2C47.3%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20WeddingRole%20to%20BrideGroom--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0004%22%20id%3D%22lnk6%22%20data-source-line%3D%2225%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M148.566%2C98.336%20C125.996%2C114.076%20117.89%2C123.85%20102.89%2C147.6%20C73.88%2C193.51%2067.54%2C258.06%2066.55%2C296.06%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22WeddingRole-backto-BrideGroom%22%20codeLine%3D%2225%22%2F%3E%3Cpolygon%20points%3D%22163.33%2C88.04%2C145.134%2C93.415%2C151.998%2C103.258%2C163.33%2C88.04%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20WeddingRole%20to%20Bride--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0005%22%20id%3D%22lnk7%22%20data-source-line%3D%2226%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M211.835%2C104.333%20C203.665%2C123.383%20201.08%2C129.37%20193.41%2C147.25%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22WeddingRole-backto-Bride%22%20codeLine%3D%2226%22%2F%3E%3Cpolygon%20points%3D%22218.93%2C87.79%2C206.321%2C101.968%2C217.35%2C106.698%2C218.93%2C87.79%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20WeddingType%20to%20ChineseWedding--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0008%22%20id%3D%22lnk9%22%20data-source-line%3D%2228%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M515.851%2C99.336%20C489.481%2C121.386%20471.34%2C136.56%20448.91%2C155.31%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22WeddingType-backto-ChineseWedding%22%20codeLine%3D%2228%22%2F%3E%3Cpolygon%20points%3D%22529.66%2C87.79%2C512.003%2C94.734%2C519.7%2C103.939%2C529.66%2C87.79%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20WeddingType%20to%20JapaneseWedding--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0010%22%20id%3D%22lnk11%22%20data-source-line%3D%2229%22%20data-link-type%3D%22extension%22%3E%3Cpath%20d%3D%22M591.296%2C105.24%20C596.876%2C127.29%20599.21%2C136.56%20603.96%2C155.31%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-dasharray%3A7%2C7%3B%22%20fill%3D%22none%22%20id%3D%22WeddingType-backto-JapaneseWedding%22%20codeLine%3D%2229%22%2F%3E%3Cpolygon%20points%3D%22586.88%2C87.79%2C585.479%2C106.712%2C597.113%2C103.768%2C586.88%2C87.79%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20WeddingRole%20to%20Composite--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0001%22%20data-entity-2%3D%22ent0012%22%20id%3D%22lnk13%22%20data-source-line%3D%2240%22%20data-link-type%3D%22aggregation%22%3E%3Cpath%20d%3D%22M260.828%2C98.767%20C284.568%2C146.787%20319.36%2C217.18%20346.23%2C271.53%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22WeddingRole-backto-Composite%22%20codeLine%3D%2240%22%2F%3E%3Cpolygon%20points%3D%22255.51%2C88.01%2C254.583%2C95.161%2C260.828%2C98.767%2C261.755%2C91.616%2C255.51%2C88.01%22%20fill%3D%22none%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20WeddingType%20to%20WeddingTypeFactory--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0002%22%20data-entity-2%3D%22ent0014%22%20id%3D%22lnk15%22%20data-source-line%3D%2247%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M652.783%2C90.944%20C674.643%2C106.624%20692.37%2C123.75%20705.89%2C147.6%20C732.24%2C194.11%20732.85%2C258.17%20730.29%2C295.97%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22WeddingType-backto-WeddingTypeFactory%22%20codeLine%3D%2247%22%2F%3E%3Cpolygon%20points%3D%22648.72%2C88.03%2C653.702%2C96.526%2C652.783%2C90.944%2C658.365%2C90.025%2C648.72%2C88.03%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20WeddingTypeFactory%20to%20Program--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0014%22%20data-entity-2%3D%22ent0016%22%20id%3D%22lnk17%22%20data-source-line%3D%2258%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M639.157%2C362.868%20C577.697%2C386.248%20497.03%2C416.93%20424.12%2C444.67%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22WeddingTypeFactory-backto-Program%22%20codeLine%3D%2258%22%2F%3E%3Cpolygon%20points%3D%22643.83%2C361.09%2C633.996%2C360.551%2C639.157%2C362.868%2C636.84%2C368.029%2C643.83%2C361.09%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20BrideGroom%20to%20Program--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0004%22%20data-entity-2%3D%22ent0016%22%20id%3D%22lnk18%22%20data-source-line%3D%2259%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M109.276%2C364.048%20C138.056%2C387.498%20174.27%2C417.02%20208.45%2C444.89%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22BrideGroom-backto-Program%22%20codeLine%3D%2259%22%2F%3E%3Cpolygon%20points%3D%22105.4%2C360.89%2C109.85%2C369.676%2C109.276%2C364.048%2C114.904%2C363.474%2C105.4%2C360.89%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Bride%20to%20Program--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0005%22%20data-entity-2%3D%22ent0016%22%20id%3D%22lnk19%22%20data-source-line%3D%2260%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M182.858%2C217.287%20C186.778%2C258.097%20195.64%2C325.96%20215.89%2C385.08%20C222.8%2C405.26%20232.86%2C426.21%20242.82%2C444.63%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Bride-backto-Program%22%20codeLine%3D%2260%22%2F%3E%3Cpolygon%20points%3D%22182.38%2C212.31%2C179.259%2C221.651%2C182.858%2C217.287%2C187.222%2C220.886%2C182.38%2C212.31%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C!--reverse%20link%20Composite%20to%20Program--%3E%3Cg%20class%3D%22link%22%20data-entity-1%3D%22ent0012%22%20data-entity-2%3D%22ent0016%22%20id%3D%22lnk20%22%20data-source-line%3D%2261%22%20data-link-type%3D%22dependency%22%3E%3Cpath%20d%3D%22M339.665%2C389.89%20C328.885%2C408.91%20319.32%2C425.79%20308.55%2C444.79%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3B%22%20fill%3D%22none%22%20id%3D%22Composite-backto-Program%22%20codeLine%3D%2261%22%2F%3E%3Cpolygon%20points%3D%22342.13%2C385.54%2C334.212%2C391.398%2C339.665%2C389.89%2C341.172%2C395.342%2C342.13%2C385.54%22%20fill%3D%22%23181818%22%20style%3D%22stroke%3A%23181818%3Bstroke-width%3A1%3Bstroke-linejoin%3Amiter%3Bstroke-miterlimit%3A10%3B%22%2F%3E%3C%2Fg%3E%3C%3Fplantuml-src%20bL9DIyGm4BtdLmIyLAJx0wfuiA3WILJm8BA4PDm6san9ealH_UystLWd_H3sKigyD_FUl8as7koxaC1VG2bjTezO0_jYd5_m7VYoHb-1ooButBKZCVoV__AUAloFTM1CJuK2iYeKN73RVvOL2DoFfiMh_3eHOB8Mpl4RgnNSMSGcIXhHGC6TjptnCWmXl3LAelEzsT2fozZOCqGorCjA6t0GwtFyNhI24gAn4fiMdVP7SsTSLhfM5an1x_RwnWRdGgcL82qq-0aheDAkhKMNd74_EIFjn3pFYR7eb7JV2kdHTZ5FQK5uo8w19eEBv6I7IMf1PM5eb7kmkBEYYR7iPxnYiJVusMubcjxDX_JP-CmYUSabMOACF7MVQ26iDNh_UqVpSb8PmwRL7m00%3F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+
+<p>ʕ •ᴥ•ʔ：若不熟悉 UML 類別圖，可參考<a href="/2020/06/26/Class-Diagram-Description/" title="UML類別圖說明">UML類別圖說明</a>。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a class="article-share-link tooltipped tooltipped-s" aria-label="Copy to clipboard" data-clipboard-text="https://yncbearz.github.io/2020/12/27/Class-Diagram-Wedding-Visitor-Pattern/"><i class="fa-solid fa-share" aria-hidden="true"></i>Share</a>
+<script>
+    (function ($) {
+        var clipboard = new ClipboardJS('.article-share-link');
+
+        clipboard.on('success', e => {
+            e.trigger.setAttribute('aria-label', 'Copied!');
+            e.clearSelection();
+        });
+
+        // Replace tooltip message when mouse leaves button
+        // and prevent page refresh after click button
+        var btn = document.querySelector('.article-share-link');
+        btn.addEventListener('mouseleave', e => {
+            e.target.setAttribute('aria-label', 'Copy to clipboard');
+            e.target.blur();
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    })(jQuery);
+</script>
+
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "YNCBearz"
+        },
+        "headline": "類別圖：各國婚禮（訪問者模式）",
+        "image": "https://yncbearz.github.io/images/thumbnails/bar-beverage.webp",
+        "keywords": "Design Pattern",
+        "genre": "Clean Code",
+        "datePublished": "2020-12-27",
+        "dateCreated": "2020-12-27",
+        "dateModified": "2026-06-25",
+        "url": "https://yncbearz.github.io/2020/12/27/Class-Diagram-Wedding-Visitor-Pattern/",
+        "description": "Class-Diagram-Wedding-Visitor-Pattern",
+        "wordCount": 10
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+<div id="comment-container"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YNCBearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="threads" href="https://threads.net/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-threads"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/@yncbearz" target="_blank" rel="noopener">
+                        <i class="icon fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="paper-plane" href="mailto:yncbearz@gmail.com" target="_blank" rel="noopener">
+                        <i class="icon fa-solid fa-paper-plane"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/01/01/Note-Exists-And-Not-Exists/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            小筆記：Exists 與 Not Exists
+        
+        </p>
+        <i class="icon fa-solid fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/12/27/Example-Wedding-Visitor-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">範例：各國婚禮（訪問者模式）</p>
+        <i class="icon fa-solid fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/I-AM-SHERLOCKED.webp)" alt="畢業前，你沒想過的那些事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Life/">Life</a></p>
+                            <p class="item-title"><a href="/2026/03/22/NCKU-Career-Coaching-Program/" class="title">畢業前，你沒想過的那些事</a></p>
+                            <p class="item-date"><time datetime="2026-03-22T06:08:05.000Z" itemprop="datePublished">2026-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/agent.webp)" alt="如何使用 AI 加速 API 串接" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2026/02/28/How-To-Use-AI-To-Accelerate-API-Integrations/" class="title">如何使用 AI 加速 API 串接</a></p>
+                            <p class="item-date"><time datetime="2026-02-28T09:28:53.000Z" itemprop="datePublished">2026-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/12/02/Connascence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/earth-surface.webp)" alt="共生性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/12/02/Connascence/" class="title">共生性</a></p>
+                            <p class="item-date"><time datetime="2025-12-02T02:49:22.000Z" itemprop="datePublished">2025-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/10/15/Coupling-And-System-Design/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/head-artwork.webp)" alt="耦合與系統設計" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a></p>
+                            <p class="item-title"><a href="/2025/10/15/Coupling-And-System-Design/" class="title">耦合與系統設計</a></p>
+                            <p class="item-date"><time datetime="2025-10-15T12:08:05.000Z" itemprop="datePublished">2025-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2025/07/26/Fitts-Law/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumbnails/music-control.webp)" alt="費茲法則" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2025/07/26/Fitts-Law/" class="title">費茲法則</a></p>
+                            <p class="item-date"><time datetime="2025-07-26T11:26:41.000Z" itemprop="datePublished">2025-07-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Pattern/" rel="tag">Design Pattern</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Example/" rel="tag">Example</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Menu/" rel="tag">Menu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/" rel="tag">Movie</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/" rel="tag">Note</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Principle/" rel="tag">Principle</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Private-Note/" rel="tag">Private Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/S-O-L-I-D/" rel="tag">S.O.L.I.D</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Settings/" rel="tag">Settings</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-Group/" rel="tag">Study Group</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Talk/" rel="tag">Talk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/With-TM/" rel="tag">With TM</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                <script>
+	$(function () {
+		// ref: https://github.com/zenorocha/codecopy/blob/master/src/scripts/main.js
+		var snippets = document.querySelectorAll('figure.highlight');
+		var htmlCopyButton = `
+			<button class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+				<i class="fa-solid fa-copy" aria-hidden="true"></i>
+			</button>`;
+
+		snippets.forEach(snippet => {
+			var parent = snippet.parentNode;
+			var wrapper = document.createElement('div');
+
+			parent.replaceChild(wrapper, snippet);
+			wrapper.appendChild(snippet);
+
+			wrapper.classList.add('code-highlight');
+			wrapper.firstChild.insertAdjacentHTML('beforebegin', htmlCopyButton);
+
+			var lang = (snippet.classList[1] || 'code').toUpperCase();
+			wrapper.setAttribute('data-lang', lang);
+		});
+
+		// Add copy to clipboard functionality and user feedback
+		var clipboard = new ClipboardJS('.codecopy-btn', {
+			target: trigger => {
+				return trigger.nextSibling.querySelector('.code');
+			},
+		});
+
+		clipboard.on('success', e => {
+			e.trigger.setAttribute('aria-label', 'Copied!');
+			e.clearSelection();
+		});
+
+		// Replace tooltip message when mouse leaves button
+		// and prevent page refresh after click button
+		var btns = document.querySelectorAll('.codecopy-btn');
+
+		btns.forEach(btn => {
+			btn.addEventListener('mouseleave', e => {
+				e.target.setAttribute('aria-label', 'Copy to clipboard');
+				e.target.blur();
+			});
+
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+			});
+		});
+	});
+</script>
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa-solid fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2026 YNCBearz</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9365194fd9e037a4bbd7',
+        clientSecret: '6cec7d68df75f62cdf81c6e816b836b39d658b14',
+        id: '17e85c50fca27eac2b64899c78e8a265',
+        repo: 'yncbearz.github.io',
+        owner: 'YNCBearz',
+        admin: "YNCBearz"
+    })
+    gitalk.render('comment-container')
+</script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1785921740718')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
