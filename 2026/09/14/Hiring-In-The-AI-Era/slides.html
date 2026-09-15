@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>AI 時代：招募與培養工程師的新挑戰</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body { background-color: #fff; margin: 0; }
+    
+    .reveal .slides { text-align: center; }
+    .reveal .slides section { text-align: center; }
+    .reveal p,
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 { text-align: center; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      text-transform: none; margin-bottom: 0.5em;
+    }
+    .reveal h1 { font-size: 2.5em; }
+    .reveal h2 { font-size: 1.9em; }
+    .reveal h3 { font-size: 1.5em; }
+    .reveal h4 { font-size: 1.3em; }
+    .reveal h5 { font-size: 1.0em; }
+    .reveal pre {
+      width: 100%; padding: 15px; margin-top: 0.5em; margin-bottom: 0.5em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15); max-height: 500px; overflow-y: auto;
+    }
+    .reveal code { font-family: monospace; }
+    .reveal pre code { padding: 5px; overflow-x: auto; max-width: 100%; white-space: pre-wrap; }
+    /* Base16 Atelier Savanna Dark - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/savanna) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+.highlight {
+  color: #87928a;
+  background: #171c19;
+}
+.highlight .code .comment,
+.highlight .code .quote,
+.highlight .code .hljs-comment,
+.highlight .code .hljs-quote {
+  color: #78877d;
+}
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .attribute,
+.highlight .code .tag,
+.highlight .code .name,
+.highlight .code .regexp,
+.highlight .code .link,
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .hljs-variable,
+.highlight .code .hljs-template-variable,
+.highlight .code .hljs-attribute,
+.highlight .code .hljs-tag,
+.highlight .code .hljs-name,
+.highlight .code .hljs-regexp,
+.highlight .code .hljs-link,
+.highlight .code .hljs-selector-id,
+.highlight .code .hljs-selector-class {
+  color: #b16139;
+}
+.highlight .code .number,
+.highlight .code .meta,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .literal,
+.highlight .code .type,
+.highlight .code .params,
+.highlight .code .hljs-number,
+.highlight .code .hljs-meta,
+.highlight .code .hljs-built_in,
+.highlight .code .hljs-builtin-name,
+.highlight .code .hljs-literal,
+.highlight .code .hljs-type,
+.highlight .code .hljs-params {
+  color: #9f713c;
+}
+.highlight .code .string,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .hljs-string,
+.highlight .code .hljs-symbol,
+.highlight .code .hljs-bullet {
+  color: #489963;
+}
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .hljs-title,
+.highlight .code .hljs-section,
+.highlight .code .hljs-function .hljs-title {
+  color: #478c90;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .hljs-keyword,
+.highlight .code .hljs-selector-tag {
+  color: #55859b;
+}
+.highlight .code .deletion,
+.highlight .code .addition,
+.highlight .code .hljs-deletion,
+.highlight .code .hljs-addition {
+  color: #171c19;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .deletion,
+.highlight .code .hljs-deletion {
+  background-color: #b16139;
+}
+.highlight .code .addition,
+.highlight .code .hljs-addition {
+  background-color: #489963;
+}
+.highlight .code .emphasis,
+.highlight .code .hljs-emphasis {
+  font-style: italic;
+}
+.highlight .code .strong,
+.highlight .code .hljs-strong {
+  font-weight: bold;
+}
+/* Support using hljs class directly on the page, not inside .highlight .code wrapper */
+.hljs {
+  color: #87928a;
+  background: #171c19;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #78877d;
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #b16139;
+}
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #9f713c;
+}
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #489963;
+}
+.hljs-title,
+.hljs-section,
+.hljs-function .hljs-title {
+  color: #478c90;
+}
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #55859b;
+}
+.hljs-deletion {
+  background-color: #b16139;
+}
+.hljs-addition {
+  background-color: #489963;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+
+    .reveal ul, .reveal ol { display: block; margin-left: 2em; }
+    .back-to-post {
+      position: fixed; bottom: 20px; left: 10px; z-index: 100;
+      padding: 10px 15px; background-color: rgba(0,0,0,0.6);
+      color: white !important; text-decoration: none; border-radius: 4px; font-size: 16px;
+    }
+    .back-to-post:hover { background-color: rgba(0,0,0,0.8); color: white !important; text-decoration: none; }
+    .hljs-line-numbers { padding-left: 3.5em !important; position: relative; }
+    .line-number {
+      position: absolute; left: 0; width: 2.5em; text-align: right;
+      color: #888; user-select: none; margin-right: 0.5em; padding-right: 0.5em;
+    }
+    .reveal iframe {
+      width: 95%; height: 75vh; max-height: 540px; margin: 15px auto;
+      display: block; border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .reveal img {
+      max-width: 95%; max-height: 85vh; object-fit: contain; margin: 15px auto; display: block;
+    }
+    .reveal section img { border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .reveal section:has(img:only-child) img { max-width: 98%; max-height: 90vh; }
+    @media (max-width: 768px) { .reveal img { max-width: 98%; max-height: 80vh; } }
+    .back-to-post { display: block; }
+    
+    .chat-marquee-lane {
+      position: fixed; left: 0; right: 0; z-index: 9999;
+      background: transparent; overflow: hidden;
+      height: 3em; display: flex; align-items: center;
+      pointer-events: none;
+    }
+    .chat-marquee-inner {
+      display: inline-block; white-space: nowrap;
+      color: #fff; font-size: 1.5em; font-family: sans-serif;
+      animation: marquee-scroll linear infinite;
+    }
+    @keyframes marquee-scroll {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+    #chat-marquee-0 { top: calc(0 * 3.2em); }
+    
+    #bs-controls {
+      position: fixed; top: 12px; right: 12px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(0,0,0,0.6); border-radius: 24px;
+      padding: 10px 20px; font-family: sans-serif;
+    }
+    #bs-play-btn {
+      background: none; border: none; color: #fff;
+      font-size: 1.4em; cursor: pointer; padding: 0; line-height: 1;
+    }
+    #bs-play-btn:hover { color: #adf; }
+    #bs-indicator { color: #ddd; font-size: 1.1em; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown data-separator="^---$" data-separator-vertical="^--$" data-charset="utf-8">
+        <textarea data-template>
+
+- 自我介紹
+  - 數學系畢業
+  - 從 PHP 寫到 C#
+  - AI 移民
+
+---
+
+Goal: 行銷自己
+Audience: 面試官及面試者
+Purpose: 幫助面試官更好地找人，面試者更知道如何準備
+
+---
+
+以終為始：
+- 面試官知道哪裡是新鮮人會有的困難
+- 面試者更知道要如何準備
+- 反思 AI 的使用
+
+---
+
+## 免責聲明
+
+以下皆為個人經驗分享，不針對任何人士或機構。
+如有雷同，實屬巧合。
+
+---
+
+## 面試篇
+
+> 我的經驗
+- 第一場面試：手寫 9x9 乘法
+- side project: terminal 猜數字、部落格
+
+> AI 時代
+- Pre-test: 大家都滿分
+- side project: 衣物穿搭的 APP
+- 尿遁大法：寫出了自己都不知道的解法（勘久郎）
+
+> 我們面試方向的轉變
+
+- 白板題 -> 用電腦面試（順便考核平常使用 AI 的情況) -> 改回白板題
+因為我們更想看到面試者白板上的思考過程，而非黑白分明的解題結果。
+
+- github: 以前很喜歡看，但逐漸失效，現在比較常看 AI 的使用方式
+
+---
+
+## 新人篇
+
+> 我的經驗
+- 大家都很忙，最久的工程師只有一年，只能自己摸索
+- 沒有文件或者很久沒更新
+
+> AI 時代 (各種 Case Study)
+- git branch 的誤用
+- 我與 AI 的語音輸入器
+- 問題變少了，人人有 AI
+- 失去了建立腦中地圖的機會
+- 專案結構發展變複雜（牌組強度膨脹）
+- domain 都回答的出來，但 codebase 還是很陌生
+
+> 我們比較想要的是什麼
+- 會讀 Code !!!
+- 文件定期更新(尤其是 code 沒有的資訊)、專案架構圖
+- 知道問題是什麼、自己在做什麼
+- 利用領域知識，下出更好的 prompt
+
+---
+
+## 真正的風險
+
+四象限：
+- Known Knowns
+- Known Unknowns
+- Unknown Knowns
+- Unknown Unknowns
+
+---
+
+## Vibe coding 時代的四種工程師。
+
+1.守舊派：排斥 AI · 堅持手寫 · 崇尚傳統與規範
+2.輕度維新派：接受輔助 · 什麼都自己檢查 · 核心仍自己寫
+3.半維新派：大量生成 · 自己把關 review · AI 是幫手不是主角
+4.維新派：駕馭 AI · 描述意圖 · 專注在架構
+
+---
+
+## 結論
+
+- 通過率真的是因為 AI 而改變的嗎？
+- 你的合作對象始終是個人
+- 持續學習
+
+---
+
+## Q & A
+
+---
+
+## Homework
+
+- 建立一個 read code 的 skill
+- 用特別的方式呈現這個 talk
+
+---
+
+
+
+
+        </textarea>
+      </section>
+    </div>
+  </div>
+  <a href="/2026/09/14/Hiring-In-The-AI-Era/" class="back-to-post">
+    <i class="fas fa-arrow-left"></i> 返回文章
+  </a>
+  <div id="chat-marquee-0" class="chat-marquee-lane" style="display:none"><span id="chat-marquee-inner-0" class="chat-marquee-inner"></span></div>
+  <div id="bs-controls"><button id="bs-play-btn" title="播放 / 暫停">▶</button><span id="bs-indicator">等待中..</span></div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() { 
+      Reveal.initialize({
+        hash: true, slideNumber: true, transition: 'slide',
+        center: true, margin: 0.02, width: 1280, height: 720,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        highlight: { highlightOnLoad: true, escapeHTML: false },
+        markdown: { smartypants: true },
+      });
+      Reveal.on('ready', function() {
+        document.querySelectorAll('pre code').forEach(function(block) {
+          block.classList.add('hljs-line-numbers');
+          const lines = block.innerHTML.split('\n');
+          let numberedCode = '';
+          for (let i = 0; i < lines.length; i++) {
+            numberedCode += '<span class="line-number">' + (i + 1) + '</span>' + lines[i] + '\n';
+          }
+          block.innerHTML = numberedCode;
+        });
+      }); 
+    (function() {
+      var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNSsP3uJKQsmFkFY01dfGh0sKGdaMUpOa-_bjNzM9j1oUobMcM89QUTN9ekbe5OfCD/exec";
+      var POLL_INTERVAL   = 10000;
+      var LANES           = 1;
+      var AUTO_PLAY       = false;
+      var pendingRows     = new Set();
+      var queues          = Array.from({ length: LANES }, function() { return []; });
+      var isAnimating     = Array(LANES).fill(false);
+      var timers          = Array(LANES).fill(null);
+      var timerEndTime    = Array(LANES).fill(null);
+      var isPlaying       = AUTO_PLAY;
+
+      // Embed module-level pure functions directly so tests and client share one definition
+      function filterUnseenMessages(messages, seen) {
+  return messages.filter(function(msg) { return !seen.has(msg.row); });
+}
+      function formatMessage(msg) {
+  return msg.name + '：' + msg.message;
+}
+
+      function totalQueued() {
+        return queues.reduce(function(sum, q) { return sum + q.length; }, 0);
+      }
+      function updateIndicator() {
+        if (AUTO_PLAY) return;
+        var el = document.getElementById('bs-indicator');
+        if (!el) return;
+        var total = totalQueued();
+        el.textContent = total === 0 ? '等待中..' : total + ' 則訊息';
+      }
+
+      function poll() {
+        fetch(APPS_SCRIPT_URL)
+          .then(function(r) { return r.json(); })
+          .then(function(messages) {
+            if (!Array.isArray(messages)) return;
+            var unseen = filterUnseenMessages(messages, pendingRows);
+            unseen.forEach(function(msg) {
+              pendingRows.add(msg.row);
+              var lane = 0;
+              for (var i = 1; i < LANES; i++) {
+                if (queues[i].length < queues[lane].length) lane = i;
+              }
+              queues[lane].push(msg);
+              if (isPlaying && !isAnimating[lane]) showNext(lane);
+            });
+            updateIndicator();
+          })
+          .catch(function() {});
+      }
+
+      function showNext(lane) {
+        if (!isPlaying) { isAnimating[lane] = false; return; }
+        if (queues[lane].length === 0) { isAnimating[lane] = false; updateIndicator(); return; }
+        isAnimating[lane] = true;
+        var msg = queues[lane].shift();
+        updateIndicator();
+        var marquee = document.getElementById('chat-marquee-' + lane);
+        var inner   = document.getElementById('chat-marquee-inner-' + lane);
+        inner.textContent = formatMessage(msg);
+        marquee.style.display = 'flex';
+
+        var len = inner.textContent.length;
+        var duration = Math.max(6, len * 0.18 + len * len * 0.002);
+        inner.style.animationDuration = duration + 's';
+        inner.style.animation = 'none';
+        inner.offsetHeight;
+        inner.style.animation = '';
+        inner.style.animationDuration = duration + 's';
+
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify({ action: 'markProcessed', row: msg.row }),
+        }).catch(function() {});
+
+        var ms = duration * 1000;
+        timerEndTime[lane] = Date.now() + ms;
+        timers[lane] = setTimeout(function() {
+          timers[lane] = null;
+          timerEndTime[lane] = null;
+          if (queues[lane].length === 0) marquee.style.display = 'none';
+          showNext(lane);
+        }, ms);
+      }
+
+      function togglePlay() {
+        isPlaying = !isPlaying;
+        var btn = document.getElementById('bs-play-btn');
+        if (btn) btn.textContent = isPlaying ? '⏸' : '▶';
+        if (!isPlaying) {
+          for (var i = 0; i < LANES; i++) {
+            if (timers[i]) { clearTimeout(timers[i]); timers[i] = null; }
+            var inner = document.getElementById('chat-marquee-inner-' + i);
+            if (inner) inner.style.animationPlayState = 'paused';
+          }
+        } else {
+          for (var i = 0; i < LANES; i++) {
+            if (isAnimating[i]) {
+              var remaining = timerEndTime[i] ? timerEndTime[i] - Date.now() : 0;
+              if (remaining <= 0) {
+                isAnimating[i] = false;
+                showNext(i);
+              } else {
+                var inner = document.getElementById('chat-marquee-inner-' + i);
+                if (inner) inner.style.animationPlayState = 'running';
+                (function(lane, rem) {
+                  timers[lane] = setTimeout(function() {
+                    timers[lane] = null;
+                    timerEndTime[lane] = null;
+                    var marquee = document.getElementById('chat-marquee-' + lane);
+                    if (queues[lane].length === 0 && marquee) marquee.style.display = 'none';
+                    showNext(lane);
+                  }, rem);
+                })(i, remaining);
+              }
+            } else if (queues[i].length > 0) {
+              showNext(i);
+            }
+          }
+        }
+      }
+
+      var btn = document.getElementById('bs-play-btn');
+      if (btn) btn.addEventListener('click', togglePlay);
+
+      setInterval(poll, POLL_INTERVAL);
+      poll();
+    })(); });
+  </script>
+</body>
+</html>
