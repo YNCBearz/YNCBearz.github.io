@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
-    body { background-color: #fff; margin: 0; }
+    body { background-color: #1a1a2e; margin: 0; }
     
     .reveal .slides { text-align: center; }
     .reveal .slides section { text-align: center; }
@@ -202,7 +202,35 @@
     .reveal section img { border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     .reveal section:has(img:only-child) img { max-width: 98%; max-height: 90vh; }
     @media (max-width: 768px) { .reveal img { max-width: 98%; max-height: 80vh; } }
-    .back-to-post { display: block; }
+    
+    
+    #password-gate {
+      position: fixed; inset: 0; display: flex;
+      align-items: center; justify-content: center;
+      background: #1a1a2e; z-index: 9999; font-family: sans-serif;
+    }
+    #password-gate .gate-box {
+      background: #16213e; border: 1px solid #0f3460; border-radius: 12px;
+      padding: 40px; text-align: center; min-width: 320px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    #password-gate h2 { color: #e2e8f0; margin: 0 0 16px; font-size: 1.4em; }
+    #password-gate p  { color: #a0aec0; margin: 0 0 20px; font-size: 0.95em; }
+    #password-input {
+      width: 100%; padding: 10px 14px; border: 1px solid #0f3460; border-radius: 6px;
+      background: #0f3460; color: #e2e8f0; font-size: 1em;
+      box-sizing: border-box; margin-bottom: 12px; outline: none;
+    }
+    #password-input:focus { border-color: #e94560; }
+    #submit-btn {
+      width: 100%; padding: 10px; background: #e94560; color: white;
+      border: none; border-radius: 6px; font-size: 1em; cursor: pointer; transition: background 0.2s;
+    }
+    #submit-btn:hover    { background: #c73652; }
+    #submit-btn:disabled { background: #666; cursor: not-allowed; }
+    #error-msg { color: #fc8181; margin-top: 12px; font-size: 0.9em; min-height: 1.2em; }
+    #reveal-wrapper { display: none; width: 100vw; height: 100vh; }
+    .back-to-post { display: none; }
     
     .chat-marquee-lane {
       position: fixed; left: 0; right: 0; z-index: 9999;
@@ -237,126 +265,25 @@
 </head>
 <body>
   
-  <div class="reveal">
-    <div class="slides">
-      <section data-markdown data-separator="^---$" data-separator-vertical="^--$" data-charset="utf-8">
-        <textarea data-template>
-
-- 自我介紹
-  - 數學系畢業
-  - 從 PHP 寫到 C#
-  - AI 移民
-
----
-
-Goal: 行銷自己
-Audience: 面試官及面試者
-Purpose: 幫助面試官更好地找人，面試者更知道如何準備
-
----
-
-以終為始：
-- 面試官知道哪裡是新鮮人會有的困難
-- 面試者更知道要如何準備
-- 反思 AI 的使用
-
----
-
-## 免責聲明
-
-以下皆為個人經驗分享，不針對任何人士或機構。
-如有雷同，實屬巧合。
-
----
-
-## 面試篇
-
-> 我的經驗
-- 第一場面試：手寫 9x9 乘法
-- side project: terminal 猜數字、部落格
-
-> AI 時代
-- Pre-test: 大家都滿分
-- side project: 衣物穿搭的 APP
-- 尿遁大法：寫出了自己都不知道的解法（勘久郎）
-
-> 我們面試方向的轉變
-
-- 白板題 -> 用電腦面試（順便考核平常使用 AI 的情況) -> 改回白板題
-因為我們更想看到面試者白板上的思考過程，而非黑白分明的解題結果。
-
-- github: 以前很喜歡看，但逐漸失效，現在比較常看 AI 的使用方式
-
----
-
-## 新人篇
-
-> 我的經驗
-- 大家都很忙，最久的工程師只有一年，只能自己摸索
-- 沒有文件或者很久沒更新
-
-> AI 時代 (各種 Case Study)
-- git branch 的誤用
-- 我與 AI 的語音輸入器
-- 問題變少了，人人有 AI
-- 失去了建立腦中地圖的機會
-- 專案結構發展變複雜（牌組強度膨脹）
-- domain 都回答的出來，但 codebase 還是很陌生
-
-> 我們比較想要的是什麼
-- 會讀 Code !!!
-- 文件定期更新(尤其是 code 沒有的資訊)、專案架構圖
-- 知道問題是什麼、自己在做什麼
-- 利用領域知識，下出更好的 prompt
-
----
-
-## 真正的風險
-
-四象限：
-- Known Knowns
-- Known Unknowns
-- Unknown Knowns
-- Unknown Unknowns
-
----
-
-## Vibe coding 時代的四種工程師。
-
-1.守舊派：排斥 AI · 堅持手寫 · 崇尚傳統與規範
-2.輕度維新派：接受輔助 · 什麼都自己檢查 · 核心仍自己寫
-3.半維新派：大量生成 · 自己把關 review · AI 是幫手不是主角
-4.維新派：駕馭 AI · 描述意圖 · 專注在架構
-
----
-
-## 結論
-
-- 通過率真的是因為 AI 而改變的嗎？
-- 你的合作對象始終是個人
-- 持續學習
-
----
-
-## Q & A
-
----
-
-## Homework
-
-- 建立一個 read code 的 skill
-- 用特別的方式呈現這個 talk
-
----
-
-
-
-
-        </textarea>
-      </section>
+  <div id="password-gate">
+    <div class="gate-box">
+      <h2>AI 時代：招募與培養工程師的新挑戰</h2>
+      <p>Please enter the password to view the content.</p>
+      <input type="password" id="password-input" placeholder="Password" />
+      <button id="submit-btn" onclick="submitPassword()">Unlock</button>
+      <div id="error-msg"></div>
     </div>
   </div>
-  <a href="/2026/09/14/Hiring-In-The-AI-Era/" class="back-to-post">
+  <div id="reveal-wrapper">
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^---$" data-separator-vertical="^--$" data-charset="utf-8">
+          <textarea id="slides-content" data-template></textarea>
+        </section>
+      </div>
+    </div>
+  </div>
+  <a href="/2026/09/14/Hiring-In-The-AI-Era/" class="back-to-post" id="back-link">
     <i class="fas fa-arrow-left"></i> 返回文章
   </a>
   <div id="chat-marquee-0" class="chat-marquee-lane" style="display:none"><span id="chat-marquee-inner-0" class="chat-marquee-inner"></span></div>
@@ -366,7 +293,74 @@ Purpose: 幫助面試官更好地找人，面試者更知道如何準備
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() { 
+    
+    const cryptoObj   = window.crypto || window.msCrypto;
+    const storageName = 'hbe-slides:#' + window.location.pathname;
+    const keySalt = textToArray('hexo-blog-encrypt的作者们都是大帅比!');
+    const ivSalt  = textToArray('hexo-blog-encrypt是地表最强Hexo加密插件!');
+    const knownPrefix      = '<hbe-prefix></hbe-prefix>';
+    const encryptedData    = 'c6651e4bcda59a4397bcdc1be7da6fb5dca9676da5bea32b0ac4f25dea65610ca93aa4a98fb1aabd801ca8783fe2c2460b78b74e138ace719f6848edcdf05015860fd32b616647bab6ab2cb1efc2e01fba6cd2165eaaacda8de8f8f6893bcb1d3f4de7495f7366b4868bc6bb779107c927be0bb6c138274ebe0154398f278f8979acb915e0533f12ad75134164a2981c081c12cea36b81e76042c3cf5bf5e25f22970e3aa5baf4de9a9282c4decc8ebee26a570a037a3ac207f04114f6032e509ed0f6a2363630565fb8e8cfe68368a62783a457c615e6d5ac748f6e6110f22dd033f4115d0c891787a18159690adf1e49fdc628cb172bc5e2770528abe26d54367f1714c9b3e5a65fc425ee35630a1335137881b2aaf0f5d2a330b2a35c44c809e86d498190b14c75e1ccc767a2baf714f997965e872465db2f7d62e1b1d2d3d0023b48e2728b93ab3ae448348ae40683b1ef6b6dbe59523cfedd6598c082bcb3a8d1ef1213db3d64f811fcc07a4186faca53a238798e0a57b5f5f1f095a9be5da7cf6a985920b629028503e3b1ac645607ef54a0b3c43ec604ab25c08892f9ee07507b0384fcf9b8ca7f9ab703bdeb6ee32b4f795873da6c638e1137e68f8b5caba1882a70b9641563f8d9078bfc64d0ec9c4c028489d6c40116146d55a39a0b4154376e49bf174f28377b012feb3d66482383d94d3a8a0f1505d44079f66f40753561948bf736f3fbee47405773dbb1c189a0157b2d746e7229a3d227ffc22973271f1446a5c1e77ddcade5526b8b45a353d5336196916b020d2ad77c579ad504188ae8d77bcf5bcccc321efdd29820ea43f46692a232920a7ad4df635ef73e1b3ea5ffab05cda5ee1f82c869f388c0f4fbf842491818118247559cf771283d1f65429b7e36be9063892608f768d1ed94334ead7dd724068fc4a886aadbe894d07b7c7d5953911a6741b46accef325b5cf830dc71686496514166d1a9ada08affd969b0be7f0af01721ae0bcd5a345504f47104052fae6fc1e98803a8fb70dc154515817e3c297b9c23c6b0cdbfaa88614247ca92ef2bc39f21dcf4e69298806cc3588b2a82a5e86768278c45eeceedd20832e157774c762370e4c88d1c9815657c2cbdd01ea2fa3b356a3436fd4ea3449cded44ceba9125d526cfa9ed1466a8ffad30ed061b7ec55ec7f49215c5afd6f578f5c5d1ee5c248e373a2b79951b158936cf8426dd55b45b0d63f43c6cee85be3605d3984e687a25b71d2832edd970850b8d60ae2f39e8186d89588116e5377e475e5eed9d9bb522a3cecbb85cee8676dbc3d8d41d4eb2642931fbb3b07fc38d55f4fc299a263ceca7f05f983643e9a1ecde4880d527b251be6350bf4addf1bc9b9fda6951711f9397421aeda260f75d5cfa817d63800ab85b6c6cdfa0b3ea25e03cdef686f0ed980f43878e1bab9e7413153a713b26cfbe44af453115fba5e4b9ee48784d4d20e85003b0c09c5c5657e5926d818212b4bd63a0e334600aa730cf6134082923ef3992784722aef55da4d8d153435e9fbf085bf20444ab5a7389456835a2eeaf3dee95eb33a08451b199e1cbdd7fc9e4f8dbf830e0e10feffc83719c8cfd037e927ba98ad01b464476da2fd3526dba12095e21552a9e5056cadd9de3011b21ee2655216f91a102896c924b90ed7789a8a50a7035018b09454cb95712ae0ef6325428e18e1c44383cf800ef38aee0ccc360321f22998e59644a69f6348b8608aee7743bc4b95b4788e9eeeae1dd6cecd8abb505ce95bbf8a01ef3b78123810644986a621dc6e1e4e5a3b18328d9bcc74eb2d0b508f7e76b6d0130b636c3bd885b1b56d6c931a1786045873e0032dfb9ced16491fd09bc6655b4226f5ee8c981429fbee65320df22ee1843c35472d83433b3b732527b65e3cdae55f66f5eb075bdee6bd15e8aac4bdabfb25c5590f3c80f82079c9189c2535e53742aafe476464b9a3a132f9bd90b00dcaa54d93187be440b9526ade2171b82f8b60d82535eefb107ea347f81c763a83b26446601d5bd1af3c987382b39e7e7c718e4d3c96ab23b954d46ebc468437333e527c38e58a3eb7e85e2e5a772b8d6345494db6c1d63922317b20a650f436a39cafda1e46755503b2665a230b77b4b20174eccb6f1c1ef4e7c0d0af7a112474430c6c7918df3eb771310f5153bd79149152eb26ea734497c0fcd68d68fe4bcd3836e83dc96235a803ef2fb7ae6a4d57e15b7c21d873d2eee242e4fcba652aaed0d8e70c4d88d22daa0b4e65e418f8fc7dcb0170eeb76a6895be5b82318e413c9371a3f822f046db516e8c73ef4e0c126f0f761cba9ae0234552c037af963427c0af953c3a44d13f924ba0d6c8be28de03944261c0fc3c56ae1978cb0e76dd97ccab8b9a32b3a924b3109fbf3cfcbbcbeac83263c398281d5a1eacf88e29cb305238e81e8c51bfc7e4a1c046d0711250851cb0440dac0fab77d7abf6d3435d90ec521f6f698eec252bd1408fcff1e41ba06c4bc952e6200d6e8328bfe241a7b253e7d4674cc7c5eabb84fcb806d7e3eada4204b28686da8b7716a38bb9ab1ddb14d5206c3430df855809a97d113a7883bfe2991bf1beb17fcbfa8f9a21cd2a4cee034737cd165b90c0cb087d337ebd371e7e53388e42b5732eba560bdaa20be73ab95f08c6b62873e672d4d2a0c2a1316832e099fa4fc949aa90e7661ecaff2df1ee0480568c14d30130580345865bd63597d09252aed576fe01f259515dff34405176c624c31e470d643feb0c3ddcdb5af10ecb709745aa2ef8fe4d314467523c185a511e4ef54a153f731eadb71ee6cc56de58ca8f11071ad6d02f97daa41518d84c24d45d89759870e9c455da7e5a0e04cdd65d7b8f81ccc7832a07db8670a961f6a502affd5dd030ce1c46cb53a1f568f7a17fd8d5d1750daabca1524e41d2f294e9bfcbc1e438c60978561d90523ede10abacd6b4d039b970c9c7109eceb294b1aece973fa42ac9e47a16fe768dff03a3dce7afd0e259caf4c3d3215a6c37e6996c62760275d50c2410ad0386c72133ab95e4ed8a54b0b2710485cbcbaa94c97235028c28912ad7ac6a237d8eb603d2d409a2333ab66d980ef8c9e60ab2420ccd12a0bcb97b0770510e393c16b20551e5bd6a533ecdd28916b6a940b4326c833c398e5fdde2d97175904c5e99e9a844fa239139937bbe093d16bb3ec2b396f934d73e5b6bb04060960719072019c88995ff64d1cb45863a965ca4e571ea794d79b3aebcf26475a7a8827da2fe1c90eaa5d01e2cfc1d64f71908b70bc8933b30e0732ba3e3717a5897251214f5c553bd97b2474b9ade4ea935b9c11c45';
+    const hmacDigest       = '074896727d7bf2f23aea79472d49cc510dbbdb0ec7977febfdc18d9d499f85c1';
+    const wrongPassMessage = "The password is incorrect. Try again.";
+    const wrongHashMessage = "Oh, these decrypted content cannot be verified, but you can still have a look.";
+
+    function textToArray(s) {
+      var i = s.length, n = 0, ba = [];
+      for (var j = 0; j < i;) {
+        var c = s.codePointAt(j);
+        if (c < 128)        { ba[n++] = c; j++; }
+        else if (c < 2048)  { ba[n++] = (c >> 6) | 192;  ba[n++] = (c & 63)  | 128; j++; }
+        else if (c < 65536) { ba[n++] = (c >> 12) | 224; ba[n++] = ((c >> 6) & 63) | 128; ba[n++] = (c & 63) | 128; j++; }
+        else { ba[n++] = (c >> 18) | 240; ba[n++] = ((c >> 12) & 63) | 128; ba[n++] = ((c >> 6) & 63) | 128; ba[n++] = (c & 63) | 128; j += 2; }
+      }
+      return new Uint8Array(ba);
+    }
+
+    function hexToArray(s) {
+      return new Uint8Array(s.match(/[\da-f]{2}/gi).map(h => parseInt(h, 16)));
+    }
+
+    async function tryDecrypt(password) {
+      const raw     = await cryptoObj.subtle.importKey('raw', textToArray(password), { name: 'PBKDF2' }, false, ['deriveBits']);
+      const keyBits = await cryptoObj.subtle.deriveBits({ name: 'PBKDF2', salt: keySalt, iterations: 1024, hash: 'SHA-256' }, raw, 256);
+      const ivBits  = await cryptoObj.subtle.deriveBits({ name: 'PBKDF2', salt: ivSalt,  iterations: 512,  hash: 'SHA-256' }, raw, 128);
+      const aesKey  = await cryptoObj.subtle.importKey('raw', keyBits, { name: 'AES-CBC' }, false, ['decrypt']);
+      try {
+        const buf = await cryptoObj.subtle.decrypt({ name: 'AES-CBC', iv: new Uint8Array(ivBits) }, aesKey, hexToArray(encryptedData));
+        return { keyBits, text: new TextDecoder('utf-8').decode(buf) };
+      } catch { return null; }
+    }
+
+    async function verifyHmac(keyBits, plaintext) {
+      const hmacKey = await cryptoObj.subtle.importKey('raw', keyBits, { name: 'HMAC', hash: 'SHA-256' }, false, ['verify']);
+      return cryptoObj.subtle.verify('HMAC', hmacKey, hexToArray(hmacDigest), textToArray(plaintext));
+    }
+
+    async function submitPassword() {
+      const password = document.getElementById('password-input').value;
+      const errorDiv = document.getElementById('error-msg');
+      const btn      = document.getElementById('submit-btn');
+      btn.disabled = true;
+      errorDiv.textContent = '';
+
+      const result = await tryDecrypt(password);
+      if (!result || !result.text.startsWith(knownPrefix)) {
+        errorDiv.textContent = wrongPassMessage;
+        btn.disabled = false;
+        return;
+      }
+
+      if (!await verifyHmac(result.keyBits, result.text)) errorDiv.textContent = wrongHashMessage;
+      localStorage.setItem(storageName, password);
+      showSlides(result.text.slice(knownPrefix.length));
+    }
+
+    function showSlides(markdownContent) {
+      document.getElementById('slides-content').textContent = markdownContent;
+      document.getElementById('password-gate').style.display  = 'none';
+      document.getElementById('reveal-wrapper').style.display = 'block';
+      document.getElementById('back-link').style.display      = 'block';
+      
       Reveal.initialize({
         hash: true, slideNumber: true, transition: 'slide',
         center: true, margin: 0.02, width: 1280, height: 720,
@@ -384,7 +378,8 @@ Purpose: 幫助面試官更好地找人，面試者更知道如何準備
           }
           block.innerHTML = numberedCode;
         });
-      }); 
+      });
+      
     (function() {
       var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNSsP3uJKQsmFkFY01dfGh0sKGdaMUpOa-_bjNzM9j1oUobMcM89QUTN9ekbe5OfCD/exec";
       var POLL_INTERVAL   = 10000;
@@ -512,7 +507,20 @@ Purpose: 幫助面試官更好地找人，面試者更知道如何準備
 
       setInterval(poll, POLL_INTERVAL);
       poll();
-    })(); });
+    })();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const saved = localStorage.getItem(storageName);
+      if (saved) {
+        document.getElementById('password-input').value = saved;
+        submitPassword();
+      } else {
+        document.getElementById('password-input').addEventListener('keydown', e => {
+          if (e.key === 'Enter') submitPassword();
+        });
+      }
+    });
   </script>
 </body>
 </html>
