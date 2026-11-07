@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/hamburger.webp">
 <meta property="article:published_time" content="2023-04-05T08:03:20.000Z">
-<meta property="article:modified_time" content="2026-09-22T07:32:52.462Z">
+<meta property="article:modified_time" content="2026-11-07T04:01:50.404Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
@@ -258,6 +258,7 @@
 <li>依據 Service 回傳的 Domain Model，準備 Response</li>
 <li>Exception 處理</li>
 <li>Cache 管理</li>
+<li>時區轉換成 UTC</li>
 </ul>
 <hr>
 <h2 id="middleware">Middleware</h2>
@@ -287,6 +288,7 @@
 <li>output 會以 Domain Model 為主</li>
 <li>命名參照 Domain Model，跟 table name 只是剛好撞名</li>
 <li>內含數個 Dal、Proxy，呼叫後將各個結果組合成 Domain Model</li>
+<li>時區轉換成 UTC</li>
 </ul>
 <hr>
 <h2 id="dal--proxy">Dal &#x2F; Proxy</h2>
@@ -357,10 +359,10 @@
         "genre": "Programming",
         "datePublished": "2023-04-05",
         "dateCreated": "2023-04-05",
-        "dateModified": "2026-09-22",
+        "dateModified": "2026-11-07",
         "url": "https://yncbearz.github.io/2023/04/05/Three-Tier-Architecture/",
         "description": "Three-Tier-Architecture",
-        "wordCount": 144
+        "wordCount": 146
     }
 </script>
 
@@ -727,7 +729,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1793679038540')
+  navigator.serviceWorker.register('/sw.js?t=1794025107540')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
