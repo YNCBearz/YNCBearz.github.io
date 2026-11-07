@@ -40,7 +40,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yncbearz.github.io/images/thumbnails/hamburger.webp">
 <meta property="article:published_time" content="2023-04-05T08:03:20.000Z">
-<meta property="article:modified_time" content="2026-11-07T04:48:03.677Z">
+<meta property="article:modified_time" content="2026-11-07T04:51:49.039Z">
 <meta property="article:author" content="YNCBearz">
 <meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
@@ -256,7 +256,6 @@
 <li>驗證 Request (確保格式、權限等是正確的)</li>
 <li>將 Request 轉成 DTO，交給 Service 處理</li>
 <li>依據 Service 回傳的 Domain Model，準備 Response</li>
-<li>Middleware 處理 Exception</li>
 <li>Cache 管理</li>
 <li>時區轉換成 UTC</li>
 </ul>
@@ -266,7 +265,7 @@
 <ul>
 <li>Global Exception Handler</li>
 <li>Log Handler</li>
-<li>Validator</li>
+<li>資料驗證 (確保其合法性、完整性等)</li>
 </ul>
 <hr>
 <h2 id="service">Service</h2>
@@ -275,7 +274,6 @@
 <li>Transaction 處理 (begin, commit, rollback)</li>
 <li>調用 Domain Model (包含從 Repository 取得、自己 Construct 等)</li>
 <li>讓 Domain Model 彼此去互動</li>
-<li>資料驗證 (確保其合法性、完整性等)</li>
 </ul>
 <hr>
 <h2 id="repository">Repository</h2>
@@ -296,6 +294,7 @@
 <ul>
 <li>Dal 命名通常 1-1 mapping table，處理與 DB 的互動，<br>但要留意效能問題，適時使用 join 語法調校 (ex: UserDal)</li>
 <li>Proxy 處理 api 的 request&#x2F;response，回傳 Dto 給 Repository</li>
+<li>資料驗證 (確保其合法性、完整性等)</li>
 </ul>
 <hr>
 <h2 id="補充">補充</h2>
@@ -362,7 +361,7 @@
         "dateModified": "2026-11-07",
         "url": "https://yncbearz.github.io/2023/04/05/Three-Tier-Architecture/",
         "description": "Three-Tier-Architecture",
-        "wordCount": 149
+        "wordCount": 148
     }
 </script>
 
@@ -729,7 +728,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1794026965641')
+  navigator.serviceWorker.register('/sw.js?t=1794027131198')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
